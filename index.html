@@ -135,7 +135,7 @@
     else:
       is_even(n - 1)
   ) in
-    is_odd(999999)
+    is_odd(999)
 </code>
         </pre>
       </div>
@@ -156,7 +156,7 @@
       tup[1] := 4;
       if tup[1] > 3:
         tup[0] := tup[0] - 3
-      else
+      else:
         tup[0] := tup[0] + 3;
       tup[1] - tup[0]
     end
@@ -176,7 +176,7 @@
 <code>
   let div1 = DOM::query("#div1") in
   let div2 = DOM::query("#div2") in
-  let div3 = DOM::query("#innerDiv") in
+  let div3 = DOM::query("#div3") in
     if equal(div1, false) || equal(div2, false) || equal(div3, false):
       print("An element was not found!")
     else:
@@ -200,8 +200,8 @@
         <pre>
 <code>
   let counter = (0,) in
-  let button = DOM::query("#button-0") in
-  let view = DOM::query("#div-0") in
+  let button = DOM::query("#button1") in
+  let view = DOM::query("#div1") in
   let handleEvent = (lambda:
     begin
       counter[0] := counter[0] + 1;
@@ -226,5 +226,4 @@
     &copy; 2017 The Grain Foundation
   </footer>
   <script src="javascripts/prism.js"></script>
-  <!-- <script src="javascripts/run-prog.js"></script> -->
 </body>
