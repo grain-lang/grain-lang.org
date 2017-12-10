@@ -8,7 +8,7 @@ Prism.languages.grain = {
 		greedy: true
 	},
 	'function': /\w+(?=\()/i,
-  'keyword': /(let|in|lambda|begin|end|if|else)/i,
+  'keyword': /(let|rec|in|lambda|begin|end|if|else)/i,
   'builtin': /(equal|strcat|strlen|strslice|toString|setText|dangerouslySetInnerHTML|query)/i,
   'regex': /DOM/i,
   'constant': /\b(\d+|true|false)\b/i
