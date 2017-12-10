@@ -1,8 +1,84 @@
-body {
+/*body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}*/
+
+html, body {
+  font-family: "Open Sans", sans-serif;
+  color: white;
+}
+
+a, a:visited {
+  color: #cc9900;
+}
+
+pre {
+  background-color: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  border-radius: 2px;
+}
+
+.navbar {
+  background-color: #cc9900;
+  color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  transition: color .2s;
+}
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+.navbar-nav-svg {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  vertical-align: text-top;
+  fill: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.8);
+  transition: fill .2s, color .2s;
+}
+.navbar-nav-svg:focus, .navbar-nav-svg:hover {
+  fill: rgba(255, 255, 255, 1);
+  color: rgba(255, 255, 255, 1);
+}
+
+#hero {
+  background-color: #124E78;
+}
+@media screen and (min-width: 768px) {
+  #hero {
+    background: url('/images/hexes2.svg'), #124E78;
+    background-repeat: no-repeat;
+    background-position-x: 82vw;
+    background-size: 37%;
+    background-position-y: 51%;
+  }
+}
+
+#hero-wrapper {
+  margin-top: 48px;
+  margin-bottom: 72px;
+}
+#hero-wrapper h1 {
+  font-size: 72px;
+}
+#hero-wrapper h2 {
+  font-size: 36px;
+}
+
+#Language_Features {
+  background-color: #002642;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+footer {
+  background-color: #124E78;
 }
