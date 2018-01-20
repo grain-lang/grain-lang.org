@@ -123,18 +123,17 @@
       <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
         <pre>
 <code>
-  let rec is_even = (lambda n:
+  let rec is_even = lambda n:
     if (n <= 1):
       n == 0
     else:
       is_odd(n - 1)
-  ),
-  is_odd = (lambda n:
+  and is_odd = lambda n:
     if (n <= 1):
       n == 1
     else:
       is_even(n - 1)
-  ) in
+  in
     is_odd(999)
 </code>
         </pre>
@@ -223,7 +222,7 @@
     </div>
   </div>
   <footer class="pt-4 pb-4 d-flex justify-content-center">
-    &copy; 2017 The Grain Foundation
+    &copy; <script>document.write((new Date()).getFullYear())</script> The Grain Foundation
   </footer>
   <script src="javascripts/prism.js"></script>
 </body>
