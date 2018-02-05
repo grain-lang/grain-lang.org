@@ -9,16 +9,18 @@ a {
 
 html, body {
   font-family: "Open Sans", sans-serif;
-  color: white;
+  color: #212121;
+  background-color: #3F51B5;
+  -webkit-font-smoothing: antialiased;
 }
 
-a, a:visited {
+a, a:visited, a:hover, a:focus {
   color: #cc9900;
 }
 
 pre {
   background-color: white;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px;
   border-radius: 2px;
 }
 
@@ -50,11 +52,12 @@ pre {
 }
 
 #hero {
-  background-color: #124E78;
+  background-color: #3F51B5;
+  color: white;
 }
 @media screen and (min-width: 768px) {
   #hero {
-    background: url('/images/hexes2.svg'), #124E78;
+    background: url('/images/hexes2.svg'), #3F51B5;
     background-repeat: no-repeat;
     background-position-x: 82vw;
     background-size: 37%;
@@ -73,12 +76,32 @@ pre {
   font-size: 36px;
 }
 
+.hero-nav {
+  margin-top: 2em;
+}
+
+.hero-nav > a, .hero-nav > a:visited {
+  color: white;
+  border: 2px solid white;
+  border-radius: 2px;
+  padding: .3em 1em;
+  margin-right: .5em;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 100ms;
+}
+.hero-nav > a:hover, .hero-nav > a:focus {
+  color: #3F51B5;
+  background-color: white;
+}
+
 #Language_Features {
-  background-color: #002642;
+  background-color: #f9f9f9;
   padding-top: 48px;
   padding-bottom: 48px;
 }
 
 footer {
-  background-color: #124E78;
+  background-color: #3F51B5;
+  color: white;
 }

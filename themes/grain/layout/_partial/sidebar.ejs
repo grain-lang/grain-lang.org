@@ -1,0 +1,20 @@
+<div id="sidebar">
+    <div class="sidebar-title">
+        <%- config.title %>
+    </div>
+    <ul class="sidebar-items">
+        <% _.each(config.sidebar_groups, function(pages, category) { %>
+            <% if (category != 'null') { %>
+                <div class="sidebar-group-header"><%- category %></div>
+            <% } %>
+            <% pages.forEach(function(path) { %>
+                <% var p = site.pages.findOne({path: path + '.html'}) || {} %>
+                <li class="sidebar-item <%- page.title === p.title ? ' current' : '' %>">
+                    <a href="<%- url_for(p.path) %>" class="sidebar-link <%- page.title === p.title ? ' current' : '' %>">
+                        <span><%- p.title %></span>
+                    </a>
+                </li>
+            <% }) %>
+        <% }) %>
+    </ul>
+</div>
