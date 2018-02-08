@@ -41,7 +41,7 @@ The title is inserted at the beginning of the page, and is used in the sidebar. 
 
 The home page is just static HTML/CSS. To get it running, start a web server in your local directory. For example:
 
-```python
+```sh
 python -m SimpleHTTPServer 4040
 # This starts a server on port 4040
 ```
