@@ -6,8 +6,8 @@
     "version": "3.5.0"
   },
   "scripts": {
-    "start": "hexo server --config _hexo_config.yml",
-    "build": "hexo generate --config _hexo_config.yml"
+    "start": "hexo server",
+    "build": "hexo generate"
   },
   "dependencies": {
     "hexo": "^3.2.0",

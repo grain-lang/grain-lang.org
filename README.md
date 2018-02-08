@@ -25,7 +25,7 @@ This will install all the necessary dependencies and serve the website on port 4
 
 For simple edits to the existing Markdown files, just edit them as you would any normal Markdown.
 
-To add a new page, add a new Markdown file in the relevant location and update `_hexo_config.yml` to include it. It's the same as normal Markdown, but you must include a set of front matter, i.e. a set of key value pairs that begin the file and surrounded by dashes, like so:
+To add a new page, add a new Markdown file in the relevant location and update `_config.yml` to include it. It's the same as normal Markdown, but you must include a set of front matter, i.e. a set of key value pairs that begin the file and surrounded by dashes, like so:
 
 ```
 ---
