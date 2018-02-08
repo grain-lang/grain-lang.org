@@ -7,3 +7,6 @@ deploy:
   on:
     branch: docs-main
   target-branch: master
+branches:
+  only:
+    - docs-main
