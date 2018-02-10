@@ -131,9 +131,9 @@
         </h3>
       </div>
       <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
-<pre><code>  let variable = ref 0
+<pre><code>  let variable = box 0
   let f = () => {
-    variable := 5;
+    variable := 5
     if (unbox variable > 2) {
       variable := (unbox variable) - 2
     } else {
@@ -169,7 +169,7 @@
         </h3>
       </div>
       <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
-<pre><code>  let counter = ref 0
+<pre><code>  let counter = box 0
   let button = DOM::query("#button1")
   let view = DOM::query("#div1")
   let handleEvent = () => {
