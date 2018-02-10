@@ -71,6 +71,7 @@ pre[class*="language-"] {
 .token.doctype,
 .token.cdata {
 	color: slategray;
+	font-style: italic;
 }
 
 .token.punctuation {

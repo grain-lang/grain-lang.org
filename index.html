@@ -68,9 +68,8 @@
       </div>
       <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
 <pre class="line-numbers"><code>
-let x = 5
-let y = 6
-x + y
+let someNumber = 5
+let someString = "A collection of characters"
 </code></pre>
       </div>
       <div class="col-md-4 pl-3 pr-3 pt-3 d-flex align-items-center">
@@ -82,12 +81,22 @@ x + y
         </h3>
       </div>
       <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
-<pre><code>let f = (z) => (x, y) => z + x + y
-f(5)(4, 3)
+<pre class="line-numbers"><code>
+# A simple function that adds two numbers
+let add2 = (x, y) => x + y
+add2(3, 4)
+
+# A function that adds three numbers with intermediate steps
+let add3 = (x, y, z) => {
+  let firstSum = add2(x, y)
+  let secondSum = add2(firstSum, z)
+  secondSum
+}
+add3(5, 6, 7)
 </code></pre>
       </div>
       <div class="col-md-4 pl-3 pr-3 pt-3 d-flex align-items-center">
-        <p>Lambdas are king (and by that we mean first-class) in Grain. Here we show the variable 'z' being closed over inside the inner lambda.</p>
+        <p>Lambdas are king (and by that we mean first-class) in Grain. Here we show the function 'add2' being closed over inside the 'add3' function.</p>
       </div>
       <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-5">
         <h3>
@@ -95,23 +104,24 @@ f(5)(4, 3)
         </h3>
       </div>
       <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
-<pre><code>let rec is_even = (n) =>
+<pre class="line-numbers"><code>
+let rec isEven = (n) =>
   if (n <= 1) {
     n == 0
   } else {
-    is_odd(n - 1)
+    isOdd(n - 1)
   }
-and is_odd = (n) =>
+and isOdd = (n) =>
   if (n <= 1) {
     n == 1
   } else {
-    is_even(n - 1)
+    isEven(n - 1)
   }
-is_odd(999)
+isOdd(999)
 </code></pre>
       </div>
       <div class="col-md-4 pl-3 pr-3 pt-3 d-flex align-items-center">
-        <p>No functional language is complete without recursion.</p>
+        <p>No functional language is complete without recursion (or in this case, mutual recursion).</p>
       </div>
       <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-5">
         <h3>
@@ -119,7 +129,7 @@ is_odd(999)
         </h3>
       </div>
       <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
-<pre><code>let tup = (4, 2)
+<pre class="line-numbers"><code>let tup = (4, 2)
 let (first, second) = tup
 first + second
 </code></pre>
@@ -133,20 +143,21 @@ first + second
         </h3>
       </div>
       <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
-<pre><code>let variable = box 0
-let f = () => {
-  variable := 5
+<pre class="line-numbers"><code>
+let variable = box 5
+let mutateSomeThings = () => {
   if (unbox variable > 2) {
     variable := (unbox variable) - 2
   } else {
     variable := (unbox variable) + 2
   }
 }
-f()
+mutateSomeThings()
+unbox variable # 3 resides in this box
 </code></pre>
       </div>
       <div class="col-md-4 pl-3 pr-3 pt-3 d-flex align-items-center">
-        <p>If that's your kind of thing.</p>
+        <p>If that's your kind of thing. Of course, we'd prefer to do everything functionally if possible, but it should still be easy to work this way if necessary.</p>
       </div>
       <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-5">
         <h3>
@@ -154,12 +165,13 @@ f()
         </h3>
       </div>
       <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
-<pre><code>let div1 = DOM::query("#div1")
-let div2 = DOM::query("#div2")
-let div3 = DOM::query("#div3")
-DOM::setText(div1, "I'm just a div.")
-DOM::setText(div2, "Sitting here on wasm hill.")
-DOM::dangerouslySetInnerHTML(div3, "<i><pre>[[grain]]</pre></i>")
+<pre class="line-numbers"><code>
+let div1 = DOM.query("#div1")
+let div2 = DOM.query("#div2")
+let div3 = DOM.query("#div3")
+DOM.setText(div1, "I'm just a div.")
+DOM.setText(div2, "Sitting here on wasm hill.")
+DOM.dangerouslySetInnerHTML(div3, "&lt;i&gt;[[grain]]&lt;/i&gt;")
 </code></pre>
       </div>
       <div class="col-md-4 pl-3 pr-3 pt-3 d-flex align-items-center">
@@ -172,13 +184,13 @@ DOM::dangerouslySetInnerHTML(div3, "<i><pre>[[grain]]</pre></i>")
       </div>
       <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
 <pre class="line-numbers"><code>let counter = box 0
-let button = DOM::query("#button1")
-let view = DOM::query("#div1")
+let button = DOM.query("#button1")
+let view = DOM.query("#div1")
 let handleEvent = () => {
   counter := (unbox counter) + 1
-  DOM::setText(view, toString(unbox counter))
+  DOM.setText(view, toString(unbox counter))
 }
-DOM::addEventListener(button, "click", handleEvent)
+DOM.addEventListener(button, "click", handleEvent)
 </code></pre>
       </div>
       <div class="col-md-4 pl-3 pr-3 pt-3 d-flex align-items-center">

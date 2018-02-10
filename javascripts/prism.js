@@ -8,9 +8,10 @@ Prism.languages.grain = {
         pattern: /("|')(\\(?:\r\n|[\w\W])|(?!\1)[^\\\r\n])*\1/,
         greedy: true
     },
-    'function': /\w+(?=\()/i,
-    'keyword': /\b(let|rec|and|box|unbox|ref|=>|begin|end|if|else)\b/i,
+    'comment': /#.*/i,
+    'function': /(\w+(?=\s*=.*=>)|\w+(?=\())/i,
+    'keyword': /(\b(let|rec|and|box|unbox|ref|begin|end|if|else)\b|=>|=|<=|>=|:=)/i,
     'builtin': /(equal|strcat|strlen|strslice|toString|setText|dangerouslySetInnerHTML|query)/i,
     'regex': /DOM/i,
-    'constant': /\b(\d+|true|false)\b/i
+    'constant': /\b(\d+|true|false)\b/i,
 }
