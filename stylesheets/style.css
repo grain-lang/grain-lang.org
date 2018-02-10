@@ -19,9 +19,14 @@ a, a:visited, a:hover, a:focus {
 }
 
 pre {
-  background-color: white;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px;
+  color: #212121;
+  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px; */
   border-radius: 2px;
+}
+
+pre[class~="language-grain"], code[class~="language-grain"] {
+  font-family: 'Fira Mono', monospace;
+  background-color: #F5F5F5;
 }
 
 .navbar {
@@ -96,7 +101,7 @@ pre {
 }
 
 #Language_Features {
-  background-color: #f9f9f9;
+  background-color: white;
   padding-top: 48px;
   padding-bottom: 48px;
 }

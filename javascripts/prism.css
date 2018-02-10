@@ -9,7 +9,7 @@ code[class*="language-"],
 pre[class*="language-"] {
 	color: black;
 	background: none;
-	text-shadow: 0 1px white;
+	text-shadow: none;
 	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	text-align: left;
 	white-space: pre;
@@ -49,7 +49,7 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 
 /* Code blocks */
 pre[class*="language-"] {
-	padding: 1em;
+	padding: 1em 1.5em;
 	margin: .5em 0;
 	overflow: auto;
 }
@@ -112,17 +112,17 @@ pre[class*="language-"] {
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-	color: #1A237E;
+	color: #3F51B5;
 }
 
 .token.function {
-	color: #3F51B5;
+	color: #448AFF;
 }
 
 .token.regex,
 .token.important,
 .token.variable {
-	color: #3F51B5;
+	color: #448AFF;
 }
 
 .token.important,
@@ -194,4 +194,47 @@ pre.code-toolbar > .toolbar span:hover,
 pre.code-toolbar > .toolbar span:focus {
 	color: inherit;
 	text-decoration: none;
+}
+
+pre.line-numbers {
+	position: relative;
+	padding-left: 3.8em;
+	counter-reset: linenumber;
+}
+
+pre.line-numbers > code {
+	position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	font-size: 100%;
+	left: -3.8em;
+	width: 3em; /* works for line-numbers below 1000 lines */
+	letter-spacing: -1px;
+	/* border-right: 1px solid #999; */
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+}
+
+.line-numbers-rows > span {
+	pointer-events: none;
+	display: block;
+	counter-increment: linenumber;
+}
+
+.line-numbers-rows > span:before {
+	content: counter(linenumber);
+	color: #BDBDBD;
+	display: block;
+	padding-right: 0.8em;
+	text-align: right;
+	top: -1px;
 }

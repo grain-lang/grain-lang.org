@@ -25,6 +25,7 @@
   <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
   <meta name="viewport" content="width=device-width,minimum-scale=1.0,initial-scale=1,user-scalable=yes">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Mono" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
@@ -66,9 +67,10 @@
         </h3>
       </div>
       <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
-<pre><code>  let x = 5
-  let y = 6
-  x + y
+<pre class="line-numbers"><code>
+let x = 5
+let y = 6
+x + y
 </code></pre>
       </div>
       <div class="col-md-4 pl-3 pr-3 pt-3 d-flex align-items-center">
@@ -80,8 +82,8 @@
         </h3>
       </div>
       <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
-<pre><code>  let f = (z) => (x, y) => z + x + y
-  f(5)(4, 3)
+<pre><code>let f = (z) => (x, y) => z + x + y
+f(5)(4, 3)
 </code></pre>
       </div>
       <div class="col-md-4 pl-3 pr-3 pt-3 d-flex align-items-center">
@@ -93,19 +95,19 @@
         </h3>
       </div>
       <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
-<pre><code>  let rec is_even = (n) =>
-    if (n <= 1) {
-      n == 0
-    } else {
-      is_odd(n - 1)
-    }
-  and is_odd = (n) =>
-    if (n <= 1) {
-      n == 1
-    } else {
-      is_even(n - 1)
-    }
-  is_odd(999)
+<pre><code>let rec is_even = (n) =>
+  if (n <= 1) {
+    n == 0
+  } else {
+    is_odd(n - 1)
+  }
+and is_odd = (n) =>
+  if (n <= 1) {
+    n == 1
+  } else {
+    is_even(n - 1)
+  }
+is_odd(999)
 </code></pre>
       </div>
       <div class="col-md-4 pl-3 pr-3 pt-3 d-flex align-items-center">
@@ -117,9 +119,9 @@
         </h3>
       </div>
       <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
-<pre><code>  let tup = (4, 2)
-  let (first, second) = tup
-  first + second
+<pre><code>let tup = (4, 2)
+let (first, second) = tup
+first + second
 </code></pre>
       </div>
       <div class="col-md-4 pl-3 pr-3 pt-3 d-flex align-items-center">
@@ -131,16 +133,16 @@
         </h3>
       </div>
       <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
-<pre><code>  let variable = box 0
-  let f = () => {
-    variable := 5
-    if (unbox variable > 2) {
-      variable := (unbox variable) - 2
-    } else {
-      variable := (unbox variable) + 2
-    }
+<pre><code>let variable = box 0
+let f = () => {
+  variable := 5
+  if (unbox variable > 2) {
+    variable := (unbox variable) - 2
+  } else {
+    variable := (unbox variable) + 2
   }
-  f()
+}
+f()
 </code></pre>
       </div>
       <div class="col-md-4 pl-3 pr-3 pt-3 d-flex align-items-center">
@@ -152,12 +154,12 @@
         </h3>
       </div>
       <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
-<pre><code>  let div1 = DOM::query("#div1")
-  let div2 = DOM::query("#div2")
-  let div3 = DOM::query("#div3")
-  DOM::setText(div1, "I'm just a div.")
-  DOM::setText(div2, "Sitting here on wasm hill.")
-  DOM::dangerouslySetInnerHTML(div3, "<i><pre>[[grain]]</pre></i>")
+<pre><code>let div1 = DOM::query("#div1")
+let div2 = DOM::query("#div2")
+let div3 = DOM::query("#div3")
+DOM::setText(div1, "I'm just a div.")
+DOM::setText(div2, "Sitting here on wasm hill.")
+DOM::dangerouslySetInnerHTML(div3, "<i><pre>[[grain]]</pre></i>")
 </code></pre>
       </div>
       <div class="col-md-4 pl-3 pr-3 pt-3 d-flex align-items-center">
@@ -169,14 +171,14 @@
         </h3>
       </div>
       <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
-<pre><code>  let counter = box 0
-  let button = DOM::query("#button1")
-  let view = DOM::query("#div1")
-  let handleEvent = () => {
-    counter := (unbox counter) + 1
-    DOM::setText(view, toString(unbox counter))
-  }
-  DOM::addEventListener(button, "click", handleEvent)
+<pre class="line-numbers"><code>let counter = box 0
+let button = DOM::query("#button1")
+let view = DOM::query("#div1")
+let handleEvent = () => {
+  counter := (unbox counter) + 1
+  DOM::setText(view, toString(unbox counter))
+}
+DOM::addEventListener(button, "click", handleEvent)
 </code></pre>
       </div>
       <div class="col-md-4 pl-3 pr-3 pt-3 d-flex align-items-center">
