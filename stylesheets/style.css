@@ -82,7 +82,8 @@ pre[class~="language-grain"], code[class~="language-grain"] {
 }
 
 .hero-nav {
-  margin-top: 2em;
+  margin-top: 1em;
+  line-height: 3;
 }
 
 .hero-nav > a, .hero-nav > a:visited {
