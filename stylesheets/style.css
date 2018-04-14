@@ -101,10 +101,9 @@ pre[class~="language-grain"], code[class~="language-grain"] {
   background-color: white;
 }
 
-#Language_Features {
+.block {
   background-color: white;
   padding-top: 48px;
-  padding-bottom: 48px;
 }
 
 footer {

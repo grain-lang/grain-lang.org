@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
   <title>Grain: A strongly-typed functional programming language for the modern web.</title>
-  <meta name="description" content="Grain is a functional programming language built for the modern web. It compiles to WebAssembly, the project to provide developers more freedom when developing for the online world.">
+  <meta name="description" content="Grain is a strongly-typed functional programming language built for the modern web. It compiles to WebAssembly, the project to provide developers more freedom when developing for the online world.">
   <link rel="canonical" href="https://grain-lang.org/" />
   <link rel="apple-touch-icon-precomposed" sizes="57x57" href="images/apple-touch-icon-57x57.png" />
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/apple-touch-icon-114x114.png" />
@@ -44,7 +44,7 @@
           A modern web staple.
         </h2>
         <p class="mt-3">
-          Grain is a language built for the modern web by leveraging the brilliant work done by <a target="_blank" href="http://webassembly.org/">the WebAssembly project</a>. Discover new ways to build web applications&mdash; and do so in a fun and exciting functional way.
+          Grain is a language built for the modern web by leveraging the brilliant work done by <a target="_blank" href="http://webassembly.org/">the WebAssembly project</a>.
         </p>
         <div class="hero-nav">
           <a href="/docs/getting_started.html">Getting Started</a>
@@ -53,34 +53,47 @@
       </div>
     </div>
   </div>
-  <div id="Language_Features" class="container-fluid">
+  <div id="Preamble" class="container-fluid block">
     <div class="row">
-      <div class="col-md-6 offset-md-1 pl-3 pr-3">
+      <div class="col-md-5 offset-md-1 pl-3 pr-3">
         <h2>
-          Language Features
+          All of the types.<br>None of the burden.
         </h2>
-        <p>Sit back and enjoy the bountiful harvest of Grain's rich feature set.</p>
+        <p>No runtime exceptions, ever. Every bit of Grain you write is thoroughly sifted for type errors, with no need for any type annotations.</p>
       </div>
-      <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-5">
+      <div class="col-md-5 pl-3 pr-3">
+        <h2>
+          Seriously functional.<br>Respectably pragmatic.
+        </h2>
+        <p>Grain is geared towards functional programming, but understands the web isn't as pure as we would like it to be. Easily write what's appropriate for the scenario.</p>
+      </div>
+    </div>
+  </div>
+  <div id="Language_Constructs" class="container-fluid block">
+    <div class="row">
+      <div class="col-md-5 offset-md-1 pl-3 pr-3">
+        <h2>
+          Language Contructs
+        </h2>
+        <br>
         <h3>
           Bindings
         </h3>
+        <p>These work just as you'd expect of any reasonable language.</p>
       </div>
-      <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
+      <div class="col-md-10 offset-md-1 pl-3 pr-3">
 <pre class="line-numbers"><code>
 let someNumber = 5
 let someString = "A collection of characters"
 </code></pre>
       </div>
-      <div class="col-md-4 pl-3 pr-3 pt-3 d-flex align-items-center">
-        <p>These work just as you'd expect of any reasonable language.</p>
-      </div>
-      <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-5">
+      <div class="col-md-5 offset-md-1 pl-3 pr-3 pt-5">
         <h3>
           Functions
         </h3>
+        <p>Lambdas are king (and by that we mean first-class) in Grain. Here we show the function 'add2' being closed over inside the 'add3' function.</p>
       </div>
-      <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
+      <div class="col-md-10 offset-md-1 pl-3 pr-3">
 <pre class="line-numbers"><code>
 # A simple function that adds two numbers
 let add2 = (x, y) => x + y
@@ -95,15 +108,13 @@ let add3 = (x, y, z) => {
 add3(5, 6, 7)
 </code></pre>
       </div>
-      <div class="col-md-4 pl-3 pr-3 pt-3 d-flex align-items-center">
-        <p>Lambdas are king (and by that we mean first-class) in Grain. Here we show the function 'add2' being closed over inside the 'add3' function.</p>
-      </div>
-      <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-5">
+      <div class="col-md-5 offset-md-1 pl-3 pr-3 pt-5">
         <h3>
           Recursion
         </h3>
+        <p>No functional language is complete without recursion (or in this case, mutual recursion).</p>
       </div>
-      <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
+      <div class="col-md-10 offset-md-1 pl-3 pr-3">
 <pre class="line-numbers"><code>
 let rec isEven = (n) =>
   if (n <= 1) {
@@ -120,29 +131,26 @@ and isOdd = (n) =>
 isOdd(999)
 </code></pre>
       </div>
-      <div class="col-md-4 pl-3 pr-3 pt-3 d-flex align-items-center">
-        <p>No functional language is complete without recursion (or in this case, mutual recursion).</p>
-      </div>
-      <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-5">
+      <div class="col-md-5 offset-md-1 pl-3 pr-3 pt-5">
         <h3>
           Tuples
         </h3>
+        <p>Sometimes it's best to work as a pair.</p>
       </div>
-      <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
+      <div class="col-md-10 offset-md-1 pl-3 pr-3">
 <pre class="line-numbers"><code>let tup = (4, 2)
 let (first, second) = tup
 first + second
 </code></pre>
       </div>
-      <div class="col-md-4 pl-3 pr-3 pt-3 d-flex align-items-center">
-        <p>Sometimes it's best to work as a pair.</p>
-      </div>
-      <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-5">
+      <div class="col-md-5 offset-md-1 pl-3 pr-3 pt-5">
         <h3>
           Mutation
         </h3>
+        <p>If that's your kind of thing. Of course, we'd prefer to do everything functionally if possible, but it should still be easy
+          to work this way if necessary.</p>
       </div>
-      <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
+      <div class="col-md-10 offset-md-1 pl-3 pr-3">
 <pre class="line-numbers"><code>
 let variable = box 5
 let mutateSomeThings = () => {
@@ -156,15 +164,13 @@ mutateSomeThings()
 unbox variable # 3 resides in this box
 </code></pre>
       </div>
-      <div class="col-md-4 pl-3 pr-3 pt-3 d-flex align-items-center">
-        <p>If that's your kind of thing. Of course, we'd prefer to do everything functionally if possible, but it should still be easy to work this way if necessary.</p>
-      </div>
-      <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-5">
+      <div class="col-md-5 offset-md-1 pl-3 pr-3 pt-5">
         <h3>
           DOM Manipulation
         </h3>
+        <p>DOM nodes are primitives in Grain. Traditional DOM queries and node operations are available.</p>
       </div>
-      <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
+      <div class="col-md-10 offset-md-1 pl-3 pr-3">
 <pre class="line-numbers"><code>
 let div1 = DOM.query("#div1")
 let div2 = DOM.query("#div2")
@@ -174,15 +180,14 @@ DOM.setText(div2, "Sitting here on wasm hill.")
 DOM.dangerouslySetInnerHTML(div3, "&lt;i&gt;[[grain]]&lt;/i&gt;")
 </code></pre>
       </div>
-      <div class="col-md-4 pl-3 pr-3 pt-3 d-flex align-items-center">
-        <p>DOM nodes are primitives in Grain. Traditional DOM queries and node operations are available.</p>
-      </div>
-      <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-5">
+      <div class="col-md-5 offset-md-1 pl-3 pr-3 pt-5">
         <h3>
           DOM Interaction
         </h3>
+        <p>Native Grain functions can be bound as callbacks to native DOM events. This example updates a counter whenever the button
+          is clicked.</p>
       </div>
-      <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-3">
+      <div class="col-md-10 offset-md-1 pl-3 pr-3">
 <pre class="line-numbers"><code>let counter = box 0
 let button = DOM.query("#button1")
 let view = DOM.query("#div1")
@@ -193,10 +198,7 @@ let handleEvent = () => {
 DOM.addEventListener(button, "click", handleEvent)
 </code></pre>
       </div>
-      <div class="col-md-4 pl-3 pr-3 pt-3 d-flex align-items-center">
-        <p>Native Grain functions can be bound as callbacks to native DOM events. This example updates a counter whenever the button is clicked.</p>
-      </div>
-      <div class="col-md-6 offset-md-1 pl-3 pr-3 pt-5">
+      <div class="col-md-5 offset-md-1 pl-3 pr-3 pt-5 pb-5">
         <h3>
           ...and so much more.
         </h3>
