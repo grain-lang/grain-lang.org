@@ -1,7 +1,7 @@
 <% var githubUrl = 'https://github.com/grain-lang/grain-lang.github.io/blob/docs-main/source/' + page.path.replace(/\.html$/, '.md'); %>
 <nav class="navbar navbar-expand-sm navbar-dark justify-content-between">
   <div class="nav-brand-wrapper">
-    <button id="sidebar-toggle" class="d-md-none">
+    <button id="sidebar-toggle">
       <svg class="nav-menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 559 372"><defs><style>.a{fill:#fff;}</style></defs><title>menu</title><rect class="a" width="559" height="49" rx="24.5" ry="24.5"/><rect class="a" x="205" y="323" width="354" height="49" rx="24.5" ry="24.5"/><rect class="a" x="97" y="156" width="462" height="49" rx="24.5" ry="24.5"/></>
     </button>
     <a class="navbar-brand" href="/">
@@ -26,8 +26,11 @@
   </a>
 </nav>
 <div class="body-wrapper">
-  <%- partial('_partial/sidebar') %>
   <div id="page-content-wrapper">
+  <div id="sidebar-mobile">
+    <%- partial('_partial/sidebar') %>
+  </div>
+  <%- partial('_partial/sidebar') %>
     <div class="page-content">
       <h1 class="page-title"><%- page.title %></h1>
       <a target="_blank" href="<%- githubUrl %>" class="github-link">

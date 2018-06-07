@@ -56,40 +56,33 @@ h1, h2, h3, h4, h5, h6 {
 
 .body-wrapper {
     display: flex;
+    justify-content: center;
 }
 
 #sidebar-toggle {
     border: none;
     background-color: initial;
-    display: flex;
+    display: none;
     padding: 0;
 }
 #sidebar-toggle:focus {
     outline: none;
 }
 
-#sidebar {
-    transform: translateX(-260px);
+.sidebar {
     background-color: #f9f9f9;
     min-width: 260px;
-    position: fixed;
-    height: auto;
     overflow-y: auto;
-    top: 56px;
-    right: auto;
-    bottom: 0;
-    left: 0;
-    transition: transform 200ms;
 }
-#sidebar::-webkit-scrollbar {
+.sidebar::-webkit-scrollbar {
     width: 6px;
     height: 6px;
 }
-#sidebar::-webkit-scrollbar-thumb {
+.sidebar::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.07);
     border-radius: 1em;
 }
-#sidebar::-webkit-scrollbar-track {
+.sidebar::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.05);
 }
 .sidebar-title {
@@ -125,42 +118,51 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
 }
 
+#sidebar-mobile {
+    position: absolute;
+    left: 0;
+    top: 56px;
+}
+
+#sidebar-mobile > .sidebar {
+    display: block;
+    transition: transform 200ms;
+    transform: translateX(-260px);
+}
+
 #page-content-wrapper {
     margin-top: 56px;
     margin-left: 0;
-    transition: margin 200ms;
     width: 100%;
+    display: flex;
+    max-width: 1300px;
 }
 .page-content {
     background-color: white;
     padding: 3em 1.5em;
     line-height: 1.7;
-}
-@media screen and (min-width: 800px) {
-    .page-content {
-        margin: 0 5%;
-    }
-}
-@media screen and (min-width: 1200px) {
-    .page-content {
-        margin: 0 8%;
-    }
+    transition: transform 200ms;
 }
 
-
-@media screen and (min-width: 768px) {
-    #sidebar {
-        transform: translateX(0);
+@media screen and (max-width: 1088px) {
+    .sidebar {
+        display: none;
+    }
+    #sidebar-toggle {
+        display: flex;
     }
     #page-content-wrapper {
-        margin-left: 260px;
+        /* margin-left: 260px; */
     }
-}
-#sidebar.sidebar-toggled {
-    transform: translateX(0);
-}
-#page-content-wrapper.sidebar-toggled {
-    margin-left: 260px;
+    .sidebar.sidebar-toggled {
+        transform: translateX(0);
+    }
+    #page-content-wrapper.sidebar-toggled .page-content {
+        transform: translateX(260px);
+    }
+    #sidebar-mobile.sidebar-toggled > .sidebar {
+        transform: translateX(0);
+    }
 }
 
 .page-title {
