@@ -1,8 +1,6 @@
 <div class="sidebar">
-    <div class="sidebar-title">
-        <%- config.title %>
-    </div>
     <ul class="sidebar-items">
+        <div class="sidebar-group-header">Intro</div>
         <% _.each(config.sidebar_groups, function(pages, category) { %>
             <% if (category != 'null') { %>
                 <div class="sidebar-group-header"><%- category %></div>
