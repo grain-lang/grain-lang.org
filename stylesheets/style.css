@@ -18,6 +18,10 @@ a, a:visited, a:hover, a:focus {
   color: #cc9900;
 }
 
+code {
+  color: #3F51B5;
+}
+
 pre {
   color: #212121;
   /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px; */
