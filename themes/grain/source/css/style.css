@@ -23,6 +23,10 @@ h6 {
   margin-bottom: 1rem;
 }
 
+figure {
+  overflow-x: auto;
+}
+
 code {
   color: #3F51B5;
 }
@@ -222,6 +226,7 @@ code {
   padding: 3em 1.5em;
   line-height: 1.7;
   transition: transform 200ms;
+  max-width: 100%;
 }
 
 @media screen and (max-width: 1088px) {
