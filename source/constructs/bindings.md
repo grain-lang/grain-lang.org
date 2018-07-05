@@ -65,7 +65,7 @@ let a = {
 
 a # This evauluates to 7.
 
-b # This is a name error, since 'b' only existed in the earier block.
+b # This is a name error, since 'b' only existed in the earlier block.
 ```
 
 ### Using `let rec`
