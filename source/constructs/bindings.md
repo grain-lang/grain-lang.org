@@ -27,7 +27,7 @@ Any valid Grain functions.
 
 ## Description
 
-`let` allows you to intoduce names, and `let rec` allows you to introduce recursive definitions.
+`let` allows you to introduce names, and `let rec` allows you to introduce recursive definitions.
 
 ### Using `let`
 
