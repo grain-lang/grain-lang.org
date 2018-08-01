@@ -63,7 +63,7 @@ let a = {
   a + b
 }
 
-a # This evauluates to 7.
+a # This evaluates to 7.
 
 b # This is a name error, since 'b' only existed in the earlier block.
 ```
