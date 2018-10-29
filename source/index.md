@@ -4,7 +4,7 @@ title: Introduction
 
 ## The Grain Language
 
-Grain is a strongly-typed functional programming language built for the modern web. Unlike other languages used on the web today (like TypeScript or Elm), Grain doesn't compile into JavaScript. Grain complies all the way down to [WebAssembly](http://webassembly.org/), and is supported by a tiny JavaScript runtime to give Grain access to web features that WebAssembly doesn't yet support.
+Grain is a strongly-typed functional programming language built for the modern web. Unlike other languages used on the web today (like TypeScript or Elm), Grain doesn't compile into JavaScript. Grain compiles all the way down to [WebAssembly](http://webassembly.org/), and is supported by a tiny JavaScript runtime to give Grain access to web features that WebAssembly doesn't yet support.
 
 When designing Grain, we really embraced the idea of Grain being a modern web staple. All puns aside, we thought a lot about how developers write for the web today, and what matters the most to them. Here's what we thought were some of the most important:
 
