@@ -53,8 +53,11 @@ html, body {
   justify-content: flex-end;
   width: 8rem;
 }
-.nav-links, .nav-social-links {
+.nav-links {
   font-size: 1.125rem;
+}
+.nav-social-links {
+  font-size: 1.5rem;
 }
 .nav-link {
   color: var(--white);
@@ -249,6 +252,10 @@ html, body {
 }
 .footer-links li {
   margin-bottom: 0.5rem;
+}
+.footer-links li > a, .footer-links li > a:visited {
+  color: var(--black);
+  text-decoration: none;
 }
 .footer-right {
   margin-left: auto;
