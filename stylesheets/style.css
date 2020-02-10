@@ -301,6 +301,9 @@ html, body {
   .button {
     font-size: 1rem;
   }
+  .vision-content::before {
+    display: none;
+  }
   .footer > * {
     margin-bottom: 2rem;
   }
