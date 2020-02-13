@@ -1,0 +1,25 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: Grain Guide
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+url: https://grain-lang.org/guide
+root: /guide/
+
+# Directory
+source_dir: guide_source
+public_dir: guide
+
+project: guide
+sidebar_title: The Guide
+guide_groups:
+  null:
+    - index
+    - getting_grain
+    - editor_setup
+  The Essentials:
+    - essentials/hello_world

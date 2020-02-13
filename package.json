@@ -6,8 +6,9 @@
     "version": "4.2.0"
   },
   "scripts": {
-    "start": "hexo server",
-    "build": "hexo generate"
+    "start": "hexo clean && hexo server --config docs_config.yml",
+    "start-guide": "hexo clean && hexo server --config docs_config.yml,guide_config.yml",
+    "build": "hexo clean && hexo generate --config docs_config.yml && hexo clean && hexo generate --config docs_config.yml,guide_config.yml"
   },
   "dependencies": {
     "hexo": "^4.2.0",

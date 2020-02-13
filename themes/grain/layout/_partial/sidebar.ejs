@@ -1,8 +1,8 @@
 <nav class="sidebar">
-    <div class="sidebar-title">The Grain Docs</div>
+    <div class="sidebar-title"><%- config.sidebar_title %></div>
     <ul class="sidebar-items">
         <div class="sidebar-group-header">Intro</div>
-        <% _.each(config.sidebar_groups, function(pages, category) { %>
+        <% _.each(config.project === 'docs' ? config.docs_groups : config.guide_groups, function(pages, category) { %>
             <% if (category != 'null') { %>
                 <div class="sidebar-group-header"><%- category %></div>
             <% } %>
