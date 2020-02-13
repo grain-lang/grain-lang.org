@@ -18,7 +18,7 @@ permalink: :year/:month/:day/:title/
 permalink_defaults:
 
 # Directory
-source_dir: source
+source_dir: docs_source
 public_dir: docs
 tag_dir: tags
 archive_dir: archives
@@ -27,7 +27,9 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
 
-sidebar_groups:
+project: docs
+sidebar_title: The Grain Docs
+docs_groups:
   null:
     - index
     - getting_started
