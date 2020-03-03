@@ -28,4 +28,4 @@ To run the program, we use the Grain CLI:
 grain hello.gr
 ```
 
-With any luck, we should see the famous message appear.
+If everything is set up properly, we should see the message appear in the console.
