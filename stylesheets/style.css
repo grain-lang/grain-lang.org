@@ -270,7 +270,7 @@ html, body {
 .footer-social-link:not(:last-of-type) {
   margin-right: 0.5rem;
 }
-.footer-social-link:visited {
+.footer-social-link, .footer-social-link:visited {
   color: var(--black);
 }
 .made-by {
