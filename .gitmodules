@@ -1,0 +1,3 @@
+[submodule "vscode-grain"]
+	path = vscode-grain
+	url = https://github.com/ospencer/vscode-grain
