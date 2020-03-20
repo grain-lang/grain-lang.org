@@ -55,7 +55,7 @@ The Grain CLI provides some useful utilities in addition to compiling programs, 
 ```bash
 cd cli
 npm install
-npm link --global
+npm link
 cd -
 ```
 
