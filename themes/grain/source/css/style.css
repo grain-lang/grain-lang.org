@@ -313,7 +313,7 @@ pre {
   font-size: 95%;
   font-family: "Menlo", monospace;
 }
-.highlight table {
+.tm-highlight table {
   width: 100%;
   font-size: 1rem;
 }
@@ -325,14 +325,14 @@ th {
   width: 40px;
 }
 .gutter pre {
-  background-color: #f7f7f7;
+  background-color: #f9f9f9;
   color: #aaa;
   text-align: right;
   padding: 1.5em 12px;
   margin: 0;
 }
 .code pre {
-  background-color: #f7f7f7;
+  background-color: #f9f9f9;
   white-space: pre;
   padding: 1.5em 12px;
   margin: 0;

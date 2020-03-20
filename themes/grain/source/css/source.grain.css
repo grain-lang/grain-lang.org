@@ -1,0 +1,70 @@
+.tm-highlight {
+  --code-purple: #083D77;
+  --code-light-purple: #7D83FF;
+  --code-green: #0B6E4F;
+  --code-orange: #DD4B1A;
+  --code-blue: #00798C;
+  --code-red: #6A0136;
+  --code-gray: #808080;
+
+  --code-extra: #19535F;
+  --code-pink: #9E0031;
+  --code-brown: #600047;
+}
+
+.comment.line.grain {
+  color: var(--code-gray);
+  font-style: italic;
+}
+.constant.character.escape.grain {
+  color: var(--code-light-purple) !important;
+}
+.constant.language.grain,
+.constant.numeric.grain {
+  color: var(--code-red);
+}
+.entity.name.function.grain {
+  color: var(--code-blue);
+}
+.entity.name.grain,
+.entity.name.module.grain,
+.entity.name.type.grain,
+.entity.other.grain {
+  color: var(--code-orange);
+}
+.storage.type.grain,
+.keyword.grain,
+.keyword.operator.accessor.grain,
+.keyword.operator.grain {
+  color: var(--code-purple);
+}
+.meta.separator.grain {
+  color: var(--code-gray);
+}
+.punctuation.definition.grain,
+.punctuation.definition.parameters.begin.grain,
+.punctuation.definition.parameters.end.grain,
+.punctuation.definition.parameters.grain,
+.punctuation.definition.parameters.start.grain,
+.punctuation.description.grain,
+.punctuation.description.parameters.end.grain,
+.punctuation.description.parameters.grain,
+.punctuation.description.parameters.start.grain {
+  color: var(--code-extra);
+}
+.string.quoted.double.grain,
+.string.quoted.single.grain {
+  color: var(--code-green);
+}
+.support.constant.grain {
+  color: var(--code-red);
+}
+.punctuation.support.grain,
+.support.type.grain {
+  color: var(--code-brown);
+}
+.variable.language.grain {
+  color: var(--code-pink);
+}
+/* .variable.name.grain */
+/* .variable.parameter.grain */
