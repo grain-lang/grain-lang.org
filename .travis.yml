@@ -1,3 +1,6 @@
+before_install: 
+  - git submodule init
+  - git submodule update
 install: npm install
 script: npm run build
 deploy:
