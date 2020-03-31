@@ -51,30 +51,6 @@ let (_, age, _) = user
 let ageNextYear = age + 1
 ```
 
-## Boxes
-
-Values in Grain are immutable, which means that they do not change after they have been declared. While there's a ton we can get done with regular bindings, it can sometimes be helpful to change data. This is accomplished with what we call "boxes." Let's start off with a quick example:
-
-```grain
-let b = box("foo")
-
-print(unbox(b)) # "foo"
-
-b := "bar"
-
-print(unbox(b)) # "foo"
-```
-
-A couple things to note from this example:
-
-1. We use the built-in `box` function to create a box.
-1. We use the built-in `unbox` function to retrieve a value from a box.
-1. We use `:=` to update the value in a box.
-
-### Is it immutable?
-
-Yes. The box itself cannot be swapped out for another box (or anything else for that matter). However, the _contents_ of this box can be changed.
-
 ## Other Basic Operations
 
 You may find some of these useful throughout your Grain programs.

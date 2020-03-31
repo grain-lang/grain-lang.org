@@ -27,3 +27,4 @@ guide_groups:
   The Essentials:
     - essentials/hello_world
     - essentials/basics
+    - essentials/boxes
