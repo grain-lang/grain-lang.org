@@ -2,13 +2,9 @@
 title: Getting Grain
 ---
 
-## What You'll Need
+## Building Grain
 
-To build the compiler, you'll need to have `ocaml` version 4.08 and `opam` version 2.0 installed and on your path.
-
-We'll also be using Node.js, so have `node` version 12 or higher.
-
-## Building the Grain Compiler
+To build the compiler, you'll need `yarn` and Node.js version 10 or higher.
 
 Start by cloning the Grain repository:
 
@@ -17,46 +13,31 @@ git clone git@github.com:grain-lang/grain.git
 cd grain
 ```
 
-Make sure you have OCaml 4.08 enabled:
+To get everything set up, run:
 
 ```bash
-opam switch 4.08.1
+yarn
+yarn setup
+yarn compiler:build
 ```
 
-Install the dependencies and build the compiler:
+Running `yarn setup` will set up the Grain runtime, standard library, and CLI, and `yarn compiler:build` will compile the compiler (it's pretty meta—we know).
+
+Finally, to get the `grainc` compiler command, run:
 
 ```bash
-opam install . --deps-only
-make
-make install
+yarn compiler:install
 ```
 
-You can check that everything is installed properly by running the compiler help command:
+After running these commands, you've have two new commands available on your command line—`grainc` and `grain`. The `grainc` command is the standalone compiler, and the `grain` command is a CLI tool that both compiles and runs Grain programs. Throughout the guide, we'll mostly be using `grain`.
+
+You can check that everything is installed properly by running the compiler and CLI help commands:
 
 ```bash
 grainc --help
+grain --help
 ```
 
-## Building the Runtime
+As long as those commands work, you're all set!
 
-The runtime is a tiny JavaScript library that provides some support for Grain until WebAssembly is a bit more mature.
-
-```bash
-cd runtime
-npm install
-npm run build
-cd -
-```
-
-## Setting Up the Grain CLI
-
-The Grain CLI provides some useful utilities in addition to compiling programs, and will be very useful throughout the guide!
-
-```bash
-cd cli
-npm install
-npm link
-cd -
-```
-
-We'll first use the CLI to compile and run a Hello World program, but first let's set up our editor.
+We'll first use the `grain` CLI to compile and run a Hello World program, but first let's set up our editor.
