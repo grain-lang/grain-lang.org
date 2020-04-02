@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "hexo clean && hexo server --config docs_config.yml",
-    "start-guide": "hexo clean && hexo server --config docs_config.yml,guide_config.yml",
+    "start:guide": "hexo clean && hexo server --config docs_config.yml,guide_config.yml",
     "build": "hexo clean && hexo generate --config docs_config.yml && hexo clean && hexo generate --config docs_config.yml,guide_config.yml"
   },
   "dependencies": {
