@@ -5,3 +5,5 @@ db.json
 node_modules/
 .deploy*/
 _multiconfig.yml
+docs/
+guide/
