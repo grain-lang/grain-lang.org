@@ -2,17 +2,17 @@
 
 Documentation for the Grain programming language.
 
-[![Build Status](https://travis-ci.org/grain-lang/grain-lang.github.io.svg?branch=docs-main)](https://travis-ci.org/grain-lang/grain-lang.github.io)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/62e3f960-de88-4a28-a8f8-b8dddca145cb/deploy-status)](https://app.netlify.com/sites/grain-lang/deploys)
 
 ## About
 
-This documentation site is a [Hexo](https://hexo.io/) site. All of the docs are generated from Markdown files, and Hexo builds a static website that is hosted on GitHub Pages from the `master` branch. Thus, all development is to be done on the `docs-main` branch, and the CI will pick up those changes and land them on `master`.
+This documentation site is a [Hexo](https://hexo.io/) site. All of the docs are generated from Markdown files, and Hexo builds a static website that is hosted on Netlify.
 
 ## Contributing
 
 ### Documentation Site
 
-The documentation site is everything served from `/docs/` on the [main Grain website](https://grain-lang.org/).
+The documentation site is everything served from `/docs/` and `/guide/` on the [main Grain website](https://grain-lang.org/).
 
 To get the docs up and running locally, just run
 
@@ -21,7 +21,9 @@ npm install
 npm start
 ```
 
-This will install all the necessary dependencies and serve the website on port 4000.
+You can run `npm run start:guide` if you want to see changes to the guide.
+
+This will install all necessary dependencies and serve the website on port 4000.
 
 For simple edits to the existing Markdown files, just edit them as you would any normal Markdown.
 
