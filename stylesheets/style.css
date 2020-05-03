@@ -129,15 +129,26 @@ html, body {
   justify-content: center;
   flex-wrap: wrap;
 }
+.blurb-wrapper {
+  width: 78rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 1300px) {
+  .blurb-wrapper {
+    width: 22rem;
+  }
+  .blurb {
+    margin-bottom: 6rem;
+  }
+}
 .blurb {
   display: flex;
   flex-direction: column;
   width: 22rem;
   text-align: center;
   font-size: 1.125rem;
-}
-.blurb:not(:last-of-type) {
-  margin-right: 6rem;
 }
 .blurb-icon {
   color: var(--gray2);
