@@ -38,7 +38,7 @@
       <div class="next-prev">
       <% if (prev) { %>
         <div class="prev-topic-wrapper">
-          <a href="<%- url_for(prev.path).replace(/\.html$/, '') %>" class="button button-secondary prev-topic">
+          <a href="<%- url_for(prev.path).replace(/(\/index)?\.html$/, '') %>" class="button button-secondary prev-topic">
             <i class="fas fa-arrow-left prev-arrow" aria-hidden="true"></i>
             <span><%- prev.title %></span>
           </a>
@@ -46,7 +46,7 @@
       <% } %>
       <% if (next) { %>
         <div class="next-topic-wrapper">
-          <a href="<%- url_for(next.path).replace(/\.html$/, '') %>" class="button button-secondary next-topic">
+          <a href="<%- url_for(next.path).replace(/(\/index)?\.html$/, '') %>" class="button button-secondary next-topic">
             <span><%- next.title %></span>
             <i class="fas fa-arrow-right next-arrow" aria-hidden="true"></i>
           </a>
