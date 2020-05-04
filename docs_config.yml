@@ -36,9 +36,9 @@ docs_groups:
     - getting_grain
     - editor_setup
   The Guide:
-    - guide/essentials/hello_world
-    - guide/essentials/basics
-    - guide/essentials/boxes
+    - guide/hello_world
+    - guide/basics
+    - guide/boxes
   The Docs:
     - intro
   Standard Library:
