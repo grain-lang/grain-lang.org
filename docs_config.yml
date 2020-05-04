@@ -18,21 +18,30 @@ permalink: :year/:month/:day/:title/
 permalink_defaults:
 
 # Directory
-source_dir: docs_source
+source_dir: src
 public_dir: docs
 tag_dir: tags
 archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+pretty_urls:
+  trailing_html: false
 
 project: docs
 sidebar_title: The Grain Docs
 docs_groups:
   null:
     - index
-    - getting_started
+    - getting_grain
+    - editor_setup
+  The Guide:
+    - guide/essentials/hello_world
+    - guide/essentials/basics
+    - guide/essentials/boxes
+  Standard Library:
+    - stdlib/list
+    - stdlib/DOM
   Language Constructs:
     - constructs/overview
     - constructs/bindings
@@ -44,9 +53,6 @@ docs_groups:
     - constructs/conditionals
     - constructs/types
     - constructs/pattern_matching
-  Standard Library:
-    - stdlib/list
-    - stdlib/DOM
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
@@ -95,3 +101,8 @@ theme: grain
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type:
+
+server:
+  serveStatic:
+    extensions:
+      - html
