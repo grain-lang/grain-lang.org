@@ -39,6 +39,8 @@ docs_groups:
     - guide/essentials/hello_world
     - guide/essentials/basics
     - guide/essentials/boxes
+  The Docs:
+    - intro
   Standard Library:
     - stdlib/list
     - stdlib/DOM

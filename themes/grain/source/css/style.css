@@ -322,6 +322,7 @@ code {
 }
 .page-content-wrapper {
   max-width: 100%;
+  width: 100%;
 }
 .page-content {
   background-color: white;
