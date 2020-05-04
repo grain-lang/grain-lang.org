@@ -43,11 +43,16 @@ body {
   background-color: white;
   height: 2.5rem;
   text-decoration: none;
+  transition: color 0.075s, background-color 0.075s;
 }
 .button-secondary {
   border: 2px solid var(--orange);
   background-color: transparent;
   color: var(--orange);
+}
+.button-secondary:hover {
+  color: var(--white);
+  background-color: var(--orange);
 }
 
 a,
@@ -185,6 +190,20 @@ code {
   height: calc(100vh - 88px);
   overflow: auto;
 }
+.sidebar.toc {
+  top: 8rem;
+}
+.sidebar.toc ol {
+  list-style: none;
+}
+.sidebar-toc {
+  padding-left: 0;
+  font-size: .875rem;
+  margin: 0.5rem 0;
+}
+.sidebar-toc-child {
+  padding-left: 1.5rem;
+}
 .sidebar-title {
   padding-left: 1.5rem;
   font-size: 2rem;
@@ -199,10 +218,15 @@ code {
   margin-left: 1.5rem;
   font-family: var(--font-heading);
 }
+.sidebar-group-header.toc {
+  margin-left: 0;
+  padding-bottom: 0rem;
+}
 
 .sidebar-items {
   list-style: none;
   padding-left: 0;
+  margin-top: 2rem;
 }
 
 .sidebar-item {
@@ -218,14 +242,35 @@ code {
   text-decoration: none;
 }
 
-.sidebar-link {
+.sidebar-toc a,
+.sidebar-toc a:visited,
+.sidebar-toc a:hover,
+.sidebar-toc a:focus {
+  color: var(--black);
+  text-decoration: none;
+}
+
+.sidebar-link, .sidebar-toc-link {
   padding: 0.5rem 0;
   padding-left: 1.5rem;
   width: 100%;
-  transition: background-color 0.25s;
+  background-color: inherit;
+  transition: background-color 0.075s;
 }
-.sidebar-link:hover {
+.sidebar-link:hover, .sidebar-toc-link:hover {
   background-color: var(--orange-medium);
+}
+.sidebar-toc-link {
+  padding: 0.5rem 1.5rem;
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+}
+.sidebar-toc-text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .sidebar-link.current {
@@ -238,6 +283,19 @@ code {
 .sidebar-link.current:visited,
 .sidebar-link.current:focus,
 .sidebar-link.current:hover {
+  color: var(--white);
+}
+
+.sidebar-toc-link.current {
+  background-color: var(--orange);
+  border-radius: 2px;
+  padding: 0.5rem 1.5rem;
+}
+
+.sidebar-toc-link.current,
+.sidebar-toc-link.current:visited,
+.sidebar-toc-link.current:focus,
+.sidebar-toc-link.current:hover {
   color: var(--white);
 }
 
@@ -255,20 +313,23 @@ code {
   transform: translateX(-288px);
 }
 
-#page-content-wrapper {
+#all-content-wrapper {
   display: flex;
   align-items: flex-start;
-  max-width: 80rem;
+  max-width: 92rem;
   margin: 0 auto;
   justify-content: center;
+}
+.page-content-wrapper {
+  max-width: 100%;
+  width: 100%;
 }
 .page-content {
   background-color: white;
   padding: 2rem 1.5rem;
   line-height: 1.7;
   transition: transform 200ms;
-  max-width: 100%;
-  margin: 2rem 0;
+  margin: 2rem 0 1rem 0;
   border-radius: 2px;
   border: 1px solid #F2F2F2;
   font-size: 1.125rem;
@@ -290,12 +351,73 @@ code {
   .sidebar.sidebar-toggled {
     transform: translateX(0);
   }
-  #page-content-wrapper.sidebar-toggled .page-content {
+  #all-content-wrapper.sidebar-toggled .page-content {
     transform: translateX(288px);
   }
   #sidebar-mobile.sidebar-toggled > .sidebar {
     transform: translateX(0);
   }
+}
+@media screen and (max-width: 1350px) {
+  .sidebar.toc {
+    display: none;
+  }
+}
+
+.next-prev {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+@media screen and (max-width: 46rem) {
+  .next-prev {
+    justify-content: center;
+  }
+}
+.next-topic-wrapper, .prev-topic-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.prev-topic-wrapper::before, .next-topic-wrapper::before {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+.prev-topic-wrapper::before {
+  content: 'Previous:';
+  margin-left: 2rem;
+}
+.next-topic-wrapper::before {
+  content: 'Next up...';
+  margin-right: 2rem;
+  text-align: end;
+}
+.next-topic-wrapper:first-child {
+  margin-left: auto;
+}
+.prev-topic > span, .next-topic > span {
+  display: flex;
+  flex-direction: column;
+}
+.next-topic, .prev-topic {
+  margin-top: 0.5rem;
+  width: 20rem;
+  align-items: center;
+  padding: 0 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+.next-arrow, .prev-arrow {
+  position: relative;
+  top: 1px;
+}
+.next-arrow {
+  margin-left: auto;
+}
+.prev-arrow {
+  margin-right: auto;
 }
 
 .page-title {
@@ -336,4 +458,13 @@ th {
   white-space: pre;
   padding: 1.5em 12px;
   margin: 0;
+}
+
+/* hack for hash links to work properly */
+h1::before, h2::before, h3::before, h4::before, h5::before {
+  content: '';
+  display: block;
+  height:      6rem;
+  margin-top: -6rem;
+  visibility: hidden;
 }
