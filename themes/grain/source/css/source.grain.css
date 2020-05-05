@@ -1,13 +1,14 @@
 .tm-highlight {
-  --code-purple: #083D77;
-  --code-light-purple: #7D83FF;
-  --code-green: #0B6E4F;
-  --code-orange: #DD4B1A;
-  --code-blue: #00798C;
-  --code-red: #6A0136;
-  --code-gray: #808080;
+  --code-purple: #9fa0ff;
+  --code-light-purple: #6699cc;
+  --code-green: #75dddd;
+  --code-orange: var(--orange);
+  --code-blue: #d6edff;
+  --code-light-blue: #05b2dc;
+  --code-red: #ed254e;
+  --code-gray: #637081;
 
-  --code-extra: #19535F;
+  --code-extra: #d6edff;
   --code-pink: #9E0031;
   --code-brown: #600047;
 }
@@ -21,7 +22,7 @@
 }
 .constant.language.grain,
 .constant.numeric.grain {
-  color: var(--code-red);
+  color: var(--code-orange);
 }
 .entity.name.function.grain {
   color: var(--code-blue);
@@ -36,7 +37,7 @@
 .keyword.grain,
 .keyword.operator.accessor.grain,
 .keyword.operator.grain {
-  color: var(--code-purple);
+  color: var(--code-light-purple);
 }
 .meta.separator.grain {
   color: var(--code-gray);
@@ -57,7 +58,7 @@
   color: var(--code-green);
 }
 .support.constant.grain {
-  color: var(--code-red);
+  color: var(--code-orange);
 }
 .punctuation.support.grain,
 .support.type.grain {

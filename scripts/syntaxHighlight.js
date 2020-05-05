@@ -43,7 +43,7 @@ registry.loadGrammar('source.grain').then(grammar => {
         ruleStack = lineTokens.ruleStack;
       }
 
-      return `<figure class="tm-highlight"><table><tbody><tr>${makeGutter(text.length)}<td class="code"><pre>${result.join('')}</pre></td></tr></tbody></table></figure>`;
+      return `<figure class="tm-highlight"><table><tbody><tr>${makeGutter(text.length)}<td class="code"><pre>${result.join('')}</pre></td><td class="code-tools"><a class="code-copy" role="button" alt="copy code"><i class="far fa-clone"></i></a></td></tr></tbody></table></figure>`;
     }
   })
 })

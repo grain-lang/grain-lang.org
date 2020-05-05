@@ -1,6 +1,12 @@
+<div align="center">
+  <a href="https://grain-lang.org/">
+    <img src="https://raw.githubusercontent.com/grain-lang/grain/master/grain_shorthand_color.png" alt="Grain" height="200" />
+  </a>
+</div>
+
 # Grain Website
 
-Documentation for the Grain programming language.
+Documentation for the Grain programming language at [grain-lang.org](https://grain-lang.org/).
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/62e3f960-de88-4a28-a8f8-b8dddca145cb/deploy-status)](https://app.netlify.com/sites/grain-lang/deploys)
 
@@ -10,52 +16,29 @@ This documentation site is a [Hexo](https://hexo.io/) site. All of the docs are 
 
 ## Contributing
 
-### Documentation Site
+### Editing a Document
 
-The documentation site is everything served from `/docs/` and `/guide/` on the [main Grain website](https://grain-lang.org/).
+To make a change to a document, edit the corresponding Markdown file in [src](src). The file path matches the URL path after `/docs`, but if you have trouble finding the page you're looking for, you can click the "Edit on GitHub" button at the top of page on the website.
 
-To get the docs up and running locally, just run
+### Adding a New Document
+
+Create your new Markdown file in `src`. You'll also need to update [docs_config.yml](docs_config.yml) to include your new page in the sidebar. Each document starts with some front-matter, which is a bit of yml/json that is given to the renderer. For now, this only includes the title of the page. Since the title of the page is an `h1`, headers in your document should begin at level 2:
+
+```markdown
+---
+title: Some Title of Some Topic
+---
+
+## Content Begins Here
+```
+
+### Previewing the Site
+
+Once a PR is created, Netlify will create a preview site and comment on the PR with a link. If you'd like to view your changes locally, run
 
 ```sh
 npm install
 npm start
 ```
 
-You can run `npm run start:guide` if you want to see changes to the guide.
-
-This will install all necessary dependencies and serve the website on port 4000.
-
-For simple edits to the existing Markdown files, just edit them as you would any normal Markdown.
-
-To add a new page, add a new Markdown file in the relevant location and update `_config.yml` to include it. It's the same as normal Markdown, but you must include a set of front matter, i.e. a set of key value pairs that begin the file and surrounded by dashes, like so:
-
-```
----
-title: Some Title of Some Topic
----
-
-## Content begins here
-```
-
-The title is inserted at the beginning of the page, and is used in the sidebar. Thus, all headings in the Markdown files should start at heading level 2.
-
-### Home Page
-
-The home page is just static HTML/CSS. To get it running, start a web server in your local directory. For example:
-
-```sh
-python -m SimpleHTTPServer 4040
-# This starts a server on port 4040
-```
-
-### Putting It All Together
-
-If for some reason you wish to view the entire site running together, you can run
-
-```sh
-npm run build
-```
-
-and then follow the steps outlined in the Home Page section.
-
-Don't commit the `/docs/` directory, as we wish to keep this repo clean (it's not in the `.gitignore` because those files need to be checked into source control for GitHub pages to work properly, and that's done automatically on the `master` branch).
+This will install all build dependencies and serve the website on port 3000.
