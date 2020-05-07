@@ -38,7 +38,9 @@ docs_groups:
   The Guide:
     - guide/hello_world
     - guide/basics
+    - guide/functions
     - guide/boxes
+    - guide/lists
   The Docs:
     - intro
   Standard Library:
