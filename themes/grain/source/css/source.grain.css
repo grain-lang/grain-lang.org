@@ -27,7 +27,9 @@
 .entity.name.function.grain {
   color: var(--code-blue);
 }
-.entity.name.grain,
+.entity.name.grain {
+  color: var(--white);
+}
 .entity.name.module.grain,
 .entity.name.type.grain,
 .entity.other.grain {
@@ -50,7 +52,8 @@
 .punctuation.description.grain,
 .punctuation.description.parameters.end.grain,
 .punctuation.description.parameters.grain,
-.punctuation.description.parameters.start.grain {
+.punctuation.description.parameters.start.grain,
+.punctuation.support.grain {
   color: var(--code-extra);
 }
 .string.quoted.double.grain,
@@ -60,7 +63,6 @@
 .support.constant.grain {
   color: var(--code-orange);
 }
-.punctuation.support.grain,
 .support.type.grain {
   color: var(--code-brown);
 }
