@@ -287,11 +287,10 @@ code {
   position: fixed;
   left: 0;
   top: 88px;
-  display: none;
+  transition: transform 200ms;
+  transform: translateX(-288px);
   > .sidebar {
     display: block;
-    transition: transform 200ms;
-    transform: translateX(-288px);
   }
 }
 
@@ -306,12 +305,12 @@ code {
 .page-content-wrapper {
   max-width: 100%;
   width: 100%;
+  transition: transform 200ms;
 }
 .page-content {
   background-color: white;
   padding: 2rem 1.5rem;
   line-height: 1.7;
-  transition: transform 200ms;
   margin: 2rem 0 1rem 0;
   border-radius: 2px;
   border: 1px solid #F2F2F2;
@@ -332,13 +331,14 @@ code {
     display: flex;
   }
   #sidebar-mobile {
-    display: block;
-    &.sidebar-toggled > .sidebar {
+    &.sidebar-toggled {
       transform: translateX(0);
     }
   }
-  #all-content-wrapper.sidebar-toggled .page-content {
-    transform: translateX(288px);
+  #all-content-wrapper.sidebar-toggled {
+    .page-content-wrapper {
+      transform: translateX(288px);
+    }
   }
 }
 @media screen and (max-width: 1350px) {
