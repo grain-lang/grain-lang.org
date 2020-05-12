@@ -152,7 +152,7 @@ h4 {
   color: var(--white);
   text-decoration: none;
 }
-.nav-link:visited {
+.nav-link:visited, .nav-link:hover, .nav-link:focus {
   color: var(--white);
 }
 .nav-link:not(:last-of-type) {
