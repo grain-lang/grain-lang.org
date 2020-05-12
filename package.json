@@ -22,6 +22,7 @@
     "vscode-textmate": "^4.4.0"
   },
   "devDependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "hexo-renderer-scss": "^1.2.0"
   }
 }
