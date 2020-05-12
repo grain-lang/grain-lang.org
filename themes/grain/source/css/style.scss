@@ -51,10 +51,10 @@ body {
   border: 2px solid var(--orange);
   background-color: transparent;
   color: var(--orange);
-}
-.button-secondary:hover {
-  color: var(--white);
-  background-color: var(--orange);
+  &:hover {
+    color: var(--white);
+    background-color: var(--orange);
+  }
 }
 
 a,
@@ -151,12 +151,12 @@ h4 {
 .nav-link {
   color: var(--white);
   text-decoration: none;
-}
-.nav-link:visited, .nav-link:hover, .nav-link:focus {
-  color: var(--white);
-}
-.nav-link:not(:last-of-type) {
-  margin-right: 1rem;
+  &:visited, &:hover, &:focus {
+    color: var(--white);
+  }
+  &:not(:last-of-type) {
+    margin-right: 1rem;
+  }
 }
 
 figure {
@@ -231,19 +231,15 @@ code {
   list-style: none;
   padding-left: 0;
   margin-top: 2rem;
+  a, a:visited, a:hover, a:focus {
+    color: var(--black);
+    text-decoration: none;
+  }
 }
 
 .sidebar-item {
   height: 38px;
   display: flex;
-}
-
-.sidebar-items a,
-.sidebar-items a:visited,
-.sidebar-items a:hover,
-.sidebar-items a:focus {
-  color: var(--black);
-  text-decoration: none;
 }
 
 .sidebar-toc a,
@@ -260,9 +256,18 @@ code {
   width: 100%;
   background-color: inherit;
   transition: background-color 0.075s;
-}
-.sidebar-link:hover, .sidebar-toc-link:hover {
-  background-color: var(--orange-medium);
+  &:hover {
+    background-color: var(--orange-medium);
+  }
+  &.current {
+    color: var(--white);
+    background-color: var(--orange);
+    border-radius: 2px;
+    padding: 0.5rem 1.5rem;
+    &:visited, &:focus, &:hover {
+      color: var(--white);
+    }
+  }
 }
 .sidebar-toc-link {
   padding: 0.5rem 1.5rem;
@@ -277,45 +282,19 @@ code {
   white-space: nowrap;
 }
 
-.sidebar-link.current {
-  background-color: var(--orange);
-  border-radius: 2px;
-  padding: 0.5rem 1.5rem;
-}
-
-.sidebar-link.current,
-.sidebar-link.current:visited,
-.sidebar-link.current:focus,
-.sidebar-link.current:hover {
-  color: var(--white);
-}
-
-.sidebar-toc-link.current {
-  background-color: var(--orange);
-  border-radius: 2px;
-  padding: 0.5rem 1.5rem;
-}
-
-.sidebar-toc-link.current,
-.sidebar-toc-link.current:visited,
-.sidebar-toc-link.current:focus,
-.sidebar-toc-link.current:hover {
-  color: var(--white);
-}
-
 
 #sidebar-mobile {
   position: fixed;
   left: 0;
   top: 88px;
   display: none;
+  > .sidebar {
+    display: block;
+    transition: transform 200ms;
+    transform: translateX(-288px);
+  }
 }
 
-#sidebar-mobile > .sidebar {
-  display: block;
-  transition: transform 200ms;
-  transform: translateX(-288px);
-}
 
 #all-content-wrapper {
   display: flex;
@@ -345,21 +324,21 @@ code {
   }
   .sidebar {
     display: none;
+    &.sidebar-toggled {
+      transform: translateX(0);
+    }
   }
   #sidebar-toggle {
     display: flex;
   }
   #sidebar-mobile {
     display: block;
-  }
-  .sidebar.sidebar-toggled {
-    transform: translateX(0);
+    &.sidebar-toggled > .sidebar {
+      transform: translateX(0);
+    }
   }
   #all-content-wrapper.sidebar-toggled .page-content {
     transform: translateX(288px);
-  }
-  #sidebar-mobile.sidebar-toggled > .sidebar {
-    transform: translateX(0);
   }
 }
 @media screen and (max-width: 1350px) {
@@ -382,11 +361,11 @@ code {
 .next-topic-wrapper, .prev-topic-wrapper {
   display: flex;
   flex-direction: column;
-}
-.prev-topic-wrapper::before, .next-topic-wrapper::before {
-  font-family: var(--font-heading);
-  font-weight: 700;
-  font-size: 1.125rem;
+  &::before {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.125rem;
+  }
 }
 .prev-topic-wrapper::before {
   content: 'Previous:';
@@ -400,10 +379,6 @@ code {
 .next-topic-wrapper:first-child {
   margin-left: auto;
 }
-.prev-topic > span, .next-topic > span {
-  display: flex;
-  flex-direction: column;
-}
 .next-topic, .prev-topic {
   margin-top: 0.5rem;
   width: 20rem;
@@ -412,6 +387,10 @@ code {
   margin-left: 1rem;
   margin-right: 1rem;
   margin-bottom: 1rem;
+  > span {
+    display: flex;
+    flex-direction: column;
+  }
 }
 .next-arrow, .prev-arrow {
   position: relative;
@@ -443,19 +422,20 @@ pre {
   width: 100%;
   font-size: 1rem;
 }
-td,
-th {
+td, th {
   padding: 0;
 }
 .gutter {
   width: 1rem;
-}
-.gutter pre {
-  background-color: var(--oxford);
-  color: var(--blue);
-  text-align: right;
-  padding: 1.25rem 0 1.25rem 1.25rem;
-  margin: 0;
+  pre {
+    background-color: var(--oxford);
+    color: var(--blue);
+    text-align: right;
+    padding: 1.25rem 0 1.25rem 1.25rem;
+    margin: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
 }
 .code pre {
   background-color: var(--oxford);
@@ -475,16 +455,12 @@ th {
   display: flex;
   cursor: pointer;
   transition: color 0.075s;
-}
-.code-copy:focus, .code-copy:hover {
-  color: var(--white);
+  &:focus, &:hover {
+    color: var(--white);
+  }
 }
 .tm-highlight table {
   border-spacing: 0;
-}
-.gutter pre {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
 }
 .code-tools {
   border-top-right-radius: 4px;
@@ -505,11 +481,11 @@ th {
   -webkit-box-shadow: 2px 2px 4px 0px rgba(155,155,155,1);
   -moz-box-shadow: 2px 2px 4px 0px rgba(155,155,155,1);
   box-shadow: 2px 2px 4px 0px rgba(155,155,155,1);
+  &.open {
+    transform: translateY(0);
+  }
 }
 
-.grain-snackbar.open {
-  transform: translateY(0);
-}
 
 /* hack for hash links to work properly */
 h1::before, h2::before, h3::before, h4::before, h5::before {
