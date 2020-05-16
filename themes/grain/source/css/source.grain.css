@@ -27,12 +27,12 @@
 .entity.name.function.grain {
   color: var(--code-blue);
 }
-.entity.name.grain {
+.entity.other.grain {
   color: var(--white);
 }
 .entity.name.module.grain,
 .entity.name.type.grain,
-.entity.other.grain {
+.entity.name.grain {
   color: var(--code-orange);
 }
 .storage.type.grain,
@@ -64,10 +64,10 @@
   color: var(--code-orange);
 }
 .support.type.grain {
-  color: var(--code-brown);
+  color: var(--code-green);
 }
+.variable.parameter.grain,
 .variable.language.grain {
-  color: var(--code-pink);
+  color: var(--code-purple);
 }
 /* .variable.name.grain */
-/* .variable.parameter.grain */
