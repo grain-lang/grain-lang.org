@@ -41,6 +41,7 @@ docs_groups:
     - guide/functions
     - guide/boxes
     - guide/lists
+    - guide/data_types
   The Docs:
     - intro
   Standard Library:
