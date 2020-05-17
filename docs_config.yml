@@ -42,6 +42,7 @@ docs_groups:
     - guide/boxes
     - guide/lists
     - guide/data_types
+    - guide/pattern_matching
   The Docs:
     - intro
   Standard Library:
