@@ -7,8 +7,8 @@
             <% } %>
             <% pages.forEach(function(path) { %>
                 <% var p = site.pages.findOne({path: path + '.html'}) || {} %>
-                <li class="sidebar-item <%- page.title === p.title ? 'current' : '' %>">
-                    <a href="<%- url_for(p.path).replace(/(\/index)?\.html$/, '') %>" class="sidebar-link <%- page.title === p.title ? 'current' : '' %>">
+                <li class="sidebar-item <%- page.path === p.path ? 'current' : '' %>">
+                    <a href="<%- url_for(p.path).replace(/(\/index)?\.html$/, '') %>" class="sidebar-link <%- page.path === p.path ? 'current' : '' %>">
                         <span><%- p.title %></span>
                     </a>
                 </li>
