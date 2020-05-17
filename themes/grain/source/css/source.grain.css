@@ -7,9 +7,10 @@
   --code-light-blue: #05b2dc;
   --code-red: #ed254e;
   --code-gray: #637081;
+  --code-yellow: #F4D35E;
 
   --code-extra: #d6edff;
-  --code-pink: #9E0031;
+  --code-pink: #DABFFF;
   --code-brown: #600047;
 }
 
@@ -64,10 +65,10 @@
   color: var(--code-orange);
 }
 .support.type.grain {
-  color: var(--code-green);
+  color: var(--code-purple);
 }
 .variable.parameter.grain,
 .variable.language.grain {
-  color: var(--code-purple);
+  color: var(--code-pink);
 }
 /* .variable.name.grain */
