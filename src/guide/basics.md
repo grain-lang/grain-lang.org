@@ -26,14 +26,14 @@ let thirdNumber = firstNumber + secondNumber
 Tuples in Grain allow you to bundle up a few pieces of data. They're great for related, uniform data. Mixed data types are allowed within tuples, and we'll take advantage of that in this example. Here's an example of a tuple containing a user's name, age, and favorite color:
 
 ```grain
-let user = ("Klaus Teuber", 42, "yellow")
+let user = ("Klaus Teuber", 67, "yellow")
 ```
 
 Grain supports tuple destructuring to pull data out of tuples:
 
 ```grain
 # The same tuple from the previous example
-let user = ("Klaus Teuber", 42, "yellow")
+let user = ("Klaus Teuber", 67, "yellow")
 
 let (name, age, color) = user
 
@@ -64,7 +64,7 @@ let sum = 2 + 2 # 4
 let difference = 42 - 17 # 25
 let product = 3 * 5 # 15
 let quotient = 36 / 3 # 12
-let remainer = 19 % 2 # 1
+let remainder = 19 % 2 # 1
 ```
 
 ### Number Comparisons
