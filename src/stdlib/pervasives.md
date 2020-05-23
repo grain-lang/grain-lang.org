@@ -2,7 +2,7 @@
 title: Pervasives
 ---
 
-This module is automatically imported into every Grain program. You can think of it as the global environment.
+This module is automatically imported into every Grain program. You can think of it as the global environment. Although it is automatically imported, it can still be imported manually.
 
 ```grain
 import Pervasives from 'pervasives'
