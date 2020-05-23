@@ -163,6 +163,9 @@ h4 {
 figure {
   overflow-x: auto;
   margin: 0;
+  + figure {
+    margin-top: 1.5rem;
+  }
 }
 
 code {
