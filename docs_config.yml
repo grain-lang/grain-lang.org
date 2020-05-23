@@ -48,8 +48,9 @@ docs_groups:
     - intro
   Standard Library:
     - stdlib/pervasives
-    - stdlib/list
+    - stdlib/array
     - stdlib/DOM
+    - stdlib/list
   Language Constructs:
     - constructs/overview
     - constructs/bindings
