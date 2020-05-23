@@ -43,6 +43,7 @@ docs_groups:
     - guide/lists
     - guide/data_types
     - guide/pattern_matching
+    - guide/imports_exports
   The Docs:
     - intro
   Standard Library:
