@@ -16,4 +16,6 @@ import Hash from 'hash'
 hash : a -> Number
 ```
 
+Generic hashing.
+
 Takes any value and produces an integer. If `a == b` then `Hash.hash(a) == Hash.hash(b)`.
