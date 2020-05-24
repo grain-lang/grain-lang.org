@@ -51,6 +51,7 @@ docs_groups:
     - stdlib/array
     - stdlib/DOM
     - stdlib/hash
+    - stdlib/int64
     - stdlib/list
   Language Constructs:
     - constructs/overview
