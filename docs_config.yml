@@ -50,6 +50,7 @@ docs_groups:
     - stdlib/pervasives
     - stdlib/array
     - stdlib/DOM
+    - stdlib/hash
     - stdlib/list
   Language Constructs:
     - constructs/overview
