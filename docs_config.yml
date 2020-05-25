@@ -54,6 +54,7 @@ docs_groups:
     - stdlib/int64
     - stdlib/list
     - stdlib/sys/file
+    - stdlib/sys/process
   Language Constructs:
     - constructs/overview
     - constructs/bindings
