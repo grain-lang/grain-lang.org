@@ -305,7 +305,7 @@ code {
   justify-content: center;
 }
 .page-content-wrapper {
-  max-width: 100%;
+  max-width: 56rem;
   width: 100%;
   transition: transform 200ms;
 }
@@ -336,6 +336,9 @@ code {
     &.sidebar-toggled {
       transform: translateX(0);
     }
+  }
+  .page-content-wrapper {
+    max-width: 50rem;
   }
   #all-content-wrapper.sidebar-toggled {
     .page-content-wrapper {
