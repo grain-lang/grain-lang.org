@@ -55,6 +55,7 @@ docs_groups:
     - stdlib/list
     - stdlib/sys/file
     - stdlib/sys/process
+    - stdlib/sys/random
   Language Constructs:
     - constructs/overview
     - constructs/bindings
