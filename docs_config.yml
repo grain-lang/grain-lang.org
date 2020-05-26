@@ -53,6 +53,10 @@ docs_groups:
     - stdlib/hash
     - stdlib/int64
     - stdlib/list
+    - stdlib/sys/file
+    - stdlib/sys/process
+    - stdlib/sys/random
+    - stdlib/sys/time
   Language Constructs:
     - constructs/overview
     - constructs/bindings
