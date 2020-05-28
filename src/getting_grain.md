@@ -23,12 +23,6 @@ yarn compiler:build
 
 Running `yarn setup` will set up the Grain runtime, standard library, and CLI, and `yarn compiler:build` will compile the compiler (it's pretty meta—we know).
 
-Finally, to get the `grainc` compiler command, run:
-
-```bash
-yarn compiler:install
-```
-
 After running these commands, you've have two new commands available on your command line—`grainc` and `grain`. The `grainc` command is the standalone compiler, and the `grain` command is a CLI tool that both compiles and runs Grain programs. Throughout the guide, we'll mostly be using `grain`.
 
 You can check that everything is installed properly by running the compiler and CLI help commands:
