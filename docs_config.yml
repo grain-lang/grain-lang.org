@@ -53,6 +53,7 @@ docs_groups:
     - stdlib/hash
     - stdlib/int64
     - stdlib/list
+    - stdlib/string
     - stdlib/sys/file
     - stdlib/sys/process
     - stdlib/sys/random
