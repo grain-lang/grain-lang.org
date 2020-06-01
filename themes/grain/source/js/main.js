@@ -1,12 +1,12 @@
 const sidebarToggle = document.getElementById('sidebar-toggle');
-const sidebar = document.getElementById('sidebar-mobile');
+const sidebarMobile = document.getElementById('sidebar-mobile');
 const content = document.getElementById('all-content-wrapper');
 if (sidebarToggle) sidebarToggle.addEventListener('click', () => {
-  if (sidebar.classList.contains('sidebar-toggled') || content.classList.contains('sidebar-toggled')) {
-    sidebar.classList.remove('sidebar-toggled');
+  if (sidebarMobile.classList.contains('sidebar-toggled') || content.classList.contains('sidebar-toggled')) {
+    sidebarMobile.classList.remove('sidebar-toggled');
     content.classList.remove('sidebar-toggled');
   } else {
-    sidebar.classList.add('sidebar-toggled');
+    sidebarMobile.classList.add('sidebar-toggled');
     content.classList.add('sidebar-toggled');
   }
 });
@@ -33,3 +33,12 @@ document.querySelectorAll('.tm-highlight').forEach((code) => {
     grainNotify('Code copied to clipboard!', 3000);
   });
 });
+
+const sidebar = document.querySelector('.sidebar');
+const sidebarTop = sessionStorage.getItem('sidebar-scroll')
+if (sidebarTop !== null) {
+  sidebar.scrollTop = parseInt(sidebarTop, 10);
+}
+window.addEventListener('beforeunload', () => {
+  sessionStorage.setItem('sidebar-scroll', sidebar.scrollTop)
+})
