@@ -76,6 +76,22 @@ h6 {
   margin-bottom: 0;
   font-family: var(--font-heading);
   font-weight: 600;
+  span:hover .header-link {
+    opacity: 100%;
+  }
+}
+
+.header-link {
+  font-size: 0.75em;
+  margin-left: 0.5rem;
+  color: var(--blue);
+  position: relative;
+  top: -0.125rem;
+  opacity: 0;
+  transition: opacity 140ms;
+  &:hover, &:visited, &:focus {
+    color: var(--blue);
+  }
 }
 
 h1 {
@@ -83,14 +99,21 @@ h1 {
 }
 h2 {
   font-size: 2rem;
-  border-top: 2px solid var(--gray);
-  padding-top: 1.5rem;
+  margin-top: 1.5rem;
 }
 h3 {
   font-size: 1.5rem;
 }
 h4 {
   font-size: 1.25rem;
+}
+
+hr {
+  border-color: var(--gray);
+  border-style: solid;
+  border-width: 1px;
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
 }
 
 #hero {
