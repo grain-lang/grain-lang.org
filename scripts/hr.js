@@ -7,7 +7,7 @@ hexo.extend.filter.register('marked:renderer', function (renderer) {
       // remove unwanted chars
       .replace(/[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,./:;<=>?@[\]^`{|}~]/g, '-')
       .replace(/\s/g, '-');
-    const header = `<h${level} id="${id}">${text}<a class="header-link" href="#${id}"><i class="fas fa-link"></i></a></h${level}>`
+    const header = `<h${level} id="${id}"><span>${text}<a class="header-link" href="#${id}"><i class="fas fa-link"></i></a></span></h${level}>`
     if (level == 2) {
       return `<hr>${header}`
     } else {
