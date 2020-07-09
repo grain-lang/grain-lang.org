@@ -4,7 +4,7 @@ title: Getting Grain
 
 ## Building Grain
 
-To build the compiler, you'll need `yarn` and Node.js version 14 or higher.
+To build the compiler, you'll need [Node.js](https://nodejs.org/en/download/current/) v14, [Yarn](https://yarnpkg.com/getting-started/install), and [CMake](https://cgold.readthedocs.io/en/latest/first-step/installation.html).
 
 Start by cloning the Grain repository:
 
