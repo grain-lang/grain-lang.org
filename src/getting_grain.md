@@ -18,7 +18,7 @@ To get everything set up, run:
 ```bash
 yarn
 yarn setup
-yarn compiler:build
+yarn compiler build
 ```
 
 Running `yarn setup` will set up the Grain runtime, standard library, and CLI, and `yarn compiler:build` will compile the compiler (it's pretty meta—we know).
