@@ -68,6 +68,14 @@ data Array<a>
 
 The type of Grain arrays, i.e. `[> 1, 2, 3]`.
 
+### Pervasives.**Option**
+
+```grain
+data Option<a> = Some(a) | None
+```
+
+Grain's type representing something that may or may not contain data. Think of this like a better, type-safe "null".
+
 ## Math Operations
 
 Operations on numbers.
