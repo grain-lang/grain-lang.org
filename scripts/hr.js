@@ -1,5 +1,5 @@
 hexo.extend.filter.register('marked:renderer', function (renderer) {
-  renderer.prototype.heading = function (text, level, raw) {
+  renderer.heading = function (text, level, raw) {
     const id = raw
       .trim()
       // remove html tags
