@@ -14,7 +14,7 @@ It's easiest to clone the extension into your VSCode extensions directory.
 
 ```bash
 cd ~/.vscode/extensions
-git clone git@github.com:ospencer/vscode-grain.git
+git clone git@github.com:grain-lang/vscode-grain.git
 ```
 
 And that's it. To update the extension, just `git pull` in the vscode-grain directory.
