@@ -84,6 +84,14 @@ map : (a -> b, List<a>) -> List<b>
 
 `List.map(f, list)` produces a new list by calling `f` on each element of the list.
 
+### List.**mapi**
+
+```grain
+mapi : ((a, Number) -> b, List<a>) -> List<b>
+```
+
+`List.mapi(fn, list)` produces a new list by calling `fn` on each element of the input list, along with the index of the element.
+
 ### List.**every**
 
 ```grain

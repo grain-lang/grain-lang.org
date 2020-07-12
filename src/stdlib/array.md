@@ -110,6 +110,14 @@ map : (Array<a>, a -> b) -> Array<b>
 
 `Array.map(array, fn)` produces a new array by calling `fn` on each element of the input array.
 
+### Array.**mapi**
+
+```grain
+mapi : ((a, Number) -> b, Array<a>) -> Array<b>
+```
+
+`Array.mapi(fn, array)` produces a new array by calling `fn` on each element of the input array, along with the index of the element.
+
 ### Array.**toList**
 
 ```grain
