@@ -76,6 +76,22 @@ data Option<a> = Some(a) | None
 
 Grain's type representing something that may or may not contain data. Think of this like a better, type-safe "null".
 
+## Comparison Operations
+
+Operations to compare values.
+
+### Pervasives.**(==)**
+
+Check that two values are equal. This checks for structural equality, so it also works for comparing things like tuples and lists.
+
+### Pervasives.**(!=)**
+
+Check that two values are **not** equal. This checks for structural equality, so it also works for comparing things like tuples and lists.
+
+### Pervasives.**(is)**
+
+Checks that two values are physically equal. Use this operator if you don't need or want structural equality.
+
 ## Math Operations
 
 Operations on numbers.

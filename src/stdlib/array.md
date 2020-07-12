@@ -45,22 +45,22 @@ Array.init(5, n => n + 3) # [> 8, 9, 10, 11, 12]
 ### Array.**get**
 
 ```grain
-get : (Array<a>, Number) -> a
+get : (Number, Array<a>) -> a
 ```
 
 An alias for normal syntactic array access, i.e. `array[n]`.
 
-`Array.get(array, n)` retrieves the `n`th item from the array. A negative `n` is treated as an offset from the end of the array.
+`Array.get(n, array)` retrieves the `n`th item from the array. A negative `n` is treated as an offset from the end of the array.
 
 ### Array.**set**
 
 ```grain
-set : (Array<a>, Number, a) -> a
+set : (Number, a, Array<a>) -> a
 ```
 
 An alias for normal syntactic array set, i.e. `array[n] := value`.
 
-`Array.set(array, n, value)` sets the `n`th slot in the array to `value`. A negative `n` is treated as an offset from the end of the array. Returns the newly set item.
+`Array.set(n, value, array)` sets the `n`th slot in the array to `value`. A negative `n` is treated as an offset from the end of the array. Returns the newly set item.
 
 ### Array.**append**
 
@@ -89,26 +89,26 @@ Produces a copy of the input array.
 ### Array.**forEach**
 
 ```grain
-forEach : (Array<a>, a -> Void) -> Void
+forEach : (a -> Void, Array<a>) -> Void
 ```
 
-`Array.forEach(array, fn)` calls `fn` on each element of the array.
+`Array.forEach(fn, array)` calls `fn` on each element of the array.
 
 ### Array.**forEachi**
 
 ```grain
-forEachi : (Array<a>, (a, Number) -> Void) -> Void
+forEachi : ((a, Number) -> Void, Array<a>) -> Void
 ```
 
-`Array.forEachi(array, fn)` calls `fn` on each element of the array, along with the index of the element.
+`Array.forEachi(fn, array)` calls `fn` on each element of the array, along with the index of the element.
 
 ### Array.**map**
 
 ```grain
-map : (Array<a>, a -> b) -> Array<b>
+map : (a -> b, Array<a>) -> Array<b>
 ```
 
-`Array.map(array, fn)` produces a new array by calling `fn` on each element of the input array.
+`Array.map(fn, array)` produces a new array by calling `fn` on each element of the input array.
 
 ### Array.**mapi**
 
@@ -116,7 +116,7 @@ map : (Array<a>, a -> b) -> Array<b>
 mapi : ((a, Number) -> b, Array<a>) -> Array<b>
 ```
 
-`Array.mapi(fn, array)` produces a new array by calling `fn` on each element of the input array, along with the index of the element.
+`Array.mapi(fn, array)` produces a new array by calling `fn` on each element of the input array along with its index.
 
 ### Array.**toList**
 
@@ -133,3 +133,11 @@ fromList : List<a> -> Array<a>
 ```
 
 Converts the input list to an array.
+
+### Array.**contains**
+
+```grain
+contains : (a, Array<a>) -> Bool
+```
+
+Checks if the item is an element of the input array. Uses the generic `==` structural equality operator.
