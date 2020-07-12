@@ -18,6 +18,14 @@ length : List<a> -> Number
 
 Computes the length of the input list.
 
+### List.**sum**
+
+```grain
+sum : List<Number> -> Number
+```
+
+Adds all numbers in the input list.
+
 ### List.**reverse**
 
 ```grain
@@ -37,42 +45,42 @@ append : (List<a>, List<a>) -> List<a>
 ### List.**contains**
 
 ```grain
-contains : (List<a>, a) -> Bool
+contains : (a, List<a>) -> Bool
 ```
 
 Checks if the item is an element of the input list. Uses the generic `==` equality operator.
 
-### List.**foldLeft**
+### List.**reduce**
 
 ```grain
-foldLeft : ((b, a) -> b, b, List<a>) -> b
+reduce : ((b, a) -> b, b, List<a>) -> b
 ```
 
-Using a reducer function, `foldLeft` combines all elements of a list, starting from the "head", or left side, of the list.
+Using a reducer function, `reduce` combines all elements of a list, starting from the "head", or left side, of the list.
 
-In `List.foldLeft(f, base, list)`, `f` is called with the accumulator and each element of the list, and returns a new accumulator. The final value is the result of `foldLeft`.
+In `List.reduce(fn, base, list)`, `fn` is called with the accumulator and each element of the list, and returns a new accumulator. The final value is the result of `reduce`.
 The accumulator starts with value `base`.
 
 ```grain
 let add = a + b
-let sum = (list) => foldLeft(add, 0, list)
+let sum = (list) => List.reduce(add, 0, list)
 sum([1, 2, 3]) # 6
 ```
 
-### List.**foldRight**
+### List.**reduceRight**
 
 ```grain
-foldRight : ((a, b) -> b, b, List<a>) -> b
+reduceRight : ((a, b) -> b, b, List<a>) -> b
 ```
 
-Using a reducer function, `foldRight` combines all elements of a list, starting from the end, or right side, of the list.
+Using a reducer function, `reduceRight` combines all elements of a list, starting from the end, or right side, of the list.
 
-In `List.foldRight(f, base, list)`, `f` is called with the each element of the list and the accumulator, and returns a new accumulator. The final value is the result of `foldRight`.
+In `List.reduceRight(fn, base, list)`, `fn` is called with the each element of the list and the accumulator, and returns a new accumulator. The final value is the result of `reduceRight`.
 The accumulator starts with value `base`.
 
 ```grain
 let add = a + b
-let sum = (list) => foldRight(add, 0, list)
+let sum = (list) => List.reduceRight(add, 0, list)
 sum([1, 2, 3]) # 6
 ```
 
@@ -82,7 +90,7 @@ sum([1, 2, 3]) # 6
 map : (a -> b, List<a>) -> List<b>
 ```
 
-`List.map(f, list)` produces a new list by calling `f` on each element of the list.
+`List.map(fn, list)` produces a new list by calling `fn` on each element of the list.
 
 ### List.**mapi**
 
@@ -100,6 +108,14 @@ every : (a -> Bool, List<a>) -> Bool
 
 Checks that the given condition is satisfied for all items in the input list.
 
+### List.**some**
+
+```grain
+some : (a -> Bool, List<a>) -> Bool
+```
+
+Checks that the given condition is satisfied **at least** once by an item in the input list.
+
 ### List.**forEach**
 
 ```grain
@@ -115,3 +131,91 @@ forEachi : ((a, Number) -> Void, List<a>) -> Void
 ```
 
 Evaluates the given function for each item in the list. The given function is called with the element and its index in the list.
+
+### List.**filter**
+
+```grain
+filter: (a -> Bool, List<a>) -> List<a>
+```
+
+`List.filter(fn, list)` produces a new list by calling `fn` on each element of the list. If the `fn` returns `false`, the value will not be included the new list.
+
+### List.**reject**
+
+```grain
+reject: (a -> Bool, List<a>) -> List<a>
+```
+
+`List.reject(fn, list)` produces a new list by calling `fn` on each element of the list. If the `fn` returns `true`, the value will not be included in the new list.
+
+### List.**head**
+
+```grain
+head : List<a> -> a
+```
+
+Attempts to get the first element from the list. Fails if the list is empty.
+
+### List.**tail**
+
+```grain
+tail : List<a> -> List<a>
+```
+
+Attempts to get all elements in a list except the first element. Fails if the list is empty.
+
+### List.**nth**
+
+```grain
+nth : (Number, List<a>) -> List<a>
+```
+
+Attempts to get the element in the list at the index provided. Fails if the index is out-of-bounds or if the list is empty.
+
+### List.**flatten**
+
+```grain
+flatten : List<List<a>> -> List<a>
+```
+
+Turns a list of lists of values into a "flattened" list of the values.
+
+### List.**insert**
+
+```grain
+insert : (a, Number, List<a>) -> List<a>
+```
+
+Attempts to insert a value into the input list at the given index. Fails if the index is out-of-bounds.
+
+### List.**count**
+
+```grain
+count : (a -> Bool, List<a>) -> Number
+```
+
+Counts the number of elements in a list that satisfy the given condition.
+
+### List.**part**
+
+```grain
+part : (Number, List<a>) -> (List<a>, List<a>)
+```
+
+Splits a list into two lists: a list containing the first `count` elements, and a list containing the remaining elements. Fails if the count is out-of-bounds.
+
+### List.**rotate**
+
+```grain
+rotate : (Number, List<a>) -> List<a>
+```
+
+Produces a new list where the `count` elements are moved to the end of the list. If a negative count is provided, moves the last `-count` elements to the beginning of the list.
+
+### List.**unique**
+
+```grain
+unique : List<a> -> List<a>
+```
+
+Produces a new list with any duplicates removed. Uses the generic `==` structural equality operator.
