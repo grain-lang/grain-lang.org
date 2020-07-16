@@ -2,16 +2,19 @@
 title: Bindings
 ---
 
-## On the Subject of `let` and `let rec`
+## On the Subject of `let`, `let rec`, and `let mut`
 
 The `let` and `let rec` statements introduce new names into the current scope.
 In other words, they let you declare new bindings (quite similar to constants in other languages).
+
+The `let mut` statement can be used to introduce new mutable bindings into the current scope.
 
 ## Syntax
 
 ```grain
 let name1 = value1 [, name2 = value2]
 let rec name1 = func1 [and name2 = func2]
+let mut name1 = value1 [, name2 = value2]
 ```
 
 ### Parameters
@@ -27,7 +30,9 @@ Any valid Grain functions.
 
 ## Description
 
-`let` allows you to introduce names, and `let rec` allows you to introduce recursive definitions.
+* `let` allows you to introduce names.
+* `let rec` allows you to introduce recursive definitions.
+* `let mut` allows you to introduce names with mutable values.
 
 ### Using `let`
 
@@ -70,7 +75,7 @@ b # This is a name error, since 'b' only existed in the earlier block.
 
 ### Using `let rec`
 
-`let rec` primarily allows you to define recursive functions. 
+`let rec` primarily allows you to define recursive functions.
 The name of the identifier used will be within the scope of the body of the function:
 
 ```grain
@@ -100,4 +105,27 @@ and isOdd = (n) => {
     n == 1
   }
 }
+```
+
+### Using `let mut`
+
+`let mut` allows you to declare bindings where the value may be changed in the future. Also provided are `+=`, `-=`, `*=`, and `/=` operators, which perform the math operation on a mutable value and re-assign the result.
+
+```grain
+let mut b = "foo"
+
+print(b) # "foo"
+
+b = "bar"
+
+print(b) # "bar"
+
+let mut count = 7
+
+count += 9
+count -= 6
+count *= 5
+count /= 25
+
+print(count) # 2
 ```

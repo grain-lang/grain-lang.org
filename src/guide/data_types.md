@@ -151,3 +151,32 @@ print({ name: 'Klaus Teuber', age: 42 })
 ```
 
 We haven't discussed exports yet, but we'll go much deeper into them in another section.
+
+## Mutable record properties
+
+We've previously creating mutable `let` bindings, but you can also label individual properties on your records `mut`.
+
+```grain
+export data Counter = {
+  mut count: Number
+}
+
+let counter = { count: 0 }
+
+let incr = (c) => {
+  c.count = c.count + 1
+}
+
+let decr = (c) => {
+  c.count = c.count - 1
+}
+
+incr(counter)
+incr(counter)
+
+print(counter) # { count: 2 }
+
+decr(counter)
+
+print(counter) # { count: 1 }
+```

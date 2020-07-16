@@ -39,8 +39,8 @@ docs_groups:
     - guide/hello_world
     - guide/basics
     - guide/functions
-    - guide/boxes
     - guide/lists
+    - guide/mutation
     - guide/data_types
     - guide/pattern_matching
     - guide/imports_exports
@@ -70,6 +70,7 @@ docs_groups:
     - constructs/conditionals
     - constructs/types
     - constructs/pattern_matching
+    - constructs/boxes
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
