@@ -2,7 +2,7 @@
 title: Boxes
 ---
 
-## On the subject of Boxes
+## `box` and `unbox`
 
 Boxes can be used for adding a mutable property to an immutable data structure, like a tuple or a list. `let mut` should be preferred when creating mutable value bindings.
 

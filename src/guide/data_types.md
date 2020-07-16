@@ -163,20 +163,20 @@ export data Counter = {
 
 let counter = { count: 0 }
 
-let incr = (c) => {
-  c.count = c.count + 1
+let addOne = (c) => {
+  c.count = incr(c.count)
 }
 
-let decr = (c) => {
-  c.count = c.count - 1
+let subtractOne = (c) => {
+  c.count = decr(c.count)
 }
 
-incr(counter)
-incr(counter)
+addOne(counter)
+addOne(counter)
 
 print(counter) # { count: 2 }
 
-decr(counter)
+subtractOne(counter)
 
 print(counter) # { count: 1 }
 ```

@@ -40,13 +40,10 @@ count /= 25
 print(count) # 2
 ```
 
-These operators also return the assigned result. This is useful if we are using mutable Numbers to perform an imperative loop. *Be careful of off-by-one errors!*
+These operators also return the assigned result, so you can use the new value immediately.
 
 ```grain
-let length = 10
-let mut index = -1
+let mut count = 7
 
-while ((index += 1) < length) {
-  print(index)
-}
+print(count += 9) # 16
 ```

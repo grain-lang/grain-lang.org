@@ -75,6 +75,29 @@ a # This evaluates to 7.
 b # This is a name error, since 'b' only existed in the earlier block.
 ```
 
+### Using `let mut`
+
+`let mut` allows you to declare bindings where the value may be changed in the future. Also provided are `+=`, `-=`, `*=`, `/=`, and `%=` operators, which perform the math operation on a mutable value and reassign the result.
+
+```grain
+let mut b = "foo"
+
+print(b) # "foo"
+
+b = "bar"
+
+print(b) # "bar"
+
+let mut count = 7
+
+count += 9
+count -= 6
+count *= 5
+count /= 25
+
+print(count) # 2
+```
+
 ### Using `let rec`
 
 `let rec` primarily allows you to define recursive functions.
@@ -107,27 +130,4 @@ and isOdd = (n) => {
     n == 1
   }
 }
-```
-
-### Using `let mut`
-
-`let mut` allows you to declare bindings where the value may be changed in the future. Also provided are `+=`, `-=`, `*=`, `/=`, and `%=` operators, which perform the math operation on a mutable value and reassign the result.
-
-```grain
-let mut b = "foo"
-
-print(b) # "foo"
-
-b = "bar"
-
-print(b) # "bar"
-
-let mut count = 7
-
-count += 9
-count -= 6
-count *= 5
-count /= 25
-
-print(count) # 2
 ```
