@@ -4,7 +4,7 @@ title: Boxes
 
 ## On the subject of Boxes
 
-Boxes can be used for adding a mutable property to an immutable data structure, like a tuple or list, but `let mut` should be preferred for creating mutable value bindings.
+Boxes can be used for adding a mutable property to an immutable data structure, like a tuple or a list. `let mut` should be preferred when creating mutable value bindings.
 
 ## Syntax
 
@@ -52,4 +52,4 @@ A couple things to note from this example:
 
 ## Immutability of Boxes
 
-Just like any other binding in Grain, boxes are immutable. The box itself cannot be swapped out for another box (or anything else for that matter). However, the _contents_ of boxes can be changed.
+With `let` bindings in Grain, boxes are immutable. The box itself cannot be swapped out for another box (or anything else for that matter). However, the _contents_ of boxes can be changed.

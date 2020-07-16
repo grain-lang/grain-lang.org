@@ -2,12 +2,14 @@
 title: Bindings
 ---
 
-## On the Subject of `let`, `let rec`, and `let mut`
+## `let`, `let mut`, and `let rec`
 
-The `let` and `let rec` statements introduce new names into the current scope.
-In other words, they let you declare new bindings (quite similar to constants in other languages).
+The `let`, `let mut`, and `let rec` statements introduce new names into the current scope.
+In other words, they let you create variables that can be used throughout your programs.
 
-The `let mut` statement can be used to introduce new mutable bindings into the current scope.
+`let` and `let rec` both create **immutable** bindings, which means they cannot be reassigned to new values once declared.
+
+The `let mut` statement can be used to create **mutable** bindings, which means the those names can be reassigned to new values.
 
 ## Syntax
 
@@ -30,9 +32,9 @@ Any valid Grain functions.
 
 ## Description
 
-* `let` allows you to introduce names.
-* `let rec` allows you to introduce recursive definitions.
-* `let mut` allows you to introduce names with mutable values.
+* `let` allows you to introduce new names with values that never change. In other words, `let` allows you to create **immutable** variables.
+* `let mut` allows you to introduce names with values that can change. In other words, `let mut` allows you to create **mutable** variables.
+* `let rec` allows you to declare recursive functions.
 
 ### Using `let`
 
@@ -109,7 +111,7 @@ and isOdd = (n) => {
 
 ### Using `let mut`
 
-`let mut` allows you to declare bindings where the value may be changed in the future. Also provided are `+=`, `-=`, `*=`, and `/=` operators, which perform the math operation on a mutable value and re-assign the result.
+`let mut` allows you to declare bindings where the value may be changed in the future. Also provided are `+=`, `-=`, `*=`, `/=`, and `%=` operators, which perform the math operation on a mutable value and reassign the result.
 
 ```grain
 let mut b = "foo"
