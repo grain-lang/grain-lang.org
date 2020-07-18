@@ -2,16 +2,21 @@
 title: Bindings
 ---
 
-## On the Subject of `let` and `let rec`
+## `let`, `let mut`, and `let rec`
 
-The `let` and `let rec` statements introduce new names into the current scope.
-In other words, they let you declare new bindings (quite similar to constants in other languages).
+The `let`, `let mut`, and `let rec` statements introduce new names into the current scope.
+In other words, they let you create variables that can be used throughout your programs.
+
+`let` and `let rec` both create **immutable** bindings, which means they cannot be reassigned to new values once declared.
+
+The `let mut` statement can be used to create **mutable** bindings, which means the those names can be reassigned to new values.
 
 ## Syntax
 
 ```grain
 let name1 = value1 [, name2 = value2]
 let rec name1 = func1 [and name2 = func2]
+let mut name1 = value1 [, name2 = value2]
 ```
 
 ### Parameters
@@ -27,7 +32,9 @@ Any valid Grain functions.
 
 ## Description
 
-`let` allows you to introduce names, and `let rec` allows you to introduce recursive definitions.
+* `let` allows you to introduce new names with values that never change. In other words, `let` allows you to create **immutable** variables.
+* `let mut` allows you to introduce names with values that can change. In other words, `let mut` allows you to create **mutable** variables.
+* `let rec` allows you to declare recursive functions.
 
 ### Using `let`
 
@@ -68,9 +75,32 @@ a # This evaluates to 7.
 b # This is a name error, since 'b' only existed in the earlier block.
 ```
 
+### Using `let mut`
+
+`let mut` allows you to declare bindings where the value may be changed in the future. Also provided are `+=`, `-=`, `*=`, `/=`, and `%=` operators, which perform the math operation on a mutable value and reassign the result.
+
+```grain
+let mut b = "foo"
+
+print(b) # "foo"
+
+b = "bar"
+
+print(b) # "bar"
+
+let mut count = 7
+
+count += 9
+count -= 6
+count *= 5
+count /= 25
+
+print(count) # 2
+```
+
 ### Using `let rec`
 
-`let rec` primarily allows you to define recursive functions. 
+`let rec` primarily allows you to define recursive functions.
 The name of the identifier used will be within the scope of the body of the function:
 
 ```grain
