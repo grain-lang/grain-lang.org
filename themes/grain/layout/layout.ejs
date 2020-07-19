@@ -9,8 +9,15 @@
 
     gtag('config', 'UA-123482724-1');
   </script>
-  <title>Grain <%- config.project === 'docs' ? 'Docs' : 'Blog' %><%- page.title ? ` - ${page.title}` : '' %></title>
+  <% if (config.project === 'blog') { %>
+  <title><%- page.title ? `${page.title} - ` : '' %>Grain Blog</title>
+  <meta name="description" content="<%- page.subtitle ? page.subtitle : 'The Grain Blog' %>">
+  <meta name="og:description" content="<%- page.subtitle ? page.subtitle : 'The Grain Blog' %>">
+  <% } else { %>
+  <title><%- page.title ? `${page.title} - ` : '' %>Grain Docs</title>
   <meta name="description" content="Grain is a new programming language that puts academic language features to work.">
+  <meta name="og:description" content="Grain is a new programming language that puts academic language features to work.">
+  <% } %>
   <meta name="viewport" content="width=device-width,minimum-scale=1.0,initial-scale=1,user-scalable=yes">
   <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/favicon/apple-touch-icon-57x57.png" />
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/favicon/apple-touch-icon-114x114.png" />
