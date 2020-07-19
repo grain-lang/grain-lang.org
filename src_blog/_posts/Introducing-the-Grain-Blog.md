@@ -3,7 +3,7 @@ title: Introducing the Grain Blog
 subtitle: Keeping you up to date on all things WebAssembly and Grain.
 date: 2020-07-20 12:00:00
 author: Oscar Spencer
-cover: /blog/photos/cover/jason-leung-726948-unsplash.jpg
+cover: /blog/photos/cover/jason-leung-726948-unsplash-small.jpg
 coverAttribution: Jason Leung / Unsplash
 tags:
 ---
