@@ -18,6 +18,8 @@
   <meta name="twitter:description" content="<%- page.subtitle ? page.subtitle : 'The Grain Blog' %>">
   <meta property="og:image" content="https://grain-lang.org<%- page.cover %>">
   <meta name="twitter:image" content="https://grain-lang.org<%- page.cover %>">
+  <meta name="twitter:site" content="@grain_lang">
+  <meta name="twitter:creator" content="@<%- (getAuthor(page.author) || {}).twitter %>">
   <% } else { %>
   <title><%- page.title ? `${page.title} - ` : '' %>Grain Docs</title>
   <meta property="og:title" content="<%- page.title ? `${page.title} - ` : '' %>Grain Docs">
