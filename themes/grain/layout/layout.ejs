@@ -12,21 +12,21 @@
   <% if (config.project === 'blog') { %>
   <title><%- page.title ? `${page.title} - ` : '' %>Grain Blog</title>
   <meta property="og:title" content="<%- page.title ? `${page.title} - ` : '' %>Grain Blog">
-  <meta property="twitter:title" content="<%- page.title ? `${page.title} - ` : '' %>Grain Blog">
+  <meta name="twitter:title" content="<%- page.title ? `${page.title} - ` : '' %>Grain Blog">
   <meta name="description" content="<%- page.subtitle ? page.subtitle : 'The Grain Blog' %>">
   <meta property="og:description" content="<%- page.subtitle ? page.subtitle : 'The Grain Blog' %>">
-  <meta property="twitter:description" content="<%- page.subtitle ? page.subtitle : 'The Grain Blog' %>">
+  <meta name="twitter:description" content="<%- page.subtitle ? page.subtitle : 'The Grain Blog' %>">
   <meta property="og:image" content="https://grain-lang.org<%- page.cover %>">
-  <meta property="twitter:image" content="https://grain-lang.org<%- page.cover %>">
+  <meta name="twitter:image" content="https://grain-lang.org<%- page.cover %>">
   <% } else { %>
   <title><%- page.title ? `${page.title} - ` : '' %>Grain Docs</title>
   <meta property="og:title" content="<%- page.title ? `${page.title} - ` : '' %>Grain Docs">
-  <meta property="twitter:title" content="<%- page.title ? `${page.title} - ` : '' %>Grain Docs">
+  <meta name="twitter:title" content="<%- page.title ? `${page.title} - ` : '' %>Grain Docs">
   <meta name="description" content="Grain is a new programming language that puts academic language features to work.">
   <meta property="og:description" content="Grain is a new programming language that puts academic language features to work.">
-  <meta property="twitter:description" content="Grain is a new programming language that puts academic language features to work.">
+  <meta name="twitter:description" content="Grain is a new programming language that puts academic language features to work.">
   <% } %>
-  <meta property="twitter:card" content="summary_large_image">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="viewport" content="width=device-width,minimum-scale=1.0,initial-scale=1,user-scalable=yes">
   <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/favicon/apple-touch-icon-57x57.png" />
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/favicon/apple-touch-icon-114x114.png" />
