@@ -151,12 +151,14 @@ hr {
   height: 5.5rem;
   &.compact {
     margin: 0 auto;
+    padding: 0 2rem;
     max-width: 72rem;
   }
 }
 
 .brand-wrapper {
   display: flex;
+  align-items: center;
 }
 
 .nav-logo {
@@ -363,6 +365,18 @@ code {
   border-radius: 2px;
   border: 1px solid #F2F2F2;
   font-size: 1.125rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+  }
+  .footer > * {
+    margin-bottom: 2rem;
+  }
+  .footer-social-links, .made-by {
+    text-align: left;
+  }
 }
 
 @media screen and (max-width: 1088px) {
@@ -620,12 +634,17 @@ a.blog-item {
 
 .blog-author {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 1.5rem;
+  > * {
+    margin-bottom: 1rem;
+  }
 }
 .blog-author-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-right: auto;
 }
 .blog-author-photo {
   width: 3rem;
@@ -663,10 +682,9 @@ a.blog-item {
     margin-top: 1rem;
   }
   .blog-author {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
   }
   .blog-author-socials {
-    margin-left: auto;
     font-size: 1.5rem;
     align-self: flex-end;
   }
@@ -697,6 +715,9 @@ a.blog-item {
   .blog-author-title {
     color: var(--gray3);
   }
+  .large.blog-author {
+    margin-bottom: 4rem;
+  }
   .large .blog-author-name::before {
     content: 'Written by';
     text-transform: uppercase;
@@ -717,7 +738,8 @@ a.blog-item {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-  padding-top: 3rem;
+  padding: 3rem 2rem;
+  padding-bottom: 0;
   &.separated {
     border-top: 2px solid var(--gray);
   }
