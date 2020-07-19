@@ -7,9 +7,9 @@
   },
   "scripts": {
     "cleanup": "del-cli db.json",
-    "start": "hexo generate --config docs_config.yml --watch & node server.js & wait",
+    "start": "hexo clean && hexo generate --config docs_config.yml,blog_config.yml --watch & node server.js & wait",
     "prebuild": "npm run cleanup",
-    "build": "hexo generate --config docs_config.yml"
+    "build": "hexo generate --config docs_config.yml,blog_config.yml"
   },
   "dependencies": {
     "hexo": "^4.2.1",

@@ -1,0 +1,50 @@
+<% let author = getAuthor(page.author); %>
+<%- partial('_partial/hero') %>
+<div class="page-wrapper">
+  <div id="all-content-wrapper">
+    <article class="blog-wrapper">
+      <h1 class="page-title"><%- page.title %></h1>
+      <p class="blog-item-subtitle"><%- page.subtitle %></p>
+      <div class="blog-author">
+        <img class="blog-author-photo" src="<%- author.headshot %>" />
+        <div class="blog-author-info">
+          <div class="blog-author-name"><%- author.name %></div>
+          <div class="blog-date"><%- page.date.format('MMMM D YYYY') %></div>
+        </div>
+        <div class="blog-author-socials">
+          <% if (author.github) { %>
+            <a href="<%- author.github %>" class="blog-author-social"><i class="fab fa-github"></i></a>
+          <% } %>
+          <% if (author.twitter) { %>
+            <a href="<%- author.twitter %>" class="blog-author-social"><i class="fab fa-twitter"></i></a>
+          <% } %>
+        </div>
+      </div>
+      <div class="blog-cover-photo-wrapper">
+        <div class="blog-img-wrapper">
+          <img class="blog-cover-photo" src="<%- page.cover %>" />
+        </div>
+        <figcaption class="blog-cover-attribution">Photo: <%- page.coverAttribution %></figcaption>
+      </div>
+      <div class="blog-content">
+        <%- page.content %>
+      </div>
+      <hr>
+      <div class="blog-author large">
+        <img class="blog-author-photo" src="<%- author.headshot %>" />
+        <div class="blog-author-info">
+          <div class="blog-author-name"><%- author.name %></div>
+          <div class="blog-author-title"><%- author.title %></div>
+        </div>
+        <div class="blog-author-socials">
+          <% if (author.github) { %>
+            <a href="<%- author.github %>" class="blog-author-social"><i class="fab fa-github"></i></a>
+          <% } %>
+          <% if (author.twitter) { %>
+            <a href="<%- author.twitter %>" class="blog-author-social"><i class="fab fa-twitter"></i></a>
+          <% } %>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>

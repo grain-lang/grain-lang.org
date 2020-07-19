@@ -9,7 +9,7 @@
 
     gtag('config', 'UA-123482724-1');
   </script>
-  <title>Grain Docs - <%- page.title %></title>
+  <title>Grain <%- config.project === 'docs' ? 'Docs' : 'Blog' %><%- page.title ? ` - ${page.title}` : '' %></title>
   <meta name="description" content="Grain is a new programming language that puts academic language features to work.">
   <meta name="viewport" content="width=device-width,minimum-scale=1.0,initial-scale=1,user-scalable=yes">
   <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/favicon/apple-touch-icon-57x57.png" />
