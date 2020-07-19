@@ -563,6 +563,7 @@ h1::before, h2::before, h3::before, h4::before, h5::before {
   background-color: var(--gray);
   padding: 1.5rem;
   margin-top: 3rem;
+  margin-bottom: 2rem;
   border-radius: 2px;
 }
 .join-mailing-title {
@@ -662,7 +663,7 @@ a.blog-item {
     margin-top: 1rem;
   }
   .blog-author {
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
   }
   .blog-author-socials {
     margin-left: auto;
@@ -706,11 +707,20 @@ a.blog-item {
   }
 }
 
+.join-mailing-footer {
+  background-color: var(--gray);
+}
+
 .footer {
-  margin: 4rem 15%;
+  margin: 4rem auto;
+  max-width: 72rem;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+  padding-top: 3rem;
+  &.separated {
+    border-top: 2px solid var(--gray);
+  }
 }
 .footer-logo, .footer-links {
   margin-right: 4rem;
