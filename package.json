@@ -6,10 +6,11 @@
     "version": "4.2.1"
   },
   "scripts": {
-    "cleanup": "del-cli db.json",
-    "start": "hexo generate --config docs_config.yml --watch & node server.js & wait",
+    "cleanup": "hexo clean",
+    "prestart": "npm run cleanup",
+    "start": "hexo generate --config docs_config.yml,blog_config.yml --watch & node server.js & wait",
     "prebuild": "npm run cleanup",
-    "build": "hexo generate --config docs_config.yml"
+    "build": "hexo generate --config docs_config.yml,blog_config.yml"
   },
   "dependencies": {
     "hexo": "^4.2.1",
@@ -25,7 +26,6 @@
     "vscode-textmate": "^5.2.0"
   },
   "devDependencies": {
-    "del-cli": "^3.0.1",
     "express": "^4.17.1",
     "hexo-renderer-scss": "^1.2.0"
   }
