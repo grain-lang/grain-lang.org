@@ -34,11 +34,20 @@ title: Some Title of Some Topic
 
 ### Previewing the Site
 
-Once a PR is created, Netlify will create a preview site and comment on the PR with a link. If you'd like to view your changes locally, run
+Once a PR is created, Netlify will create a preview site and comment on the PR with a link. If you'd like to view your changes locally,
+
+For the docs, run:
 
 ```sh
 npm install
-npm start
+npm run start-docs
+```
+
+For the blog, run:
+
+```sh
+npm install
+npm run start-blog
 ```
 
 This will install all build dependencies and serve the website on port 3000.
