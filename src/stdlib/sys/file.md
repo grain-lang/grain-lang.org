@@ -236,6 +236,38 @@ An entry in a directory.
 
 ## Values
 
+### File.**stdin**
+
+```grain
+stdin : FileDescriptor
+```
+
+A `FileDescriptor` can be used to access `stdin`.
+
+### File.**stdout**
+
+```grain
+stdout : FileDescriptor
+```
+
+A `FileDescriptor` can be used to access `stdout`.
+
+### File.**stderr**
+
+```grain
+stderr : FileDescriptor
+```
+
+A `FileDescriptor` can be used to access `stderr`.
+
+### File.**pwdfd**
+
+```grain
+pwdfd : FileDescriptor
+```
+
+A `FileDescriptor` for the current working directory of the process.
+
 ### File.**pathOpen**
 
 ```grain
@@ -496,7 +528,7 @@ Parameters:
 fdReaddir : (FileDescriptor) -> Array<DirectoryEntry>
 ```
 
-Read the entires of a directory.
+Read the entries of a directory.
 
 Parameters:
 
