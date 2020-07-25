@@ -242,7 +242,7 @@ An entry in a directory.
 stdin : FileDescriptor
 ```
 
-A `FileDescriptor` can be used to access `stdin`.
+The `FileDescriptor` for `stdin`.
 
 ### File.**stdout**
 
@@ -250,7 +250,7 @@ A `FileDescriptor` can be used to access `stdin`.
 stdout : FileDescriptor
 ```
 
-A `FileDescriptor` can be used to access `stdout`.
+The `FileDescriptor` for `stdout`.
 
 ### File.**stderr**
 
@@ -258,7 +258,7 @@ A `FileDescriptor` can be used to access `stdout`.
 stderr : FileDescriptor
 ```
 
-A `FileDescriptor` can be used to access `stderr`.
+The `FileDescriptor` for `stderr`.
 
 ### File.**pwdfd**
 
@@ -266,7 +266,7 @@ A `FileDescriptor` can be used to access `stderr`.
 pwdfd : FileDescriptor
 ```
 
-A `FileDescriptor` for the current working directory of the process.
+The `FileDescriptor` for the current working directory of the process.
 
 ### File.**pathOpen**
 
