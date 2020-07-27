@@ -5,7 +5,7 @@ title: Array
 Utilities for working with arrays.
 
 ```grain
-import Array from 'arrays'
+import Array from 'array'
 ```
 
 ## Values

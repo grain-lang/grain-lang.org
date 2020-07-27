@@ -76,12 +76,12 @@ Things can be imported from standard libraries or other files we've written.
 We can import a module by giving it a name and providing the path to the module.
 
 ```grain
-import List from 'lists'
+import List from 'list'
 
 List.length([1, 2, 3])
 ```
 
-The name in quotes, `'lists'`, is the path to the module. Grain knows how to find all of the modules in the standard library, so we can just say `lists` without having to determine where the standard library files exist on our computer.
+The name in quotes, `'list'`, is the path to the module. Grain knows how to find all of the modules in the standard library, so we can just say `'list'` without having to determine where the standard library files exist on our computer.
 
 ### Relative Imports
 
@@ -105,7 +105,7 @@ Math.add(5, 6)
 As you've seen so far, we can import an entire module from the standard library by giving it a name beginning with a capital letter, like so:
 
 ```grain
-import List from 'lists'
+import List from 'list'
 
 List.length([1, 2, 3])
 ```
@@ -113,7 +113,7 @@ List.length([1, 2, 3])
 Module names don't have to mirror the path name. We can name them whatever we'd like:
 
 ```grain
-import Stdlist from 'lists'
+import Stdlist from 'list'
 
 Stdlist.length([1, 2, 3])
 ```
@@ -123,7 +123,7 @@ Stdlist.length([1, 2, 3])
 If we want to include all of the values from another module in our program, we can use an asterisk.
 
 ```grain
-import * from 'lists'
+import * from 'list'
 
 length([1, 2, 3])
 reverse([1, 2, 3])
@@ -134,7 +134,7 @@ reverse([1, 2, 3])
 Individual values in a module can be imported by placing the names in curly braces.
 
 ```grain
-import { length, reverse } from 'lists'
+import { length, reverse } from 'list'
 
 length([1, 2, 3])
 reverse([1, 2, 3])
