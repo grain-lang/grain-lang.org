@@ -5,7 +5,7 @@ title: Int64
 Utilities for working with the Int64 type.
 
 ```grain
-import Int64 from 'stdint64'
+import Int64 from 'int64'
 ```
 
 ## Values
