@@ -81,7 +81,7 @@ import List from 'list'
 List.length([1, 2, 3])
 ```
 
-The name in quotes, `'list'`, is the path to the module. Grain knows how to find all of the modules in the standard library, so we can just say `lists` without having to determine where the standard library files exist on our computer.
+The name in quotes, `'list'`, is the path to the module. Grain knows how to find all of the modules in the standard library, so we can just say `'list'` without having to determine where the standard library files exist on our computer.
 
 ### Relative Imports
 
