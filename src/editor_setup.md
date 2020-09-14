@@ -6,15 +6,8 @@ As more editors are supported, they will be added here.
 
 ## Visual Studio Code
 
-The premier editor for Grain is Visual Studio Code. We're not quite yet ready to publish the extension, so there is a single manual step to install it.
+The premier editor for Grain is Visual Studio Code. You can install `vscode-grain` from [the VS Code extension marketplace](https://marketplace.visualstudio.com/items?itemName=grain-lang.vscode-grain).
 
-### Clone the Extension
+## Favorite editor not supported?
 
-It's easiest to clone the extension into your VSCode extensions directory.
-
-```bash
-cd ~/.vscode/extensions
-git clone git@github.com:grain-lang/vscode-grain.git
-```
-
-And that's it. To update the extension, just `git pull` in the vscode-grain directory.
+Drop us a line in our Discord server to help us prioritize supporting your favorite editor.
