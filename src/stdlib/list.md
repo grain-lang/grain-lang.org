@@ -219,3 +219,19 @@ unique : List<a> -> List<a>
 ```
 
 Produces a new list with any duplicates removed. Uses the generic `==` structural equality operator.
+
+### List.**drop**
+
+```grain
+drop : (Number, List<a>) -> List<a>
+```
+
+Removes the first `n` items from the list.
+
+### List.**dropWhile**
+
+```grain
+dropWhile : (a -> Bool, List<a>) -> List<a>
+```
+
+Removes items from the list until the given function returns `false`.
