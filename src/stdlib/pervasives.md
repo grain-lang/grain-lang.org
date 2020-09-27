@@ -76,6 +76,14 @@ data Option<a> = Some(a) | None
 
 Grain's type representing something that may or may not contain data. Think of this like a better, type-safe "null".
 
+### Pervasives.**Result**
+
+```grain
+data Result<t, e> = Ok(t) | Err(e)
+```
+
+Grain's type representing the result of something that might error.
+
 ## Comparison Operations
 
 Operations to compare values.
@@ -354,3 +362,15 @@ toString : a -> String
 ```
 
 Returns a string representation of the argument. Provides a better representation of data types if those types are exported from the module.
+
+## Other Values
+
+Miscellaneous operations.
+
+### Pervasives.**identity**
+
+```grain
+identity : a -> a
+```
+
+Returns the argument untouched.
