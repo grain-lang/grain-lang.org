@@ -234,4 +234,4 @@ Removes the first `n` items from the list.
 dropWhile : (a -> Bool, List<a>) -> List<a>
 ```
 
-Removes items from the list until the given function returns `false`.
+Removes items from the beginning of the list until the given function returns `false`.
