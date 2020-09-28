@@ -2,7 +2,7 @@
 title: Int64
 ---
 
-Utilities for working with the Int64 type.
+Operations on the Int64 type.
 
 ```grain
 import Int64 from 'int64'
@@ -25,6 +25,119 @@ toNumber : Int64 -> Number
 ```
 
 Converts the argument from an `Int64` to a `Number`.
+
+### Int64.**incr**
+
+```grain
+incr : Int64 -> Int64
+```
+
+Increments the number by 1.
+
+### Int64.**decr**
+
+```grain
+decr : Int64 -> Int64
+```
+
+Decrements the number by 1.
+
+### Int64.**add**
+
+```grain
+add : (Int64, Int64) -> Int64
+```
+
+Integer addition.
+
+### Int64.**sub**
+
+```grain
+sub : (Int64, Int64) -> Int64
+```
+
+Integer subtraction.
+
+### Int64.**mul**
+
+```grain
+mul : (Int64, Int64) -> Int64
+```
+
+Integer multiplication.
+
+### Int64.**div**
+
+```grain
+div : (Int64, Int64) -> Int64
+```
+
+Integer division.
+
+### Int64.**divU**
+
+```grain
+divU : (Int64, Int64) -> Int64
+```
+
+Unsigned integer division.
+
+### Int64.**rem**
+
+```grain
+rem : (Int64, Int64) -> Int64
+```
+
+Integer remainder.
+
+### Int64.**remU**
+
+```grain
+remU : (Int64, Int64) -> Int64
+```
+
+Unsigned integer remainder.
+
+### Int64.**mod**
+
+```grain
+mod : (Int64, Int64) -> Int64
+```
+
+Integer modulo.
+
+### Int64.**gt**
+
+```grain
+gt : (Int64, Int64) -> Bool
+```
+
+Checks if the first argument is strictly greater than the second argument.
+
+### Int64.**gte**
+
+```grain
+gte : (Int64, Int64) -> Bool
+```
+
+Checks if the first argument is greater than or equal to the second argument.
+
+### Int64.**lt**
+
+```grain
+lt : (Int64, Int64) -> Bool
+```
+
+Checks if the first argument is strictly less than the second argument.
+
+### Int64.**lte**
+
+```grain
+lte : (Int64, Int64) -> Bool
+```
+
+Checks if the first argument is less than or equal to the second argument.
+
 
 ### Int64.**lnot**
 
@@ -58,58 +171,26 @@ lxor : (Int64, Int64) -> Int64
 
 Computes the bitwise logical "xor" of the two arguments.
 
-### Int64.**lsl**
+### Int64.**shl**
 
 ```grain
-lsl : (Int64, Number) -> Int64
+shl : (Int64, Int64) -> Int64
 ```
 
 Computes the bitwise logical shift left of the first argument by the second argument.
 
-### Int64.**lsr**
+### Int64.**shr**
 
 ```grain
-lsr : (Int64, Number) -> Int64
-```
-
-Computes the bitwise logical shift right of the first argument by the second argument.
-
-### Int64.**asr**
-
-```grain
-asr : (Int64, Number) -> Int64
+shr : (Int64, Int64) -> Int64
 ```
 
 Computes the bitwise arithmetic (signed) shift right of the first argument by the second argument.
 
-### Int64.**gt**
+### Int64.**shrU**
 
 ```grain
-gt : (Int64, Int64) -> Bool
+shrU : (Int64, Int64) -> Int64
 ```
 
-Checks if the first argument is strictly greater than the second argument.
-
-### Int64.**gte**
-
-```grain
-gte : (Int64, Int64) -> Bool
-```
-
-Checks if the first argument is greater than or equal to the second argument.
-
-### Int64.**lt**
-
-```grain
-lt : (Int64, Int64) -> Bool
-```
-
-Checks if the first argument is strictly less than the second argument.
-
-### Int64.**lte**
-
-```grain
-lte : (Int64, Int64) -> Bool
-```
-
-Checks if the first argument is less than or equal to the second argument.
+Computes the unsigned bitwise logical shift right of the first argument by the second argument.
