@@ -69,10 +69,18 @@ If the Option is the `Some` variant, call `fn` with the inner value and returns 
 ### Option.**mapWithDefault**
 
 ```grain
-mapWithDefault : (b, a -> b, Option<a>) -> b
+mapWithDefault : (a -> b, b, Option<a>) -> b
 ```
 
 If the Option is the `Some` variant, call `fn` with the inner value and returns the result. If it is `None`, returns the default value provided.
+
+### Option.**mapWithDefaultFn**
+
+```grain
+mapWithDefaultFn : (a -> b, () -> b, Option<a>) -> b
+```
+
+If the Option is the `Some` variant, call `fn` with the inner value and returns the result. If it is `None`, returns the result of the default function provided.
 
 ### Option.**flatMap**
 
@@ -130,6 +138,14 @@ toArray : Option<a> -> Array<a>
 
 If the Option is the `Some` variant, returns an `Array` containing the inner value as the only item. If it is `None`, returns an empty `Array`.
 
+### Option.**toResult**
+
+```grain
+toResult : (b, Option<a>) -> Result<a, b>
+```
+
+If the Option is the `Some(a)`, returns `Ok(a)`. If it is `None`, returns an `Err` of the provided error value.
+
 ### Option.**sideEffect**
 
 ```grain
@@ -145,3 +161,19 @@ peek : (a -> Void, Option<a>) -> Option<a>
 ```
 
 If the Option is the `Some` variant, call `fn` with the inner value. Always returns the Option it is called with; this method is a "chainable" `Option.sideEffect`.
+
+### Option.**and**
+
+```grain
+and : (Option<a>, Option<a>) -> Option<a>
+```
+
+If the first Option is the `Some` variant, returns the second Option. Returns `None` otherwise.
+
+### Option.**or**
+
+```grain
+or : (Option<a>, Option<a>) -> Option<a>
+```
+
+Returns the first Option if it is the `Some` variant. Returns the second Option otherwise.
