@@ -51,6 +51,7 @@ docs_groups:
     - stdlib/array
     - stdlib/DOM
     - stdlib/hash
+    - stdlib/int32
     - stdlib/int64
     - stdlib/list
     - stdlib/option
