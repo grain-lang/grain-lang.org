@@ -50,6 +50,8 @@ docs_groups:
     - stdlib/pervasives
     - stdlib/array
     - stdlib/DOM
+    - stdlib/float32
+    - stdlib/float64
     - stdlib/hash
     - stdlib/int32
     - stdlib/int64
