@@ -20,6 +20,21 @@ html, body {
   margin: 0;
 }
 
+.site-banner {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1rem;
+
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.site-banner a {
+  color: var(--orange);
+  text-decoration: none;
+}
+
 #hero {
   background-color: var(--orange);
 }
