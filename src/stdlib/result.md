@@ -80,8 +80,7 @@ If the Result is `Ok(x)`, returns `fn(x)`. Returns the provided default otherwis
 mapWithDefaultFn : (t -> u, e -> u, Result<t, e>) -> u
 ```
 
-If the Result is `Ok(x)`, returns `fnOk(x)`. If the Result is `Err(y)`, returns `fn(Err(y))`.
-
+If the Result is `Ok(x)`, returns `fnOk(x)`. If the Result is `Err(y)`, returns `fnErr(y)`.
 ### Result.**or**
 
 ```grain
