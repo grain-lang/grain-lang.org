@@ -32,7 +32,7 @@ Creates a new, empty map with an initial storage size for the given number of el
 get : (k, Map<k, v>) -> v
 ```
 
-Retrieves the value associated with the given key from the map.
+Retrieves the value associated with the given key from the map. Fails if the key does not exist.
 
 ### Map.**set**
 
@@ -40,7 +40,7 @@ Retrieves the value associated with the given key from the map.
 set : (k, v, Map<k, v>) -> Void
 ```
 
-Adds a new key-value pair to the map.
+Adds a new key-value pair to the map. If the key already exists, replaces the value.
 
 ### Map.**contains**
 
