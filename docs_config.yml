@@ -50,11 +50,7 @@ docs_groups:
     - stdlib/pervasives
     - stdlib/array
     - stdlib/DOM
-    - stdlib/float32
-    - stdlib/float64
     - stdlib/hash
-    - stdlib/int32
-    - stdlib/int64
     - stdlib/list
     - stdlib/map
     - stdlib/option
@@ -63,6 +59,10 @@ docs_groups:
     - stdlib/sys/process
     - stdlib/sys/random
     - stdlib/sys/time
+    - stdlib/int32
+    - stdlib/int64
+    - stdlib/float32
+    - stdlib/float64
   Language Constructs:
     - constructs/overview
     - constructs/bindings
