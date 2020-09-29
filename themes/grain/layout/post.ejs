@@ -9,7 +9,7 @@
         <img class="blog-author-photo" src="<%- author.headshot %>" />
         <div class="blog-author-info">
           <div class="blog-author-name"><%- author.name %></div>
-          <div class="blog-date"><%- page.date.format('MMMM D YYYY') %></div>
+          <div class="blog-date"><%- page.date.format('MMMM D, YYYY') %></div>
         </div>
         <div class="blog-author-socials">
           <% if (author.github) { %>
@@ -24,7 +24,7 @@
         <div class="blog-img-wrapper">
           <img class="blog-cover-photo" src="<%- page.cover %>" />
         </div>
-        <figcaption class="blog-cover-attribution">Photo: <%- page.coverAttribution %></figcaption>
+        <% if (page.coverAttribution) { %><figcaption class="blog-cover-attribution">Photo: <%- page.coverAttribution %></figcaption><% } %>
       </div>
       <div class="blog-content">
         <%- page.content %>
