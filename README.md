@@ -12,7 +12,8 @@ Documentation for the Grain programming language at [grain-lang.org](https://gra
 
 ## About
 
-This documentation site is a [Hexo](https://hexo.io/) site. All of the docs are generated from Markdown files, and Hexo builds a static website that is hosted on Netlify.
+This is an uniqe documentation site
+This documentation is a [Hexo](https://hexo.io/) site. All of the docs are generated from Markdown files, and Hexo builds a static website that is hosted on Netlify.
 
 ## Contributing
 
