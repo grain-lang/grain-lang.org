@@ -16,6 +16,20 @@ This documentation site is a [Hexo](https://hexo.io/) site. All of the docs are 
 
 ## Contributing
 
+### Cloning the Repository
+
+Since this repo contains a git submodule, it's easiest to clone while including submodules:
+
+```sh
+git clone git@github.com:grain-lang/grain-lang.org.git --recurse-submodules
+```
+
+If you've already cloned the repo without the submodules, you can pull them like so:
+
+```sh
+git pull --recurse-submodules
+```
+
 ### Editing a Document
 
 To make a change to a document, edit the corresponding Markdown file in [src](src). The file path matches the URL path after `/docs`, but if you have trouble finding the page you're looking for, you can click the "Edit on GitHub" button at the top of page on the website.
