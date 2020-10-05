@@ -235,3 +235,21 @@ dropWhile : (a -> Bool, List<a>) -> List<a>
 ```
 
 Removes items from the beginning of the list until the given function returns `false`.
+
+### List.**find**
+
+```grain
+find : (a -> Bool, List<a>) -> a
+```
+
+Returns the first item that the predicate returns `true` for.
+Fails if an item is not found.
+
+### List.**findIndex**
+
+```grain
+findIndex : (a -> Bool, List<a>) -> Number
+```
+
+Returns the index of the first item that the predicate returns `true` for.
+Fails if an item is not found.
