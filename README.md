@@ -48,7 +48,7 @@ title: Some Title of Some Topic
 
 ### Previewing the Site
 
-Once a PR is created, Netlify will create a preview site and comment on the PR with a link.
+Once a PR is created, Netlify will create a preview site and comment on the PR with a link. If you'd like to view your changes locally,
 
 For the docs, run:
 
