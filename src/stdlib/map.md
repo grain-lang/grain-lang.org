@@ -145,3 +145,19 @@ fromArray : Array<(k, v)> -> Map<k, v>
 ```
 
 Creates a map from an array of key-value pairs.
+
+### Map.**filter**
+
+```grain
+filter : ((k, v) -> Bool, Map<k, v>) -> Void
+```
+
+Keeps all key-value pairs that the predicate returned `true` for from the map.
+
+### Map.**reject**
+
+```grain
+reject : ((k, v) -> Bool, Map<k, v>) -> Void
+```
+
+Removes all key-value pairs that the predicate returned `true` for from the map.
