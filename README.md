@@ -34,7 +34,12 @@ title: Some Title of Some Topic
 
 ### Previewing the Site
 
-Once a PR is created, Netlify will create a preview site and comment on the PR with a link. If you'd like to view your changes locally,
+Once a PR is created, Netlify will create a preview site and comment on the PR with a link.\
+If you'd like to view your changes locally, first clone the `vscode-grain` repo as a subfolder:
+```sh
+git clone git@github.com:grain-lang/vscode-grain.git
+```
+Then:
 
 For the docs, run:
 
