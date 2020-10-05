@@ -152,7 +152,7 @@ Creates a map from an array of key-value pairs.
 filter : ((k, v) -> Bool, Map<k, v>) -> Void
 ```
 
-Keeps all key-value pairs that the predicate returned `true` for.
+Keeps all key-value pairs that the predicate returned `true` for from the map.
 
 ### Map.**reject**
 
