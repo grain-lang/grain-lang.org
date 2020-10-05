@@ -160,4 +160,4 @@ Keeps all key-value pairs that the predicate returned `true` for.
 reject : ((k, v) -> Bool, Map<k, v>) -> Void
 ```
 
-Removes all key-value pairs that the predicate returned `true` for.
+Removes all key-value pairs that the predicate returned `true` for from the map.
