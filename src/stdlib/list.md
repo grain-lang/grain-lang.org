@@ -236,6 +236,22 @@ dropWhile : (a -> Bool, List<a>) -> List<a>
 
 Removes items from the beginning of the list until the given function returns `false`.
 
+### List.**take**
+
+```grain
+take : (Number, List<a>) -> List<a>
+```
+
+Returns the first `n` items from the list.
+
+### List.**takeWhile**
+
+```grain
+takeWhile : (a -> Bool, List<a>) -> List<a>
+```
+
+Returns a list containing the first elements satisfying the given predicate. Stops when the function returns `false`.
+
 ### List.**find**
 
 ```grain
@@ -253,3 +269,12 @@ findIndex : (a -> Bool, List<a>) -> Number
 
 Returns the index of the first item that the predicate returns `true` for.
 Fails if an item is not found.
+
+### List.**sub**
+
+```grain
+sub: (Number, Number, List<a>) -> List<a>
+```
+
+Returns a sub-list of a given list staring from index `start` (inclusive) and with lenght `length`.
+_Note that length of the resulting list can be less then `length` parameter in case of source list not having enought elements._
