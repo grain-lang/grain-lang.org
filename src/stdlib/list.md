@@ -276,5 +276,4 @@ Fails if an item is not found.
 sub: (Number, Number, List<a>) -> List<a>
 ```
 
-Returns a sub-list of a given list staring from index `start` (inclusive) and with lenght `length`.
-_Note that length of the resulting list can be less then `length` parameter in case of source list not having enought elements._
+Returns a sub-list of the given list starting from index `start` (inclusive) and up to `length` elements.
