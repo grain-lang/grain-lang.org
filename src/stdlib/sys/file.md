@@ -34,13 +34,13 @@ These flags determine how paths should be resolved when looking up a file or dir
 
 ```grain
 data OpenFlag =
-  # Create file if it does not exist.
+  // Create file if it does not exist.
   | Create
-  # Fail if not a directory.
+  // Fail if not a directory.
   | Directory
-  # Fail if file already exists.
+  // Fail if file already exists.
   | Exclusive
-  # Truncate file to size 0.
+  // Truncate file to size 0.
   | Truncate
 ```
 
