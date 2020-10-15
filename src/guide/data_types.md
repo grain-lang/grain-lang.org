@@ -122,7 +122,7 @@ Records are sort of like tuples, though each field has a name.
 data Person = { name: String, age: Number }
 
 let user = { name: 'Klaus Teuber', age: 42 }
-print(user.name) # prints 'Klaus Teuber'
+print(user.name) // prints 'Klaus Teuber'
 ```
 
 Record fields are accessed using the dot operator, i.e. `record.field`.
@@ -174,9 +174,9 @@ let subtractOne = (c) => {
 addOne(counter)
 addOne(counter)
 
-print(counter) # { count: 2 }
+print(counter) // { count: 2 }
 
 subtractOne(counter)
 
-print(counter) # { count: 1 }
+print(counter) // { count: 1 }
 ```

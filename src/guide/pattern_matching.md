@@ -206,7 +206,7 @@ let rec add2 = (list) => {
   }
 }
 
-add2([1, 2, 3]) # [3, 4, 5]
+add2([1, 2, 3]) // [3, 4, 5]
 ```
 
 Let's break this down.

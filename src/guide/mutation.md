@@ -11,11 +11,11 @@ Take a look at the following example:
 ```grain
 let mut b = "foo"
 
-print(b) # "foo"
+print(b) // "foo"
 
 b = "bar"
 
-print(b) # "bar"
+print(b) // "bar"
 ```
 
 A couple things to note from this example:
@@ -37,7 +37,7 @@ count -= 6
 count *= 5
 count /= 25
 
-print(count) # 2
+print(count) // 2
 ```
 
 These operators also return the assigned result, so you can use the new value immediately.
@@ -45,5 +45,5 @@ These operators also return the assigned result, so you can use the new value im
 ```grain
 let mut count = 7
 
-print(count += 9) # 16
+print(count += 9) // 16
 ```

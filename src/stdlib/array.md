@@ -27,7 +27,7 @@ make : (Number, a) -> Array<a>
 `make(n, value)` creates a new array of length `n` filled with `value`.
 
 ```grain
-Array.make(5, 'foo') # [> 'foo', 'foo', 'foo', 'foo', 'foo']
+Array.make(5, 'foo') // [> 'foo', 'foo', 'foo', 'foo', 'foo']
 ```
 
 ### Array.**init**
@@ -39,7 +39,7 @@ init : (Number, Number -> a) -> Array<a>
 Similar to `make`, but each array value is initialized with the result of subsequent calls to the given initializer function. The initializer is called with the index of each array slot.
 
 ```grain
-Array.init(5, n => n + 3) # [> 8, 9, 10, 11, 12]
+Array.init(5, n => n + 3) // [> 8, 9, 10, 11, 12]
 ```
 
 ### Array.**get**

@@ -90,12 +90,12 @@ We can import values from files we've written by providing the path to that file
 With these two files in the same directory, `math.gr` and `main.gr`, we'd have the workings of a full program.
 
 ```grain
-# math.gr
+// math.gr
 export let add = (a, b) => a + b
 ```
 
 ```grain
-# main.gr
+// main.gr
 import Math from './math'
 Math.add(5, 6)
 ```

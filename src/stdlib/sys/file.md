@@ -24,7 +24,7 @@ A FileDescriptor represents a handle to an open file on the system.
 
 ```grain
 data LookupFlag =
-  # Follow symlinks
+  // Follow symlinks
   | SymlinkFollow
 ```
 
@@ -34,13 +34,13 @@ These flags determine how paths should be resolved when looking up a file or dir
 
 ```grain
 data OpenFlag =
-  # Create file if it does not exist.
+  // Create file if it does not exist.
   | Create
-  # Fail if not a directory.
+  // Fail if not a directory.
   | Directory
-  # Fail if file already exists.
+  // Fail if file already exists.
   | Exclusive
-  # Truncate file to size 0.
+  // Truncate file to size 0.
   | Truncate
 ```
 
@@ -50,83 +50,83 @@ These flags determine how a file or directory should be opened.
 
 ```grain
 data Rights =
-  # The right to invoke `fdDatasync`.
-  # If `PathOpen` is set, includes the right to invoke
-  # `pathOpen` with `FdFlag::Dsync`.
+  // The right to invoke `fdDatasync`.
+  // If `PathOpen` is set, includes the right to invoke
+  // `pathOpen` with `FdFlag::Dsync`.
   | FdDatasync
-  # The right to invoke `fdRead`.
-  # If `Rights::FdSeek` is set, includes the right to invoke `fdPread`.
+  // The right to invoke `fdRead`.
+  // If `Rights::FdSeek` is set, includes the right to invoke `fdPread`.
   | FdRead
-  # The right to invoke `fdSeek`. This flag implies `Rights::FdTell`.
+  // The right to invoke `fdSeek`. This flag implies `Rights::FdTell`.
   | FdSeek
-  # The right to invoke `fdSetFlags`.
+  // The right to invoke `fdSetFlags`.
   | FdSetFlags
-  # The right to invoke `fdSync`.
-  # If `PathOpen` is set, includes the right to invoke
-  # `pathOpen` with `FdFlag::Rsync` and `FdFlag::Dsync`.
+  // The right to invoke `fdSync`.
+  // If `PathOpen` is set, includes the right to invoke
+  // `pathOpen` with `FdFlag::Rsync` and `FdFlag::Dsync`.
   | FdSync
-  # The right to invoke `fdSeek` in such a way that the file offset
-  # remains unaltered (i.e., `Whence::Current` with offset zero), or to
-  # invoke `fdTell`.
+  // The right to invoke `fdSeek` in such a way that the file offset
+  // remains unaltered (i.e., `Whence::Current` with offset zero), or to
+  // invoke `fdTell`.
   | FdTell
-  # The right to invoke `fdWrite`.
-  # If `Rights::FdSeek` is set, includes the right to invoke `fdPwrite`.
+  // The right to invoke `fdWrite`.
+  // If `Rights::FdSeek` is set, includes the right to invoke `fdPwrite`.
   | FdWrite
-  # The right to invoke `fdAdvise`.
+  // The right to invoke `fdAdvise`.
   | FdAdvise
-  # The right to invoke `fdAllocate`.
+  // The right to invoke `fdAllocate`.
   | FdAllocate
-  # The right to invoke `pathCreateDirectory`.
+  // The right to invoke `pathCreateDirectory`.
   | PathCreateDirectory
-  # If `PathOpen` is set, the right to invoke `pathOpen`
-  # with `OpenFlag::Create`.
+  // If `PathOpen` is set, the right to invoke `pathOpen`
+  // with `OpenFlag::Create`.
   | PathCreateFile
-  # The right to invoke `pathLink` with the file descriptor as the
-  # source directory.
+  // The right to invoke `pathLink` with the file descriptor as the
+  // source directory.
   | PathLinkSource
-  # The right to invoke `pathLink` with the file descriptor as the
-  # target directory.
+  // The right to invoke `pathLink` with the file descriptor as the
+  // target directory.
   | PathLinkTarget
-  # The right to invoke `pathOpen`.
+  // The right to invoke `pathOpen`.
   | PathOpen
-  # The right to invoke `fdReaddir`.
+  // The right to invoke `fdReaddir`.
   | FdReaddir
-  # The right to invoke `pathReadlink`.
+  // The right to invoke `pathReadlink`.
   | PathReadlink
-  # The right to invoke `pathRename` with the file descriptor as the
-  # source directory.
+  // The right to invoke `pathRename` with the file descriptor as the
+  // source directory.
   | PathRenameSource
-  # The right to invoke `pathRename` with the file descriptor as the
-  # target directory.
+  // The right to invoke `pathRename` with the file descriptor as the
+  // target directory.
   | PathRenameTarget
-  # The right to invoke `pathFilestats`.
+  // The right to invoke `pathFilestats`.
   | PathFilestats
-  # The right to change a file's size (there's no `pathSetSize`).
-  # If `PathOpen` is set, includes the right to invoke `pathOpen` with
-  # `OpenFlag::Truncate`.
+  // The right to change a file's size (there's no `pathSetSize`).
+  // If `PathOpen` is set, includes the right to invoke `pathOpen` with
+  // `OpenFlag::Truncate`.
   | PathSetSize
-  # The right to invoke `pathSetAccessTime`, `pathSetAccessTimeNow`,
-  # `pathSetModifiedTime`, or `pathSetModifiedTimeNow`.
+  // The right to invoke `pathSetAccessTime`, `pathSetAccessTimeNow`,
+  // `pathSetModifiedTime`, or `pathSetModifiedTimeNow`.
   | PathSetTimes
-  # The right to invoke `fdFilestats`.
+  // The right to invoke `fdFilestats`.
   | FdFilestats
-  # The right to invoke `fdSetSize`.
+  // The right to invoke `fdSetSize`.
   | FdSetSize
-  # The right to invoke `fdSetAccessTime`, `fdSetAccessTimeNow`,
-  # `fdSetModifiedTime`, or `fdSetModifiedTimeNow`.
+  // The right to invoke `fdSetAccessTime`, `fdSetAccessTimeNow`,
+  // `fdSetModifiedTime`, or `fdSetModifiedTimeNow`.
   | FdSetTimes
-  # The right to invoke `pathSymlink`.
+  // The right to invoke `pathSymlink`.
   | PathSymlink
-  # The right to invoke `pathRemoveDirectory`.
+  // The right to invoke `pathRemoveDirectory`.
   | PathRemoveDirectory
-  # The right to invoke `pathUnlinkFile`.
+  // The right to invoke `pathUnlinkFile`.
   | PathUnlinkFile
-  # If `Rights::FdRead` is set, includes the right to invoke
-  # `pollOneoff` (not yet implemented) to subscribe to `EventType::FdRead`.
-  # If `Rights::FdWrite` is set, includes the right to invoke
-  # `pollOneoff` (not yet implemented) to subscribe to `EventType::FdWrite`.
+  // If `Rights::FdRead` is set, includes the right to invoke
+  // `pollOneoff` (not yet implemented) to subscribe to `EventType::FdRead`.
+  // If `Rights::FdWrite` is set, includes the right to invoke
+  // `pollOneoff` (not yet implemented) to subscribe to `EventType::FdWrite`.
   | PollFdReadwrite
-  # The right to invoke `sockShutdown` (not yet implemented).
+  // The right to invoke `sockShutdown` (not yet implemented).
   | SockShutdown
 ```
 
@@ -136,18 +136,18 @@ These flags determine which rights a `FileDescriptor` should have and which righ
 
 ```grain
 data FdFlag =
-  # Append mode: Data written to the file is always appended to the file's end.
+  // Append mode: Data written to the file is always appended to the file's end.
   | Append
-  # Write according to synchronized I/O data integrity completion.
-  # Only the data stored in the file is synchronized.
+  // Write according to synchronized I/O data integrity completion.
+  // Only the data stored in the file is synchronized.
   | Dsync
-  # Non-blocking mode.
+  // Non-blocking mode.
   | Nonblock
-  # Synchronized read I/O operations.
+  // Synchronized read I/O operations.
   | Rsync
-  # Write according to synchronized I/O file integrity completion. In
-  # addition to synchronizing the data stored in the file, the implementation
-  # may also synchronously update the file's metadata.
+  // Write according to synchronized I/O file integrity completion. In
+  // addition to synchronizing the data stored in the file, the implementation
+  // may also synchronously update the file's metadata.
   | Sync
 ```
 
@@ -157,22 +157,22 @@ These flags determine the mode(s) that a file descriptor operates in.
 
 ```grain
 data Filetype =
-  # The type of the file descriptor or file is unknown or is different from any
-  # of the other types specified.
+  // The type of the file descriptor or file is unknown or is different from any
+  // of the other types specified.
   | Unknown
-  # The file descriptor or file refers to a block device inode.
+  // The file descriptor or file refers to a block device inode.
   | BlockDevice
-  # The file descriptor or file refers to a character device inode.
+  // The file descriptor or file refers to a character device inode.
   | CharacterDevice
-  # The file descriptor or file refers to a directory inode.
+  // The file descriptor or file refers to a directory inode.
   | Directory
-  # The file descriptor or file refers to a regular file inode.
+  // The file descriptor or file refers to a regular file inode.
   | RegularFile
-  # The file descriptor or file refers to a datagram socket.
+  // The file descriptor or file refers to a datagram socket.
   | SocketDatagram
-  # The file descriptor or file refers to a byte-stream socket.
+  // The file descriptor or file refers to a byte-stream socket.
   | SocketStream
-  # The file refers to a symbolic link inode.
+  // The file refers to a symbolic link inode.
   | SymbolicLink
 ```
 
@@ -182,11 +182,11 @@ The type of file a `FileDescriptor` refers to.
 
 ```grain
 data Whence =
-  # Seek relative to start-of-file.
+  // Seek relative to start-of-file.
   | Set
-  # Seek relative to current position.
+  // Seek relative to current position.
   | Current
-  # Seek relative to end-of-file.
+  // Seek relative to end-of-file.
   | End
 ```
 

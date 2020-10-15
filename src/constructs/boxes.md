@@ -37,11 +37,11 @@ Take a look at the following example:
 ```grain
 let b = box("foo")
 
-print(^b) # "foo"
+print(^b) // "foo"
 
 b := "bar"
 
-print(^b) # "bar"
+print(^b) // "bar"
 ```
 
 A couple things to note from this example:

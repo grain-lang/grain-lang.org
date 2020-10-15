@@ -32,7 +32,7 @@ let user = ("Klaus Teuber", 67, "yellow")
 Grain supports tuple destructuring to pull data out of tuples:
 
 ```grain
-# The same tuple from the previous example
+// The same tuple from the previous example
 let user = ("Klaus Teuber", 67, "yellow")
 
 let (name, age, color) = user
@@ -43,7 +43,7 @@ let ageNextYear = age + 1
 Since we only care about some of the values in this tuple, we can use underscores instead of names, and Grain will not create bindings for those fields.
 
 ```grain
-# The same tuple from the previous two examples
+// The same tuple from the previous two examples
 let user = ("Klaus Teuber", 67, "yellow")
 
 let (_, age, _) = user
@@ -83,9 +83,9 @@ These operators return a boolean result of `true` or `false`. In this example, e
 Use `==` to check equality. `==` checks for structural equality, so it also works for comparing things like tuples and lists.
 
 ```grain
-"foo" == "foo" # true
-(1, 2, 3) == (1, 2, 3) # true
-(4, 5) == (4, 5, 6) # false
+"foo" == "foo" // true
+(1, 2, 3) == (1, 2, 3) // true
+(4, 5) == (4, 5, 6) // false
 ```
 
 ### Boolean Operations
@@ -93,9 +93,9 @@ Use `==` to check equality. `==` checks for structural equality, so it also work
 The classic booleans operators `&&`, `||`, and `!` are available.
 
 ```grain
-true && false # false
-true || false # true
-!true # false
+true && false // false
+true || false // true
+!true // false
 ```
 
 ## The `if` Statement
