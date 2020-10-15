@@ -64,7 +64,7 @@ The accumulator starts with value `base`.
 ```grain
 let add = a + b
 let sum = (list) => List.reduce(add, 0, list)
-sum([1, 2, 3]) # 6
+sum([1, 2, 3]) // 6
 ```
 
 ### List.**reduceRight**
@@ -81,7 +81,7 @@ The accumulator starts with value `base`.
 ```grain
 let add = a + b
 let sum = (list) => List.reduceRight(add, 0, list)
-sum([1, 2, 3]) # 6
+sum([1, 2, 3]) // 6
 ```
 
 ### List.**map**

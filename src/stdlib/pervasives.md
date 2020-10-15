@@ -209,8 +209,8 @@ Operations on booleans.
 Computes the boolean "not" of the argument.
 
 ```grain
-!true # false
-!false # true
+!true // false
+!false // true
 ```
 
 ### Pervasives.**(&&)**
@@ -259,7 +259,7 @@ An alias for `unbox`.
 
 ```grain
 let counter = box(0)
-^counter # 0
+^counter // 0
 ```
 
 ### Pervasives.**(+=)**

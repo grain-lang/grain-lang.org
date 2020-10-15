@@ -41,21 +41,21 @@ Any valid Grain functions.
 Using `let` is pretty simple:
 
 ```grain
-# Assigning the value 5 to the name 'foo'
+// Assigning the value 5 to the name 'foo'
 let foo = 5
 
-# Assigning the value of name 'foo' to name 'bar'
+// Assigning the value of name 'foo' to name 'bar'
 let bar = foo
 
-# Assigning this function to the name 'add2'
+// Assigning this function to the name 'add2'
 let add2 = (a, b) => a + b
 
-# Assigning the result of this block to the name 'baz'
+// Assigning the result of this block to the name 'baz'
 let baz = {
   let a = 5;
   let b = 6;
   a * b
-} # baz is now the value 30
+} // baz is now the value 30
 ```
 
 
@@ -63,16 +63,16 @@ let baz = {
 
 ```grain
 let a = {
-  # This is allowed, since this 'a' only exists within the enclosing braces.
+  // This is allowed, since this 'a' only exists within the enclosing braces.
   let a = 3;
 
   let b = 4;
   a + b
 }
 
-a # This evaluates to 7.
+a // This evaluates to 7.
 
-b # This is a name error, since 'b' only existed in the earlier block.
+b // This is a name error, since 'b' only existed in the earlier block.
 ```
 
 ### Using `let mut`
@@ -82,11 +82,11 @@ b # This is a name error, since 'b' only existed in the earlier block.
 ```grain
 let mut b = "foo"
 
-print(b) # "foo"
+print(b) // "foo"
 
 b = "bar"
 
-print(b) # "bar"
+print(b) // "bar"
 
 let mut count = 7
 
@@ -95,7 +95,7 @@ count -= 6
 count *= 5
 count /= 25
 
-print(count) # 2
+print(count) // 2
 ```
 
 ### Using `let rec`
