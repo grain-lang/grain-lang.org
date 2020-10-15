@@ -60,11 +60,11 @@ You may find some of these useful throughout your Grain programs.
 The standard number operations include addition, subtraction, multiplication, division, and modulus (remainder). If you're looking for more number operations, you may find what you're looking for in the `Math` module.
 
 ```grain
-let sum = 2 + 2 # 4
-let difference = 42 - 17 # 25
-let product = 3 * 5 # 15
-let quotient = 36 / 3 # 12
-let remainder = 19 % 2 # 1
+let sum = 2 + 2 // 4
+let difference = 42 - 17 // 25
+let product = 3 * 5 // 15
+let quotient = 36 / 3 // 12
+let remainder = 19 % 2 // 1
 ```
 
 ### Number Comparisons

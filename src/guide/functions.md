@@ -45,8 +45,8 @@ let translateCoordinates = (x, y) => {
 }
 
 let (x, y) = translateCoordinates(1, 2)
-print(x) # 5
-print(y) # 6
+print(x) // 5
+print(y) // 6
 ```
 
 ## Recursive Functions
