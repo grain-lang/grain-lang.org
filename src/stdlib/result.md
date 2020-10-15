@@ -29,7 +29,7 @@ Checks if the Result is the `Err` variant.
 ### Result.**toOption**
 
 ```grain
-toOption : Result<t, e> -> Option(t)
+toOption : Result<t, e> -> Option<t>
 ```
 
 Converts the Result to an Option. The error is discarded and replaced with `None`.
