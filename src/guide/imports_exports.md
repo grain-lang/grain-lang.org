@@ -53,7 +53,7 @@ let five = 5
 Exports work the same way for data types. If we had a record type that we wanted to include in another module, we'd just export it as we'd export anything else.
 
 ```grain
-export data User = {
+export record User {
   name: String,
   id: Number
 }
@@ -62,7 +62,7 @@ export data User = {
 If we export a variant type, each variant constructor gets exported and is available to other modules. For example, in this code:
 
 ```grain
-export data Vehicle = Car | Minivan | Bus
+export enum Vehicle { Car, Minivan, Bus }
 ```
 
 constructors `Car`, `Minivan`, and `Bus` will all be imported with the `Vehicle` type.
