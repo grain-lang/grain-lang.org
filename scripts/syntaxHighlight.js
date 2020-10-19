@@ -18,7 +18,7 @@ async function initialize() {
     }),
     loadGrammar: async (scopeName) => {
       if (scopeName === 'source.grain') {
-        let path = './vscode-grain/syntaxes/grain.json'
+        let path = './grain-language-server/editor-extensions/vscode/syntaxes/grain.json'
         let grammar = fs.readFileSync(path)
         return vsctm.parseRawGrammar(grammar.toString(), path)
       }
