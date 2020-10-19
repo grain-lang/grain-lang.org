@@ -21,20 +21,7 @@ match (topping) {
 }
 ```
 
-This example prints out a fun message depending on which pizza topping is bound to `topping`. Each case is separated by a pipe (`|`). If you prefer to have even visual spacing for your match cases, you can include a pipe before the first case:
-
-```grain
-enum PizzaTopping { Cheese, Pepperoni, Peppers, Pineapple }
-
-let topping = Peppers
-
-match (topping) {
-  Cheese => print('Would it really be pizza without it?'),
-  Pepperoni => print('An instant classic.'),
-  Peppers => print('For those who like to spice things up.'),
-  Pineapple => print('You do you.')
-}
-```
+This example prints out a fun message depending on which pizza topping is bound to `topping`. Each case is separated by a comma.
 
 You can also surround the body of your `match` case with curly braces to include more statements.
 
