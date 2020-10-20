@@ -4,9 +4,9 @@ title: Data Types
 
 Lists, numbers, and strings are all cool, but sometimes we need to represent more complex data structures. That's where data types come in—they allow us to define our own types that are better suited to solve specific problems.
 
-## Variant Types
+## Enum Types
 
-You can think of variant types as enums with superpowers.
+Enums allow you to represent data that has multiple variations. Combined with pattern matching, they will make you feel like you've got superpowers. They're the backbone of programming in Grain, and you'll come to find that they make it ridiculously easy to understand what a program does.
 
 Let's imagine for a moment that we're vegetable farmers and we want to represent the vegetables we offer. We could represent them like this:
 
@@ -24,7 +24,7 @@ enum Veggie {
 }
 ```
 
-This declaration does two things—it creates a new type called `Veggie` and it creates data constructors for each vegetable. Type names and variant names always begin with a capital letter.
+This declaration does two things—it creates a new type called `Veggie` and it creates data constructors for each vegetable, each of which is called a _variant_. Type names and variant names always begin with a capital letter.
 
 ### Data Constructors
 
