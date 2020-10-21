@@ -9,47 +9,34 @@ Pattern matching is a powerful tool to work with data structures. It's like a sw
 Let's start by looking at a simple variant type.
 
 ```grain
-data PizzaTopping = Cheese | Pepperoni | Peppers | Pineapple
+enum PizzaTopping { Cheese, Pepperoni, Peppers, Pineapple }
 
 let topping = Peppers
 
 match (topping) {
-  Cheese => print('Would it really be pizza without it?')
-  | Pepperoni => print('An instant classic.')
-  | Peppers => print('For those who like to spice things up.')
-  | Pineapple => print('You do you.')
+  Cheese => print('Would it really be pizza without it?'),
+  Pepperoni => print('An instant classic.'),
+  Peppers => print('For those who like to spice things up.'),
+  Pineapple => print('You do you.')
 }
 ```
 
-This example prints out a fun message depending on which pizza topping is bound to `topping`. Each case is separated by a pipe (`|`). If you prefer to have even visual spacing for your match cases, you can include a pipe before the first case:
-
-```grain
-data PizzaTopping = Cheese | Pepperoni | Peppers | Pineapple
-
-let topping = Peppers
-
-match (topping) {
-  | Cheese => print('Would it really be pizza without it?')
-  | Pepperoni => print('An instant classic.')
-  | Peppers => print('For those who like to spice things up.')
-  | Pineapple => print('You do you.')
-}
-```
+This example prints out a fun message depending on which pizza topping is bound to `topping`. Each case is separated by a comma.
 
 You can also surround the body of your `match` case with curly braces to include more statements.
 
 ```grain
-data PizzaTopping = Cheese | Pepperoni | Peppers | Pineapple
+enum PizzaTopping { Cheese, Pepperoni, Peppers, Pineapple }
 
 let getPrice = (topping) => {
   match (topping) {
-    | Cheese => 4
-    | Pepperoni => 6
-    | Peppers => {
+    Cheese => 4,
+    Pepperoni => 6,
+    Peppers => {
       print('Peppers are on sale this week!')
       3
-    }
-    | Pineapple => 9
+    },
+    Pineapple => 9
   }
 }
 
@@ -61,13 +48,13 @@ getPrice(Peppers)
 If we only care about some of the cases, we can use an underscore pattern to match all other possible cases.
 
 ```grain
-data PizzaTopping = Cheese | Pepperoni | Peppers | Pineapple
+enum PizzaTopping { Cheese, Pepperoni, Peppers, Pineapple }
 
 let topping = Peppers
 
 match (topping) {
-  | Cheese => print('Would it really be pizza without it?')
-  | _ => print("That's cool, but the cheese makes the pizza.")
+  Cheese => print('Would it really be pizza without it?'),
+  _ => print("That's cool, but the cheese makes the pizza.")
 }
 ```
 
@@ -78,30 +65,30 @@ If we were to omit the last underscore "catch-all" case, the Grain compiler woul
 We can nest match patterns as deeply as we'd like. If we sold both one-topping pizzas and calzones, we may want to single out a particular pizza/topping combo:
 
 ```grain
-data Topping = Cheese | Pepperoni | Peppers | Pineapple
-data Menu = Pizza(Topping) | Calzone(Topping)
+enum Topping { Cheese, Pepperoni, Peppers, Pineapple }
+enum Menu { Pizza(Topping), Calzone(Topping) }
 
 let item = Calzone(Peppers)
 
 match (item) {
-  | Calzone(Peppers) => print('These are half off this week.')
-  | Pizza(Cheese) => print('We never discount this item.')
-  | _ => print('No current specials.')
+  Calzone(Peppers) => print('These are half off this week.'),
+  Pizza(Cheese) => print('We never discount this item.'),
+  _ => print('No current specials.')
 }
 ```
 
 We can also use an underscore anywhere within a pattern to match remaining cases.
 
 ```grain
-data Topping = Cheese | Pepperoni | Peppers | Pineapple
-data Menu = Pizza(Topping) | Calzone(Topping)
+enum Topping { Cheese, Pepperoni, Peppers, Pineapple }
+enum Menu { Pizza(Topping), Calzone(Topping) }
 
 let item = Calzone(Peppers)
 
 match (item) {
-  | Calzone(Peppers) => print('These are half off this week.')
-  | Calzone(_) => print('Enjoy 10% off, on us.')
-  | _ => print('No current specials.')
+  Calzone(Peppers) => print('These are half off this week.'),
+  Calzone(_) => print('Enjoy 10% off, on us.'),
+  _ => print('No current specials.')
 }
 ```
 
@@ -110,20 +97,20 @@ match (item) {
 We can bind portions of a `match` pattern to a name and use that bound value in the body the corresponding case.
 
 ```grain
-data Topping = Cheese | Pepperoni | Peppers | Pineapple
-data Menu = Pizza(Topping) | Calzone(Topping)
+enum Topping { Cheese, Pepperoni, Peppers, Pineapple }
+enum Menu { Pizza(Topping), Calzone(Topping) }
 
 let item = Calzone(Peppers)
 
 match (item) {
-  | Calzone(topping) => {
+  Calzone(topping) => {
     if (checkSpecials(topping)) {
       print('These are half off this week.')
     } else {
       print('No current specials.')
     }
-  }
-  | _ => print('No current specials.')
+  },
+  _ => print('No current specials.')
 }
 ```
 
@@ -132,24 +119,24 @@ match (item) {
 Like most Grain data structures, pattern matching can also be done on records.
 
 ```grain
-data Person = { name: String, age: Number }
+record Person { name: String, age: Number }
 
 let person = { name: 'Steve', age: 25 }
 
 match (person) {
-  | { name, age } => print(name)
+  { name, age } => print(name)
 }
 ```
 
 If we don't care about some of the record fields, we can use an underscore to tell the Grain compiler that we've intentionally left those fields out.
 
 ```grain
-data Person = { name: String, age: Number }
+record Person { name: String, age: Number }
 
 let person = { name: 'Steve', age: 25 }
 
 match (person) {
-  | { name, _ } => print(name)
+  { name, _ } => print(name)
 }
 ```
 
@@ -158,17 +145,17 @@ match (person) {
 Things are a bit more interesting when we have data structures nested within records.
 
 ```grain
-data Topping = Cheese | Pepperoni | Peppers | Pineapple
-data Order = Pizza(Topping) | Calzone(Topping)
+enum Topping { Cheese, Pepperoni, Peppers, Pineapple }
+enum Order { Pizza(Topping), Calzone(Topping) }
 
-data Person = { name: String, order: Order }
+record Person { name: String, order: Order }
 
 let person = { name: 'Steve', order: Calzone(Pepperoni) }
 
 match (person) {
-  | { order: Pizza(_), _ } => print('All pizzas are great here.')
-  | { order: Calzone(Peppers), _ } => print('Someone with great taste!')
-  | { order: _, _ } => print("Yep, that's an order.")
+  { order: Pizza(_), _ } => print('All pizzas are great here.'),
+  { order: Calzone(Peppers), _ } => print('Someone with great taste!'),
+  { order: _, _ } => print("Yep, that's an order.")
 }
 ```
 
@@ -177,18 +164,18 @@ match (person) {
 Pattern matching can also be performed on tuples.
 
 ```grain
-data Topping = Cheese | Pepperoni | Peppers | Pineapple
-data Order = Pizza(Topping) | Calzone(Topping)
-data OrderType = DineIn | Takeaway
+enum Topping { Cheese, Pepperoni, Peppers, Pineapple }
+enum Order { Pizza(Topping), Calzone(Topping) }
+enum OrderType { DineIn, Takeaway }
 
 let order = (Calzone(Pineapple), DineIn)
 
 match (order) {
-  | (Calzone(Pineapple), DineIn) => {
+  (Calzone(Pineapple), DineIn) => {
     print("We can't let the other customers see this.")
-  }
-  | (_, Takeaway) => print('Box it up to go.')
-  | (_, DineIn) => print('Clean off table 5.')
+  },
+  (_, Takeaway) => print('Box it up to go.'),
+  (_, DineIn) => print('Clean off table 5.')
 }
 ```
 
@@ -201,8 +188,8 @@ In this example, we define an `add2` function to increment each value in a list 
 ```grain
 let rec add2 = (list) => {
   match (list) {
-    | [first, ...rest] => [first + 2, ...add2(rest)]
-    | [] => []
+    [first, ...rest] => [first + 2, ...add2(rest)],
+    [] => []
   }
 }
 
@@ -219,8 +206,8 @@ We can also match on multiple elements at the beginning of a list:
 let list = [1, 2, 3]
 
 match (list) {
-  | [first, second, ..._] => first + second
-  | _ => fail 'List contained fewer than 2 elements'
+  [first, second, ..._] => first + second,
+  _ => fail 'List contained fewer than 2 elements'
 }
 ```
 
@@ -230,10 +217,10 @@ Finally, matches can also be performed on lists with specific lengths.
 let list = [1, 2, 3]
 
 match (list) {
-  | [] => print('List contains no elements')
-  | [_] => print('List contains one element')
-  | [_, _] => print('List contains two elements')
-  | [_, _, _] => print('List contains three elements')
-  | _ => print('List containes more than 3 elements')
+  [] => print('List contains no elements'),
+  [_] => print('List contains one element'),
+  [_, _] => print('List contains two elements'),
+  [_, _, _] => print('List contains three elements'),
+  _ => print('List containes more than 3 elements')
 }
 ```

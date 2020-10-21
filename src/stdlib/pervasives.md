@@ -15,7 +15,7 @@ Type declarations included in the Pervasives module.
 ### Pervasives.**Number**
 
 ```grain
-data Number
+type Number
 ```
 
 The type of Grain numbers, i.e. `42`, `0x2a`.
@@ -23,7 +23,7 @@ The type of Grain numbers, i.e. `42`, `0x2a`.
 ### Pervasives.**Bool**
 
 ```grain
-data Bool = true | false
+enum Bool { true, false }
 ```
 
 The type of Grain booleans, i.e. the type of `true` and `false`.
@@ -31,7 +31,7 @@ The type of Grain booleans, i.e. the type of `true` and `false`.
 ### Pervasives.**String**
 
 ```grain
-data String
+type String
 ```
 
 The type of Grain strings, i.e. `'The quick brown fox jumps over the lazy dog.'`.
@@ -39,7 +39,7 @@ The type of Grain strings, i.e. `'The quick brown fox jumps over the lazy dog.'`
 ### Pervasives.**Void**
 
 ```grain
-data Void = void
+enum Void { void }
 ```
 
 The type of `void`.
@@ -47,7 +47,7 @@ The type of `void`.
 ### Pervasives.**Box**
 
 ```grain
-data Box<a>
+type Box<a>
 ```
 
 The type of Grain boxes.
@@ -55,7 +55,7 @@ The type of Grain boxes.
 ### Pervasives.**List**
 
 ```grain
-data List<a> = [] | [...](a, List<a>)
+enum List<a> { [], [...](a, List<a>) }
 ```
 
 The type of Grain lists, i.e. `[1, 2, 3]`, `[]`.
@@ -63,7 +63,7 @@ The type of Grain lists, i.e. `[1, 2, 3]`, `[]`.
 ### Pervasives.**Array**
 
 ```grain
-data Array<a>
+type Array<a>
 ```
 
 The type of Grain arrays, i.e. `[> 1, 2, 3]`.
@@ -71,7 +71,7 @@ The type of Grain arrays, i.e. `[> 1, 2, 3]`.
 ### Pervasives.**Option**
 
 ```grain
-data Option<a> = Some(a) | None
+enum Option<a> { Some(a), None }
 ```
 
 Grain's type representing something that may or may not contain data. Think of this like a better, type-safe "null".
@@ -79,7 +79,7 @@ Grain's type representing something that may or may not contain data. Think of t
 ### Pervasives.**Result**
 
 ```grain
-data Result<t, e> = Ok(t) | Err(e)
+enum Result<t, e> { Ok(t), Err(e) }
 ```
 
 Grain's type representing the result of something that might error.
