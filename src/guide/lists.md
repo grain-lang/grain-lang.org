@@ -49,4 +49,4 @@ length([4, 5, 6])
 map((n) => n + 3, [1, 2, 3]) // [4, 5, 6]
 ```
 
-To learn more about what's available in the List standard library, check out the [lists standard library documentation](https://grain-lang.org/docs/guide/lists).
+To learn more about what's available in the List standard library, check out the [lists standard library documentation](https://grain-lang.org/docs/stdlib/list).
