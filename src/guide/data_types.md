@@ -160,7 +160,7 @@ We haven't discussed exports yet, but we'll go much deeper into them in another 
 We've previously created mutable `let` bindings with the `mut` keyword. In a similar fashion, we can also create mutable record fields.
 
 ```grain
-export record Counter = {
+export record Counter {
   mut count: Number
 }
 
