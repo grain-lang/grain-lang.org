@@ -135,7 +135,7 @@ Evaluates the given function for each item in the list. The given function is ca
 ### List.**filter**
 
 ```grain
-filter: (a -> Bool, List<a>) -> List<a>
+filter : (a -> Bool, List<a>) -> List<a>
 ```
 
 `List.filter(fn, list)` produces a new list by calling `fn` on each element of the list. If the `fn` returns `false`, the value will not be included the new list.
@@ -143,7 +143,7 @@ filter: (a -> Bool, List<a>) -> List<a>
 ### List.**reject**
 
 ```grain
-reject: (a -> Bool, List<a>) -> List<a>
+reject : (a -> Bool, List<a>) -> List<a>
 ```
 
 `List.reject(fn, list)` produces a new list by calling `fn` on each element of the list. If the `fn` returns `true`, the value will not be included in the new list.
@@ -273,7 +273,7 @@ Fails if an item is not found.
 ### List.**sub**
 
 ```grain
-sub: (Number, Number, List<a>) -> List<a>
+sub : (Number, Number, List<a>) -> List<a>
 ```
 
 Returns a sub-list of the given list starting from index `start` (inclusive) and up to `length` elements.
