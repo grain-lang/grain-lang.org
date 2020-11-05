@@ -17,11 +17,12 @@ To get everything set up, run:
 
 ```bash
 yarn
-yarn setup
 yarn compiler build
 ```
 
-Running `yarn setup` will set up the Grain runtime, standard library, and CLI, and `yarn compiler build` will compile the compiler (it's pretty meta—we know).
+Running `yarn` will fetch our dependencies and then set up the Grain runtime, standard library, and CLI. To rebuild any of those without checking dependencies, you can run `yarn prepare` separately.
+
+Running `yarn compiler build` will compile the compiler (it's pretty meta—we know).
 
 After running these commands, you'll have a new command available on your command line—`grain`. The `grain` command is a CLI tool that both compiles and runs Grain programs.
 
