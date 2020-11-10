@@ -4,6 +4,8 @@ title: Getting Grain
 
 ## Building Grain
 
+Grain currently only works on Mac and Linux. We are hard at work trying to integrate Binaryen and OCaml on Windows, but this is uncharted territory! Please let us know if you have this low-level expertise.
+
 To build the compiler, you'll need [Node.js](https://nodejs.org/en/download/current/) v14 and [Yarn](https://yarnpkg.com/getting-started/install).
 
 Start by cloning the Grain repository:
