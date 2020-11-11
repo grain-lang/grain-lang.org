@@ -29,10 +29,10 @@ Creates a new, empty map with an initial storage size for the given number of el
 ### Map.**get**
 
 ```grain
-get : (k, Map<k, v>) -> v
+get : (k, Map<k, v>) -> Option<v>
 ```
 
-Retrieves the value associated with the given key from the map. Fails if the key does not exist.
+Retrieves the value associated with the given key from the map. Returns an optional result, with `Some(value)` if it exists and `None` if not.
 
 ### Map.**set**
 
@@ -41,6 +41,14 @@ set : (k, v, Map<k, v>) -> Void
 ```
 
 Adds a new key-value pair to the map. If the key already exists, replaces the value.
+
+### Map.**update**
+
+```grain
+update : (k, (Option<v> -> Option<v>), Map<k, v>) -> Void
+```
+
+Calls the updater function with the optional value at the key, with `Some(value)` if it exists or `None` if not. The updater function must return `Some(newValue)` if a new value should be set or `None` if the value should be removed from the map.
 
 ### Map.**contains**
 
