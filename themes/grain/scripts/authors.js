@@ -5,5 +5,12 @@ module.exports = {
     headshot: '/blog/photos/headshot/oscar-headshot-square.jpg',
     twitter: 'oscar_spen',
     github: 'ospencer',
+  },
+  'Blaine Bublitz': {
+    name: 'Blaine Bublitz',
+    title: 'Grain core team & tooling enthuiast',
+    headshot: '/blog/photos/headshot/blaine-headshot-square.jpg',
+    twitter: 'blainebublitz',
+    github: 'phated',
   }
 }
