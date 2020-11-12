@@ -16,29 +16,29 @@ We had some amazing developers jump in and contribute to Grain in October! And w
 
 _Warning:_ Heavy use of exclamation points incoming.
 
-[@bmakuh](https://github.com/bmakuh) submitted a bunch of Pull Requests for some long-standing improvements that needed to be made, including renaming our output filenames from `.wasm` to `.gr.wasm` and adding support for trailing commas in pretty much every data structure!
+[@bmakuh](https://github.com/bmakuh) submitted a bunch of pull requests for some long-standing improvements that needed to be made, including renaming our output filenames from `.wasm` to `.gr.wasm` and adding support for trailing commas in pretty much every data structure!
 
 [@ohana54](https://github.com/ohana54) added many much-needed standard library methods, like `flatMap`/`find`/`findIndex` for Lists and `filter`/`reject` for Maps, while also cleaning up our standard library tests!
 
-[@fa7ad](https://github.com/fa7ad) cleaned up a massive if-else chain with a constant pattern match (now that we support them) and wrote our `isnt` method to check if two values aren't physically equal!
+[@fa7ad](https://github.com/fa7ad) cleaned up a massive if-else chain with a constant pattern match (now that we support them) and wrote our `isnt` operator to check if two values aren't physically equal!
 
 [@lvaniscak](https://github.com/lvaniscak) implemented `find` and `findIndex` methods in our Array standard library to match the List API!
 
 [@clovis1122](https://github.com/clovis1122) wrote `Array.fill` and `Array.fillRange` methods for the standard library!
 
-[@MScheibel](https://github.com/MScheibel) sent a Pull Request for the `Array.count` method in the standard library... and it was their first Pull Request __ever__!!
+[@MScheibel](https://github.com/MScheibel) sent a pull request for the `Array.count` method in the standard library... and it was their first Pull Request __ever__!!
 
-[@miguelcarvalho13](https://github.com/miguelcarvalho13) showed up and wrote an entire Queue implementation for our standard library. So cool!!
+[@miguelcarvalho13](https://github.com/miguelcarvalho13) showed up and wrote an entire Queue implementation for our standard library. We're lining up to use it!
 
-[@Dony477](https://github.com/Dony477) added `product` methods for both Lists and Arrays to generate cartesian products of tuples! Again, this was their first Pull Request. Color me impressed!
+[@Dony477](https://github.com/Dony477) added `product` methods for both Lists and Arrays to generate cartesian products of tuples! Again, this was their first pull request. Color me impressed!
 
-[@tmphey](https://github.com/tmphey) contributed `List.take`, `List.takeWhile`, and `List.sub` methods to the standard library, in service of future work on sorting methods. And even contributed the website documentation for these!
+[@tmphey](https://github.com/tmphey) contributed `List.take`, `List.takeWhile`, and `List.sub` methods to the standard library, in service of future work on sorting methods. They even contributed the website documentation for these!
 
-[@ng-marcus](https://github.com/ng-marcus) exploded onto the scene and added __language server protocol__ support to the Grain CLI. And then went on to implement it in our VSCode extension! So we now have inline errors and code lenses in VSCode, which is absolutely mind-blowing! We are also excited to have Marcus as a direct contributor on the [grain-language-server](https://github.com/grain-lang/grain-language-server) project.
+[@ng-marcus](https://github.com/ng-marcus) exploded onto the scene and added __language server protocol__ support to the Grain CLI and then went on to implement it in our VSCode extension! We now have inline errors and code lenses in VSCode, which is absolutely mind-blowing! We are also excited to have Marcus as a direct contributor on the [grain-language-server](https://github.com/grain-lang/grain-language-server) project.
 
 ## So Many Thanks
 
-The amount of energy around the Grain project in October was astounding. Even though I was unavailable most of the month, I was watching the Pull Requests roll in while Oscar reviewed and guided everyone to get contributions merged.
+The amount of energy around the Grain project in October was astounding. Even though I was unavailable most of the month, I was watching the pull requests roll in while Oscar reviewed and guided everyone to get contributions merged.
 
 When I finally had a chance to catch up, it took me a full day to review everything submitted throughout the month and my `git pull` actually pulled down more than 100 commits. That is mind-blowing for such an early stage project!
 
