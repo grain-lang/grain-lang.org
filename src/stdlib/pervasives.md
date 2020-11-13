@@ -249,17 +249,9 @@ unbox : Box<a> -> a
 
 Retrieves the current value from the box.
 
-### Pervasives.**(^)**
-
-```grain
-(^) : Box<a> -> a
-```
-
-An alias for `unbox`.
-
 ```grain
 let counter = box(0)
-^counter // 0
+unbox(counter) // 0
 ```
 
 ### Pervasives.**(+=)**
