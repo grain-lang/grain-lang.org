@@ -11,7 +11,6 @@ Boxes can be used for adding a mutable property to an immutable data structure, 
 ```grain
 let name1 = box(value1)
 unbox(name1)
-^name1
 name1 := newValue
 ```
 
@@ -27,7 +26,6 @@ Any valid Grain expression.
 
 * `box` allows you to create a reference to a value.
 * `unbox` allows you to access the value inside a box.
-* `^` is an alias for `unbox`.
 * `:=` allows you to assign a reference to a new value inside the box.
 
 ## Using Boxes
@@ -37,17 +35,17 @@ Take a look at the following example:
 ```grain
 let b = box("foo")
 
-print(^b) // "foo"
+print(unbox(b)) // "foo"
 
 b := "bar"
 
-print(^b) // "bar"
+print(unbox(b)) // "bar"
 ```
 
 A couple things to note from this example:
 
 1. We use the built-in `box` function to create a box.
-1. We use a caret (`^`) to retrieve a value from a box. We call this "unboxing."
+1. We use `unbox` to retrieve a value from a box. This is commonly called "unboxing."
 1. We use `:=` to update the value in a box.
 
 ## Immutability of Boxes
