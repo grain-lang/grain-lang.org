@@ -153,7 +153,7 @@ find : (a -> Bool, Array<a>) -> a
 ### Array.**findIndex**
 
 ```grain
-find : (a -> Bool, Array<a>) -> Number 
+findIndex : (a -> Bool, Array<a>) -> Number 
 ```
 
 `Array.findIndex(fn, array)` calls `fn` on each element of the array and returns the index of the first element for which `fn` returns `true`.
