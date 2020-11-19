@@ -145,10 +145,10 @@ Checks if the item is an element of the input array. Uses the generic `==` struc
 ### Array.**find**
 
 ```grain
-find : (a -> Bool, Array<a>) -> Number 
+find : (a -> Bool, Array<a>) -> a
 ```
 
-`Array.find(fn, array)` calls `fn` on each element of the array and returns the first element which matches the condition.
+`Array.find(fn, array)` calls `fn` on each element of the array and returns the first element for which `fn` returns `true`.
 
 ### Array.**findIndex**
 
@@ -156,4 +156,4 @@ find : (a -> Bool, Array<a>) -> Number
 find : (a -> Bool, Array<a>) -> Number 
 ```
 
-`Array.findIndex(fn, array)` calls `fn` on each element of the array and returns the index of the first element which matches the condition.
+`Array.findIndex(fn, array)` calls `fn` on each element of the array and returns the index of the first element for which `fn` returns `true`.
