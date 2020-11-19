@@ -141,3 +141,19 @@ contains : (a, Array<a>) -> Bool
 ```
 
 Checks if the item is an element of the input array. Uses the generic `==` structural equality operator.
+
+### Array.**find**
+
+```grain
+find : (a -> Bool, Array<a>) -> a
+```
+
+`Array.find(fn, array)` calls `fn` on each element of the array and returns the first element for which `fn` returns `true`.
+
+### Array.**findIndex**
+
+```grain
+findIndex : (a -> Bool, Array<a>) -> Number 
+```
+
+`Array.findIndex(fn, array)` calls `fn` on each element of the array and returns the index of the first element for which `fn` returns `true`.
