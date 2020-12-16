@@ -11,7 +11,7 @@ Lists always contain elements of the same type, and attempting to mix element ty
 ```grain
 let empty = []
 let numbers = [1, 2, 3]
-let strings = ['foo', 'bar', 'baz']
+let strings = ["foo", "bar", "baz"]
 ```
 
 Lists in Grain are linked lists, so if we'd like to add a new item to a list, we add it to the front:
@@ -32,7 +32,7 @@ Lists wouldn't be all that interesting if we couldn't do anything with them, rig
 We can import and use the List library like so:
 
 ```grain
-import List from 'list'
+import List from "list"
 
 List.length([4, 5, 6])
 
@@ -42,7 +42,7 @@ List.map((n) => n + 3, [1, 2, 3]) // [4, 5, 6]
 The first line imports the whole list module, and we can access all values contained in the module. If desired, we could instead import only the values we intend to use:
 
 ```grain
-import { length, map } from 'list'
+import { length, map } from "list"
 
 length([4, 5, 6])
 

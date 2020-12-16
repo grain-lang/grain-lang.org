@@ -5,7 +5,7 @@ title: Result
 Utilities for working with the Result data type.
 
 ```grain
-import Result from 'result'
+import Result from "result"
 ```
 
 ## Values

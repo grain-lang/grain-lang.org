@@ -5,7 +5,7 @@ title: Option
 Utilities for working with the Option data type.
 
 ```grain
-import Option from 'option'
+import Option from "option"
 ```
 
 ## Values

@@ -5,7 +5,7 @@ title: Pervasives
 This module is automatically imported into every Grain program. You can think of it as the global environment. Although it is automatically imported, it can still be imported manually.
 
 ```grain
-import Pervasives from 'pervasives'
+import Pervasives from "pervasives"
 ```
 
 ## Types
@@ -34,7 +34,7 @@ The type of Grain booleans, i.e. the type of `true` and `false`.
 type String
 ```
 
-The type of Grain strings, i.e. `'The quick brown fox jumps over the lazy dog.'`.
+The type of Grain strings, i.e. `"The quick brown fox jumps over the lazy dog."`.
 
 ### Pervasives.**Void**
 
@@ -329,9 +329,9 @@ Unconditionally raise `Failure` with a message.
 
 ```grain
 if (true) {
-  print('success')
+  print("success")
 } else {
-  fail 'condition may not be false'
+  fail "condition may not be false"
 }
 ```
 

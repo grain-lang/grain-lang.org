@@ -5,7 +5,7 @@ title: Sys/Random
 This module provides system access to random values.
 
 ```grain
-import Random from 'sys/random'
+import Random from "sys/random"
 ```
 
 ## Values

@@ -5,7 +5,7 @@ title: Sys/Time
 This module provides access to system clocks.
 
 ```grain
-import Time from 'sys/time'
+import Time from "sys/time"
 ```
 
 ## Values

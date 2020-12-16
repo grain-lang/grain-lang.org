@@ -14,10 +14,10 @@ enum PizzaTopping { Cheese, Pepperoni, Peppers, Pineapple }
 let topping = Peppers
 
 match (topping) {
-  Cheese => print('Would it really be pizza without it?'),
-  Pepperoni => print('An instant classic.'),
-  Peppers => print('For those who like to spice things up.'),
-  Pineapple => print('You do you.')
+  Cheese => print("Would it really be pizza without it?"),
+  Pepperoni => print("An instant classic."),
+  Peppers => print("For those who like to spice things up."),
+  Pineapple => print("You do you.")
 }
 ```
 
@@ -33,7 +33,7 @@ let getPrice = (topping) => {
     Cheese => 4,
     Pepperoni => 6,
     Peppers => {
-      print('Peppers are on sale this week!')
+      print("Peppers are on sale this week!")
       3
     },
     Pineapple => 9
@@ -53,7 +53,7 @@ enum PizzaTopping { Cheese, Pepperoni, Peppers, Pineapple }
 let topping = Peppers
 
 match (topping) {
-  Cheese => print('Would it really be pizza without it?'),
+  Cheese => print("Would it really be pizza without it?"),
   _ => print("That's cool, but the cheese makes the pizza.")
 }
 ```
@@ -71,9 +71,9 @@ enum Menu { Pizza(Topping), Calzone(Topping) }
 let item = Calzone(Peppers)
 
 match (item) {
-  Calzone(Peppers) => print('These are half off this week.'),
-  Pizza(Cheese) => print('We never discount this item.'),
-  _ => print('No current specials.')
+  Calzone(Peppers) => print("These are half off this week."),
+  Pizza(Cheese) => print("We never discount this item."),
+  _ => print("No current specials.")
 }
 ```
 
@@ -86,9 +86,9 @@ enum Menu { Pizza(Topping), Calzone(Topping) }
 let item = Calzone(Peppers)
 
 match (item) {
-  Calzone(Peppers) => print('These are half off this week.'),
-  Calzone(_) => print('Enjoy 10% off, on us.'),
-  _ => print('No current specials.')
+  Calzone(Peppers) => print("These are half off this week."),
+  Calzone(_) => print("Enjoy 10% off, on us."),
+  _ => print("No current specials.")
 }
 ```
 
@@ -105,12 +105,12 @@ let item = Calzone(Peppers)
 match (item) {
   Calzone(topping) => {
     if (checkSpecials(topping)) {
-      print('These are half off this week.')
+      print("These are half off this week.")
     } else {
-      print('No current specials.')
+      print("No current specials.")
     }
   },
-  _ => print('No current specials.')
+  _ => print("No current specials.")
 }
 ```
 
@@ -121,7 +121,7 @@ Like most Grain data structures, pattern matching can also be done on records.
 ```grain
 record Person { name: String, age: Number }
 
-let person = { name: 'Steve', age: 25 }
+let person = { name: "Steve", age: 25 }
 
 match (person) {
   { name, age } => print(name)
@@ -133,7 +133,7 @@ If we don't care about some of the record fields, we can use an underscore to te
 ```grain
 record Person { name: String, age: Number }
 
-let person = { name: 'Steve', age: 25 }
+let person = { name: "Steve", age: 25 }
 
 match (person) {
   { name, _ } => print(name)
@@ -150,11 +150,11 @@ enum Order { Pizza(Topping), Calzone(Topping) }
 
 record Person { name: String, order: Order }
 
-let person = { name: 'Steve', order: Calzone(Pepperoni) }
+let person = { name: "Steve", order: Calzone(Pepperoni) }
 
 match (person) {
-  { order: Pizza(_), _ } => print('All pizzas are great here.'),
-  { order: Calzone(Peppers), _ } => print('Someone with great taste!'),
+  { order: Pizza(_), _ } => print("All pizzas are great here."),
+  { order: Calzone(Peppers), _ } => print("Someone with great taste!"),
   { order: _, _ } => print("Yep, that's an order.")
 }
 ```
@@ -174,8 +174,8 @@ match (order) {
   (Calzone(Pineapple), DineIn) => {
     print("We can't let the other customers see this.")
   },
-  (_, Takeaway) => print('Box it up to go.'),
-  (_, DineIn) => print('Clean off table 5.')
+  (_, Takeaway) => print("Box it up to go."),
+  (_, DineIn) => print("Clean off table 5.")
 }
 ```
 
@@ -207,7 +207,7 @@ let list = [1, 2, 3]
 
 match (list) {
   [first, second, ..._] => first + second,
-  _ => fail 'List contained fewer than 2 elements'
+  _ => fail "List contained fewer than 2 elements"
 }
 ```
 
@@ -217,10 +217,10 @@ Finally, matches can also be performed on lists with specific lengths.
 let list = [1, 2, 3]
 
 match (list) {
-  [] => print('List contains no elements'),
-  [_] => print('List contains one element'),
-  [_, _] => print('List contains two elements'),
-  [_, _, _] => print('List contains three elements'),
-  _ => print('List containes more than 3 elements')
+  [] => print("List contains no elements"),
+  [_] => print("List contains one element"),
+  [_, _] => print("List contains two elements"),
+  [_, _, _] => print("List contains three elements"),
+  _ => print("List containes more than 3 elements")
 }
 ```

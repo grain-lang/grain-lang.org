@@ -17,7 +17,7 @@ The code for this program is fairly straightforward and should feel familiar fro
 
 ```grain
 // hello.gr
-print('Hello, world!')
+print("Hello, world!")
 ```
 
 ### Running the Program

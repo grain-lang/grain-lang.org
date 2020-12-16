@@ -5,7 +5,7 @@ title: Map
 A Map holds key-value pairs. Any value may be used as a key or value. Operations on a `Map` mutate the internal state, so it never needs to be re-assigned.
 
 ```grain
-import Map from 'map'
+import Map from "map"
 ```
 
 ## Values
