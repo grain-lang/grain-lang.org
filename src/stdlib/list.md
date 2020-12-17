@@ -10,6 +10,18 @@ import List from "list"
 
 ## Values
 
+### List.**init**
+
+```grain
+init : (Number, Number -> a) -> List<a>
+```
+
+`List.init(n, fn)` creates a new list of length `n` where each value is initialized with the result of the initializer `fn`. The initializer is called with the index of each list element.
+
+```grain
+List.init(5, n => n + 3) // [8, 9, 10, 11, 12]
+```
+
 ### List.**length**
 
 ```grain
@@ -99,6 +111,14 @@ mapi : ((a, Number) -> b, List<a>) -> List<b>
 ```
 
 `List.mapi(fn, list)` produces a new list by calling `fn` on each element of the input list, along with the index of the element.
+
+### List.**flatMap**
+
+```grain
+flatMap : ((a) -> List<b>, List<a>) -> List<b>
+```
+
+`List.flatMap(fn, list)` produces a new list by calling `fn` on each element of the input list. Each iteration produces an intermediate list, which are all appended to produce a "flattened" list of all values.
 
 ### List.**every**
 
@@ -226,7 +246,7 @@ Produces a new list with any duplicates removed. Uses the generic `==` structura
 drop : (Number, List<a>) -> List<a>
 ```
 
-Removes the first `n` items from the list.
+Removes the first `n` items from the list. Fails if `n` is a negative number.
 
 ### List.**dropWhile**
 
@@ -242,7 +262,7 @@ Removes items from the beginning of the list until the given function returns `f
 take : (Number, List<a>) -> List<a>
 ```
 
-Returns the first `n` items from the list.
+Returns the first `n` items from the list. Fails if `n` is a negative number.
 
 ### List.**takeWhile**
 
@@ -268,10 +288,18 @@ findIndex : (a -> Bool, List<a>) -> Option<Number>
 
 `List.findIndex(fn, list)` calls `fn` on each element of the list and returns `Some(index)` containing the index of the first element for which `fn` returns `true` or `None` if no element was found.
 
+### List.**product**
+
+```grain
+product : (List<a>, List<b>) -> List<(a, b)>
+```
+
+Combines two lists into a Cartesian product of tuples containing all ordered pairs `(a, b)`.
+
 ### List.**sub**
 
 ```grain
 sub : (Number, Number, List<a>) -> List<a>
 ```
 
-Returns a sub-list of the given list starting from index `start` (inclusive) and up to `length` elements.
+Returns a sub-list of the given list starting from index `start` (inclusive) and up to `length` elements. Fails if `start` or `length` are negative numbers.
