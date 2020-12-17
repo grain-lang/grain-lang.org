@@ -151,26 +151,26 @@ reject : (a -> Bool, List<a>) -> List<a>
 ### List.**head**
 
 ```grain
-head : List<a> -> a
+head : List<a> -> Option<a>
 ```
 
-Attempts to get the first element from the list. Fails if the list is empty.
+Returns `Some(element)` containing the first element from the list or `None` if the list is empty.
 
 ### List.**tail**
 
 ```grain
-tail : List<a> -> List<a>
+tail : List<a> -> Option<List<a>>
 ```
 
-Attempts to get all elements in a list except the first element. Fails if the list is empty.
+Returns `Some(elements)` containing the all elements in a list except the first elementt, `Some([])` if the list only contains one element, or `None` if the list is empty.
 
 ### List.**nth**
 
 ```grain
-nth : (Number, List<a>) -> List<a>
+nth : (Number, List<a>) -> Option<a>
 ```
 
-Attempts to get the element in the list at the index provided. Fails if the index is out-of-bounds or if the list is empty.
+Returns `Some(element)` containing the element in the list at the index provided or `None` if the index is out-of-bounds or if the list is empty.
 
 ### List.**flatten**
 
@@ -255,20 +255,18 @@ Returns a list containing the first elements satisfying the given predicate. Sto
 ### List.**find**
 
 ```grain
-find : (a -> Bool, List<a>) -> a
+find : (a -> Bool, List<a>) -> Option<a>
 ```
 
-Returns the first item that the predicate returns `true` for.
-Fails if an item is not found.
+`List.find(fn, list)` calls `fn` on each element of the list and returns `Some(element)` containing the first element for which `fn` returns `true` or `None` if no element was found.
 
 ### List.**findIndex**
 
 ```grain
-findIndex : (a -> Bool, List<a>) -> Number
+findIndex : (a -> Bool, List<a>) -> Option<Number>
 ```
 
-Returns the index of the first item that the predicate returns `true` for.
-Fails if an item is not found.
+`List.findIndex(fn, list)` calls `fn` on each element of the list and returns `Some(index)` containing the index of the first element for which `fn` returns `true` or `None` if no element was found.
 
 ### List.**sub**
 
