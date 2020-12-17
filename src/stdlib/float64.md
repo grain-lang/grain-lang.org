@@ -5,7 +5,7 @@ title: Float64
 Operations on the Float64 type.
 
 ```grain
-import Float64 from 'float64'
+import Float64 from "float64"
 ```
 
 ## Values

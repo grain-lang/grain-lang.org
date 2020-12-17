@@ -5,7 +5,7 @@ title: Float32
 Operations on the Float32 type.
 
 ```grain
-import Float32 from 'float32'
+import Float32 from "float32"
 ```
 
 ## Values

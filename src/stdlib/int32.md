@@ -5,7 +5,7 @@ title: Int32
 Operations on the Int32 type.
 
 ```grain
-import Int32 from 'int32'
+import Int32 from "int32"
 ```
 
 ## Values

@@ -5,7 +5,7 @@ title: String
 Utilities for working with strings.
 
 ```grain
-import String from 'string'
+import String from "string"
 ```
 
 ## Values

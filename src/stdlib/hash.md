@@ -5,7 +5,7 @@ title: Hash
 Utilities for hashing.
 
 ```grain
-import Hash from 'hash'
+import Hash from "hash"
 ```
 
 ## Values

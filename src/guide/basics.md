@@ -11,7 +11,7 @@ Grain uses the `let` keyword to introduce new values with a given name, which we
 ```grain
 let someNumber = 42
 let someBoolean = true
-let someString = 'Welcome to Grain!'
+let someString = "Welcome to Grain!"
 ```
 
 We can reference bindings we've created in Grain to form compound expressions:

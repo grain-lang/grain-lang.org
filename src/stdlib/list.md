@@ -5,7 +5,7 @@ title: List
 Utilities for working with lists.
 
 ```grain
-import List from 'list'
+import List from "list"
 ```
 
 ## Values

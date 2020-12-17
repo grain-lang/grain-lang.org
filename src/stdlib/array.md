@@ -5,7 +5,7 @@ title: Array
 Utilities for working with arrays.
 
 ```grain
-import Array from 'array'
+import Array from "array"
 ```
 
 ## Values
@@ -27,7 +27,7 @@ make : (Number, a) -> Array<a>
 `make(n, value)` creates a new array of length `n` filled with `value`.
 
 ```grain
-Array.make(5, 'foo') // [> 'foo', 'foo', 'foo', 'foo', 'foo']
+Array.make(5, "foo") // [> "foo", "foo", "foo", "foo", "foo"]
 ```
 
 ### Array.**init**

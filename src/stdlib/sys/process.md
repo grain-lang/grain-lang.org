@@ -5,7 +5,7 @@ title: Sys/Process
 This module provides utilities to access functionality and information about the Grain program's process. This includes things like accessing environment variables and sending signals.
 
 ```grain
-import Process from 'sys/process'
+import Process from "sys/process"
 ```
 
 ## Types

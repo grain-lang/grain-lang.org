@@ -124,8 +124,8 @@ Records are sort of like tuples, though each field has a name.
 ```grain
 record Person { name: String, age: Number }
 
-let user = { name: 'Klaus Teuber', age: 42 }
-print(user.name) // prints 'Klaus Teuber'
+let user = { name: "Klaus Teuber", age: 42 }
+print(user.name) // prints "Klaus Teuber"
 ```
 
 Record fields are accessed using the dot operator, i.e. `record.field`.
@@ -137,7 +137,7 @@ If we create a binding with the same name as our record's fields, we can use a s
 ```grain
 record Person { name: String, age: Number }
 
-let name = 'Klaus Teuber'
+let name = "Klaus Teuber"
 let age = 42
 
 { name, age }
@@ -150,7 +150,7 @@ If your record type is exported from your module, records of that type are print
 ```grain
 export record Person { name: String, age: Number }
 
-print({ name: 'Klaus Teuber', age: 42 })
+print({ name: "Klaus Teuber", age: 42 })
 ```
 
 We haven't discussed exports yet, but we'll go much deeper into them in another section.

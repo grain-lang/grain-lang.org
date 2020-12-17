@@ -5,7 +5,7 @@ title: Int64
 Operations on the Int64 type.
 
 ```grain
-import Int64 from 'int64'
+import Int64 from "int64"
 ```
 
 ## Values
