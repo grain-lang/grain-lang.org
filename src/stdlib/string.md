@@ -34,6 +34,35 @@ byteLength : String -> Number
 
 Returns the byte length of the input string.
 
+### String.**indexOf**
+
+```grain
+indexOf : (String, String) -> Option<Number>
+```
+
+Finds the start index of a substring.
+
+Parameters:
+
+- *sub:* The substring to find
+- *input:* The string to check
+
+### String.**explode**
+
+```grain
+explode : String -> Array<Char>
+```
+
+Split a string into its Unicode characters.
+
+### String.**implode**
+
+```grain
+implode : Array<Char> -> String
+```
+
+Create a string from an array of characters.
+
 ### String.**slice**
 
 ```grain
