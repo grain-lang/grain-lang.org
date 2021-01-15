@@ -22,7 +22,7 @@ We want to put academic language features to work for the everyday developer. As
 
 Grain aims to be what I would describe as a _relaxed_ functional language. This means that we'll still have a strong typechecker and still support most functional language constructs, but we'll also adopt features like [Rust's](https://www.rust-lang.org) `let mut` that steer a little off the beaten path for functional languages. These deviances are what we feel to be pragmatic and make the language more practical for everyday use.
 
-Of course, no open source project would be anything without a strong community. Continuing to build a vibrant community will be a big part of what makes Grain successful. Our [Discord server](https://discord.gg/grain) has a great group of people and is growing to become something truly great. We hope to create a collaborative space where everyone feels welcome to ask, learn, and contribute.
+Of course, no open source project would be anything without a strong community. Continuing to build a vibrant community will be a big part of what makes Grain successful. Our [Discord server](https://discord.gg/grain-lang) has a great group of people and is growing to become something truly great. We hope to create a collaborative space where everyone feels welcome to ask, learn, and contribute.
 
 ## Core Language Development
 
@@ -76,4 +76,4 @@ Adjacent to the language, we're working on new tooling—code formatters and a l
 
 Lastly, we're working to improve our Windows support. Once that's all set, we'll start distributing binaries for all platforms. This will make it easier than ever to get up and running with Grain.
 
-If any of this interests you, [follow us on Twitter](https://twitter.com/grain_lang) and [join the conversation on Discord](https://discord.gg/grain)! If you want periodic updates from us in email form, you can sign up for our email list below.
+If any of this interests you, [follow us on Twitter](https://twitter.com/grain_lang) and [join the conversation on Discord](https://discord.gg/grain-lang)! If you want periodic updates from us in email form, you can sign up for our email list below.

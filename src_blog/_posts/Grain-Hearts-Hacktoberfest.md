@@ -42,7 +42,7 @@ The amount of energy around the Grain project in October was astounding. Even th
 
 When I finally had a chance to catch up, it took me a full day to review everything submitted throughout the month and my `git pull` actually pulled down more than 100 commits. That is mind-blowing for such an early stage project!
 
-I can't thank everyone enough for this, and I really hope y'all continue to contribute. Or if you haven't contributed yet, feel free to join our [Discord](https://discord.gg/grain) and we can guide you to landing some code of your own.
+I can't thank everyone enough for this, and I really hope y'all continue to contribute. Or if you haven't contributed yet, feel free to join our [Discord](https://discord.gg/grain-lang) and we can guide you to landing some code of your own.
 
 ## Version 0.2.0 - Amaranth
 
