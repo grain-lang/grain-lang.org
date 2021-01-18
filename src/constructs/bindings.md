@@ -122,8 +122,8 @@ let rec isEven = (n) => {
   } else {
     n == 0
   }
-}
-and isOdd = (n) => {
+},
+isOdd = (n) => {
   if (n > 1) {
     isEven(n-1)
   } else {
