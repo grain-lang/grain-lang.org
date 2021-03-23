@@ -437,6 +437,7 @@ Update the flags associated with a file descriptor.
 Parameters:
 
 - *fd:* The file descriptor to update flags
+- *flags:* The flags to apply to the file descriptor
 
 ### File.**fdSetRights**
 
@@ -448,6 +449,7 @@ Update the rights associated with a file descriptor.
 
 Parameters:
 
+- *fd:* The file descriptor to update rights
 - *rights:* Rights to apply to the file descriptor
 - *rightsInheriting:* Inheriting rights to apply to the file descriptor
 
