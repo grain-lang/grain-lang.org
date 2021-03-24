@@ -278,12 +278,12 @@ The `FileDescriptor` for the current working directory of the process.
 
 ```grain
 pathOpen : (
-  FileDescriptor, 
-  List<LookupFlag>, 
-  String, 
-  List<OpenFlag>, 
-  List<Rights>, 
-  List<Rights>, 
+  FileDescriptor,
+  List<LookupFlag>,
+  String,
+  List<OpenFlag>,
+  List<Rights>,
+  List<Rights>,
   List<FdFlag>
 ) -> FileDescriptor
 ```
@@ -292,8 +292,8 @@ Open a file or directory.
 
 Parameters:
 
-- *workingDirectory:* The directory in which path resolution starts
-- *lookupFlags:* Flags which affect path resolution
+- *dirFd:* The directory in which path resolution starts
+- *dirFlags:* Flags which affect path resolution
 - *path:* The path to the file or directory
 - *openFlags:* Flags that decide how the path will be opened
 - *rights:* The rights that dictate what may be done with the returned file descriptor
@@ -313,7 +313,7 @@ Read from a file descriptor.
 Parameters:
 
 - *fd:* FileDescriptor The file descriptor to read from
-- *nBytes:* Number The maximum number of bytes to read from the file descriptor
+- *size:* Number The maximum number of bytes to read from the file descriptor
 
 Returns the bytes read and the number of bytes read.
 
@@ -327,7 +327,7 @@ Read from a file descriptor without updating the file descriptor's offset.
 
 - *fd:* The file descriptor to read from
 - *offset:* The position within the file to begin reading
-- *nBytes:* The maximum number of bytes to read from the file descriptor
+- *size:* The maximum number of bytes to read from the file descriptor
 
 Returns the bytes read and the number of bytes read.
 
@@ -342,7 +342,7 @@ Write to a file descriptor.
 Parameters:
 
 - *fd:* The file descriptor to which data will be written
-- *buf:* The data to be written
+- *data:* The data to be written
 
 Returns the number The number of bytes written.
 
@@ -357,7 +357,7 @@ Write to a file descriptor without updating the file descriptor's offset.
 Parameters:
 
 - *fd:* The file descriptor to which data will be written
-- *buf:* The data to be written
+- *data:* The data to be written
 - *offset:* The position within the file to begin writing
 
 Returns the number The number of bytes written.
@@ -374,7 +374,7 @@ Parameters:
 
 - *fd:* The file descriptor in which space will be allocated
 - *offset:* The position within the file to begin writing
-- *nBytes:* The number of bytes to allocate
+- *size:* The number of bytes to allocate
 
 ### File.**fdClose**
 
@@ -554,8 +554,8 @@ Atomically replace a file descriptor by renumbering another file descriptor.
 
 Parameters:
 
-- *from:* The file descriptor to renumber
-- *to:* The file descriptor to overwrite
+- *fromFd:* The file descriptor to renumber
+- *toFd:* The file descriptor to overwrite
 
 ### File.**fdSeek**
 
@@ -568,7 +568,7 @@ Update a file descriptor's offset.
 Parameters:
 
 - *fd:* The file descriptor to operate on
-- *delta:* The number of bytes to move the offset
+- *offset:* The number of bytes to move the offset
 - *whence:* The location from which the offset is relative
 
 Returns the new offset of the file descriptor, relative to the start of the file.
@@ -597,7 +597,7 @@ Create a directory.
 
 Parameters:
 
-- *workingDirectory:* The directory in which path resolution starts
+- *fd:* The file descriptor of the directory in which path resolution starts
 - *path:* The path to the new directory
 
 ### File.**pathFilestats**
@@ -610,8 +610,8 @@ Retrieve information about a file.
 
 Parameters:
 
-- *workingDirectory:* The directory in which path resolution starts
-- *flags:* Flags which affect path resolution
+- *fd:* The file descriptor of the directory in which path resolution starts
+- *dirFlags:* Flags which affect path resolution
 - *path:* The path to retrieve information about
 
 Returns a record containing information about the file.
@@ -626,8 +626,8 @@ Set the access (created) time of a file.
 
 Parameters:
 
-- *workingDirectory:* The directory in which path resolution starts
-- *flags:* Flags which affect path resolution
+- *fd:* The file descriptor of the directory in which path resolution starts
+- *dirFlags:* Flags which affect path resolution
 - *path:* The path to set the time
 - *timestamp:* The time to set
 
@@ -641,8 +641,8 @@ Set the access (created) time of a file to the current time.
 
 Parameters:
 
-- *workingDirectory:* The directory in which path resolution starts
-- *flags:* Flags which affect path resolution
+- *fd:* The file descriptor of the directory in which path resolution starts
+- *dirFlags:* Flags which affect path resolution
 - *path:* The path to set the time
 
 ### File.**pathSetModifiedTime**
@@ -655,8 +655,8 @@ Set the modified time of a file.
 
 Parameters:
 
-- *workingDirectory:* The directory in which path resolution starts
-- *flags:* Flags which affect path resolution
+- *fd:* The file descriptor of the directory in which path resolution starts
+- *dirFlags:* Flags which affect path resolution
 - *path:* The path to set the time
 - *timestamp:* The time to set
 
@@ -670,8 +670,8 @@ Set the modified time of a file to the current time.
 
 Parameters:
 
-- *workingDirectory:* The directory in which path resolution starts
-- *flags:* Flags which affect path resolution
+- *fd:* The file descriptor of the directory in which path resolution starts
+- *dirFlags:* Flags which affect path resolution
 - *path:* The path to set the time
 
 ### File.**pathLink**
@@ -684,10 +684,10 @@ Create a hard link.
 
 Parameters:
 
-- *sourceWorkingDirectory:* The directory in which the source path resolution starts
-- *flags:* Flags which affect path resolution
+- *sourceFd:* The file descriptor of the directory in which the source path resolution starts
+- *dirFlags:* Flags which affect path resolution
 - *sourcePath:* The path to the source of the link
-- *targetWorkingDirectory:* The directory in which the target path resolution starts
+- *targetFd:* The file descriptor of the directory in which the target path resolution starts
 - *targetPath:* The path to the target of the link
 
 ### File.**pathSymlink**
@@ -700,7 +700,7 @@ Create a symlink.
 
 Parameters:
 
-- *workingDirectory:* The directory in which path resolution starts
+- *fd:* The file descriptor of the directory in which path resolution starts
 - *sourcePath:* The path to the source of the link
 - *targetPath:* The path to the target of the link
 
@@ -714,7 +714,7 @@ Unlink a file.
 
 Parameters:
 
-- *workingDirectory:* The directory in which path resolution starts
+- *fd:* The file descriptor of the directory in which path resolution starts
 - *path:* The path of the file to unlink
 
 ### File.**pathReadlink**
@@ -727,9 +727,9 @@ Read the contents of a symbolic link.
 
 Parameters:
 
-- *workingDirectory:* The directory in which path resolution starts
+- *fd:* The file descriptor of the directory in which path resolution starts
 - *path:* The path to the symlink
-- *nBytes:* number of bytes to read
+- *size:* number of bytes to read
 
 Returns the bytes read and the number of bytes read.
 
@@ -743,7 +743,7 @@ Remove a directory.
 
 Parameters:
 
-- *workingDirectory:* The directory in which path resolution starts
+- *fd:* The file descriptor of the directory in which path resolution starts
 - *path:* The path to the directory to remove
 
 ### File.**pathRename**
@@ -756,7 +756,7 @@ Rename a file or directory.
 
 Parameters:
 
-- *sourceWorkingDirectory:* The directory in which the source path resolution starts
+- *sourceFd:* The file descriptor of the directory in which the source path resolution starts
 - *sourcePath:* The path of the file to rename
-- *targetWorkingDirectory:* The directory in which the target path resolution starts
+- *targetFd:* The file descriptor of the directory in which the target path resolution starts
 - *targetPath:* The new path of the file
