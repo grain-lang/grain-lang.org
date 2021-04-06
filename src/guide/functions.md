@@ -32,7 +32,7 @@ let doMath = (fn, x, y) => fn(x, y)
 let multiply = (x, y) => x * y
 let subtract = (x, y) => x - y
 
-doMath(multiply, 4, 6) # 24
+doMath(multiply, 4, 6) // 24
 ```
 
 ### Multiple Return Values
