@@ -2,7 +2,7 @@
 title: Lists and Libraries
 ---
 
-Arguably the most important data structure in Grain, lists allow us work with collections of data.
+Arguably the most important data structure in Grain, lists allow us work with ordered collections of data.
 
 ## Creating Lists
 

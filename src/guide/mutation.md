@@ -25,7 +25,7 @@ A couple things to note from this example:
 1. We can also assign values to it using `=` and the name will be associated with the new value.
 1. If we forget `mut` but try to assign to the binding, we'll get a type error.
 
-## Working with mutable Numbers
+## Working with Mutable Numbers
 
 When using mutable values that are `Numbers`, we can use some built-in operators to make working with them easier. Grain provides `+=`, `-=`, `*=`, `/=`, and `%=`, which perform the math operation on the value and re-assign the result.
 
