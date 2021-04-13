@@ -4,6 +4,8 @@ title: Result
 
 Utilities for working with the Result data type.
 
+The `Result` type is a special type of enum that exists to represent the possibility of a success case (with the `Ok` variant), or an error case (with the `Err` variant).
+
 ```grain
 import Result from "result"
 ```
