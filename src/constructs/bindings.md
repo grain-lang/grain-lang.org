@@ -9,7 +9,7 @@ In other words, they let you create variables that can be used throughout your p
 
 `let` and `let rec` both create **immutable** bindings, which means they cannot be reassigned to new values once declared.
 
-The `let mut` statement can be used to create **mutable** bindings, which means the those names can be reassigned to new values.
+The `let mut` statement can be used to create **mutable** bindings, which means that those names can be reassigned to new values.
 
 ## Syntax
 

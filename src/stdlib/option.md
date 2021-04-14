@@ -4,6 +4,8 @@ title: Option
 
 Utilities for working with the Option data type.
 
+The `Option` type is a special type of enum that exists to represent the possibility of something being present (with the `Some` variant), or not (with the `None` variant). There's no standalone `null` or `none` type in Grain; use an `Option` where you would normally reach for `null` or `none`. 
+
 ```grain
 import Option from "option"
 ```

@@ -12,7 +12,7 @@ Defining a named function is similar to naming any other value in Grain.
 let add = (x, y) => x + y
 ```
 
-A function can perform a series of actions. Functions in Grain always return the result of the final expression in the function body.
+A function can perform a series of actions. One thing to note about functions in Grain is that they always return the result of the final expression in the function body, without needing an explicit `return` statement.
 
 ```grain
 let logAndAdd = (x, y) => {
