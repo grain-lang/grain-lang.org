@@ -2,7 +2,7 @@
 title: Stack
 ---
 
-An immutable stack implementation.
+An immutable stack implementation. A stack is a LIFO (last-in-first-out) data structure where new values are added, retrieved, and removed from the end.
 
 ## Values
 
