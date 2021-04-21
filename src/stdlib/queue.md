@@ -2,7 +2,7 @@
 title: Queue
 ---
 
-An immutable queue implementation.
+An immutable queue implementation. A queue is a FIFO (first-in-first-out) data structure where new values are added to the end and retrieved or removed from the beginning.
 
 ```grain
 import Queue from "queue"
