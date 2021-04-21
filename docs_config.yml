@@ -68,7 +68,6 @@ docs_groups:
     - stdlib/float32
     - stdlib/float64
   Language Constructs:
-    - constructs/overview
     - constructs/bindings
     - constructs/numbers
     - constructs/booleans
