@@ -44,14 +44,26 @@ function makeGutter(numLines) {
 function hookRenderer(renderer) {
   const { grammar } = this.grain;
 
-  renderer.code = function (code) {
+  renderer.code = function (code, language) {
+    const isGrain = language === 'grain' || language === 'gr'
     let text = code.split('\n')
 
     let ruleStack = vsctm.INITIAL;
     let result = []
     for (let i = 0; i < text.length; i++) {
       const line = text[i];
-      const lineTokens = grammar.tokenizeLine(line, ruleStack);
+      let lineTokens
+      if (isGrain) {
+        lineTokens = grammar.tokenizeLine(line, ruleStack);
+      } else {
+        lineTokens = { 
+          tokens: [{
+            startIndex: 0,
+            endIndex: line?.length || 0,
+            scopes: []
+          }]
+        }
+      }
       const lineRes = []
       for (let j = 0; j < lineTokens.tokens.length; j++) {
         const token = lineTokens.tokens[j];
