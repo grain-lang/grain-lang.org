@@ -57,6 +57,7 @@ docs_groups:
     - stdlib/option
     - stdlib/result
     - stdlib/set
+    - stdlib/stack
     - stdlib/string
     - stdlib/sys/file
     - stdlib/sys/process
