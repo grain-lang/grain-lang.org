@@ -58,6 +58,7 @@ docs_groups:
     - stdlib/range
     - stdlib/result
     - stdlib/set
+    - stdlib/stack
     - stdlib/string
     - stdlib/queue
     - stdlib/sys/file
