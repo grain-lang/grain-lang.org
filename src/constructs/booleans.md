@@ -2,6 +2,14 @@
 title: Booleans
 ---
 
-## Working with Booleans
+The `Boolean` type is an enum of the values `true` and `false`. Unlike other enums, `true` and `false` use a special lowercase syntax.
 
-This documentation hasn't yet been migrated here (or written, to be honest). In the meanwhile, please check out the [Grain compiler README](https://github.com/grain-lang/grain/blob/master/README.md) for more information. Consider contributing by fleshing out this page yourself!
+```grain
+true
+```
+
+```grain
+false
+```
+
+Grain does not have a concept of "truthiness" as the only truthy value in Grain is `true`, and the only falsy value is `false`.
