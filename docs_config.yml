@@ -59,6 +59,7 @@ docs_groups:
     - stdlib/result
     - stdlib/set
     - stdlib/string
+    - stdlib/queue
     - stdlib/sys/file
     - stdlib/sys/process
     - stdlib/sys/random
