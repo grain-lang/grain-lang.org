@@ -25,7 +25,9 @@ _The `--no-quarantine` flag will avoid having to approve the binary in the Secur
 If you'd prefer not to use homebrew, you can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.3.0/grain-mac-x64) directly from GitHub or using `curl`.
 
 ```sh
-sudo curl https://github.com/grain-lang/grain/releases/download/grain-v0.3.0/grain-mac-x64 -L --output /usr/local/bin/grain && sudo chmod +x /usr/local/bin/grain
+sudo curl -L --output /usr/local/bin/grain \
+  https://github.com/grain-lang/grain/releases/download/grain-v0.3.0/grain-mac-x64 \
+  && sudo chmod +x /usr/local/bin/grain
 ```
 
 ### Linux x64 - Download
@@ -33,7 +35,9 @@ sudo curl https://github.com/grain-lang/grain/releases/download/grain-v0.3.0/gra
 You can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.3.0/grain-linux-x64) directly from GitHub or using `curl`.
 
 ```sh
-sudo curl https://github.com/grain-lang/grain/releases/download/grain-v0.3.0/grain-linux-x64 -L --output /usr/local/bin/grain && sudo chmod +x /usr/local/bin/grain
+sudo curl -L --output /usr/local/bin/grain \
+  https://github.com/grain-lang/grain/releases/download/grain-v0.3.0/grain-linux-x64 \
+  && sudo chmod +x /usr/local/bin/grain
 ```
 
 ### Windows x64 - Download
