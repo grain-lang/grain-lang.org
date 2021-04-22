@@ -6,7 +6,7 @@ We have a couple different ways to get Grain. Most developers will prefer the Pa
 
 ## Packaged Grain
 
-The Grain toolchain (including our CLI, compiler, runtime, and standard library) is shipped as a single binary. Binaries are available for MacOS x64, Linux x64, and Windows x64.
+The Grain toolchain (including our CLI, compiler, runtime, and standard library) is shipped as a single binary. Binaries are available for [MacOS x64](#MacOS-x64---Homebrew), [Linux x64](#Linux-x64---Download), and [Windows x64](#Windows-x64---Download).
 
 __Note:__ These binaries are a bit slow the first time you build a project (around 70 seconds) because they build and output the runtime & standard library into your project. If you need extra speed, you can build the native compiler from source! See [Building Grain from Source](#Building-Grain-from-Source) below.
 
