@@ -69,17 +69,18 @@ docs_groups:
     - stdlib/int64
     - stdlib/float32
     - stdlib/float64
-  Language Constructs:
-    - constructs/bindings
-    - constructs/numbers
-    - constructs/booleans
-    - constructs/strings
-    - constructs/tuples
-    - constructs/functions
-    - constructs/conditionals
-    - constructs/types
-    - constructs/pattern_matching
-    - constructs/boxes
+  # TODO: Re-enable when docs are more mature
+  # Language Constructs:
+  #   - constructs/bindings
+  #   - constructs/numbers
+  #   - constructs/booleans
+  #   - constructs/strings
+  #   - constructs/tuples
+  #   - constructs/functions
+  #   - constructs/conditionals
+  #   - constructs/types
+  #   - constructs/pattern_matching
+  #   - constructs/boxes
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
