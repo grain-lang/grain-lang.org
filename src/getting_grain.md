@@ -26,8 +26,8 @@ If you'd prefer not to use homebrew, you can [download it](https://github.com/gr
 
 ```sh
 sudo curl -L --output /usr/local/bin/grain \
-  https://github.com/grain-lang/grain/releases/download/grain-v0.3.0/grain-mac-x64 \
-  && sudo chmod +x /usr/local/bin/grain
+https://github.com/grain-lang/grain/releases/download/grain-v0.3.0/grain-mac-x64 \
+&& sudo chmod +x /usr/local/bin/grain
 ```
 
 ### Linux x64 - Download
@@ -36,8 +36,8 @@ You can [download it](https://github.com/grain-lang/grain/releases/download/grai
 
 ```sh
 sudo curl -L --output /usr/local/bin/grain \
-  https://github.com/grain-lang/grain/releases/download/grain-v0.3.0/grain-linux-x64 \
-  && sudo chmod +x /usr/local/bin/grain
+https://github.com/grain-lang/grain/releases/download/grain-v0.3.0/grain-linux-x64 \
+&& sudo chmod +x /usr/local/bin/grain
 ```
 
 ### Windows x64 - Download
