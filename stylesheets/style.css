@@ -74,6 +74,10 @@ html, body {
 .nav-social-links {
   font-size: 1.5rem;
 }
+.nav-links-mobile {
+  display: none;
+  text-align: center;
+}
 .nav-link {
   color: var(--white);
   text-decoration: none;
@@ -315,6 +319,9 @@ html, body {
   
   .nav-links {
     display: none;
+  }
+  .nav-links-mobile {
+    display: block;
   }
   .blurb:not(:last-of-type) {
     margin-right: 0;
