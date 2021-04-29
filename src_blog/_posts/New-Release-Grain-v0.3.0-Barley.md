@@ -3,8 +3,8 @@ title: New Release! Grain v0.3.0 - Barley
 subtitle: After 6 months in development, we’re excited to announce the release of Grain v0.3.0, Barley.
 date: 2021-04-29 16:00:00
 author: Blaine Bublitz
-cover: /blog/photos/cover/wesley-tingey-BCri44lkmhQ-unsplash.jpg
-coverAttribution: Wesley Tingey / Unsplash
+cover: /blog/photos/cover/lucie-hosova-tQsGVxwodtM-unsplash.jpg
+coverAttribution: Lucie Hošová / Unsplash
 tags: Release, Changelog
 ---
 
