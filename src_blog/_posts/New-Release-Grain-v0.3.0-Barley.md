@@ -39,11 +39,11 @@ All that being said, we believe users shouldn’t need to build the compiler fro
 
 Of course, no release is complete without improvements to the language. We have:
 * Added an explicit `for` loop syntax
-* Added support to `throw` Grain exceptions, with custom exception printers
 * Introduced pattern matching on arrays
 * Added a Char type and literal syntax
 * Changed assignment semantics to always typecheck to `Void` for better interop with loops and single-sided `if` expressions
 * Removed the `^` as the `unbox` operator and added Bitwise operators, which use `^` as bitwise XOR
+* Added support to `throw` Grain exceptions, with custom exception printers
 
 ## Standard Library
 
