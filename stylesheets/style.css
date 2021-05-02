@@ -234,6 +234,11 @@ html, body {
   margin-bottom: 2rem;
   font-size: 1.125rem;
 }
+.contribute-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .contribute-cta:not(:last-of-type) {
   margin-right: 1rem;
 }
