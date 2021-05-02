@@ -566,6 +566,15 @@ h1::before, h2::before, h3::before, h4::before, h5::before {
   visibility: hidden;
 }
 
+@media screen and (max-width: 1088px) {
+  .blog-sidebar {
+    display: none;
+  }
+  .blog-items {
+    margin: 4rem 1rem 0 1rem;
+  }
+}
+
 .blog-items {
   flex-grow: 1;
   margin-top: 4rem;
