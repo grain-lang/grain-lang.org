@@ -14,6 +14,7 @@ html {
 
 html, body {
   font-family: "Open Sans", sans-serif;
+  font-display: fallback;
   color: var(--black);
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
@@ -172,6 +173,7 @@ html, body {
 .blurb-icon {
   color: var(--gray2);
   font-size: 4rem;
+  min-height: 4rem;
 }
 .blurb-title {
   font-size: 1.5rem;
@@ -316,7 +318,7 @@ html, body {
   .hide-mobile {
     display: none;
   }
-  
+
   .nav-links {
     display: none;
   }
