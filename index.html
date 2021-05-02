@@ -33,9 +33,11 @@
   <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
   <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
   <meta name="viewport" content="width=device-width,minimum-scale=1.0,initial-scale=1,user-scalable=yes">
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/080d9b67ba.js" crossorigin="anonymous"></script>
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600,700&display=swap"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans"></noscript>
+  <script async src="https://kit.fontawesome.com/080d9b67ba.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="stylesheets/style.css" />
 </head>
 <body>
@@ -44,7 +46,7 @@
   </section>
   <section id="hero">
     <nav id="nav">
-      <a href="/"><img class="nav-logo" src="/images/grain_logo_white.svg"></a>
+      <a href="/"><img class="nav-logo" width="127" height="32" src="/images/grain_logo_white.svg"></a>
       <div class="nav-links">
         <a href="/docs" class="nav-link heading">Guide</a>
         <a href="/docs/intro" class="nav-link heading">Documentation</a>
@@ -63,7 +65,7 @@
       <a href="/blog" class="nav-link heading">Blog</a>
     </div>
     <div class="hero-content">
-      <img class="brand" src="/images/grain_shorthand_white.svg">
+      <img class="brand" width="192" height="206" src="/images/grain_shorthand_white.svg">
       <h1 class="hero-heading heading">A modern web staple.</h1>
       <h2 class="hero-heading2 heading">Grain is a new language that puts academic language features to work.</h2>
       <a href="/docs" class="button hero-cta">Let's Go</a>
@@ -116,7 +118,7 @@
     <a href="/docs" class="banner-cta button">Let's Go</a>
   </section>
   <footer class="footer">
-    <img src="/images/grain_shorthand_color.svg" alt="Grain shorthand" class="footer-logo">
+    <img width="64" height="68" src="/images/grain_shorthand_color.svg" alt="Grain shorthand" class="footer-logo">
     <div class="footer-links">
       <p class="footer-link-header">For Developers</p>
       <ul>
