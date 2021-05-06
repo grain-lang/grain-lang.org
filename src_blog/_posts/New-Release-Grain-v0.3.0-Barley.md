@@ -8,7 +8,7 @@ coverAttribution: Lucie Hošová / Unsplash
 tags: Release, Changelog
 ---
 
-Last week, we released Grain v0.3.0, codenamed Barley, to coincide with WebAssembly Summit 2021. Not only that, but Grain co-creator Oscar presented a talk titled “Grain: Your WebAssembly-First Programming Language”—[check it out](https://youtu.be/-4zNzxqUBsk?t=8472)!
+Last week, we released Grain v0.3.0, codenamed Barley, to coincide with WebAssembly Summit 2021. Not only that, but Grain co-creator Oscar presented a talk titled “Grain: Your WebAssembly-First Programming Language”—[check it out](https://www.youtube.com/watch?v=O8tyml3xBMM&list=PL6ed-L7Ni0yRnaN8-l2wfA0u3ILmyJMkz&index=4)!
 
 This release is a double-feature release because we decided to push back our December release and batch it with the work in preparation for the Summit. As such, that means we have double the amount of awesome to share with you. 🎉
 
