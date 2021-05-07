@@ -45,3 +45,11 @@ pop : Stack<a> -> Stack<a>
 ```
 
 Removes the item at the top of the stack.
+
+### Stack.**size**
+
+```grain
+size : Stack<a> -> Number
+```
+
+Computes the size of the input stack.
