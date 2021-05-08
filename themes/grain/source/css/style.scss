@@ -11,6 +11,7 @@ html {
   --cyan: #00A6A6;
   --black: #33333A;
   --oxford: #202C59;
+  --lavender: #E1E2EF;
 
   --font-heading: "Source Sans Pro", sans-serif;
 }
@@ -483,6 +484,15 @@ code {
   vertical-align: text-top;
 }
 
+table {
+  border-collapse: collapse;
+  td, th {
+    padding: 0.75rem;
+    text-align: left;
+    border: 1px solid var(--lavender);
+  }
+}
+
 pre {
   font-size: 95%;
   font-family: "Menlo", monospace;
@@ -490,9 +500,10 @@ pre {
 .tm-highlight table {
   width: 100%;
   font-size: 1rem;
-}
-td, th {
-  padding: 0;
+  td, th {
+    padding: 0;
+    border: none;
+  }
 }
 .gutter {
   width: 1rem;
@@ -514,7 +525,7 @@ td, th {
   color: var(--white);
   font-size: 95%;
 }
-.code-tools {
+.tm-highlight table td.code-tools {
   width: 1rem;
   background-color: var(--oxford);
   vertical-align: top;
