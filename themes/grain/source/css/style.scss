@@ -217,7 +217,10 @@ figure {
 }
 
 code {
-  color: var(--cyan);
+  color: var(--black);
+  background-color: var(--lavender);
+  border-radius: 0.25rem;
+  padding: 0.125em 0.25em;
 }
 
 .page-wrapper {
