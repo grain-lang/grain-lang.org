@@ -4,9 +4,9 @@ title: Pattern Matching
 
 Pattern matching is a powerful tool to work with data structures. It's like a switch statement in other languages, but with a bit more pizazz. Each case of a `match` statement defines the shape, or pattern, of the data that will match the case.
 
-## Matching Variant Types
+## Matching Enum Types
 
-Let's start by looking at a simple variant type.
+Let's start by looking at a simple enum type.
 
 ```grain
 enum PizzaTopping { Cheese, Pepperoni, Peppers, Pineapple }
