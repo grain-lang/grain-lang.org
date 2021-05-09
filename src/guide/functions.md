@@ -56,7 +56,7 @@ We can define recursive functions using the `rec` keyword. Recursive functions a
 ```grain
 let rec fibonacci = (n) => {
   if (n == 0 || n == 1) {
-    1
+    n
   } else {
     fibonacci(n - 1) + fibonacci(n - 2)
   }
