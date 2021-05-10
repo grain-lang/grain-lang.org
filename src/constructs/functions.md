@@ -22,7 +22,7 @@ Note that the value `sum` is returned from this function—the final value in th
 
 ## First-class Functions
 
-All functions in Grain are also values—they can be passed just like any other value to other functions. The classic example is passing a function to `List.map`:
+All functions in Grain are also values—they can be passed just like any other value to other functions. A common example is passing a function to `List.map`:
 
 ```grain
 import List from "list"
