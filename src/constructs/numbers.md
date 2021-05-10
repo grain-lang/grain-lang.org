@@ -4,21 +4,13 @@ title: Numbers
 
 Grain has a unified number type, called `Number`, which contains integer (whole) numbers, floating-point (decimal) numbers, and rational (fractional) numbers. Grain also has separate fixed-length integer and float types for programs which require more precise typechecking.
 
-```grain
-42 // an integer
-```
-
-```grain
-1.23 // a floating-point number
-```
-
-```grain
-1/3 // a rational number
-```
-
 ## Number Syntax
 
 ### Integers
+
+```grain
+42 // an integer
+```
 
 To make an integer more readable, underscores can be used throughout the number as a visual separator. The underscores do not affect the value of the number.
 
@@ -43,7 +35,7 @@ let fourtyTwo = 0o52
 let fourtyTwo = 0b101010
 ```
 
-Of course, underscores can also be used with these other formats:
+Underscores can be used with these other formats:
 
 ```grain
 let dec0de = 0b1101_1110_1100_0000_1101_1110
@@ -51,13 +43,15 @@ let dec0de = 0b1101_1110_1100_0000_1101_1110
 
 ### Floating-point Numbers
 
-Floating-point numbers can also be written using scientific notation. In this form, the "significand" part of the number is multiplied by 10 raised to the power of the provided exponent. For example,
-
 ```grain
-1.23e3
+1.23 // a floating-point number
 ```
 
-is computed to be `1.23` times 10 raised to the power of 3, for a value of 1230.
+Floating-point numbers can also be written using scientific notation. In this form, the significand (the part of a floating-point number that contains the significant digits) is multiplied by 10 raised to the power of the provided exponent. For example,
+
+```grain
+1.23e3 # computes as 1.23x10^3, for a value of 1230.
+```
 
 The sign of the exponent can also be provided:
 
@@ -76,6 +70,10 @@ As with integers, underscores can be placed throughout the number to make it mor
 ```
 
 ### Rational Numbers
+
+```grain
+1/3 // a rational number
+```
 
 A rational literal will always simplify to its smallest form:
 
