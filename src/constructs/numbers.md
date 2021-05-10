@@ -2,7 +2,7 @@
 title: Numbers
 ---
 
-Grain has a unified number type, called `Number`, which contains integer (whole) numbers, floating-point (decimal) numbers, and rational (fractional) numbers. Grain also has separate integer and float types for programs which require more precise typechecking.
+Grain has a unified number type, called `Number`, which contains integer (whole) numbers, floating-point (decimal) numbers, and rational (fractional) numbers. Grain also has separate fixed-length integer and float types for programs which require more precise typechecking.
 
 ```grain
 42 // an integer
