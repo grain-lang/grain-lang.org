@@ -38,6 +38,7 @@ let fourtyTwo = 0b101010
 Underscores can be used with these other formats:
 
 ```grain
+// 0xDEC0DE in binary
 let dec0de = 0b1101_1110_1100_0000_1101_1110
 ```
 
@@ -50,7 +51,7 @@ let dec0de = 0b1101_1110_1100_0000_1101_1110
 Floating-point numbers can also be written using scientific notation. In this form, the significand (the part of a floating-point number that contains the significant digits) is multiplied by 10 raised to the power of the provided exponent. For example,
 
 ```grain
-1.23e3 # computes as 1.23x10^3, for a value of 1230.
+1.23e3 // computes as 1.23x10^3, for a value of 1230.
 ```
 
 The sign of the exponent can also be provided:
