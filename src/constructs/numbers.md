@@ -18,7 +18,7 @@ To make an integer more readable, underscores can be used throughout the number 
 let oneBillion = 1_000_000_000
 ```
 
-In addition to decimal numbers, integers can be written in hexadecimal, octal, and binary:
+In addition to decimal notation, integers can be written in hexadecimal, octal, and binary:
 
 ```grain
 // hexadecimal
