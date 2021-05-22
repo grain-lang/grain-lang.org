@@ -42,9 +42,13 @@ https://github.com/grain-lang/grain/releases/download/grain-v0.3.1/grain-linux-x
 
 ### Windows x64 - Download
 
-You can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.3.1/grain-win-x64.exe) directly from GitHub.
+You can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.3.1/grain-win-x64.exe) directly from GitHub or using `curl`.
 
-You'll either want to put it into your path or keep it inside your project and invoke with `./grain-win-x64.exe`.
+```batch
+curl -LO https://github.com/grain-lang/grain/releases/download/grain-v0.3.1/grain-win-x64.exe
+```
+
+You'll either want to put it into your path or keep it inside your project and invoke with `.\grain-win-x64.exe`.
 
 ## Building Grain from Source
 
