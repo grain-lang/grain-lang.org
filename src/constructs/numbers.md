@@ -22,17 +22,17 @@ In addition to decimal notation, integers can be written in hexadecimal, octal, 
 
 ```grain
 // hexadecimal
-let fourtyTwo = 0x2A // or 0x2a
+let fortyTwo = 0x2A // or 0x2a
 ```
 
 ```grain
 // octal
-let fourtyTwo = 0o52
+let fortyTwo = 0o52
 ```
 
 ```grain
 // binary
-let fourtyTwo = 0b101010
+let fortyTwo = 0b101010
 ```
 
 Underscores can be used with these other formats:
