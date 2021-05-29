@@ -40,3 +40,11 @@ forEach : ((Number -> Void), Range) -> Void
 ```
 
 Calls the given function with each number in the range. For increasing ranges, the value is increased by `1` in each iteration, and for decreasing ranges, the value is decreased by `1`. The value is always changed by `1`, even if non-integer values were provided in the range.
+
+### Range.**map**
+
+```grain
+map : ((Number -> a), Range) -> List<a>
+```
+
+`Range.map(fn, range)` produces a list by calling `fn` on each integer included in `range`.
