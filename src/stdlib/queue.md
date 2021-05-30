@@ -49,3 +49,11 @@ dequeue : Queue<a> -> Queue<a>
 ```
 
 Removes the next item in the queue.
+
+### Queue.**size**
+
+```grain
+size : Queue<a> -> Number
+```
+
+Computes the size of the input queue.
