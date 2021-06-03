@@ -227,8 +227,7 @@ match (list) {
 
 ## Match Guards
 
-Sometimes you want to be more specific about conditions for matching. You can use a _match guard_ to place more specific limitations on a match
-case.
+Sometimes you want to be more specific about conditions for matching. You can use a **match guard** to place more specific limitations on a `match` case.
 
 You can think of a match guard as a combination of a `match` and an `if`. A guard allows you to add an additional statement to qualify whether the case matches.
 
