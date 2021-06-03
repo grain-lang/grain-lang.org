@@ -10,6 +10,13 @@ The `Result` type is a special type of enum that exists to represent the possibi
 import Result from "result"
 ```
 
+Create new `Result` values using `Ok()` and `Err()`:
+
+```grain
+let success = Ok("Yay!")
+let failure = Err("Something bad happened")
+```
+
 ## Values
 
 ### Result.**isOk**
