@@ -244,7 +244,7 @@ In the example above, `myNumber` is an `Option` whose value is `Some(123)`. But 
 
 The next case, `Some(val)`, will match any `Some()` value that is not matched by the guarded version.
 
-Order is important when using guards. The _first case to match_ is the one that will be used. For example, we could change the above example to this:
+Order is important when using guards. The **first case to match** is the one that will be used. For example, we could change the above example to this:
 
 ```grain
 let myNumber = Some(123)
