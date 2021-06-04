@@ -339,7 +339,6 @@ code {
 
 
 #sidebar-mobile {
-  display: none;
   position: fixed;
   left: 0;
   top: 88px;
@@ -402,7 +401,6 @@ code {
     display: flex;
   }
   #sidebar-mobile {
-    display: block;
     &.sidebar-toggled {
       transform: translateX(0);
     }
