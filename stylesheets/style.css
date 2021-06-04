@@ -3,6 +3,7 @@
 }
 
 html {
+  --Background: #fff;
   --orange: rgb(255, 133, 14);
   --white: white;
   --gray2: #9B9B9B;
@@ -10,6 +11,14 @@ html {
   --black: #33333A;
 
   --font-heading: "Source Sans Pro", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  html {
+    --Background: #121212;
+    --Border: #333;
+    --lavender: #444;
+    --black: #eee;
+  }
 }
 
 html, body {
@@ -19,6 +28,8 @@ html, body {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   margin: 0;
+
+  background: var(--Background);
 }
 
 .site-banner {
@@ -269,7 +280,7 @@ html, body {
 }
 
 .footer {
-  margin: 4rem 15%;
+  padding: 4rem 15%;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;

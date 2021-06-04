@@ -1,4 +1,6 @@
 html {
+  --Background: white;
+  --Border: #F2F2F2;
   --orange: rgb(255, 133, 14);
   --orange-light: rgba(255, 133, 14, .01);
   --orange-medium: rgba(255, 133, 14, .15);
@@ -22,6 +24,24 @@ html {
 
 html {
   background-color: var(--orange-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    --Background: #121212;
+    --Border: #333;
+    --lavender: #444;
+    --black: #eee;
+  }
+  html {
+    background: var(--Background);
+  }
+  .join-mailing {
+    background: var(--Background) !important;
+  }
+  .button.mc-submit {
+    color: var(--orange) !important;
+  }
 }
 
 html,
@@ -366,12 +386,12 @@ code {
   transition: transform 200ms;
 }
 .page-content {
-  background-color: white;
+  background-color: var(--Background);
   padding: 2rem 1.5rem;
   line-height: 1.7;
   margin: 2rem 0 1rem 0;
   border-radius: 2px;
-  border: 1px solid #F2F2F2;
+  border: 1px solid var(--Border);
   font-size: 1.125rem;
 }
 
