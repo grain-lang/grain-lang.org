@@ -114,6 +114,26 @@ match (item) {
 }
 ```
 
+One common use of pattern matching and binding is working with `Option` and `Result` enums. 
+
+```
+let opt = Some("I'm a match")
+match (opt) {
+    Some(msg) => print(msg),
+    None => print("No match found")
+}
+
+let result = Err("This is an error")
+match (result) {
+    Ok(msg) => print(msg),
+    Err(e) => print(e)
+}
+```
+
+The first example will print `I'm a match` because the `Option` has a value.
+
+The second example will print `This is an error` because the `Result` contains an `Err`.
+
 ## Matching Record Types
 
 Like most Grain data structures, pattern matching can also be done on records.
