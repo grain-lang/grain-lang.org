@@ -49,6 +49,7 @@ docs_groups:
   Standard Library:
     - stdlib/pervasives
     - stdlib/array
+    - stdlib/bytes
     - stdlib/char
     - stdlib/DOM
     - stdlib/hash
