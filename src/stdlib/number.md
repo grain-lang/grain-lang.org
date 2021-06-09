@@ -33,3 +33,11 @@ mul : (Number, Number) -> Number
 ```
 
 Computes the product of its operands.
+
+### Number.**div**
+
+```grain
+div : (Number, Number) -> Number
+```
+
+Computes the quotient of its operands.
