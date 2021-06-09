@@ -73,3 +73,11 @@ ceil : (Number) -> Number
 ```
 
 Rounds its operand up to the next largest integer.
+
+### Number.**floor**
+
+```grain
+floor : (Number) -> Number
+```
+
+Rounds its operand down to the largest integer less than the operand. 
