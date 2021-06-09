@@ -98,3 +98,11 @@ round : (Number) -> Number
 
 Returns its operand rounded to its nearest integer. `.5` and above return `1`, `.4` and below return `0`
 
+### Number.**abs**
+
+```grain
+abs : (Number) -> Number
+```
+
+Returns the absolute value of a number. That is, it returns `x` if `x` is positive or zero, and the negation of `x` if `x` is negative.
+
