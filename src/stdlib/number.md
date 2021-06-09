@@ -25,3 +25,11 @@ sub : (Number, Number) -> Number
 ```
 
 Computes the difference of its operands.
+
+### Number.**mul**
+
+```grain
+mul : (Number, Number) -> Number
+```
+
+Computes the product of its operands.
