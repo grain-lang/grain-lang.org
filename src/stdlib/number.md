@@ -49,3 +49,11 @@ sqrt : (Number) -> Number
 ```
 
 Computes the square root of its operand.
+
+### Number.**min**
+
+```grain
+min : (Number, Number) -> Number
+```
+
+Returns the smaller of its two operands.
