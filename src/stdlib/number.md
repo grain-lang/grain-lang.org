@@ -41,3 +41,11 @@ div : (Number, Number) -> Number
 ```
 
 Computes the quotient of its operands.
+
+### Number.**sqrt**
+
+```grain
+sqrt : (Number) -> Number
+```
+
+Computes the square root of its operand.
