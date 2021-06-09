@@ -57,3 +57,11 @@ min : (Number, Number) -> Number
 ```
 
 Returns the smaller of its two operands.
+
+### Number.**max**
+
+```grain
+max : (Number, Number) -> Number
+```
+
+Returns the larger of its two operands.
