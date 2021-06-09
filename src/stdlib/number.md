@@ -81,3 +81,11 @@ floor : (Number) -> Number
 ```
 
 Rounds its operand down to the largest integer less than the operand. 
+
+### Number.**trunc**
+
+```grain
+trunc : (Number) -> Number
+```
+
+Returns the integer part of its operand, removing any fractional value.
