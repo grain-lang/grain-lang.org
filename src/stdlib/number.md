@@ -18,4 +18,10 @@ add : (Number, Number) -> Number
 
 Computes the sum of its operands.
 
+### Number.**sub**
 
+```grain
+sub : (Number, Number) -> Number
+```
+
+Computes the difference of its operands.
