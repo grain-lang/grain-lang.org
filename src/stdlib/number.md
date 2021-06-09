@@ -65,3 +65,11 @@ max : (Number, Number) -> Number
 ```
 
 Returns the larger of its two operands.
+
+### Number.**ceil**
+
+```grain
+ceil : (Number) -> Number
+```
+
+Rounds its operand up to the next largest integer.
