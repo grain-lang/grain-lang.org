@@ -96,7 +96,7 @@ Returns the integer part of its operand, removing any fractional value.
 round : (Number) -> Number
 ```
 
-Returns its operand rounded to its nearest integer. `.5` and above return `1`, `.4` and below return `0`
+Returns its operand rounded to its nearest integer.
 
 ### Number.**abs**
 
