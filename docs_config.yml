@@ -55,8 +55,8 @@ docs_groups:
     - stdlib/hash
     - stdlib/list
     - stdlib/map
-    - stdlib/option
     - stdlib/number
+    - stdlib/option
     - stdlib/range
     - stdlib/result
     - stdlib/set
