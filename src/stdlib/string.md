@@ -117,3 +117,146 @@ Parameters:
 
 - *substring:* The substring to match at the end of the input string
 - *input:* The input string
+
+### String.**Encoding**
+
+```grain
+enum Encoding {
+  UTF8,       // UTF-8
+  UTF16_BE,   // UTF-16, big-endian
+  UTF16_LE,   // UTF-16, little-endian
+  UTF32_BE,   // UTF-32, big-endian
+  UTF32_LE,   // UTF-32, little-endian
+}
+```
+
+The various string encodings supported by [`String.encode`](#String-encode), [`String.decode`](#String-decode), and
+their associated variants.
+
+### String.**encode**
+
+```grain
+encode = (String, Encoding) -> Bytes
+```
+
+Encodes the given string using the given encoding scheme. A byte-order marker
+will not be included in the output.
+
+Parameters:
+
+- *s:* The input string
+- *encoding:* The encoding to use
+
+
+### String.**encodeWithBom**
+
+```grain
+encodeWithBom = (String, Encoding) -> Bytes
+```
+
+Encodes the given string using the given encoding scheme. A byte-order marker
+will be included in the output.
+
+Parameters:
+
+- *s:* The input string
+- *encoding:* The encoding to use
+
+### String.**encodeAt**
+
+```grain
+encodeAt = (String, Encoding, Bytes, Number) -> Bytes
+```
+
+Encodes the given string using the given encoding scheme,
+writing the result into the given byte array. A byte-order marker
+will not be included in the output. The given `Bytes` object is returned.
+
+Parameters:
+
+- *s:* The input string
+- *encoding:* The encoding to use
+- *dest:* The bytes object to write the encoded output into
+- *destPos:* The location in the byte array to write the output
+
+
+### String.**encodeAtWithBom**
+
+```grain
+encodeAtWithBom = (String, Encoding, Bytes, Number) -> Bytes
+```
+
+Encodes the given string using the given encoding scheme,
+writing the result into the given byte array. A byte-order marker
+will be included in the output. The given `Bytes` object is returned.
+
+Parameters:
+
+- *s:* The input string
+- *encoding:* The encoding to use
+- *dest:* The bytes object to write the encoded output into
+- *destPos:* The location in the byte array to write the output
+
+
+### String.**decode**
+
+```grain
+decode = (Bytes, Encoding) -> String
+```
+
+Decodes the given byte sequence into a string using the given encoding scheme,
+skipping the byte-order marker, if it's present.
+
+Parameters:
+
+- *bytes:* The input bytes
+- *encoding:* The encoding to use
+
+
+### String.**decodeKeepBom**
+
+```grain
+decodeKeepBom = (Bytes, Encoding) -> String
+```
+
+Decodes the given byte sequence into a string using the given encoding scheme,
+including the byte-order marker, if it's present
+
+Parameters:
+
+- *bytes:* The input bytes
+- *encoding:* The encoding to use
+
+
+### String.**decodeRange**
+
+```grain
+decode = (Bytes, Encoding, Number, Number) -> String
+```
+
+Decodes the given byte sub-sequence into a string using the given encoding scheme,
+skipping the byte-order marker, if it's present.
+
+Parameters:
+
+- *bytes:* The input bytes
+- *encoding:* The encoding to use
+- *start:* The byte offset to begin decoding from
+- *size:* The maximum number of bytes to decode
+
+
+### String.**decodeRangeKeepBom**
+
+```grain
+decodeRangeKeepBom = (Bytes, Encoding, Number, Number) -> String
+```
+
+Decodes the given byte sub-sequence into a string using the given encoding scheme,
+including the byte-order marker, if it's present
+
+Parameters:
+
+- *bytes:* The input bytes
+- *encoding:* The encoding to use
+- *start:* The byte offset to begin decoding from
+- *size:* The maximum number of bytes to decode
