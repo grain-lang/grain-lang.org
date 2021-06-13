@@ -292,13 +292,15 @@ Open a file or directory.
 
 Parameters:
 
-- *dirFd:* The directory in which path resolution starts
-- *dirFlags:* Flags which affect path resolution
-- *path:* The path to the file or directory
-- *openFlags:* Flags that decide how the path will be opened
-- *rights:* The rights that dictate what may be done with the returned file descriptor
-- *rightsInheriting:* The rights that dictate what may be done with file descriptors derived from this file descriptor
-- *flags:* Flags which affect read/write operations on this file descriptor
+|name|type|desc|
+|-|-|-|
+|dirFd| |The directory in which path resolution starts|
+|dirFlags| |Flags which affect path resolution|
+|path| |The path to the file or directory|
+|openFlags| |Flags that decide how the path will be opened|
+|rights| |The rights that dictate what may be done with the returned file descriptor|
+|rightsInheriting| |The rights that dictate what may be done with file descriptors derived from this file descriptor|
+|flags| |Flags which affect read/write operations on this file descriptor|
 
 Returns a `FileDescriptor` for the opened file or directory.
 
