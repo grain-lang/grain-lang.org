@@ -125,7 +125,7 @@ mapi : ((a, Number) -> b, Array<a>) -> Array<b>
 reduce : ((b, a) -> b, b, Array<a>) -> b
 ```
 
-Using a reducer function, `reduce` combines all elements of an arry, starting from the "head", or left side, of the array.
+Using a reducer function, `reduce` combines all elements of an array, starting from the "head", or left side, of the array.
 
 In `Array.reduce(fn, base, array)`, `fn` is called with the accumulator and each element of the array, and returns a new accumulator. The final value is the result of `reduce`.
 The accumulator starts with value `base`.
@@ -142,7 +142,7 @@ sum([1, 2, 3]) // 6
 reducei : ((b, a, Number) -> b, b, Array<a>) -> b
 ```
 
-Using a reducer function, `reducei` combines all elements of an arry, starting from the "head", or left side, of the array.
+Using a reducer function, `reducei` combines all elements of an array, starting from the "head", or left side, of the array.
 
 In `Array.reducei(fn, base, array)`, `fn` is called with the accumulator, each element of the array, and the index of that element. It returns a new accumulator. The final value is the result of `reducei`.
 The accumulator starts with value `base`.
