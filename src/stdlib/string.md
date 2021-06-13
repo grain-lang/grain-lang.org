@@ -130,8 +130,7 @@ enum Encoding {
 }
 ```
 
-The various string encodings supported by [`String.encode`](#String-encode), [`String.decode`](#String-decode), and
-their associated variants.
+The various string encodings supported by [`String.encode`](#String-encode), [`String.decode`](#String-decode), and their associated variants.
 
 ### String.**encode**
 
@@ -139,8 +138,7 @@ their associated variants.
 encode = (String, Encoding) -> Bytes
 ```
 
-Encodes the given string using the given encoding scheme. A byte-order marker
-will not be included in the output.
+Encodes the given string using the given encoding scheme. A byte-order marker will not be included in the output.
 
 Parameters:
 
@@ -154,8 +152,7 @@ Parameters:
 encodeWithBom = (String, Encoding) -> Bytes
 ```
 
-Encodes the given string using the given encoding scheme. A byte-order marker
-will be included in the output.
+Encodes the given string using the given encoding scheme. A byte-order marker will be included in the output.
 
 Parameters:
 
@@ -168,9 +165,7 @@ Parameters:
 encodeAt = (String, Encoding, Bytes, Number) -> Bytes
 ```
 
-Encodes the given string using the given encoding scheme,
-writing the result into the given byte array. A byte-order marker
-will not be included in the output. The given `Bytes` object is returned.
+Encodes the given string using the given encoding scheme, writing the result into the given byte array. A byte-order marker will not be included in the output. The given `Bytes` object is returned.
 
 Parameters:
 
@@ -186,9 +181,7 @@ Parameters:
 encodeAtWithBom = (String, Encoding, Bytes, Number) -> Bytes
 ```
 
-Encodes the given string using the given encoding scheme,
-writing the result into the given byte array. A byte-order marker
-will be included in the output. The given `Bytes` object is returned.
+Encodes the given string using the given encoding scheme, writing the result into the given byte array. A byte-order marker will be included in the output. The given `Bytes` object is returned.
 
 Parameters:
 
@@ -204,8 +197,7 @@ Parameters:
 decode = (Bytes, Encoding) -> String
 ```
 
-Decodes the given byte sequence into a string using the given encoding scheme,
-skipping the byte-order marker, if it's present.
+Decodes the given byte sequence into a string using the given encoding scheme, skipping the byte-order marker, if it's present.
 
 Parameters:
 
@@ -219,8 +211,7 @@ Parameters:
 decodeKeepBom = (Bytes, Encoding) -> String
 ```
 
-Decodes the given byte sequence into a string using the given encoding scheme,
-including the byte-order marker, if it's present
+Decodes the given byte sequence into a string using the given encoding scheme, including the byte-order marker, if it's present
 
 Parameters:
 
@@ -234,8 +225,7 @@ Parameters:
 decode = (Bytes, Encoding, Number, Number) -> String
 ```
 
-Decodes the given byte sub-sequence into a string using the given encoding scheme,
-skipping the byte-order marker, if it's present.
+Decodes the given byte sub-sequence into a string using the given encoding scheme, skipping the byte-order marker, if it's present.
 
 Parameters:
 
@@ -251,8 +241,7 @@ Parameters:
 decodeRangeKeepBom = (Bytes, Encoding, Number, Number) -> String
 ```
 
-Decodes the given byte sub-sequence into a string using the given encoding scheme,
-including the byte-order marker, if it's present
+Decodes the given byte sub-sequence into a string using the given encoding scheme, including the byte-order marker, if it's present
 
 Parameters:
 
