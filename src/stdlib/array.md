@@ -118,7 +118,6 @@ mapi : ((a, Number) -> b, Array<a>) -> Array<b>
 
 `Array.mapi(fn, array)` produces a new array by calling `fn` on each element of the input array along with its index.
 
-
 ### Array.**reduce**
 
 ```grain
@@ -274,6 +273,20 @@ unique : Array<a> -> Array<a>
 ```
 
 Produces a new array with any duplicates removed. Uses the generic `==` structural equality operator.
+
+### Array.**join**
+
+```grain
+join : (String, Array<String>) -> String
+```
+
+Concatenates the strings in the given array, separating them with the given separator.
+
+Example:
+
+```grain
+Array.join(", ", [> "a", "b", "c"]) == "a, b, c"
+```
 
 ### Array.**zip**
 

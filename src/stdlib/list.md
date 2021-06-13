@@ -303,3 +303,16 @@ sub : (Number, Number, List<a>) -> List<a>
 ```
 
 Returns a sub-list of the given list starting from index `start` (inclusive) and up to `length` elements. Fails if `start` or `length` are negative numbers.
+
+### List.**join**
+
+```grain
+join : (String, List<String>) -> String
+```
+
+Concatenates the strings in the given list, separating them with the given separator.
+
+Example:
+```grain
+List.join(", ", ["a", "b", "c"]) == "a, b, c"
+```
