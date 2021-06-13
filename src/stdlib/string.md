@@ -10,6 +10,14 @@ import String from "string"
 
 ## Values
 
+### String.**charAt**
+
+```grain
+charAt : (Number, String) -> Char
+```
+
+Returns the character at the given offset in the given string.
+
 ### String.**concat**
 
 ```grain
