@@ -274,3 +274,17 @@ unique : Array<a> -> Array<a>
 ```
 
 Produces a new array with any duplicates removed. Uses the generic `==` structural equality operator.
+
+
+### Array.**join**
+
+```grain
+join : (String, Array<String>) -> String
+```
+
+Concatenates the strings in the given array, separating them with the given separator.
+
+Example:
+```grain
+Array.join(", ", [> "a", "b", "c"]) == "a, b, c"
+```
