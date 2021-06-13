@@ -89,3 +89,19 @@ lte : (Float32, Float32) -> Bool
 ```
 
 Checks if the first argument is less than or equal to the second argument.
+
+### Float32.**infinity**
+
+```grain
+infinity : Float32
+```
+
+A constant equal to the floating-point positive infinity value.
+
+### Float32.**nan**
+
+```grain
+nan : Float32
+```
+
+A constant equal to floating-point NaN (not a number) value.
