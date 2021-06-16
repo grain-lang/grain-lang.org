@@ -200,7 +200,7 @@ enum OddNumber {
 let two = OddPlusOne(EvenPlusOne(Zero)) // 2 == (0 + 1) + 1
 ```
 
-If you try to run this program, it won't work! That's because, when the Grain compiler reads the definition for `EvenNumber`, it sees the reference to `OddNumber` before it's read its definition. This means that the compiler isn't sure what `OddNumber` is referring to! Luckily, there is a simple fix for this: we can place a comma after `EvenNumber`'s definition to tell the compiler that the next data definition is allowed to be recursive with `EvenNumber`:
+If you try to run this program, it won't work! That's because when the Grain compiler reads the definition for `EvenNumber`, it sees the reference to `OddNumber` before it's read its definition. This means that the compiler isn't sure what `OddNumber` is referring to! Luckily, there is a simple fix for this: we can place a comma after `EvenNumber`'s definition to tell the compiler that the next data definition is allowed to be recursive with `EvenNumber`:
 
 ```grain
 enum EvenNumber {
