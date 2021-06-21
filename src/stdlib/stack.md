@@ -24,6 +24,8 @@ Checks if the given stack contains no items.
 
 ### Stack.**head**
 
+> **Deprecated**: Please use `Stack.peek` instead. `Stack.head` will be removed in v0.4.0.
+
 ```grain
 head : Stack<a> -> Option<a>
 ```
