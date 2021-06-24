@@ -223,6 +223,23 @@ code {
   padding: 0.125em 0.25em;
 }
 
+// These rules mostly related to @deprecated blocks
+blockquote {
+  display: block;
+  // TODO: Move the colors to variables?
+  border-left: .25em solid #f0ad4e;
+  background: #fcf8f2;
+  margin: 0;
+
+  > p {
+    padding: 1rem;
+
+    strong:first-child {
+      color: #eea236
+    }
+  }
+}
+
 .page-wrapper {
   margin-top: 88px;
 }
