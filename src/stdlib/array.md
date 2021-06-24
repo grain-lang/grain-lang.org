@@ -274,3 +274,13 @@ unique : Array<a> -> Array<a>
 ```
 
 Produces a new array with any duplicates removed. Uses the generic `==` structural equality operator.
+
+### Array.**zip**
+
+```grain
+zip : (Array<a>, Array<b>) -> Array<(a, b)>
+```
+
+Produces a new array filled with tuples of elements from both given arrays. The first tuple will contain the first item of each list, the second tuple will contain the second item of each list, and so on.
+
+Calling this function with arrays of different sizes will throw an error.
