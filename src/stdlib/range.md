@@ -2,12 +2,6 @@
 title: Range
 ---
 
-Utilities for working with ranges. A range represents an interval—a set of values with a beginning and an end.
-
-```grain
-import Range from "range"
-```
-
 <details open>
 <summary>History</summary>
 <table>
@@ -15,6 +9,12 @@ import Range from "range"
 <tr><td><code>v0.3.0</code></td><td>Added module</td></tr>
 </table>
 </details>
+
+Utilities for working with ranges. A range represents an interval—a set of values with a beginning and an end.
+
+```grain
+import Range from "range"
+```
 
 ## Types
 
