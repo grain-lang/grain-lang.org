@@ -515,6 +515,21 @@ table {
   }
 }
 
+details {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+
+  &[disabled] {
+    > summary {
+      pointer-events: none;
+    }
+    > summary::marker,
+    > summary::-webkit-details-marker {
+      color: var(--gray);
+    }
+  }
+}
+
 pre {
   font-size: 95%;
   font-family: "Menlo", monospace;
