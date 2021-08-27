@@ -24,20 +24,20 @@ Let’s take a look at the anatomy of a Graindoc comment:
 
 ```grain
 /**
-* An alias for normal syntactic array access, i.e. `array[n]`.
-*
-* Retrieves the element from the array at the specified index.
-* A negative index is treated as an offset from the end of the array.
-*
-* @param index: The index to access
-* @param array: The array to access
-* @returns The element from the array
-*
-* @example Array.get(0, [> 0, 1, 2])
-*
-* @since v0.1.0
-* @history v0.2.0: Argument order changed to data-last
-*/
+ * An alias for normal syntactic array access, i.e. `array[n]`.
+ *
+ * Retrieves the element from the array at the specified index.
+ * A negative index is treated as an offset from the end of the array.
+ *
+ * @param index: The index to access
+ * @param array: The array to access
+ * @returns The element from the array
+ *
+ * @example Array.get(0, [> 0, 1, 2])
+ *
+ * @since v0.1.0
+ * @history v0.2.0: Argument order changed to data-last
+ */
 export let get = (index, array) => {
  array[index]
 }
@@ -112,14 +112,14 @@ The `@module` annotation allows you to add header documentation to a module. A m
 
 ```grain
 /**
-* @module Array: Utilities for working with arrays.
-*
-* @example import Array from "array"
-*
-* @since v0.2.0
-* @history v0.1.0: Originally named `arrays`
-* @history v0.2.0: Renamed to `array`
-*/
+ * @module Array: Utilities for working with arrays.
+ *
+ * @example import Array from "array"
+ *
+ * @since v0.2.0
+ * @history v0.1.0: Originally named `arrays`
+ * @history v0.2.0: Renamed to `array`
+ */
 ```
 
 ### `@section`
@@ -128,8 +128,8 @@ The `@section` annotation is used as a grouping mechanism. Any docblocks between
 
 ```grain
 /**
-* @section Values: Functions for working with the Array data type.
-*/
+ * @section Values: Functions for working with the Array data type.
+ */
 ```
 
 ### `@deprecated`
