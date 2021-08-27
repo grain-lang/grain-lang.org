@@ -47,14 +47,14 @@ The first thing we’ll notice is the `/** */` comment block. This signals to th
 
 Breaking down the parts of the Docblock itself.
 
-1. Any lines that don’t begin with a `@-something` annotation are treated as a single description and grouped together with a newline separator.
+1. Any lines that don’t begin with a `@something` annotation are treated as a single description and grouped together with a newline separator.
 2. The `@param` annotation indicates a parameter to the function. These should be specified in order of the function parameters and the name specified before the colon (`:`) must match the parameter name exactly. The content after the colon is the description of the parameter.
 3. The `@returns` annotation provides a description for the return value of the annotated function.
 4. The `@example` annotation can be used to add single-line examples for the function. These are rendered in a markdown code block annotated as the “grain” language. Multiple examples can be specified with separate annotations.
 5. The `@since` annotation specifies a [Semantic Version](https://semver.org) for the version in which this function was added.
 6. The `@history` annotation is similar to `@since`, but, in addition to the version, provides a description of a change that was made. While only 1 `@since` annotation can be specified, multiple `@history` annotations can be used.
 
-If you are familiar with a tool like TSDoc, you might be wondering why we don’t specify the type for the `@param` or `@returns` annotations. However, Graindoc can actually figure out the specific types of these and inject them into the output! Your type signatures will always be up-to-date with Graindoc because compilers are much better at type systems than humans. 😉
+If you are familiar with a tool like TSDoc, you might be wondering why we don’t specify the type for the `@param` or `@returns` annotations; this is because Graindoc can actually use Grain's strong type system in order to figure out the specific types of these and inject them into the output! Your type signatures will always be up-to-date with Graindoc because compilers are much better at type systems than humans. 😉
 
 You can see the types in the Parameters and Returns tables in the output:
 
@@ -104,7 +104,7 @@ Array.get(0, [> 0, 1, 2])
 
 ## Extra annotations
 
-The primary vehicle for development of Graindoc has been the Grain stdlib, so we needed to add some additional annotations to produce our expected output.
+The primary vehicle for development of Graindoc has been the Grain standard library, so we needed to add some additional annotations to produce our expected output.
 
 ### `@module`
 
@@ -124,7 +124,7 @@ The `@module` annotation allows you to add header documentation to a module. A m
 
 ### `@section`
 
-The `@section` annotation is used as a grouping mechanism. Any Docblocks between a section and the next are grouped under that header. In the stdlib documentation, we use these to separate Types and Values:
+The `@section` annotation is used as a grouping mechanism. Any Docblocks between a section and the next are grouped under that header. In the standard library documentation, we use these to separate Types and Values:
 
 ```grain
 /**
@@ -134,7 +134,7 @@ The `@section` annotation is used as a grouping mechanism. Any Docblocks between
 
 ### `@deprecated`
 
-From time-to-time, we’ll need to deprecate things in the stdlib. In fact, we’ve already had deprecations in the v0.3.x releases that will be removed in v0.4. This has led us to add the `@deprecated` annotation that will produce a warning with the deprecation message.
+From time to time, we’ll need to deprecate things in the standard library. In fact, we’ve already had deprecations in the v0.3.x releases that will be removed in v0.4. This has led us to add the `@deprecated` annotation that will produce a warning with the deprecation message.
 
 ## Without annotations
 
@@ -150,6 +150,6 @@ hash : a -> Number
 
 ## Preview mode
 
-We plan to release this tool in the v0.4 release—but it is already available if you build the Grain compiler from source on the `main` branch. It will remain in “preview” for a while because we still are finding bugs and improvements to be made as we document our own stdlib. We encourage you to try it out on your Grain code and give us feedback to make it better!
+We plan to release this tool in the v0.4 release—but it is already available if you build the Grain compiler from source on the `main` branch. It will remain in “preview” for a while because we still are finding bugs and improvements to be made as we document our own standard library. We encourage you to try it out on your Grain code and give us feedback to make it better!
 
 We have some additional features that we are excited to add in the future, such as surfacing the comments on hover using the Grain Language Server, but this is our first step in having a great developer experience for all Grain users!
