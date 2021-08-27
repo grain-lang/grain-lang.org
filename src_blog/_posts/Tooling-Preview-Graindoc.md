@@ -43,9 +43,9 @@ export let get = (index, array) => {
 }
 ```
 
-The first thing we’ll notice is the `/** */` comment block. This signals to the compiler to parse the comment as a Docblock instead of a multi-line comment (`/* */`). Additionally, the Docblock is applied to an exported function—the Graindoc tool only generates documentation for exports of a module.
+The first thing we’ll notice is the `/** */` comment block. This signals to the compiler to parse the comment as a docblock instead of a multi-line comment (`/* */`). Additionally, the docblock is applied to an exported function—the Graindoc tool only generates documentation for exports of a module.
 
-Breaking down the parts of the Docblock itself.
+Breaking down the parts of the docblock itself.
 
 1. Any lines that don’t begin with a `@something` annotation are treated as a single description and grouped together with a newline separator.
 2. The `@param` annotation indicates a parameter to the function. These should be specified in order of the function parameters and the name specified before the colon (`:`) must match the parameter name exactly. The content after the colon is the description of the parameter.
@@ -108,7 +108,7 @@ The primary vehicle for development of Graindoc has been the Grain standard libr
 
 ### `@module`
 
-The `@module` annotation allows you to add header documentation to a module. A module Docblock can also contain `@example`, `@since`, and `@history` annotations. Our `array` module is a good example of this:
+The `@module` annotation allows you to add header documentation to a module. A module docblock can also contain `@example`, `@since`, and `@history` annotations. Our `array` module is a good example of this:
 
 ```grain
 /**
@@ -124,7 +124,7 @@ The `@module` annotation allows you to add header documentation to a module. A m
 
 ### `@section`
 
-The `@section` annotation is used as a grouping mechanism. Any Docblocks between a section and the next are grouped under that header. In the standard library documentation, we use these to separate "Types" and "Values":
+The `@section` annotation is used as a grouping mechanism. Any docblocks between a section and the next are grouped under that header. In the standard library documentation, we use these to separate "Types" and "Values":
 
 ```grain
 /**
@@ -138,7 +138,7 @@ From time to time, we’ll need to deprecate things in the standard library. In 
 
 ## Without annotations
 
-Even if you decide to not add these Docblocks to your code, you can still run Graindoc against your code to output function names and type signatures. This is the bare-minimum we can generate without any annotations and might be improved as more development happens on the tool. Running Graindoc on our Hash library without any annotations outputs:
+Even if you decide to not add these docblocks to your code, you can still run Graindoc against your code to output function names and type signatures. This is the bare-minimum we can generate without any annotations and might be improved as more development happens on the tool. Running Graindoc on our Hash library without any annotations outputs:
 
 ````markdown
 ### Hash.**hash**
