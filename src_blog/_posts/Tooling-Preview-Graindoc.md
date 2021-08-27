@@ -124,7 +124,7 @@ The `@module` annotation allows you to add header documentation to a module. A m
 
 ### `@section`
 
-The `@section` annotation is used as a grouping mechanism. Any Docblocks between a section and the next are grouped under that header. In the standard library documentation, we use these to separate Types and Values:
+The `@section` annotation is used as a grouping mechanism. Any Docblocks between a section and the next are grouped under that header. In the standard library documentation, we use these to separate "Types" and "Values":
 
 ```grain
 /**
