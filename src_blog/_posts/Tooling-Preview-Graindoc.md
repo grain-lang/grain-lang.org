@@ -8,7 +8,7 @@ coverAttribution: Marie Bellando-Mitjans / Unsplash
 tags: Tooling, Developer Experience, Documentation
 ---
 
-Between the beginning of my career in software development and today, a lot of progress has been made on the tooling we use to write code everyday, like language servers, code formatters, or documentation generators. When you compile an already-existing language to WebAssembly, you get to benefit from all the tooling that already exists for that language—a huge boon to productivity!
+Between the beginning of my career in software development and today, a lot of progress has been made on the tooling we use to write code every day, like language servers, code formatters, and documentation generators. When you compile an already-existing language to WebAssembly, you get to benefit from all the tooling that already exists for that language—a huge boon to productivity!
 
 When I got involved with Grain, I didn’t quite understand how much work would be required to get the developer experience up-to-snuff. We already have the [Grain Language Server](https://github.com/grain-lang/grain-language-server) for VSCode (with Vim support coming soon), but we need to build out a lot more of this tooling!
 
