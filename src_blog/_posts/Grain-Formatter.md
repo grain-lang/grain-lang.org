@@ -37,19 +37,58 @@ Coming soon will be a check mode and an in-place rewrite mode.
 
 The LSP in the VSCode language extension for Grain now supports whole document formatting, so if you enable Format On Save it will reformat all the code each time you save.    Formatting code sections will be in the next release.
 
-# Implemention
 
 ## Example of formatting choices
 
-The primary role of the formatter is to make sure no line exceeds the specified maximum and breaks the code across multiple lines in a consistent way.
+The primary role of the formatter is to make sure no line exceeds the specified maximum and breaks the code across multiple lines in a consistent way.  Much of getting the formatter right is choosing
+where those breaks should come.
+
+We've had some help here - we use the fantastic pretty printer that ships with the ReScript formatter
+and so the job of the Grain formatter is to output the Grain source in the intermediate language
+that the pretty printer understands.  It does all the hard work of calculating what can fit onto one
+line and breaking as needed.
 
 The main formatting rules are to do with code indenting.  This is what really helps make the code base look consistent.  Always 2 spaces (and let’s not get started on tabs vs spaces)!
 
 How curly braces are used for block layouts is another important stylistic look.   The most common styles are Egyptian versus C-style, and we’ve gone for Egyptian:
 
-There are too many choices when it comes to spacing around lists of items, be that function parameters, tuples, lists, arrays, record entries, enums, etc.  We add spaces after the separating comments, and before items in some cases.   When a list of items breaks over multiple lines, we add a trailing comma to make adding extra items easier.
+```sh
+if (conditional) {
+ ...
+} else {
+ ...
+}
+```
+
+There are many choices when it comes to spacing around lists of items, be that function parameters, tuples, lists, arrays, record entries, enums, etc.  We add spaces after the separating comments, and before items in some cases.   When a list of items breaks over multiple lines, we add a trailing comma to make adding extra items easier:
+
+```sh
+(a,b) and [1,2,3] and  {name:"Super",value:"Grain"}
+```
+
+becomes
+```sh
+(a, b) and [1, 2, 3] and { name: "Super", value: "Grain" } 
+```
+
+or if it split over lines we add a trailing the comma:
+
+```sh
+enum Animals { 
+    Dog, 
+    Cat,
+}
+```
+
 
 We apply some smaller styling choices too, for example a single argument function isn’t wrapped with parenthesis. 
+
+```sh
+let add1 = x => x + 1
+let add = (x, y) => x + y
+```
+
+# Implementation
 
 Converts it into the Abstract Syntax Tree (AST)  and writes the source code again based on the tree and the programmed style 
 
