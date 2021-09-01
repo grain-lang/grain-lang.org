@@ -63,7 +63,7 @@ if (conditional) {
 There are many choices when it comes to spacing around lists of items, be that function parameters, tuples, lists, arrays, record entries, enums, etc.  We add spaces after the separating comments, and before items in some cases.   When a list of items breaks over multiple lines, we add a trailing comma to make adding extra items easier:
 
 ```sh
-(a,b) and [1,2,3] and  {name:"Super",value:"Grain"}
+(a,b) and [1,2,3] and  {name:"Super",    value:"Grain"}
 ```
 
 becomes
@@ -75,8 +75,8 @@ or if it split over lines we add a trailing the comma:
 
 ```sh
 enum Animals { 
-    Dog, 
-    Cat,
+  Dog, 
+  Cat,
 }
 ```
 
@@ -88,13 +88,22 @@ let add1 = x => x + 1
 let add = (x, y) => x + y
 ```
 
+Also quite important is the ability to tag code as not to be formatted
+
+```sh
+// formatter-ignore
+```
+
+Use the formatter-ignore annotation in a comment and the following statement will be reproduced as-is.
+
 # Implementation
 
-Converts it into the Abstract Syntax Tree (AST)  and writes the source code again based on the tree and the programmed style 
+The formatter works by using the Grain compiler to first parse the source code into what's called an Abstract Syntax Tree or AST that captures the meaning of the program as a tree of patterns and expressions.    Then we just write the tree back out as valid Grain code.  That's sometimes easier said than done, and here are some of the challenges we faced.
+
 
 ## Challenges
 
--	Comments.   Comments are usually meaningless in terms of the AST so we have to check how the code looks with comments when formatting.   In some of the more esoteric applications of comments, their placement can be ambiguous in relation to source code that also doesn’t appear in the AST, for example
+-	Comments.   Comments are by definition ignored when the compiler is comprehending the meaning of our code and so isn't stored in the AST.  We need to take the AST and the comments extracted from the source, bring the regenerated code and comments back together and check how the code looks with comments when formatting.   In some of the more esoteric applications of comments, their placement can be ambiguous in relation to source code that also doesn’t appear in the AST, for example
 
 ```sh
 variable1 /* comment */ , variable2
@@ -108,4 +117,8 @@ We know the locations (source code ranges) of the variable names and the comment
 
 -	Arguments over style.  As you might imagine we had quite a lot of discussion about style choices.  There really is no true way that suits everyone, and whatever is chosen will always be a compromise.   However, what we wanted to avoid was adding configurable formatting where different formatting choices can be specified.  This really undoes the premise of all formatted Grain code looking the same, which we think really helps all Grain programmers, new or experienced, to look at Grain code and find it easy to read through because of the consistency, be than in end user code or the standard libraries.
 -	How far should the rewriting go?   	Some formatters go further than we have in rewriting code.  We’ve seen some for example that will examine if statements and rewrite them as ternaries if appropriate.   So far we’ve not gone that far.   There are a couple of places where we might make changes from the original code, for example syntactic sugar for statements such as x += x.   This may have been written as x = x + 1.   Both are identical in the AST representation, and without examining the unparsed source we can’t tell what the coder actually wrote.  Feedback on whether this is acceptable, good or needs fixing will be very welcome!
+
+We hope you find the Grain formatter useful.  Please report any mis-formatting through Github issues.  If you get really stuck you can use for formatter-ignore annotation to avoid the formatter from changing the code.
+
+This is just the first version, and we look forward to bringing in-place reformatting and format checking very soon
 
