@@ -40,8 +40,7 @@ The LSP in the VSCode language extension for Grain now supports whole document f
 
 ## Example of formatting choices
 
-The primary role of the formatter is to make sure no line exceeds the specified maximum and breaks the code across multiple lines in a consistent way.  Much of getting the formatter right is choosing
-where those breaks should come.
+The primary role of the formatter is to make sure no line exceeds the specified maximum and breaks the code across multiple lines in a consistent way.  Much of getting the formatter right is choosing where those breaks should come.
 
 We've had some help here - we use the fantastic pretty printer that ships with the ReScript formatter and so the job of the Grain formatter is to output the Grain source in the intermediate language that the pretty printer understands.  It does all the hard work of calculating what can fit onto one line and breaking as needed.
 
