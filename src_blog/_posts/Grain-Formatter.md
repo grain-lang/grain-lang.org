@@ -77,7 +77,7 @@ enum Animals {
 ```
 
 
-We apply some smaller styling choices too, for example a single argument function isn’t wrapped with parenthesis. 
+We apply some smaller stylistic choices too, for example a single-argument function isn’t wrapped with parentheses. 
 
 ```sh
 let add1 = x => x + 1
