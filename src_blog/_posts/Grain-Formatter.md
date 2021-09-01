@@ -107,7 +107,7 @@ variable1 /* comment */ , variable2
 
 We know the locations (source code ranges) of the variable names and the comment, but we don’t know if the comment comes before or after the comma.
 
--	We use various forms of syntactic sugar.  One of my favourites is converting list syntax of [1,2,3] into repeated application of the list cons operator.    The formatter needs to be aware of these and rewrite the AST back out in sugared syntax.
+-	Grain uses various forms of syntactic sugar.  One of my favourites is converting list syntax of `[1,2,3]` into repeated application of the list `cons` operator. The formatter needs to be aware of these and rewrite the AST back out in sugared syntax.
 
 - Blanks lines are useful for structuring and organising code but also need to be styled for consistency.  Removing all blank lines really impacts on how the source code looks and reads. We chose to compress multiple blank lines down into a single blank line, but to always retain at least one blank line wherever one was found.
 
