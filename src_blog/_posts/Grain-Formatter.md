@@ -17,7 +17,7 @@ This really helps codebases and teams in several ways. It reduces arguments at c
 
 ## Grainformat
 
-The formatter can be invoked using the Grain cli
+The formatter can be invoked using the Grain CLI
 
 ```sh
 grain format myfile.gr
