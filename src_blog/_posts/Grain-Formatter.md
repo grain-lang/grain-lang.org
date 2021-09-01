@@ -84,7 +84,7 @@ let add1 = x => x + 1
 let add = (x, y) => x + y
 ```
 
-Also quite important is the ability to tag code as not to be formatted
+Also quite important is the ability to tag code as not to be formatted:
 
 ```sh
 // formatter-ignore
