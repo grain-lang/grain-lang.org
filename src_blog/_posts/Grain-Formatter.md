@@ -99,7 +99,7 @@ The formatter works by using the Grain compiler to first parse the source code i
 
 ## Challenges
 
--	Comments.   Comments are by definition ignored when the compiler is comprehending the meaning of our code and so isn't stored in the AST.  We need to take the AST and the comments extracted from the source, bring the regenerated code and comments back together and check how the code looks with comments when formatting.   In some of the more esoteric applications of comments, their placement can be ambiguous in relation to source code that also doesn’t appear in the AST, for example
+-	Comments.   Comments are, by definition, ignored when the compiler is comprehending the meaning of our code, and so they aren't stored in the AST. When formatting, however, we need to preserve them. To this end, we extract these comments and combine them with the AST and bring the regenerated code and comments back together, checking how the code looks along the way. In some of the more esoteric applications of comments, their placement can be ambiguous in relation to source code that also doesn’t appear in the AST, for example:
 
 ```sh
 variable1 /* comment */ , variable2
