@@ -35,7 +35,7 @@ Both write the reformatted code to stdout.
 
 Coming soon will be a check mode and an in-place rewrite mode.
 
-The LSP in the VSCode language extension for Grain now supports whole document formatting, so if you enable Format On Save it will reformat all the code each time you save.    Formatting code sections will be in the next release.
+The LSP in the VSCode language extension for Grain now supports whole document formatting, so if you enable `Format On Save` it will reformat all the code each time you save. Code section formatting will be in the next release.
 
 
 ## Example of formatting choices
