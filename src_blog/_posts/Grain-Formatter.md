@@ -42,7 +42,7 @@ The LSP in the VSCode language extension for Grain now supports whole document f
 
 The primary role of the formatter is to make sure no line exceeds the specified maximum length and to break code across multiple lines in a consistent way. Much of getting the formatter right is choosing where those breaks should come.
 
-We've had some help here - we use the fantastic pretty printer that ships with the ReScript formatter and so the job of the Grain formatter is to output the Grain source in the intermediate language that the pretty printer understands.  It does all the hard work of calculating what can fit onto one line and breaking as needed.
+We've had some help here — we use the fantastic pretty printer that ships with the ReScript formatter, so the job of the Grain formatter is simply to output the Grain source in the intermediate language that the pretty printer understands.  It does all the hard work of calculating what can fit onto one line and breaking it as needed.
 
 The main formatting rules are to do with code indenting.  This is what really helps make the code base look consistent.  Always 2 spaces (and let’s not get started on tabs vs spaces)!
 
