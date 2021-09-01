@@ -116,5 +116,5 @@ We know the locations (source code ranges) of the variable names and the comment
 
 We hope you find the Grain formatter useful.  Please report any mis-formatting through Github issues.  If you get really stuck you can use for formatter-ignore annotation to avoid the formatter from changing the code.
 
-This is just the first version, and we look forward to bringing in-place reformatting and format checking very soon
+This is just the first version, and we look forward to bringing in-place reformatting and format checking very soon!
 
