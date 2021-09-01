@@ -12,7 +12,7 @@ For any modern programming language to succeed it needs to provide developers th
 
 The acceptance of automatic code formatting tools providing the “one true style” for development in a language seems to have really caught on with the release of Prettier for Javascript. In contrast to a linter, which reports on how well a piece of code adheres to style and best practices, a code formatter rewrites a piece of code in the approved style.
 
-This really helps codebases and teams in several ways.   It reduces arguments at code review time as the correct style is guaranteed.  It helps new members of the team learn the coding style, it keeps a very consistent code base that’s easy to read by everyone.   My personal favourite is I can be really lazy as I type code, and with format on save enabled I just press save and watch the code become well structured.
+This really helps codebases and teams in several ways. It reduces arguments at code review time, as the correct style is guaranteed. It helps new members of the team learn the coding style, it keeps a very consistent code base that’s easy to read by everyone. My personal favourite is I can be really lazy as I type code, and with `Format on Save` enabled, I just press `Save` and watch the code become well structured.
 
 
 ## Grainformat
