@@ -105,7 +105,7 @@ The formatter works by using the Grain compiler to first parse the source code i
 variable1 /* comment */ , variable2
 ```
 
-We know the locations (source code ranges) of the variable names and the comment, but we don’t know if the comment comes before or after the comma.
+Our AST encodes the locations of the variable names and the comment, but we don’t know if the comment comes before or after the comma.
 
 -	Grain uses various forms of syntactic sugar.  One of my favourites is converting list syntax of `[1,2,3]` into repeated application of the list `cons` operator. The formatter needs to be aware of these and rewrite the AST back out in sugared syntax.
 
