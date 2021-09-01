@@ -56,7 +56,7 @@ if (conditional) {
 }
 ```
 
-There are many choices when it comes to spacing around lists of items, be that function parameters, tuples, lists, arrays, record entries, enums, etc.  We add spaces after the separating comments, and before items in some cases.   When a list of items breaks over multiple lines, we add a trailing comma to make adding extra items easier:
+There are many choices when it comes to spacing around lists of items, be that function parameters, tuples, lists, arrays, record entries, enums, etc. We add spaces after the separating comments, and before items in some cases. When a list of items breaks over multiple lines, we add a trailing comma to make adding extra items easier:
 
 ```sh
 (a,b) and [1,2,3] and  {name:"Super",    value:"Grain"}
