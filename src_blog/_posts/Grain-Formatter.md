@@ -44,7 +44,7 @@ The primary role of the formatter is to make sure no line exceeds the specified 
 
 We've had some help here — we use the fantastic pretty printer that ships with the ReScript formatter, so the job of the Grain formatter is simply to output the Grain source in the intermediate language that the pretty printer understands.  It does all the hard work of calculating what can fit onto one line and breaking it as needed.
 
-The main formatting rules are to do with code indenting.  This is what really helps make the code base look consistent.  Always 2 spaces (and let’s not get started on tabs vs spaces)!
+The main formatting rules have to do with code indentation. This is what really helps make the code base look consistent. Always 2 spaces (and let’s not get started on tabs vs spaces)!
 
 How curly braces are used for block layouts is another important stylistic look.   The most common styles are Egyptian versus C-style, and we’ve gone for Egyptian:
 
