@@ -67,7 +67,7 @@ becomes
 (a, b) and [1, 2, 3] and { name: "Super", value: "Grain" } 
 ```
 
-or if it split over lines we add a trailing the comma:
+or, if it is split over multiple lines, we add a trailing comma:
 
 ```sh
 enum Animals { 
