@@ -90,7 +90,7 @@ Also quite important is the ability to tag code as not to be formatted:
 // formatter-ignore
 ```
 
-Use the formatter-ignore annotation in a comment and the following statement will be reproduced as-is.
+Use the `formatter-ignore` annotation in a comment, and the following statement will be untouched by the formatter.
 
 # Implementation
 
