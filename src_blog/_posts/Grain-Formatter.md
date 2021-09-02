@@ -33,7 +33,7 @@ which will read from stdin, which is generally useful for tools like the [Grain 
 
 Both write the reformatted code to stdout.
 
-Coming soon will be a check mode and an in-place rewrite mode.  Check mode scans code for a proper match to the formatter style without reformatting - useful for CI checks to ensure all code is properly formatted.
+Coming soon will be a check mode and an in-place rewrite mode.  Check mode will scan code and determine if it matches the formatter style without reformatting — useful for CI checks to ensure all code is properly formatted.
 
 The next version of the LSP in our VSCode language extension for Grain to be released alongside the formatter supports whole document formatting, so if you enable `Format On Save` it will reformat all the code each time you save. Code section formatting will be in a minor release after that.
 
