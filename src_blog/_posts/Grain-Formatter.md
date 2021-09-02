@@ -8,7 +8,7 @@ coverAttribution: AAron Burden / Unsplash
 tags: Tooling, Developer Experience, 
 ---
 
-For any modern programming language to succeed it needs to provide developers the support tools they have become used to – code editor extensions, IDE support and in recent years code formatting or prettier tools.
+For any modern programming language to succeed it needs to provide developers the support tools they have become used to: code editor extensions, IDE support and in recent years code formatting or prettier tools.
 
 The acceptance of automatic code formatting tools providing the “one true style” for development in a language seems to have really caught on with the release of Prettier for JavaScript. In contrast to a linter, which reports on how well a piece of code adheres to style and best practices, a code formatter rewrites a piece of code in the approved style.
 
@@ -33,9 +33,9 @@ which will read from stdin, which is generally useful for tools like the [Grain 
 
 Both write the reformatted code to stdout.
 
-Coming soon will be a check mode and an in-place rewrite mode.
+Coming soon will be a check mode and an in-place rewrite mode.  Check mode scans code for a proper match to the formatter style without reformatting - useful for CI checks to ensure all code is properly formatted.
 
-The LSP in the VSCode language extension for Grain now supports whole document formatting, so if you enable `Format On Save` it will reformat all the code each time you save. Code section formatting will be in the next release.
+The next version of the LSP in the VSCode language extension for Grain to be released alongside the formatter supports whole document formatting, so if you enable `Format On Save` it will reformat all the code each time you save. Code section formatting will be in a minor release after that.
 
 
 ## Example of formatting choices
