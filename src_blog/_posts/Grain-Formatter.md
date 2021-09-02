@@ -29,7 +29,7 @@ or
 grain format  
 ``` 
 
-which will read from stdin, which is generally useful for tools like the [Grain Language Server](https://github.com/grain-lang/grain-language-server).
+which will read from stdin, which is generally useful for tools like the [Grain Language Server (LSP)](https://github.com/grain-lang/grain-language-server).
 
 Both write the reformatted code to stdout.
 
