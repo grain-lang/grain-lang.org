@@ -8,7 +8,7 @@ coverAttribution: AAron Burden / Unsplash
 tags: Tooling, Developer Experience, 
 ---
 
-For any modern programming language to succeed it needs to provide developers the support tools they have become used to: code editor extensions, IDE support and in recent years code formatting or pretty print tools.
+For any modern programming language to succeed, it needs to provide developers the support tools they have become used to: code editor extensions, IDE support and in recent years code formatting or pretty print tools.
 
 The acceptance of automatic code formatting tools providing the “one true style” for development in a language seems to have really caught on with the release of Prettier for JavaScript. In contrast to a linter, which reports on how well a piece of code adheres to style and best practices, a code formatter rewrites a piece of code in the approved style.
 
