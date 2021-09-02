@@ -97,7 +97,7 @@ Use the `formatter-ignore` annotation in a comment, and the following statement 
 The formatter works by using the Grain compiler to first parse the source code into what's called an Abstract Syntax Tree, or AST, which captures the meaning of the program as a tree of patterns, statements, and expressions. Then we just write the tree back out as valid Grain code. That's sometimes easier said than done, and here are some of the challenges we faced:
 
 
-## Challenges
+### Challenges
 
 -	Comments.   Comments are, by definition, ignored when the compiler is comprehending the meaning of our code, and so they aren't stored in the AST. When formatting, however, we need to preserve them. To this end, we extract these comments and combine them with the AST and bring the regenerated code and comments back together, checking how the code looks along the way. In some of the more esoteric applications of comments, their placement can be ambiguous in relation to source code that also doesn’t appear in the AST, for example:
 
