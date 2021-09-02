@@ -12,7 +12,7 @@ For any modern programming language to succeed it needs to provide developers th
 
 The acceptance of automatic code formatting tools providing the “one true style” for development in a language seems to have really caught on with the release of Prettier for JavaScript. In contrast to a linter, which reports on how well a piece of code adheres to style and best practices, a code formatter rewrites a piece of code in the approved style.
 
-This really helps codebases and teams in several ways. It reduces arguments at code review time, as the correct style is guaranteed. It helps new members of the team learn the coding style, it keeps a very consistent code base that’s easy to read by everyone. My personal favourite is I can be really lazy as I type code, and with `Format on Save` enabled, I just press `Save` and watch the code become well structured.
+This really helps codebases and teams in several ways. It reduces arguments at code review time, as the correct style is guaranteed. It helps new members of the team learn the coding style, and it keeps a very consistent code base that’s easy to read by everyone. My personal favourite is I can be really lazy as I type code, and with `Format on Save` enabled, I just press `Save` and watch the code become well structured.
 
 
 ## Grainformat
@@ -29,7 +29,7 @@ or
 grain format  
 ``` 
 
-which will read from stdin, which is generally useful for tools like the [Grain Language Server](https://github.com/grain-lang/grain-language-server).
+which will read from stdin, which is generally useful for tools like the [Grain Language Server (LSP)](https://github.com/grain-lang/grain-language-server).
 
 Both write the reformatted code to stdout.
 
@@ -99,7 +99,7 @@ The formatter works by using the Grain compiler to first parse the source code i
 
 ### Challenges
 
--	Comments.   Comments are, by definition, ignored when the compiler is comprehending the meaning of our code, and so they aren't stored in the AST. When formatting, however, we need to preserve them. To this end, we extract these comments and combine them with the AST and bring the regenerated code and comments back together, checking how the code looks along the way. In some of the more esoteric applications of comments, their placement can be ambiguous in relation to source code that also doesn’t appear in the AST, for example:
+-	Comments.   Comments are, by definition, ignored when the compiler is comprehending the meaning of our code, so they aren't stored in the AST. When formatting, however, we need to preserve them. To this end, we extract these comments and combine them with the AST and bring the regenerated code and comments back together, checking how the code looks along the way. In some of the more esoteric applications of comments, their placement can be ambiguous in relation to source code that also doesn’t appear in the AST, for example:
 
 ```sh
 variable1 /* comment */ , variable2
@@ -109,7 +109,7 @@ Our AST encodes the locations of the variable names and the comment, but we don�
 
 -	Grain uses various forms of syntactic sugar.  One of my favourites is converting list syntax of `[1,2,3]` into repeated application of the list `cons` operator. The formatter needs to be aware of these and rewrite the AST back out in sugared syntax.
 
-- Blanks lines are useful for structuring and organising code but also need to be styled for consistency.  Removing all blank lines really impacts on how the source code looks and reads. We chose to compress multiple blank lines down into a single blank line, but to always retain at least one blank line wherever one was found.
+- Blank lines are useful for structuring and organising code but also need to be styled for consistency.  Removing all blank lines really impacts on how the source code looks and reads. We chose to compress multiple blank lines down into a single blank line, but to always retain at least one blank line wherever one was found.
 
 -	Arguments over style. As you might imagine we had quite a lot of discussion about style choices. There really is no single way that suits everyone, and whatever is chosen will always be a compromise. However, what we wanted to avoid was adding configurable formatting where different formatting choices can be specified.  This really undermines the premise of all formatted Grain code looking the same, which we think really helps all Grain programmers, new or experienced, to look at Grain code and find it easy to read through because of the consistency, be than in end user code or the standard libraries.
 -	How far should the rewriting go? Some formatters go further than we have in rewriting code. For example, we’ve seen some which will examine `if` statements and rewrite them using ternary operators if appropriate. So far, we’ve not gone that far. There are a couple of places where we might make changes from the original code. For example, syntactic sugar for statements such as `x += 1` may have been written as `x = x + 1`; both are identical in the AST representation, and without examining the unparsed source we can’t tell what the coder actually wrote. Feedback on whether this is acceptable, good or needs fixing will be very welcome!
