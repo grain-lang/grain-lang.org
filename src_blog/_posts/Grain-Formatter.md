@@ -46,7 +46,7 @@ We've had some help here — we use the fantastic pretty printer that ships with
 
 The main formatting rules have to do with code indentation. This is what really helps make the code base look consistent. Always 2 spaces (and let’s not get started on tabs vs spaces)!
 
-How curly braces should be used for block layouts is another important stylistic choice. The most common styles are Egyptian versus C-style, and we’ve gone for Egyptian:
+Curly brace usage in block layouts is another important stylistic choice. The most common styles are Egyptian versus C-style, and we’ve gone for Egyptian:
 
 ```sh
 if (conditional) {
