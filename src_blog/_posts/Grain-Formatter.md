@@ -92,7 +92,7 @@ Also quite important is the ability to tag code as not to be formatted:
 
 Use the `formatter-ignore` annotation in a comment, and the following statement will be untouched by the formatter.
 
-# Implementation
+## Implementation
 
 The formatter works by using the Grain compiler to first parse the source code into what's called an Abstract Syntax Tree, or AST, which captures the meaning of the program as a tree of patterns, statements, and expressions. Then we just write the tree back out as valid Grain code. That's sometimes easier said than done, and here are some of the challenges we faced:
 
