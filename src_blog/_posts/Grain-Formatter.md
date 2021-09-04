@@ -1,7 +1,7 @@
 ---
 title: Introducing the Grain Formatter
 subtitle: Bringing consistency and pretty code to Grain
-date: 2021-08-31 12:00:00
+date: 2021-09-03 12:00:00
 author: Marcus Roberts
 cover: /blog/photos/cover/aaron-burden-FGbLYvTgxx0-unsplash.jpg
 coverAttribution: Aaron Burden / Unsplash
