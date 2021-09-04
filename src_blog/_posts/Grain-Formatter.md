@@ -4,11 +4,11 @@ subtitle: Bringing consistency and pretty code to Grain
 date: 2021-08-31 12:00:00
 author: Marcus Roberts
 cover: /blog/photos/cover/aaron-burden-FGbLYvTgxx0-unsplash.jpg
-coverAttribution: AAron Burden / Unsplash
+coverAttribution: Aaron Burden / Unsplash
 tags: Tooling, Developer Experience, 
 ---
 
-For any modern programming language to succeed, it needs to provide developers the support tools they have become used to: code editor extensions, IDE support and in recent years code formatting or pretty print tools.
+For any modern programming language to succeed, it needs to provide developers the support tools they have become used to: code editor extensions, IDE support, and in recent years code formatting or pretty print tools.
 
 The acceptance of automatic code formatting tools providing the “one true style” for development in a language seems to have really caught on with the release of Prettier for JavaScript. In contrast to a linter, which reports on how well a piece of code adheres to style and best practices, a code formatter rewrites a piece of code in the approved style.
 
@@ -33,7 +33,7 @@ which will read from stdin, which is generally useful for tools like the [Grain 
 
 Both write the reformatted code to stdout.
 
-Coming soon will be a check mode and an in-place rewrite mode.  Check mode will scan code and determine if it matches the formatter style without reformatting — useful for CI checks to ensure all code is properly formatted.
+Coming soon will be a check mode and an in-place rewrite mode.  Check mode will scan code and determine if it matches the formatter style without reformatting—useful for CI checks to ensure all code is properly formatted.
 
 The next version of the LSP in our VSCode language extension for Grain to be released alongside the formatter supports whole document formatting, so if you enable `Format On Save` it will reformat all the code each time you save. Code section formatting will be in a minor release after that.
 
@@ -48,7 +48,7 @@ The main formatting rules have to do with code indentation. This is what really 
 
 Curly brace usage in block layouts is another important stylistic choice. The most common styles are Egyptian versus C-style, and we’ve gone for Egyptian:
 
-```sh
+```grain
 if (conditional) {
  ...
 } else {
@@ -58,18 +58,18 @@ if (conditional) {
 
 There are many choices when it comes to spacing around lists of items, be that function parameters, tuples, lists, arrays, record entries, enums, etc. We add spaces after the separating comments, and before items in some cases. When a list of items breaks over multiple lines, we add a trailing comma to make adding extra items easier:
 
-```sh
-(a,b) and [1,2,3] and  {name:"Super",    value:"Grain"}
+```grain
+(a,b) && [1,2,3] &&  {name:"Super",    value:"Grain"}
 ```
 
 becomes
-```sh
-(a, b) and [1, 2, 3] and { name: "Super", value: "Grain" } 
+```grain
+(a, b) && [1, 2, 3] && { name: "Super", value: "Grain" } 
 ```
 
 or, if it is split over multiple lines, we add a trailing comma:
 
-```sh
+```grain
 enum Animals { 
   Dog, 
   Cat,
@@ -79,7 +79,7 @@ enum Animals {
 
 We apply some smaller stylistic choices, too. For example, a single-argument function isn’t wrapped with parentheses. 
 
-```sh
+```grain
 let add1 = x => x + 1
 let add = (x, y) => x + y
 ```
@@ -101,7 +101,7 @@ The formatter works by using the Grain compiler to first parse the source code i
 
 -	Comments.   Comments are, by definition, ignored when the compiler is comprehending the meaning of our code, so they aren't stored in the AST. When formatting, however, we need to preserve them. To this end, we extract these comments and combine them with the AST and bring the regenerated code and comments back together, checking how the code looks along the way. In some of the more esoteric applications of comments, their placement can be ambiguous in relation to source code that also doesn’t appear in the AST, for example:
 
-```sh
+```grain
 variable1 /* comment */ , variable2
 ```
 
