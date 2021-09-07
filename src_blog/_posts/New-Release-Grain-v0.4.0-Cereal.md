@@ -46,7 +46,7 @@ As with most releases, we had a lot of work happening in the standard library—
 
 ### Number
 
-Thanks to [@spotandjake](https://twitter.com/spotandjake), we finally have a preliminary module for working with our Number type. This module will probably be one of the most used, so we are glad for the contribution. You can find the docs at https://grain-lang.org/docs/stdlib/number
+Thanks to [@spotandjake](https://twitter.com/spotandjake), we finally have a preliminary module for working with our Number type. This module will probably be one of the most used, so we are glad for the contribution. You can find the docs in our [standard library docs](https://grain-lang.org/docs/stdlib/number).
 
 ### Sys
 
