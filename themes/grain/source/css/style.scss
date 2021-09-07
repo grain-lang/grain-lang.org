@@ -512,6 +512,10 @@ table {
     padding: 0.75rem;
     text-align: left;
     border: 1px solid var(--lavender);
+
+    code {
+      white-space: pre;
+    }
   }
 }
 
