@@ -8,7 +8,7 @@ We have a couple different ways to get Grain. Most developers will prefer the Pa
 
 The Grain toolchain (including our CLI, compiler, runtime, and standard library) is shipped as a single binary. Binaries are available for [MacOS x64](#MacOS-x64---Homebrew), [Linux x64](#Linux-x64---Download), and [Windows x64](#Windows-x64---Download).
 
-__Note:__ These binaries are a bit slow when first building a project (around 70 seconds). The packaged compiler is running in JavaScript, _and_ it builds and writes the runtime & standard library into your project. If you need raw speed, you can build the native compiler from source! See [Building Grain from Source](#Building-Grain-from-Source) below.
+**Note:** These binaries are a bit slow when first building a project (around 70 seconds). The packaged compiler is running in JavaScript, _and_ it builds and writes the runtime & standard library into your project. If you need raw speed, you can build the native compiler from source! See [Building Grain from Source](#Building-Grain-from-Source) below.
 
 ### MacOS x64 - Homebrew
 
@@ -22,30 +22,30 @@ _The `--no-quarantine` flag will avoid having to approve the binary in the Secur
 
 ### MacOS x64 - Download
 
-If you'd prefer not to use homebrew, you can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.3.2/grain-mac-x64) directly from GitHub or using `curl`.
+If you'd prefer not to use homebrew, you can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.4.1/grain-mac-x64) directly from GitHub or using `curl`.
 
 ```sh
 sudo curl -L --output /usr/local/bin/grain \
-https://github.com/grain-lang/grain/releases/download/grain-v0.3.2/grain-mac-x64 \
+https://github.com/grain-lang/grain/releases/download/grain-v0.4.1/grain-mac-x64 \
 && sudo chmod +x /usr/local/bin/grain
 ```
 
 ### Linux x64 - Download
 
-You can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.3.2/grain-linux-x64) directly from GitHub or using `curl`.
+You can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.4.1/grain-linux-x64) directly from GitHub or using `curl`.
 
 ```sh
 sudo curl -L --output /usr/local/bin/grain \
-https://github.com/grain-lang/grain/releases/download/grain-v0.3.2/grain-linux-x64 \
+https://github.com/grain-lang/grain/releases/download/grain-v0.4.1/grain-linux-x64 \
 && sudo chmod +x /usr/local/bin/grain
 ```
 
 ### Windows x64 - Download
 
-You can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.3.2/grain-win-x64.exe) directly from GitHub or using `curl`.
+You can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.4.1/grain-win-x64.exe) directly from GitHub or using `curl`.
 
 ```batch
-curl -LO https://github.com/grain-lang/grain/releases/download/grain-v0.3.2/grain-win-x64.exe
+curl -LO https://github.com/grain-lang/grain/releases/download/grain-v0.4.1/grain-win-x64.exe
 ```
 
 You'll either want to put it into your path or keep it inside your project and invoke with `.\grain-win-x64.exe`.
