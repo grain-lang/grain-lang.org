@@ -281,6 +281,6 @@ Produces a new array with any duplicates removed. Uses the generic `==` structur
 zip : (Array<a>, Array<b>) -> Array<(a, b)>
 ```
 
-Produces a new array filled with tuples of elements from both given arrays. The first tuple will contain the first item of each list, the second tuple will contain the second item of each list, and so on.
+Produces a new array filled with tuples of elements from both given arrays. The first tuple will contain the first item of each array, the second tuple will contain the second item of each array, and so on.
 
 Calling this function with arrays of different sizes will throw an error.
