@@ -3,8 +3,8 @@ title: New Release! Grain v0.4 - Cereal
 subtitle: Announcing the release of Grain v0.4, Cereal, with NEAR support.
 date: 2021-09-07 12:00:00
 author: Blaine Bublitz
-cover: /blog/photos/cover/marie-bellando-mitjans-cBChXxQqEKM-unsplash.jpg
-coverAttribution: Marie Bellando-Mitjans / Unsplash
+cover: /blog/photos/cover/nyana-stoica-EV6C1LjH1Lk-unsplash.jpg
+coverAttribution: Nyana Stoica / Unsplash
 tags: Release, Changelog
 ---
 
