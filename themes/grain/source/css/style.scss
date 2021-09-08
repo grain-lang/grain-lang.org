@@ -509,9 +509,13 @@ blockquote {
 table {
   border-collapse: collapse;
   td, th {
-    padding: 0.75rem;
+    padding: 0.5rem;
     text-align: left;
     border: 1px solid var(--lavender);
+
+    code {
+      white-space: pre;
+    }
   }
 }
 
