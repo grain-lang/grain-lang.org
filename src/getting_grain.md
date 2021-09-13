@@ -99,9 +99,9 @@ This likely means that you haven't put `yarn`'s `bin` directory on your shell's 
 ```
 For `bash`, the process is the same, except `~/.zshrc` should be replaced with `~/.bashrc`.
 
-For Windows PowerShell users, you can run the following:
+For Windows `cmd.exe` and PowerShell users, you can run the following inside of PowerShell (this will fix the `PATH` variable for both `cmd.exe` and PowerShell):
 ```powershell
- [Environment]::SetEnvironmentVariable("Path", $env:Path + ";" + (yarn global bin) -join "`n","Machine")
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";" + (yarn global bin) -join "`n","Machine")
 ```
 After running this, restarting the shell should fix the issue.
 
