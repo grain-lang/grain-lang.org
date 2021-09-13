@@ -82,6 +82,20 @@ You can check that everything is installed properly by running the version comma
 grain --version
 ```
 
-If you see a a version for the CLI and the compiler, you're all set!
+If you see a a version for the CLI and the compiler, you're all set! If not, please consult the [Troubleshooting](#troubleshooting) section.
 
 We'll first use the `grain` CLI to compile and run a Hello World program, but first let's set up our editor.
+
+## Troubleshooting
+
+This section contains solutions to problems which people may run into when building and installing Grain.
+
+### After install, the `grain` command is not found
+
+This likely means that you haven't put `yarn`'s `bin` directory on your shell's `PATH` variable. This can be fixed by adding this to the end of your `~/.bashrc` or `~/.zshrc`:
+```bash
+export PATH="${PATH}:$(yarn global bin)"
+```
+Once you have added this to your shell's configuration, you can either restart your shell or run `source ~/.bashrc` (or `source ~/.zshrc`) to enable the change. If the `grain` command still does not work, then please contact us in the `#support` channel on [our Discord][discord].
+
+[discord]: https://discord.com/invite/grain-lang
