@@ -99,11 +99,11 @@ This likely means that you haven't put `yarn`'s `bin` directory on your shell's 
 ```
 For `bash`, the process is the same, except `~/.zshrc` should be replaced with `~/.bashrc`.
 
-For Windows `cmd.exe` and PowerShell users, you can run the following inside of PowerShell (this will fix the `PATH` variable for both `cmd.exe` and PowerShell):
+For Windows `cmd.exe` and PowerShell users, you can run the following inside of PowerShell to update the `PATH` for your current user (this will fix the `PATH` variable for both `cmd.exe` and PowerShell):
 ```powershell
-[Environment]::SetEnvironmentVariable("Path", $env:Path + ";" + (yarn global bin) -join "`n","Machine")
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";" + (yarn global bin) -join "`n","User")
 ```
-After running this, restarting the shell should fix the issue.
+If you would like to update the `PATH` for the all users, replace `"User"` with `"Machine"`. After running this command, restarting the shell should fix the issue.
 
 For other shells, the process may look a little different, but the procedure should always look something like the following:
 - Determine the output of `yarn global bin`
