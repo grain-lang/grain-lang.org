@@ -103,7 +103,7 @@ For Windows `cmd.exe` and PowerShell users, you can run the following inside of 
 ```powershell
 [Environment]::SetEnvironmentVariable("Path", $env:Path + ";" + (yarn global bin) -join "`n","User")
 ```
-If you would like to update the `PATH` for the all users, replace `"User"` with `"Machine"`. After running this command, restarting the shell should fix the issue.
+If you would like to update the `PATH` for all users, replace `"User"` with `"Machine"`. After running this command, restarting the shell should fix the issue.
 
 For other shells, the process may look a little different, but the procedure should always look something like the following:
 - Determine the output of `yarn global bin`
