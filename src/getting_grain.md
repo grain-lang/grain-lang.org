@@ -99,6 +99,12 @@ This likely means that you haven't put `yarn`'s `bin` directory on your shell's 
 ```
 For `bash`, the process is the same, except `~/.zshrc` should be replaced with `~/.bashrc`.
 
+For Windows PowerShell or `cmd.exe` users, you can run the following inside of `cmd.exe` (this will fix the `PATH` variable for both `cmd.exe` and PowerShell):
+```batch
+for /f %i in ('yarn global bin') do setx PATH "%PATH%;%i"
+```
+After running this, restarting the shell should fix the issue.
+
 For other shells, the process may look a little different, but the procedure should always look something like the following:
 - Determine the output of `yarn global bin`
 - Put the directory that this command outputs onto your `PATH` variable
