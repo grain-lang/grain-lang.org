@@ -92,10 +92,18 @@ This section contains solutions to problems which people may run into when build
 
 #### After install, the `grain` command is not found
 
-This likely means that you haven't put `yarn`'s `bin` directory on your shell's `PATH` variable. This can be fixed by adding this to the end of your `~/.bashrc` or `~/.zshrc`:
+This likely means that you haven't put `yarn`'s `bin` directory on your shell's `PATH` variable. This can be fixed by setting the variable in your shell's configuration. For example, if you use `zsh`, you can do the following:
 ```bash
-export PATH="${PATH}:$(yarn global bin)"
+# Initialize the PATH variable in your configuration and enable the change
+(echo 'export PATH="${PATH}:$(yarn global bin)"' >> ~/.zshrc) && source ~/.zshrc
 ```
-Once you have added this to your shell's configuration, you can either restart your shell or run `source ~/.bashrc` (or `source ~/.zshrc`) to enable the change. If the `grain` command still does not work, then please contact us in the `#support` channel on [our Discord][discord].
+For `bash`, the process is the same, except `~/.zshrc` should be replaced with `~/.bashrc`.
+
+For other shells, the process may look a little different, but the procedure should always look something like the following:
+- Determine the output of `yarn global bin`
+- Put the directory that this command outputs onto your `PATH` variable
+- Restart or reinitialize your shell as needed to make the change take effect
+
+If the `grain` command still does not work, then please contact us in the `#support` channel on [our Discord][discord].
 
 [discord]: https://discord.com/invite/grain-lang
