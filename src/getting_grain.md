@@ -86,11 +86,11 @@ If you see a a version for the CLI and the compiler, you're all set! If not, ple
 
 We'll first use the `grain` CLI to compile and run a Hello World program, but first let's set up our editor.
 
-## Troubleshooting
+### Troubleshooting
 
 This section contains solutions to problems which people may run into when building and installing Grain.
 
-### After install, the `grain` command is not found
+#### After install, the `grain` command is not found
 
 This likely means that you haven't put `yarn`'s `bin` directory on your shell's `PATH` variable. This can be fixed by adding this to the end of your `~/.bashrc` or `~/.zshrc`:
 ```bash
