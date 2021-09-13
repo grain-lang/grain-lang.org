@@ -82,7 +82,7 @@ You can check that everything is installed properly by running the version comma
 grain --version
 ```
 
-If you see a a version for the CLI and the compiler, you're all set! If not, please consult the [Troubleshooting](#troubleshooting) section.
+If you see a a version for the CLI and the compiler, you're all set! If not, please consult the [Troubleshooting](#Troubleshooting) section.
 
 We'll first use the `grain` CLI to compile and run a Hello World program, but first let's set up our editor.
 
