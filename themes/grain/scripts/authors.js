@@ -19,5 +19,12 @@ module.exports = {
     headshot: '/blog/photos/headshot/marcus-headshot-square.jpg',
     twitter: 'marcusr',
     github: 'marcusroberts',
+  },
+  'Philip Blair': {
+    name: 'Philip Blair',
+    title: 'Grain co-creator & Grain core team',
+    headshot: '/blog/photos/headshot/philip-headshot-square.jpg',
+    twitter: 'Philip_E_Blair',
+    github: 'peblair',
   }
 }
