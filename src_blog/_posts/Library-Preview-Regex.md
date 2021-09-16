@@ -10,7 +10,7 @@ tags: Standard Library
 
 What separates toy projects from fully-fledged programming languages? There are a number of valid answers to this question, but I think that a major one is the strength of its standard library. A powerful and fleshed-out standard library makes it quick and easy to do common tasks without having to reinvent the wheel at every turn. One such task is seemingly simple: recognizing simple patterns in strings. Most major modern programming languages come with a standard way of doing this, known as _regular expressions_. While these libraries may be straightforward to use, they're anything but straightforward to implement! Consequently, it is essential for languages to save users from having to roll their own versions of this functionality for each of their needs.
 
-I am proud to announce the release of the [`Regex` module](/docs/stdlib/regex) in Grain's standard library as of version `0.4.3`. This milestone is particularly exciting for a number of reasons:
+I am proud to announce the [`Regex` module](/docs/stdlib/regex)'s inclusion in Grain's standard library in the upcoming `0.4.3` release (also available now on `main`). This milestone is particularly exciting for a number of reasons:
 
 First, most overtly, this module provides an easy way of matching simple patterns in strings:
 
