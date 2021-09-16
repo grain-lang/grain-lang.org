@@ -1,7 +1,7 @@
 ---
 title: "Library Preview: Regex"
 subtitle: Pattern matching, parsing, oh my!
-date: 2021-09-15 12:00:00
+date: 2021-09-16 12:00:00
 author: Philip Blair
 cover: /blog/photos/cover/carl-raw-_NEzKE6Zdp4-unsplash.jpg
 coverAttribution: Carl Raw / Unsplash
@@ -38,7 +38,7 @@ assert Option.unwrap(matchResult.group(0)) == "caar"
 // We can look at another example where we don't
 // match the whole string:
 let matchResult = Option.unwrap(Regex.find(pat, "scare"))
-assert Option.unwrap(matchResult.group(0)) == "car"
+assert matchResult.group(0) == Some("car")
 
 // We can replace substrings too!
 assert Regex.replace(pat, "cart", "ski") == "skit"
