@@ -44,9 +44,9 @@ assert matchResult.group(0) == Some("car")
 assert Regex.replace(pat, "cart", "ski") == "skit"
 ```
 
-The full documentation can be found [here](/docs/stdlib/regex), but this library should be very useful for building even more nifty features in the future, such as JSON support.
+The full documentation can be found [here](/docs/stdlib/regex), but this library should be very useful for building even more nifty features in the future, such as the tokenization needed for JSON support.
 
-In addition, this library marks a soft milestone in Grain's maturity: it's one of the most complex things which has been written in the language so far, and it is written entirely in standard Grain! It packs a regular expression parser (so we can understand what pattern you're trying to match) and matching engine, all written in a single Grain module with no fancy flags, foreign functions, or attributes! It is far and away the largest module in the standard library:
+In addition, this library marks a soft milestone in Grain's maturity: it's one of the most complex things which has been written in the language so far, and it is written entirely in standard Grain! It packs a regular expression parser (so we can understand what pattern you're trying to match) and matching engine, all written in a Grain module with no foreign host functions! It is far and away the largest module in the standard library:
 
 ```bash
  $ find stdlib -name '*.gr' \
@@ -59,6 +59,6 @@ In addition, this library marks a soft milestone in Grain's maturity: it's one o
     3055 stdlib/regex.gr
 ```
 
-This module landing in the standard library demonstrates that writing complex programs entirely in Grain is possible. Grain's standard library still has a long way to go, but we're on our way (and maybe [you can even help](https://github.com/grain-lang/grain))!
+This module landing in the standard library continues to demonstrate our vision—writing complex programs in Grain is both possible and fun, and features like this make it easier and easier. We're constantly improving Grain's standard library, and [you can help too](https://github.com/grain-lang/grain/issues?q=is%3Aopen+is%3Aissue+label%3Astdlib)!
 
 A huge thank you to the Grain Core Team for all of the code reviews and bug squashing which went into making this happen. I'm pumped to see what we can land in the standard library next!
