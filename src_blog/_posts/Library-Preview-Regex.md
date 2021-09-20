@@ -1,7 +1,7 @@
 ---
 title: "Library Preview: Regex"
 subtitle: Pattern matching, parsing, oh my!
-date: 2021-09-16 12:00:00
+date: 2021-09-20 12:00:00
 author: Philip Blair
 cover: /blog/photos/cover/carl-raw-_NEzKE6Zdp4-unsplash.jpg
 coverAttribution: Carl Raw / Unsplash
