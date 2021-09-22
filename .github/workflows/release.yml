@@ -24,16 +24,21 @@ jobs:
           ref: ${{ github.event.inputs.tag }}
           path: grain
 
+      - name: Configure git
+        run: |
+          git config user.name grainbot[bot]
+          git config user.email bot@grain-lang.org
+
       - name: Copy stdlib docs
         run: |
           find grain/stdlib -name '*.md' | sed -E 's/grain\/stdlib//' | xargs -L 1 -I '{}' cp grain/stdlib/'{}' ./src/stdlib/'{}'
 
-      # GitHub Actions bot: https://github.community/t/github-actions-bot-email-address/17204/6
-      - name: Commit website updates
+      - name: Commit updates
         run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add src/getting_grain.md
           git add src/stdlib/
           git commit -m 'chore: Update website for ${{ github.event.inputs.tag }}'
+
+      - name: Push updates
+        run: |
           git push
