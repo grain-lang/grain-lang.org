@@ -1,0 +1,44 @@
+name: Grain Release
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "The tag of release"
+        required: true
+
+jobs:
+  release-updates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v2
+
+      - name: Replace download links
+        run: |
+          sed -E -i 's|(https://github\.com/grain-lang/grain/releases/download/)[^/]+(/)|\1${{ github.event.inputs.tag }}\2|g' src/getting_grain.md
+
+      - name: Checkout Grain
+        uses: actions/checkout@v2
+        with:
+          repository: grain-lang/grain
+          ref: ${{ github.event.inputs.tag }}
+          path: grain
+
+      - name: Configure git
+        run: |
+          git config user.name grainbot[bot]
+          git config user.email bot@grain-lang.org
+
+      - name: Copy stdlib docs
+        run: |
+          find grain/stdlib -name '*.md' | sed -E 's|grain/stdlib/||' | xargs -L 1 -I '{}' cp 'grain/stdlib/{}' './src/stdlib/{}'
+
+      - name: Commit updates
+        run: |
+          git add src/getting_grain.md
+          git add src/stdlib/
+          git commit -m 'chore: Update website for ${{ github.event.inputs.tag }}'
+
+      - name: Push updates
+        run: |
+          git push
