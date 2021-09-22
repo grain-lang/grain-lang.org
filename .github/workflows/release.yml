@@ -31,7 +31,7 @@ jobs:
 
       - name: Copy stdlib docs
         run: |
-          find grain/stdlib -name '*.md' | sed -E 's/grain\/stdlib//' | xargs -L 1 -I '{}' cp grain/stdlib/'{}' ./src/stdlib/'{}'
+          find grain/stdlib -name '*.md' | sed -E 's|grain/stdlib/||' | xargs -L 1 -I '{}' cp 'grain/stdlib/{}' './src/stdlib/{}'
 
       - name: Commit updates
         run: |
