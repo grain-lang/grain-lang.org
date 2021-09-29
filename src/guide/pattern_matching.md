@@ -116,7 +116,7 @@ match (item) {
 
 One common use of pattern matching and binding is working with `Option` and `Result` enums. 
 
-```
+```grain
 let opt = Some("I'm a match")
 match (opt) {
     Some(msg) => print(msg),

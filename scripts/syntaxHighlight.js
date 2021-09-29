@@ -44,23 +44,27 @@ function makeGutter(numLines) {
 function hookRenderer(renderer) {
   const { grammar } = this.grain;
 
-  renderer.code = function (code) {
+  renderer.code = function (code, lang) {
+    let result = []
     let text = code.split('\n')
 
-    let ruleStack = vsctm.INITIAL;
-    let result = []
-    for (let i = 0; i < text.length; i++) {
-      const line = text[i];
-      const lineTokens = grammar.tokenizeLine(line, ruleStack);
-      const lineRes = []
-      for (let j = 0; j < lineTokens.tokens.length; j++) {
-        const token = lineTokens.tokens[j];
-        const tokenString = line.substring(token.startIndex, token.endIndex)
-        const classString = token.scopes.map(scope => scope.replace(/\./g, ' ')).join(' ')
-        lineRes.push(`<span class="${classString}">${tokenString}</span>`)
+    if (lang === 'grain' || lang === 'gr') {
+      let ruleStack = vsctm.INITIAL;
+      for (let i = 0; i < text.length; i++) {
+        const line = text[i];
+        const lineTokens = grammar.tokenizeLine(line, ruleStack);
+        const lineRes = []
+        for (let j = 0; j < lineTokens.tokens.length; j++) {
+          const token = lineTokens.tokens[j];
+          const tokenString = line.substring(token.startIndex, token.endIndex)
+          const classString = token.scopes.map(scope => scope.replace(/\./g, ' ')).join(' ')
+          lineRes.push(`<span class="${classString}">${tokenString}</span>`)
+        }
+        result.push(`<span class="line">${lineRes.join('')}</span><br>`)
+        ruleStack = lineTokens.ruleStack;
       }
-      result.push(`<span class="line">${lineRes.join('')}</span><br>`)
-      ruleStack = lineTokens.ruleStack;
+    } else {
+      result = text.map(line => `<span class="line">${line}</span><br>`)
     }
 
     return `<figure class="tm-highlight"><table><tbody><tr>${makeGutter(text.length)}<td class="code"><pre>${result.join('')}</pre></td><td class="code-tools"><a class="code-copy" role="button" alt="copy code"><i class="far fa-clone"></i></a></td></tr></tbody></table></figure>`;
