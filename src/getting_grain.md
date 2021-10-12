@@ -8,7 +8,7 @@ We have a couple different ways to get Grain. Most developers will prefer the Pa
 
 The Grain toolchain (including our CLI, compiler, runtime, and standard library) is shipped as a single binary. Binaries are available for [MacOS x64](#MacOS-x64---Homebrew), [Linux x64](#Linux-x64---Download), and [Windows x64](#Windows-x64---Download).
 
-__Note:__ These binaries are a bit slow when first building a project (around 70 seconds). The packaged compiler is running in JavaScript, _and_ it builds and writes the runtime & standard library into your project. If you need raw speed, you can build the native compiler from source! See [Building Grain from Source](#Building-Grain-from-Source) below.
+**Note:** These binaries are a bit slow when first building a project (around 70 seconds). The packaged compiler is running in JavaScript, _and_ it builds and writes the runtime & standard library into your project. If you need raw speed, you can build the native compiler from source! See [Building Grain from Source](#Building-Grain-from-Source) below.
 
 ### MacOS x64 - Homebrew
 
@@ -22,30 +22,30 @@ _The `--no-quarantine` flag will avoid having to approve the binary in the Secur
 
 ### MacOS x64 - Download
 
-If you'd prefer not to use homebrew, you can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.3.2/grain-mac-x64) directly from GitHub or using `curl`.
+If you'd prefer not to use homebrew, you can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.4.3/grain-mac-x64) directly from GitHub or using `curl`.
 
 ```sh
 sudo curl -L --output /usr/local/bin/grain \
-https://github.com/grain-lang/grain/releases/download/grain-v0.3.2/grain-mac-x64 \
+https://github.com/grain-lang/grain/releases/download/grain-v0.4.3/grain-mac-x64 \
 && sudo chmod +x /usr/local/bin/grain
 ```
 
 ### Linux x64 - Download
 
-You can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.3.2/grain-linux-x64) directly from GitHub or using `curl`.
+You can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.4.3/grain-linux-x64) directly from GitHub or using `curl`.
 
 ```sh
 sudo curl -L --output /usr/local/bin/grain \
-https://github.com/grain-lang/grain/releases/download/grain-v0.3.2/grain-linux-x64 \
+https://github.com/grain-lang/grain/releases/download/grain-v0.4.3/grain-linux-x64 \
 && sudo chmod +x /usr/local/bin/grain
 ```
 
 ### Windows x64 - Download
 
-You can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.3.2/grain-win-x64.exe) directly from GitHub or using `curl`.
+You can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.4.3/grain-win-x64.exe) directly from GitHub or using `curl`.
 
 ```batch
-curl -LO https://github.com/grain-lang/grain/releases/download/grain-v0.3.2/grain-win-x64.exe
+curl -LO https://github.com/grain-lang/grain/releases/download/grain-v0.4.3/grain-win-x64.exe
 ```
 
 You'll either want to put it into your path or keep it inside your project and invoke with `.\grain-win-x64.exe`.
@@ -82,6 +82,34 @@ You can check that everything is installed properly by running the version comma
 grain --version
 ```
 
-If you see a a version for the CLI and the compiler, you're all set!
+If you see a a version for the CLI and the compiler, you're all set! If not, please consult the [Troubleshooting](#Troubleshooting) section.
 
 We'll first use the `grain` CLI to compile and run a Hello World program, but first let's set up our editor.
+
+### Troubleshooting
+
+This section contains solutions to problems which people may run into when building and installing Grain.
+
+#### After install, the `grain` command is not found
+
+This likely means that you haven't put `yarn`'s `bin` directory on your shell's `PATH` variable. This can be fixed by setting the variable in your shell's configuration. For example, if you use `zsh`, you can do the following:
+```bash
+# Initialize the PATH variable in your configuration and enable the change
+(echo 'export PATH="${PATH}:$(yarn global bin)"' >> ~/.zshrc) && source ~/.zshrc
+```
+For `bash`, the process is the same, except `~/.zshrc` should be replaced with `~/.bashrc`.
+
+For Windows `cmd.exe` and PowerShell users, you can run the following inside of PowerShell to update the `PATH` for your current user (this will fix the `PATH` variable for both `cmd.exe` and PowerShell):
+```powershell
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";" + (yarn global bin) -join "`n","User")
+```
+If you would like to update the `PATH` for all users, replace `"User"` with `"Machine"`. After running this command, restarting the shell should fix the issue.
+
+For other shells, the process may look a little different, but the procedure should always look something like the following:
+- Determine the output of `yarn global bin`
+- Put the directory that this command outputs onto your `PATH` variable
+- Restart or reinitialize your shell as needed to make the change take effect
+
+If the `grain` command still does not work, then please contact us in the `#support` channel on [our Discord][discord].
+
+[discord]: https://discord.com/invite/grain-lang

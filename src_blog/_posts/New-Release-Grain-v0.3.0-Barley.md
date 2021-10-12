@@ -55,4 +55,4 @@ Finally, Oscar, Philip, and I want to wish a warm welcome to [Marcus](https://tw
 
 ## Coming Up
 
-We have lots on our roadmap, but most importantly, we now have the infrastructure in place to make releases far more often! Expect to hear from us much more frequently. As always, please leave us feedback and request features on [GitHub](https://github.com/grain-lang/grain/issues) or [Discord](https://discord.gg/grain-lang)—our roadmap is driven by how you use Grain.
+We have lots on our roadmap, but most importantly, we now have the infrastructure in place to make releases far more often! Expect to hear from us much more frequently. As always, please leave us feedback and request features on [GitHub](https://github.com/grain-lang/grain/issues) or [Discord](https://discord.com/invite/grain-lang)—our roadmap is driven by how you use Grain.

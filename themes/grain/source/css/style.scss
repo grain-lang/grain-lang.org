@@ -243,6 +243,23 @@ code {
   padding: 0.125em 0.25em;
 }
 
+// These rules mostly related to @deprecated blocks
+blockquote {
+  display: block;
+  // TODO: Move the colors to variables?
+  border-left: .25em solid #f0ad4e;
+  background: #fcf8f2;
+  margin: 0;
+
+  > p {
+    padding: 1rem;
+
+    strong:first-child {
+      color: #eea236
+    }
+  }
+}
+
 .page-wrapper {
   margin-top: 88px;
 }
@@ -359,6 +376,7 @@ code {
 
 
 #sidebar-mobile {
+  display: none;
   position: fixed;
   left: 0;
   top: 88px;
@@ -421,6 +439,7 @@ code {
     display: flex;
   }
   #sidebar-mobile {
+    display: block;
     &.sidebar-toggled {
       transform: translateX(0);
     }
@@ -510,9 +529,28 @@ code {
 table {
   border-collapse: collapse;
   td, th {
-    padding: 0.75rem;
+    padding: 0.5rem;
     text-align: left;
     border: 1px solid var(--lavender);
+
+    code {
+      white-space: pre;
+    }
+  }
+}
+
+details {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+
+  &[disabled] {
+    > summary {
+      pointer-events: none;
+    }
+    > summary::marker,
+    > summary::-webkit-details-marker {
+      color: var(--gray);
+    }
   }
 }
 
@@ -720,6 +758,7 @@ a.blog-item {
 .blog-wrapper {
   margin-top: 4rem;
   max-width: 45rem;
+  width: 100%;
   padding: 0 1.5rem;
   h1 {
     font-size: 2.5rem;

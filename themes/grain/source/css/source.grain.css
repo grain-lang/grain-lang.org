@@ -7,14 +7,14 @@
   --code-light-blue: #05b2dc;
   --code-red: #ed254e;
   --code-gray: #637081;
-  --code-yellow: #F4D35E;
+  --code-yellow: #f4d35e;
 
   --code-extra: #d6edff;
-  --code-pink: #DABFFF;
+  --code-pink: #dabfff;
   --code-brown: #600047;
 }
 
-.comment.line.grain {
+.comment.grain {
   color: var(--code-gray);
   font-style: italic;
 }
@@ -71,4 +71,3 @@
 .variable.language.grain {
   color: var(--code-pink);
 }
-/* .variable.name.grain */

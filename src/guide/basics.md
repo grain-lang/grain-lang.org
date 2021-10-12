@@ -57,7 +57,7 @@ You may find some of these useful throughout your Grain programs.
 
 ### Number Operations
 
-The standard number operations include addition, subtraction, multiplication, division, and modulus (remainder). If you're looking for more number operations, you may find what you're looking for in the `Math` module.
+The standard number operations include addition, subtraction, multiplication, division, and modulus (remainder). If you're looking for more number operations, you may find what you're looking for in the `Number` module.
 
 ```grain
 let sum = 2 + 2 // 4

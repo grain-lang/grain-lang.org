@@ -183,3 +183,36 @@ subtractOne(counter)
 
 print(counter) // { count: 1 }
 ```
+
+## Mutually Recursive Data Types
+
+In some instances, it is necessary to define multiple data types which refer to one another. For example, imagine you wanted to define your own number system based on [Peano Arithmetic](https://en.wikipedia.org/wiki/Peano_axioms). You might try something like this:
+```grain
+enum EvenNumber {
+  Zero, // 0
+  OddPlusOne(OddNumber) // one plus an odd number
+}
+
+enum OddNumber {
+  EvenPlusOne(EvenNumber) // one plus an even number
+}
+
+let two = OddPlusOne(EvenPlusOne(Zero)) // 2 == (0 + 1) + 1
+```
+
+If you try to run this program, it won't work! That's because when the Grain compiler reads the definition for `EvenNumber`, it sees the reference to `OddNumber` before it's read its definition. This means that the compiler isn't sure what `OddNumber` is referring to! Luckily, there is a simple fix for this: we can place a comma after `EvenNumber`'s definition to tell the compiler that the next data definition is allowed to be recursive with `EvenNumber`:
+
+```grain
+enum EvenNumber {
+  Zero, // 0
+  OddPlusOne(OddNumber) // one plus an odd number
+}, // <- allows EvenNumber and OddNumber to be recursive!
+
+enum OddNumber {
+  EvenPlusOne(EvenNumber) // one plus an even number
+}
+
+let two = OddPlusOne(EvenPlusOne(Zero)) // 2 == (0 + 1) + 1
+```
+
+This example compiles without any issues.

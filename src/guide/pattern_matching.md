@@ -114,6 +114,26 @@ match (item) {
 }
 ```
 
+One common use of pattern matching and binding is working with `Option` and `Result` enums. 
+
+```grain
+let opt = Some("I'm a match")
+match (opt) {
+    Some(msg) => print(msg),
+    None => print("No match found")
+}
+
+let result = Err("This is an error")
+match (result) {
+    Ok(msg) => print(msg),
+    Err(e) => print(e)
+}
+```
+
+The first example will print `I'm a match` because the `Option` has a value.
+
+The second example will print `This is an error` because the `Result` contains an `Err`.
+
 ## Matching Record Types
 
 Like most Grain data structures, pattern matching can also be done on records.
@@ -224,3 +244,49 @@ match (list) {
   _ => print("List containes more than 3 elements")
 }
 ```
+
+## Match Guards
+
+Sometimes you want to be more specific about conditions for matching. You can use a **match guard** to place more specific limitations on a `match` case.
+
+You can think of a match guard as a combination of a `match` and an `if`. A guard allows you to add an additional statement to qualify whether the case matches.
+
+```grain
+let myNumber = Some(123)
+match (myNumber) {
+    Some(val) when val > 100 => print("More than 100"),
+    Some(val) => print("Less than or equal to 100"),
+    None => print("Nothing at all")
+}
+```
+
+In the example above, `myNumber` is an `Option` whose value is `Some(123)`. But our `match` statement has _three_ cases instead of two. The first case adds a guard: `Some(val) when val > 100`. This case will only be matched when the `Option` is `Some()` and the value inside that option is a number greater than `100`.
+
+The next case, `Some(val)`, will match any `Some()` value that is not matched by the guarded version.
+
+Order is important when using guards. The **first case to match** is the one that will be used. For example, we could change the above example to this:
+
+```grain
+let myNumber = Some(123)
+match (myNumber) {
+    Some(val) => print("Less than or equal to 100"),
+    Some(val) when val > 100 => print("More than 100"),
+    None => print("Nothing at all")
+}
+```
+
+In this version, regardless of the size of `myNumber`, it would always match the first case.
+
+Even default cases can have guards.
+
+```grain
+let myNumber = Some(99)
+let isTuesday = true
+match (myNumber) {
+    Some(val) when val > 100 => print("Greater than 100"),
+    _ when isTuesday => print("It's Tuesday"),
+    _ => print("Nothing else matched")
+}
+```
+
+In the example above, if `myNumber` is greater than `100` (which it is not), then the program prints `Greater than 100`. Otherwise, if `isTuesday` is `true`, then it prints `It's Tuesday` (regardless of whether `myNumber` is a `Some()` or a `None`). Finally, if nothing else matches, the program prints `Nothing else matched`.

@@ -10,6 +10,13 @@ The `Option` type is a special type of enum that exists to represent the possibi
 import Option from "option"
 ```
 
+Create new `Option` values using `Some()` and `None`.
+
+```grain
+let has_value = Some(1234)
+let no_value = None
+```
+
 ## Values
 
 ### Option.**isSome**
