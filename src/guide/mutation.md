@@ -47,7 +47,7 @@ let mut count = 7
 
 print(count += 9) // void
 
-// Instead, you want to use
+// Instead, use
 count += 9
-print(count)
+print(count) // 25
 ```
