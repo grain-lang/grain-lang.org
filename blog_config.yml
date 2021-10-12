@@ -17,6 +17,24 @@ root: /blog/
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 
+# RSS Feed
+feed:
+  enable: true
+  type:
+    - atom
+    - rss2
+  path:
+    - atom.xml
+    - rss2.xml
+  limit: 20
+  hub:
+  content: true
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date
+  icon: ./../favicon/favicon.ico
+  autodiscovery: true
+  template:
 # Directory
 source_dir: src_blog
 public_dir: blog
