@@ -40,7 +40,7 @@ count /= 25
 print(count) // 2
 ```
 
-These operators never return the assigned result, so you can't use a mutable assignment in an expression.
+These operators return `void` to help alleviate ambiguity and make code easier to understand—use the name of the binding to get its current value.
 
 ```grain
 let mut count = 7
