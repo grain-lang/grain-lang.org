@@ -40,10 +40,14 @@ count /= 25
 print(count) // 2
 ```
 
-These operators also return the assigned result, so you can use the new value immediately.
+These operators never return the assigned result, so you can't use a mutable assignment in an expression.
 
 ```grain
 let mut count = 7
 
-print(count += 9) // 16
+print(count += 9) // void
+
+// Instead, you want to use
+count += 9
+print(count)
 ```
