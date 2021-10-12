@@ -75,9 +75,7 @@ function hookRenderer(renderer) {
           const classString = token.scopes
             .map((scope) => scope.replace(/\./g, " "))
             .join(" ");
-          lineRes.push(
-            `<span class="${classString}">${escapeHTML(tokenString)}</span>`
-          );
+          lineRes.push(`<span class="${classString}">${tokenString}</span>`);
         }
         result.push(`<span class="line">${lineRes.join("")}</span><br>`);
         ruleStack = lineTokens.ruleStack;
