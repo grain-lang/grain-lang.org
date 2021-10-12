@@ -61,7 +61,7 @@ The special character sequences are as follows:
 - `\P{«property»}` - Matches any character without Unicode property `«property»` (see below)
 - `(«re»)` - Matches `«re»`, storing the result in a group
 - `(?:«re»)` - Matches `«re»` without storing the result in a group
-- `(?«mode»:«re») - Matches `«re»`with the mode settings specified by`«mode»` using the following syntax:
+- `(?«mode»:«re») - Matches `«re»` with the mode settings specified by `«mode»` using the following syntax:
 - `«mode»i` - The same as `«mode»`, but with case-insensitivity enabled (temporarily not supported until grain-lang/grain#661 is resolved)
 - `«mode»-i` - The same as `«mode»`, but with case-insensitivity disabled (the default)
 - `«mode»m` / `«mode»-s` - The same as `«mode»`, but with multi-line mode enabled
@@ -77,32 +77,29 @@ The special character sequences are as follows:
 - Finally, basic classes (defined below) can also appear outside of character ranges.
 
 Character ranges (referred to as `«rng»` above) have the following syntax:
-
 - `«c»` - Matches the character `«c»` exactly
 - `«c1»-«c2»` - Matches any character with a character code between the character code for `«c1»` and the code for `«c2»`
 
 These forms can be repeated any number of times, which will construct a range of their union. That is, `[ba-c]` and `[a-c]` are equivalent ranges.
 Additionally, there are the following special cases:
-
 - A `]` as the first character of the range will match a `]`
 - A `-` as the first or last character of the range will match a `-`
 - A `^` in any position other than the first position will match a `^`
 - `\«c»`, where `«c»` is a non-alphabetic character, will match `«c»`
 
 Furthermore, ranges can include character classes, which are predefined commonly-used
-sets of characters. There are two "flavors" of these: _basic_ classes and _POSIX_ classes.
+sets of characters. There are two "flavors" of these: *basic* classes and *POSIX* classes.
 Both are provided for ease of use and to maximize compatibility with other regular
 expression engines, so feel free to use whichever is most convenient.
 
-The _basic_ classes are as follows:
-
+The *basic* classes are as follows:
 - `\d` - Matches `0-9`
 - `\D` - Matches characters not in `\d`
 - `\w` - Matches `a-z`, `A-Z`, `0-9`, and `_`
 - `\W` - Matches characters not in `\w`
 - `\s` - Matches space, tab, formfeed, and return
 - `\S` - Matches characters not in `\s`
-  The _POSIX_ classes are as follows:
+The *POSIX* classes are as follows:
 - `[:alpha:]` - Matches `a-z` and `A-Z`
 - `[:upper:]` - Matches `A-Z`
 - `[:lower:]` - Matches `a-z`
@@ -117,15 +114,15 @@ The _basic_ classes are as follows:
 
 Parameters:
 
-| param         | type     | description                       |
-| ------------- | -------- | --------------------------------- |
-| `regexString` | `String` | The regular expression to compile |
+|param|type|description|
+|-----|----|-----------|
+|`regexString`|`String`|The regular expression to compile|
 
 Returns:
 
-| type                                | description                     |
-| ----------------------------------- | ------------------------------- |
-| `Result<RegularExpression, String>` | The compiled regular expression |
+|type|description|
+|----|-----------|
+|`Result<RegularExpression, String>`|The compiled regular expression|
 
 Examples:
 
@@ -195,16 +192,16 @@ Determines if the given regular expression has a match in the given string.
 
 Parameters:
 
-| param    | type                | description                          |
-| -------- | ------------------- | ------------------------------------ |
-| `rx`     | `RegularExpression` | The regular expression to search for |
-| `string` | `String`            | The string to search within          |
+|param|type|description|
+|-----|----|-----------|
+|`rx`|`RegularExpression`|The regular expression to search for|
+|`string`|`String`|The string to search within|
 
 Returns:
 
-| type   | description                                                |
-| ------ | ---------------------------------------------------------- |
-| `Bool` | `true` if the RegExp matches the string, otherwise `false` |
+|type|description|
+|----|-----------|
+|`Bool`|`true` if the RegExp matches the string, otherwise `false`|
 
 Examples:
 
@@ -227,18 +224,18 @@ Determines if the given regular expression has a match in the given string betwe
 
 Parameters:
 
-| param    | type                | description                          |
-| -------- | ------------------- | ------------------------------------ |
-| `rx`     | `RegularExpression` | The regular expression to search for |
-| `string` | `String`            | The string to search                 |
-| `start`  | `Number`            | The start offset to search between   |
-| `end`    | `Number`            | The end offset to search between     |
+|param|type|description|
+|-----|----|-----------|
+|`rx`|`RegularExpression`|The regular expression to search for|
+|`string`|`String`|The string to search|
+|`start`|`Number`|The start offset to search between|
+|`end`|`Number`|The end offset to search between|
 
 Returns:
 
-| type   | description                                                                   |
-| ------ | ----------------------------------------------------------------------------- |
-| `Bool` | `true` if the RegExp matches the string in the given range, otherwise `false` |
+|type|description|
+|----|-----------|
+|`Bool`|`true` if the RegExp matches the string in the given range, otherwise `false`|
 
 Examples:
 
@@ -265,16 +262,16 @@ Returns the first match for the given regular expression contained within the gi
 
 Parameters:
 
-| param    | type                | description                          |
-| -------- | ------------------- | ------------------------------------ |
-| `rx`     | `RegularExpression` | The regular expression to search for |
-| `string` | `String`            | The string to search                 |
+|param|type|description|
+|-----|----|-----------|
+|`rx`|`RegularExpression`|The regular expression to search for|
+|`string`|`String`|The string to search|
 
 Returns:
 
-| type                  | description              |
-| --------------------- | ------------------------ |
-| `Option<MatchResult>` | The match result, if any |
+|type|description|
+|----|-----------|
+|`Option<MatchResult>`|The match result, if any|
 
 Examples:
 
@@ -299,18 +296,18 @@ between the given start/end range.
 
 Parameters:
 
-| param    | type                | description                          |
-| -------- | ------------------- | ------------------------------------ |
-| `rx`     | `RegularExpression` | The regular expression to search for |
-| `string` | `String`            | The string to search                 |
-| `start`  | `Number`            | The start offset to search between   |
-| `end`    | `Number`            | The end offset to search between     |
+|param|type|description|
+|-----|----|-----------|
+|`rx`|`RegularExpression`|The regular expression to search for|
+|`string`|`String`|The string to search|
+|`start`|`Number`|The start offset to search between|
+|`end`|`Number`|The end offset to search between|
 
 Returns:
 
-| type                  | description              |
-| --------------------- | ------------------------ |
-| `Option<MatchResult>` | The match result, if any |
+|type|description|
+|----|-----------|
+|`Option<MatchResult>`|The match result, if any|
 
 Examples:
 
@@ -328,16 +325,16 @@ Returns all matches for the given regular expression contained within the given 
 
 Parameters:
 
-| param    | type                | description                          |
-| -------- | ------------------- | ------------------------------------ |
-| `rx`     | `RegularExpression` | The regular expression to search for |
-| `string` | `String`            | The string to search                 |
+|param|type|description|
+|-----|----|-----------|
+|`rx`|`RegularExpression`|The regular expression to search for|
+|`string`|`String`|The string to search|
 
 Returns:
 
-| type                | description         |
-| ------------------- | ------------------- |
-| `List<MatchResult>` | The list of matches |
+|type|description|
+|----|-----------|
+|`List<MatchResult>`|The list of matches|
 
 ### Regex.**findAllRange**
 
@@ -356,18 +353,18 @@ between the given start/end range.
 
 Parameters:
 
-| param    | type                | description                          |
-| -------- | ------------------- | ------------------------------------ |
-| `rx`     | `RegularExpression` | The regular expression to search for |
-| `string` | `String`            | The string to search                 |
-| `start`  | `Number`            | The start offset to search between   |
-| `end`    | `Number`            | The end offset to search between     |
+|param|type|description|
+|-----|----|-----------|
+|`rx`|`RegularExpression`|The regular expression to search for|
+|`string`|`String`|The string to search|
+|`start`|`Number`|The start offset to search between|
+|`end`|`Number`|The end offset to search between|
 
 Returns:
 
-| type                | description         |
-| ------------------- | ------------------- |
-| `List<MatchResult>` | The list of matches |
+|type|description|
+|----|-----------|
+|`List<MatchResult>`|The list of matches|
 
 Examples:
 
@@ -388,28 +385,27 @@ replace : (RegularExpression, String, String) -> String
 
 Replaces the first match for the given regular expression contained within the given string with the specified replacement.
 Replacement strings support the following syntax:
-
 - `$&` - Replaced with the text of the matching portion of input (e.g. for `(foo)`, the search string `foo bar`, and the replacement `baz $&`, the result will be `baz foo bar`)
 - `$n` / `$nn` (where `n` is a digit) - Replaced with the text of group `nn`
 - `$$` - Replaced with a literal `$`
 - `$.` - Does nothing (this exists to support replacement strings such as `$4$.0`, which will place the contents of group 4 prior to a zero)
-- $\` - Replaced with the text preceding the matched substring
+- `$\`` - Replaced with the text preceding the matched substring
 - `$'` - Replaced with the text following the matched substring
 - Any other character will be placed as-is in the replaced output.
 
 Parameters:
 
-| param         | type                | description                          |
-| ------------- | ------------------- | ------------------------------------ |
-| `rx`          | `RegularExpression` | The regular expression to search for |
-| `toSearch`    | `String`            | The string to search                 |
-| `replacement` | `String`            | The string that replaces matches     |
+|param|type|description|
+|-----|----|-----------|
+|`rx`|`RegularExpression`|The regular expression to search for|
+|`toSearch`|`String`|The string to search|
+|`replacement`|`String`|The string that replaces matches|
 
 Returns:
 
-| type     | description                                                |
-| -------- | ---------------------------------------------------------- |
-| `String` | The given string with the appropriate replacements, if any |
+|type|description|
+|----|-----------|
+|`String`|The given string with the appropriate replacements, if any|
 
 Examples:
 
@@ -433,20 +429,21 @@ See `replace` for replacement string syntax.
 
 Parameters:
 
-| param         | type                | description                          |
-| ------------- | ------------------- | ------------------------------------ |
-| `rx`          | `RegularExpression` | The regular expression to search for |
-| `toSearch`    | `String`            | The string to search                 |
-| `replacement` | `String`            | The string that replaces matches     |
+|param|type|description|
+|-----|----|-----------|
+|`rx`|`RegularExpression`|The regular expression to search for|
+|`toSearch`|`String`|The string to search|
+|`replacement`|`String`|The string that replaces matches|
 
 Returns:
 
-| type     | description                                                |
-| -------- | ---------------------------------------------------------- |
-| `String` | The input string with the appropriate replacements, if any |
+|type|description|
+|----|-----------|
+|`String`|The input string with the appropriate replacements, if any|
 
 Examples:
 
 ```grain
 assert Regex.replaceAll(Result.unwrap(Regex.make("o")), "skoot", "r") == "skrrt"
 ```
+
