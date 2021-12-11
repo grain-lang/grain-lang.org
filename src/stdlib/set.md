@@ -2,162 +2,501 @@
 title: Set
 ---
 
-A Set is an unordered collection of unique values. Operations on a `Set` mutate the internal state, so it never needs to be re-assigned.
+A Set is an unordered collection of unique values. Operations on a Set mutate the internal state, so it never needs to be re-assigned.
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
 
 ```grain
 import Set from "set"
 ```
 
-## Values
+### Set.**Bucket**
+
+```grain
+record Bucket<t> {
+  key: t,
+  next: Option<Bucket<t>>,
+}
+```
+
+### Set.**Set**
+
+```grain
+record Set<k> {
+  size: Number,
+  buckets: Array<Option<Bucket<k>>>,
+}
+```
+
+### Set.**makeSized**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+makeSized : Number -> Set<a>
+```
+
+Creates a new empty set with an initial storage of the given length. As values are added or removed, the length may grow or shrink. Generally, you won't need to care about the length of your set and can use `Set.make()` instead.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`storageLength`|`Number`|The initial storage length of the set|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Set<a>`|An empty set with the given initial storage length|
 
 ### Set.**make**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-make : () -> Set<t>
+make : () -> Set<a>
 ```
 
 Creates a new, empty set.
 
-### Set.**makeSized**
+Returns:
 
-```grain
-makeSized : Number -> Set<t>
-```
-
-Creates a new, empty set with an initial storage size for the given number of elements.
+|type|description|
+|----|-----------|
+|`Set<a>`|An empty set|
 
 ### Set.**add**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-add : (t, Set<t>) -> Void
+add : (a, Set<a>) -> Void
 ```
 
 Adds a new value to the set. If the value already exists, nothing happens.
 
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`key`|`a`|The value to add|
+|`set`|`Set<a>`|The set to update|
+
 ### Set.**contains**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-contains : (t, Set<t>) -> Bool
+contains : (a, Set<a>) -> Bool
 ```
 
-Returns `true` if the set contains the given value.
+Determines if the set contains the given value.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`key`|`a`|The value to search for|
+|`set`|`Set<a>`|The set to search|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Bool`|`true` if the set contains the given value or `false` otherwise|
 
 ### Set.**remove**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-remove : (t, Set<t>) -> Void
+remove : (a, Set<a>) -> Void
 ```
 
-Removes the given value from the set.
+Removes the given value from the set. If the value doesn't exist, nothing happens.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`key`|`a`|The value to remove|
+|`set`|`Set<a>`|The set to update|
 
 ### Set.**size**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-size : Set<t> -> Number
+size : Set<a> -> Number
 ```
 
 Returns the number of values within the set.
 
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`set`|`Set<a>`|The set to inspect|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Number`|The number of elements in the set|
+
 ### Set.**isEmpty**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-isEmpty : Set<t> -> Number
+isEmpty : Set<a> -> Bool
 ```
 
-Returns `true` if the set contains no values.
+Determines if the set contains no elements.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`set`|`Set<a>`|The set to inspect|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Bool`|`true` if the given set is empty or `false` otherwise|
 
 ### Set.**clear**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-clear : Set<t> -> Void
+clear : Set<a> -> Void
 ```
 
-Removes all values from the set.
+Resets the set by removing all values.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`set`|`Set<a>`|The set to reset|
 
 ### Set.**forEach**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-forEach : ((t) -> Void, Set<t>) -> Void
+forEach : ((a -> b), Set<a>) -> Void
 ```
 
-Iterates the given function over each value in the set.
+Iterates the set, calling an iterator function on each element.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`fn`|`a -> b`|The iterator function to call with each element|
+|`set`|`Set<a>`|The set to iterate|
 
 ### Set.**reduce**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-reduce : ((a, t) -> a, a, Set<t>) -> a
+reduce : (((a, b) -> a), a, Set<b>) -> a
 ```
 
-Reduces all values within a set to a single value. The reducer function is called with the accumulator and the current value.
+Combines all elements of a set using a reducer function.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`fn`|`(a, b) -> a`|The reducer function to call on each element, where the value returned will be the next accumulator value|
+|`init`|`a`|The initial value to use for the accumulator on the first iteration|
+|`set`|`Set<b>`|The set to iterate|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`a`|The final accumulator returned from `fn`|
+
+### Set.**filter**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+filter : ((a -> Bool), Set<a>) -> Void
+```
+
+Removes elements from a set where a predicate function returns `false`.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`fn`|`a -> Bool`|The predicate function to indicate which elements to remove from the set, where returning `false` indicates the value should be removed|
+|`set`|`Set<a>`|The set to iterate|
+
+### Set.**reject**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+reject : ((a -> Bool), Set<a>) -> Void
+```
+
+Removes elements from a set where a predicate function returns `true`.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`fn`|`a -> Bool`|The predicate function to indicate which elements to remove from the set, where returning `true` indicates the value should be removed|
+|`set`|`Set<a>`|The set to iterate|
 
 ### Set.**toList**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-toList : Set<t> -> List<t>
+toList : Set<a> -> List<a>
 ```
 
-Returns a list from the values of a set.
+Converts a set into a list of its elements.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`set`|`Set<a>`|The set to convert|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<a>`|A list containing all set values|
 
 ### Set.**fromList**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-fromList : List<t> -> Set<t>
+fromList : List<a> -> Set<a>
 ```
 
 Creates a set from a list.
 
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`list`|`List<a>`|The list to convert|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Set<a>`|A set containing all list values|
+
 ### Set.**toArray**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-toArray : Set<t> -> Array<t>
+toArray : Set<a> -> Array<a>
 ```
 
-Returns an array from the values of a set.
+Converts a set into an array of its elements.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`set`|`Set<a>`|The set to convert|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Array<a>`|An array containing all set values|
 
 ### Set.**fromArray**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-fromArray : Array<t> -> Set<t>
+fromArray : Array<a> -> Set<a>
 ```
 
 Creates a set from an array.
 
-### Set.**filter**
+Parameters:
 
-```grain
-filter : ((t) -> Bool, Set<t>) -> Void
-```
+|param|type|description|
+|-----|----|-----------|
+|`array`|`Array<a>`|The array to convert|
 
-Keeps all values that the predicate returned `true` for from the set.
+Returns:
 
-### Set.**reject**
-
-```grain
-reject : ((t) -> Bool, Set<t>) -> Void
-```
-
-Removes all values that the predicate returned `true` for from the set.
+|type|description|
+|----|-----------|
+|`Set<a>`|A set containing all array values|
 
 ### Set.**union**
 
-```grain
-union : (Set<t>, Set<t>) -> Set<t>
-```
-
-Creates a set from the union of the given sets.
-
-### Set.**intersect**
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
 
 ```grain
-intersect : (Set<t>, Set<t>) -> Set<t>
+union : (Set<a>, Set<a>) -> Set<a>
 ```
 
-Creates a set from the intersection of the given sets.
+Combines two sets into a single set containing all elements from both sets.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`set1`|`Set<a>`|The first set to combine|
+|`set2`|`Set<a>`|The second set to combine|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Set<a>`|A set containing all elements of both sets|
 
 ### Set.**diff**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-diff : (Set<t>, Set<t>) -> Set<t>
+diff : (Set<a>, Set<a>) -> Set<a>
 ```
 
-Creates a set from the difference of the given sets.
+Combines two sets into a single set containing only the elements not shared between both sets.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`set1`|`Set<a>`|The first set to combine|
+|`set2`|`Set<a>`|The second set to combine|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Set<a>`|A set containing only unshared elements from both sets|
+
+### Set.**intersect**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+intersect : (Set<a>, Set<a>) -> Set<a>
+```
+
+Combines two sets into a single set containing only the elements shared between both sets.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`set1`|`Set<a>`|The first set to combine|
+|`set2`|`Set<a>`|The second set to combine|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Set<a>`|A set containing only shared elements from both sets|
+
+### Set.**getInternalStats**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+getInternalStats : Set<a> -> (Number, Number)
+```
+
+Provides data representing the internal state state of the set.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`set`|`Set<a>`|The set to inspect|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`(Number, Number)`|The internal state of the set|
+
