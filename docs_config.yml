@@ -73,7 +73,7 @@ docs_groups:
     - stdlib/float64
   Language Reference:
     - reference/introduction
-  # - reference/lexical_structure:
+    - reference/lexical_structure
   #     - reference/lexical_structure/whitespace
   #     - reference/lexical_structure/comments
   #     - reference/lexical_structure/keywords
