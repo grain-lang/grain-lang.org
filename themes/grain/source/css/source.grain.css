@@ -14,60 +14,61 @@
   --code-brown: #600047;
 }
 
-.comment.grain {
+.comment.source {
   color: var(--code-gray);
   font-style: italic;
 }
-.constant.character.escape.grain {
+.constant.character.escape.source {
   color: var(--code-light-purple) !important;
 }
-.constant.language.grain,
-.constant.numeric.grain {
+.constant.language.source,
+.constant.numeric.source {
   color: var(--code-orange);
 }
-.entity.name.function.grain {
+.entity.name.function.source {
   color: var(--code-blue);
 }
-.entity.other.grain {
+.entity.other.source {
   color: var(--white);
 }
-.entity.name.module.grain,
-.entity.name.type.grain,
-.entity.name.grain {
+.entity.name.module.source,
+.entity.name.type.source,
+.entity.name.source {
   color: var(--code-orange);
 }
-.storage.type.grain,
-.keyword.grain,
-.keyword.operator.accessor.grain,
-.keyword.operator.grain {
+.storage.type.source,
+.keyword.source,
+.keyword.operator.accessor.source,
+.keyword.operator.source {
   color: var(--code-light-purple);
 }
-.meta.separator.grain {
+.meta.separator.source {
   color: var(--code-gray);
 }
-.punctuation.definition.grain,
-.punctuation.definition.parameters.begin.grain,
-.punctuation.definition.parameters.end.grain,
-.punctuation.definition.parameters.grain,
-.punctuation.definition.parameters.start.grain,
-.punctuation.description.grain,
-.punctuation.description.parameters.end.grain,
-.punctuation.description.parameters.grain,
-.punctuation.description.parameters.start.grain,
-.punctuation.support.grain {
+.punctuation.definition.source,
+.punctuation.definition.parameters.begin.source,
+.punctuation.definition.parameters.end.source,
+.punctuation.definition.parameters.source,
+.punctuation.definition.parameters.start.source,
+.punctuation.description.source,
+.punctuation.description.parameters.end.source,
+.punctuation.description.parameters.source,
+.punctuation.description.parameters.start.source,
+.punctuation.support.source,
+.punctuation {
   color: var(--code-extra);
 }
-.string.quoted.double.grain,
-.string.quoted.single.grain {
+.string.quoted.double.source,
+.string.quoted.single.source {
   color: var(--code-green);
 }
-.support.constant.grain {
+.support.constant.source {
   color: var(--code-orange);
 }
-.support.type.grain {
+.support.type.source {
   color: var(--code-purple);
 }
-.variable.parameter.grain,
-.variable.language.grain {
+.variable.parameter.source,
+.variable.language.source {
   color: var(--code-pink);
 }

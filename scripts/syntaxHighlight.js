@@ -31,20 +31,37 @@ async function initialize() {
       createOnigString: (str) => new onig.OnigString(str),
     }),
     loadGrammar: async (scopeName) => {
-      if (scopeName === "source.grain") {
-        let path =
-          "./grain-language-server/editor-extensions/vscode/syntaxes/grain.json";
-        let grammar = fs.readFileSync(path);
-        return vsctm.parseRawGrammar(grammar.toString(), path);
+      let path;
+      switch (scopeName) {
+        case "source.grain": {
+          path =
+            "./grain-language-server/editor-extensions/vscode/syntaxes/grain.json";
+          break;
+        }
+        case "source.ebnf": {
+          path = "./grammars/EBNF.tmLanguage";
+          break;
+        }
+        default: {
+          console.log(`Unknown scope name: ${scopeName}`);
+          return null;
+        }
       }
-      console.log(`Unknown scope name: ${scopeName}`);
-      return null;
+      let grammar = fs.readFileSync(path);
+      return vsctm.parseRawGrammar(grammar.toString(), path);
     },
   });
 
-  const grammar = await registry.loadGrammar("source.grain");
+  const [grain, ebnf] = await Promise.all([
+    registry.loadGrammar("source.grain"),
+    registry.loadGrammar("source.ebnf"),
+  ]);
 
-  this.grain = { registry, grammar };
+  this.grammars = {
+    grain,
+    gr: grain,
+    ebnf,
+  };
 }
 
 function makeGutter(numLines) {
@@ -57,17 +74,15 @@ function makeGutter(numLines) {
 }
 
 function hookRenderer(renderer) {
-  const { grammar } = this.grain;
-
-  renderer.code = function (code, lang) {
+  renderer.code = (code, lang) => {
     let result = [];
     let text = code.split("\n");
 
-    if (lang === "grain" || lang === "gr") {
+    if (this.grammars[lang]) {
       let ruleStack = vsctm.INITIAL;
       for (let i = 0; i < text.length; i++) {
         const line = text[i];
-        const lineTokens = grammar.tokenizeLine(line, ruleStack);
+        const lineTokens = this.grammars[lang].tokenizeLine(line, ruleStack);
         const lineRes = [];
         for (let j = 0; j < lineTokens.tokens.length; j++) {
           const token = lineTokens.tokens[j];

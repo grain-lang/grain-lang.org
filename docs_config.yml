@@ -44,8 +44,6 @@ docs_groups:
     - guide/data_types
     - guide/pattern_matching
     - guide/imports_exports
-  The Docs:
-    - intro
   Standard Library:
     - stdlib/pervasives
     - stdlib/array
@@ -73,8 +71,16 @@ docs_groups:
     - stdlib/int64
     - stdlib/float32
     - stdlib/float64
-  # TODO: Re-enable when docs are more mature
-  # Language Constructs:
+  # Language Reference:
+  # - reference/introduction
+  # - reference/lexical_structure:
+  #     - reference/lexical_structure/whitespace
+  #     - reference/lexical_structure/comments
+  #     - reference/lexical_structure/keywords
+  #     - reference/lexical_structure/identifiers
+  #     - reference/lexical_structure/literals
+  #     - reference/lexical_structure/operators
+  #     - reference/lexical_structure/delimiters
   #   - constructs/bindings
   #   - constructs/numbers
   #   - constructs/booleans
