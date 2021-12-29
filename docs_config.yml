@@ -75,7 +75,7 @@ docs_groups:
     - reference/introduction
     - reference/lexical_structure:
         - reference/lexical_structure/whitespace
-  #     - reference/lexical_structure/comments
+        - reference/lexical_structure/comments
   #     - reference/lexical_structure/keywords
   #     - reference/lexical_structure/identifiers
   #     - reference/lexical_structure/literals
