@@ -5,13 +5,23 @@
             <% if (category != 'null') { %>
                 <div class="sidebar-group-header"><%- category %></div>
             <% } %>
-            <% pages.forEach(function(path) { %>
-                <% var p = site.pages.findOne({path: path + '.html'}) || {} %>
+            <% pages.forEach(function(item) { %>
+                <% var path = typeof item === 'string' ? item : Object.keys(item)[0] %>
+                <% var p = site.pages.findOne({path: path + '.html'}) || site.pages.findOne({path: path + '/index.html'}) || {} %>
                 <li class="sidebar-item <%- page.path === p.path ? 'current' : '' %>">
                     <a href="<%- url_for(p.path).replace(/(\/index)?\.html$/, '') %>" class="sidebar-link <%- page.path === p.path ? 'current' : '' %>">
                         <span><%- p.title %></span>
                     </a>
                 </li>
+                <% var subpaths = item[path] || [] %>
+                <% subpaths.forEach(function(subpath) { %>
+                    <% var p = site.pages.findOne({path: subpath + '.html'}) || {} %>
+                    <li class="sidebar-item <%- page.path === p.path ? 'current' : '' %>">
+                        <a href="<%- url_for(p.path).replace(/(\/index)?\.html$/, '') %>" class="sidebar-link <%- page.path === p.path ? 'current' : '' %>">
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;<%- p.title %></span>
+                        </a>
+                    </li>
+                <% }) %>
             <% }) %>
         <% }) %>
     </ul>

@@ -87,8 +87,21 @@ docs_groups:
     - stdlib/sys/process
     - stdlib/sys/random
     - stdlib/sys/time
-  # TODO: Re-enable when docs are more mature
-  # Language Constructs:
+    - stdlib/int32
+    - stdlib/int64
+    - stdlib/float32
+    - stdlib/float64
+    - stdlib/bigint
+  # Language Reference:
+  # - reference/introduction
+  # - reference/lexical_structure:
+  #     - reference/lexical_structure/whitespace
+  #     - reference/lexical_structure/comments
+  #     - reference/lexical_structure/keywords
+  #     - reference/lexical_structure/identifiers
+  #     - reference/lexical_structure/literals
+  #     - reference/lexical_structure/operators
+  #     - reference/lexical_structure/delimiters
   #   - constructs/bindings
   #   - constructs/numbers
   #   - constructs/booleans
