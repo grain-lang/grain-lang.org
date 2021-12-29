@@ -80,7 +80,7 @@ docs_groups:
         - reference/lexical_structure/identifiers
         - reference/lexical_structure/literals
         - reference/lexical_structure/operators
-  #     - reference/lexical_structure/delimiters
+        - reference/lexical_structure/delimiters
   #   - constructs/bindings
   #   - constructs/numbers
   #   - constructs/booleans
