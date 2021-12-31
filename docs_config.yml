@@ -46,6 +46,8 @@ docs_groups:
     - guide/imports_exports
   The Docs:
     - intro
+  Tooling Guide:
+    - tooling/grainDoc
   Standard Library:
     - stdlib/pervasives
     - stdlib/array
