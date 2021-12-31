@@ -53,15 +53,15 @@ Once a PR is created, Netlify will create a preview site and comment on the PR w
 For the docs, run:
 
 ```sh
-npm install
-npm run start-docs
+yarn
+yarn start-docs
 ```
 
 For the blog, run:
 
 ```sh
-npm install
-npm run start-blog
+yarn
+yarn start-blog
 ```
 
 This will install all build dependencies and serve the website on port 3000.
