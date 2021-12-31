@@ -9,8 +9,8 @@
     "cleanup": "hexo clean",
     "prestart-docs": "npm run cleanup",
     "prestart-blog": "npm run cleanup",
-    "start-docs": "hexo generate --config docs_config.yml --watch & node server.js & wait",
-    "start-blog": "hexo generate --config blog_config.yml --watch & node server.js & wait",
+    "start-docs": "concurrently \"hexo generate --config docs_config.yml --watch\" \"node server.js\" \"wait\"",
+    "start-blog": "concurrently \"hexo generate --config blog_config.yml --watch\" \"node server.js\" \"wait\"",
     "build": "npm run cleanup && hexo generate --config docs_config.yml && npm run cleanup && hexo generate --config blog_config.yml"
   },
   "dependencies": {
