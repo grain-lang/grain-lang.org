@@ -52,7 +52,7 @@ You'll either want to put it into your path or keep it inside your project and i
 
 ## Community
 
-### Using ASDF
+### Using asdf
 
 You can install specific version of Grain toolchain using [asdf](https://asdf-vm.com) runtime version manager.
 
