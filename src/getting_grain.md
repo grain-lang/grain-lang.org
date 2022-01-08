@@ -50,7 +50,7 @@ curl -LO https://github.com/grain-lang/grain/releases/download/grain-v0.4.6/grai
 
 You'll either want to put it into your path or keep it inside your project and invoke with `.\grain-win-x64.exe`.
 
-## Alternatives
+## Community
 
 ### Using ASDF
 
