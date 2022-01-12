@@ -52,6 +52,8 @@ You'll either want to put it into your path or keep it inside your project and i
 
 ## Community
 
+These installation methods are maintained by the community—they're not supplied by the Grain team, but you may find them to be useful alternatives to the official distributions.
+
 ### Using asdf
 
 You can install specific version of Grain toolchain using [asdf](https://asdf-vm.com) runtime version manager.
