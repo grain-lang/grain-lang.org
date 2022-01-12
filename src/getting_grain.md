@@ -68,7 +68,7 @@ asdf install grain 0.4.6
 asdf global grain 0.4.6
 ```
 
-See the [plugin](https://github.com/cometkim/asdf-grain) for detail.
+See the [plugin](https://github.com/cometkim/asdf-grain) for more details.
 
 ## Building Grain from Source
 
