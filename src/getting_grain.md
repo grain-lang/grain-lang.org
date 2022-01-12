@@ -50,6 +50,26 @@ curl -LO https://github.com/grain-lang/grain/releases/download/grain-v0.4.6/grai
 
 You'll either want to put it into your path or keep it inside your project and invoke with `.\grain-win-x64.exe`.
 
+## Community
+
+These installation methods are maintained by the community—they're not supplied by the Grain team, but you may find them to be useful alternatives to the official distributions.
+
+### Using asdf
+
+You can install specific version of Grain toolchain using [asdf](https://asdf-vm.com) runtime version manager.
+
+```bash
+asdf plugin add grain
+
+# List all available version
+asdf list all grain
+
+asdf install grain 0.4.6
+asdf global grain 0.4.6
+```
+
+See the [plugin](https://github.com/cometkim/asdf-grain) for more details.
+
 ## Building Grain from Source
 
 To get access to the entirely native compiler, you can build Grain from source.
