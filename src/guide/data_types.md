@@ -11,7 +11,7 @@ Enums allow you to represent data that has multiple variations. Combined with pa
 Let's imagine for a moment that we're vegetable farmers and we want to represent the vegetables we offer. We could represent them like this:
 
 ```grain
-enum Veggies { Squash, Cabbage, Broccoli }
+enum Veggie { Squash, Cabbage, Broccoli }
 ```
 
 If we have many vegetables to offer, we could instead write it this way for readability:
