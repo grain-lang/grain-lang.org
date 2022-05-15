@@ -74,25 +74,25 @@ See the [plugin](https://github.com/cometkim/asdf-grain) for more details.
 
 To get access to the entirely native compiler, you can build Grain from source.
 
-First, you'll need [Node.js](https://nodejs.org/en/download/current/) v14 and [Yarn](https://yarnpkg.com/getting-started/install).
+First, you'll need [Node.js](https://nodejs.org/en/download/current/) v16.
 
 Start by cloning the Grain repository:
 
 ```bash
-git clone git://github.com/grain-lang/grain
+git clone https://github.com/grain-lang/grain
 cd grain
 ```
 
 To get everything set up, run:
 
 ```bash
-yarn
-yarn compiler build
+npm ci
+npm run compiler build
 ```
 
-Running `yarn` will fetch our dependencies and then set up the Grain runtime, standard library, and CLI. To rebuild any of those without checking dependencies, you can run `yarn prepare` separately.
+Running `npm ci` will fetch our dependencies and then set up the Grain runtime, standard library, and CLI. To rebuild any of those without checking dependencies, you can run `npm run prepare` separately.
 
-Running `yarn compiler build` will compile the compiler (it's pretty meta—we know).
+Running `npm run compiler build` will compile the compiler (it's pretty meta—we know).
 
 After running these commands, you'll have a new command available on your command line—`grain`. The `grain` command is a CLI tool that both compiles and runs Grain programs.
 
@@ -112,21 +112,26 @@ This section contains solutions to problems which people may run into when build
 
 #### After install, the `grain` command is not found
 
-This likely means that you haven't put `yarn`'s `bin` directory on your shell's `PATH` variable. This can be fixed by setting the variable in your shell's configuration. For example, if you use `zsh`, you can do the following:
+This likely means that you haven't put `npm`'s global `bin` directory on your shell's `PATH` variable. This can be fixed by setting the variable in your shell's configuration. For example, if you use `zsh`, you can do the following:
+
 ```bash
 # Initialize the PATH variable in your configuration and enable the change
-(echo 'export PATH="${PATH}:$(yarn global bin)"' >> ~/.zshrc) && source ~/.zshrc
+(echo 'export PATH="${PATH}:$(npm bin --global)"' >> ~/.zshrc) && source ~/.zshrc
 ```
+
 For `bash`, the process is the same, except `~/.zshrc` should be replaced with `~/.bashrc`.
 
 For Windows `cmd.exe` and PowerShell users, you can run the following inside of PowerShell to update the `PATH` for your current user (this will fix the `PATH` variable for both `cmd.exe` and PowerShell):
+
 ```powershell
-[Environment]::SetEnvironmentVariable("Path", $env:Path + ";" + (yarn global bin) -join "`n","User")
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";" + (npm bin --global) -join "`n","User")
 ```
+
 If you would like to update the `PATH` for all users, replace `"User"` with `"Machine"`. After running this command, restarting the shell should fix the issue.
 
 For other shells, the process may look a little different, but the procedure should always look something like the following:
-- Determine the output of `yarn global bin`
+
+- Determine the output of `npm bin --global`
 - Put the directory that this command outputs onto your `PATH` variable
 - Restart or reinitialize your shell as needed to make the change take effect
 
