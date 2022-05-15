@@ -79,7 +79,7 @@ First, you'll need [Node.js](https://nodejs.org/en/download/current/) v16.
 Start by cloning the Grain repository:
 
 ```bash
-git clone git://github.com/grain-lang/grain
+git clone https://github.com/grain-lang/grain
 cd grain
 ```
 
