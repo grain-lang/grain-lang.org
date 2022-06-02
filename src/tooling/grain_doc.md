@@ -46,6 +46,7 @@ You can even use `grain doc` without doc blocks in your code. It will still gene
 /**
  * @param name: description
  */
+```
 The `@param` annotation indicates a parameter to the function that the doc block is documenting.
 
 These should be specified in order of the function parameters and the name specified before the colon (`:`) should match the parameter name exactly—while not currently enforced, it will be required for named parameters in the future. The content after the colon is the description of the parameter.
