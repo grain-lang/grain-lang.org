@@ -34,6 +34,10 @@ Before running `grain doc`, you'll want to add doc block comments to your code. 
 
 You can run `grain doc <file|dir> -o <file|dir>` to generate markdown documentation for your code. As of Grain v0.5, the `grain doc` command supports directory input to recursively generate documentation for all `.gr` files.
 
+### Without doc blocks
+
+You can even use `grain doc` without doc blocks in your code. It will still generate simple documentation for data types and exported values, such as displaying their names and type signatures.
+
 ## Annotations
 
 ### @param
@@ -103,5 +107,3 @@ The `@section` annotation is used as a grouping mechanism. Any docblocks between
 ### @deprecated
 From time to time, we’ll need to deprecate things in the standard library. In fact, we’ve already had deprecations in the v0.3.x releases that will be removed in v0.4. This has led us to add the `@deprecated` annotation that will produce a warning with the deprecation message.
 
-## Without Annotations
-Even if decide not to add annotations to your code, running the generator will still output function names and type signatures.
