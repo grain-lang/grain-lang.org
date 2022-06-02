@@ -80,7 +80,6 @@ The `@history` annotation is similar to `@since`, but, in addition to the versio
  */
 ```
 
-## Extra Annotations
 
 ### @module
 The `@module` annotation allows you to add header documentation to a module. A module docblock can also contain `@example`, `@since`, and `@history` annotations. Our `array` module is a good example of this:
