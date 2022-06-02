@@ -8,9 +8,9 @@ You may be used to similar tools, such as `JSDoc`, that allow you to add a comme
 
 In Grain, we have provided this as another command via the CLI, and it inherits the full-power of the compiler. You won't need to specify any types in your doc comments, as the compiler will infer them and insert into the output. 🎉
 
-### An Example Of Grain Doc
+Here's a quick example of adding a doc block to your grain code:
 ```gr
-/***
+/**
  * An alias for normal syntactic array access, i.e. `array[n]`.
  *
  * Retrieves the element from the array at the specified index.
@@ -20,13 +20,11 @@ In Grain, we have provided this as another command via the CLI, and it inherits 
  * @param array: The array to access
  * @returns The element from the array
  *
- * @example Array.get(0, [> 0, 1, 2])
- *
  * @since v0.1.0
  * @history v0.2.0: Argument order changed to data-last
  */
 export let get = (index, array) => {
- array[index]
+  array[index]
 }
 ```
 
