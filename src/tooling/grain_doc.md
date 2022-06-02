@@ -31,10 +31,10 @@ export let get = (index, array) => {
 ## Using GrainDoc
 
 ### How to use GrainDoc
-Graindoc is rather simple to use you start by adding the graindoc comments marked by `/** */` note the generator only generates documentation for exports of a module to your code and then you run `grain doc <file> -o <file>` to generate the documentation. 
+Before running `grain doc`, you'll need to add the doc block comments to your code. Doc block comments are started with `/**` and ended with `*/`. They must exist on the line above your type declaration or exported values. No docs will be generated for non-exported values so you can keep internals private.
 
-### The Benefits Of GrainDoc
-The benefits of tools like graindoc vs hand generated documentation is, Graindoc can actually use Grain’s strong type system in order to figure out the specific types of these and inject them into the output! Your type signatures will always be up-to-date with Graindoc because compilers are much better at type systems than humans.
+After adding doc block comments to your source code, you can run `grain doc <file|dir> -o <file|dir>` to generate the documentation. As of Grain v0.5, the `grain doc` command supports directory input to recursively generate documentation for all `.gr` files.
+
 
 ## Annotations
 
