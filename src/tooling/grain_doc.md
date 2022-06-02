@@ -4,7 +4,7 @@ title: grain doc
 
 Grain ships with a documentation generator built directly into the compiler!
 
-You may be used to similar tools, such as `JSDoc`, that allow you add a comment above code which describes the input and output types, along with other documentation. Generally, you'll run an external tool against your source code to generate your documentation.
+You may be used to similar tools, such as `JSDoc`, that allow you to add a comment above code which describes the input and output types, along with other documentation. Generally, you'll run an external tool against your source code to generate your documentation.
 
 In Grain, we have provided this as another command via the CLI, and it inherits the full-power of the compiler. You won't need to specify any types in your doc comments, as the compiler will infer them and insert into the output. 🎉
 
