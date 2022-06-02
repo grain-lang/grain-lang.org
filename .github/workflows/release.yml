@@ -29,9 +29,15 @@ jobs:
           git config user.name grainbot[bot]
           git config user.email bot@grain-lang.org
 
-      - name: Copy stdlib docs
+      - name: Install latest grain
+        uses: engineerd/configurator@v0.0.8
+        with:
+          name: "grain"
+          url: "https://github.com/grain-lang/grain/releases/download/${{ github.event.inputs.tag }}/grain-linux-x64"
+
+      - name: Generate stdlib docs
         run: |
-          find grain/stdlib -name '*.md' | sed -E 's|grain/stdlib/||' | xargs -L 1 -I '{}' cp 'grain/stdlib/{}' './src/stdlib/{}'
+          grain doc grain/stdlib -o src/stdlib --current-version=$(grain -v)
 
       - name: Commit updates
         run: |
