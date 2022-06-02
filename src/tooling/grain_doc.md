@@ -2,8 +2,11 @@
 title: grain doc
 ---
 
-## When To use GrainDoc
-`graindoc` is a documentation generator for grain built directly into the compiler similar to [`TSDOC`](https://tsdoc.org/) you can add a comment directly to your source files alongside the code which the generator can use to generate markdown files that are able to be displayed to users. The primary goal of `graindoc` is to simplify the creation of docs throughout your code.
+Grain ships with a documentation generator built directly into the compiler!
+
+You may be used to similar tools, such as `JSDoc`, that allow you add a comment above code which describes the input and output types, along with other documentation. Generally, you'll run an external tool against your source code to generate your documentation.
+
+In Grain, we have provided this as another command via the CLI, and it inherits the full-power of the compiler. You won't need to specify any types in your doc comments, as the compiler will infer them and insert into the output. 🎉
 
 ### An Example Of Grain Doc
 ```gr
