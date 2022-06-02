@@ -35,6 +35,8 @@ docs_groups:
     - index
     - getting_grain
     - editor_setup
+  Extra Tools:
+    - tooling/grain_doc
   The Guide:
     - guide/hello_world
     - guide/basics
@@ -46,8 +48,6 @@ docs_groups:
     - guide/imports_exports
   The Docs:
     - intro
-  Tooling Guide:
-    - tooling/grainDoc
   Standard Library:
     - stdlib/pervasives
     - stdlib/array
