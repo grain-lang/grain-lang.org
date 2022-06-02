@@ -28,9 +28,8 @@ export let get = (index, array) => {
 }
 ```
 
-## Using GrainDoc
+## Usage
 
-### How to use GrainDoc
 Before running `grain doc`, you'll need to add the doc block comments to your code. Doc block comments are started with `/**` and ended with `*/`. They must exist on the line above your type declaration or exported values. No docs will be generated for non-exported values so you can keep internals private.
 
 After adding doc block comments to your source code, you can run `grain doc <file|dir> -o <file|dir>` to generate the documentation. As of Grain v0.5, the `grain doc` command supports directory input to recursively generate documentation for all `.gr` files.
