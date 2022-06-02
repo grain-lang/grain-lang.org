@@ -1,5 +1,5 @@
 ---
-title: GrainDoc
+title: grain doc
 ---
 
 ## When To use GrainDoc
