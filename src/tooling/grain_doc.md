@@ -6,7 +6,7 @@ Grain ships with a documentation generator built directly into the compiler!
 
 You may be used to similar tools, such as JSDoc, that allow you to add a comment above code which describes the input and output types, along with other documentation. Generally, you'll run an external tool against your source code to generate your documentation.
 
-In Grain, we have provided this as another command via the CLI, and it inherits the full power of the compiler. For example, you won't need to specify any types in your doc comments, as the compiler will infer them. 🎉
+In Grain, we have provided this as another command via the CLI, and it inherits the full power of the compiler. For example, you won't need to specify any types in your code comments, as the compiler will infer them. 🎉
 
 Here's a quick example of adding a docblock to your grain code:
 ```gr
@@ -30,7 +30,7 @@ export let get = (index, array) => {
 
 ## Usage
 
-Before running `grain doc`, you'll want to add docblock comments to your code. Docblock comments are started with `/**` and ended with `*/`. They must exist on the line above a type declaration or exported value. No documentation will be generated for non-exported values so you can keep module internals private.
+Before running `grain doc`, you'll want to add docblock comments to your code. Docblock comments are started with `/**` and ended with `*/`. They must exist on the line above a type declaration or exported value. No documentation will be generated for non-exported values—to keep module internals private.
 
 You can run `grain doc <file|dir> -o <file|dir>` to generate markdown documentation for your code. As of Grain v0.5, the `grain doc` command supports directory input to recursively generate documentation for all `.gr` files.
 
@@ -47,11 +47,11 @@ You can even use `grain doc` without docblocks in your code. It will still gener
  * @param name: description
  */
 ```
-The `@param` attribute indicates a parameter to the function that the docblock is documenting.
+The `@param` attribute provides information for one parameter of the function being documented.
 
-These should be specified in order of the function parameters and the name specified before the colon (`:`) should match the parameter name exactly—while not currently enforced, it will be required for named parameters in the future. The content after the colon is the description of the parameter.
+Multiple `@param` attributes should be specified in order of the function parameters. The name specified before the colon (`:`) should match the parameter name exactly—while not currently enforced, it will be required for named parameters in the future. The content after the colon is the description of the parameter.
 
-When generating docs, the type of the parameter will be detected by the compiler and inserted into the "Parameters" table.
+When generating docs, the type of the parameter will be detected by the compiler and added to the parameter's row in the "Parameters" table.
 
 ### @returns
 
@@ -61,11 +61,11 @@ When generating docs, the type of the parameter will be detected by the compiler
  */
 ```
 
-The `@returns` attribute indicates the value that is returned by the function that the docblock is documenting.
+The `@returns` attribute provides information for the return value of the function being documented.
 
-These must be provided a description of the return value. In the Grain stdlib, we don't use the `@returns` attribute if the function returns `Void`.
+This attribute requires a description of the return value. In the Grain standard library, we don't use the `@returns` attribute if the function returns `Void`.
 
-When generating docs, the type of the return value will be detected by the compiler and inserted into the "Returns" table.
+When generating docs, the type of the return value will be detected by the compiler and added to the row in the "Returns" table.
 
 ### @example
 
@@ -75,9 +75,9 @@ When generating docs, the type of the return value will be detected by the compi
  */
 ```
 
-The `@example` attribute can be added to show how the documented code is used. Currently, only single line examples are allowed.
+The `@example` attribute provides snippets showing how the documented code is used. Currently, only single line examples are allowed.
 
-When generating docs, the code snippet will be wrapped in a code block tagged for the `grain` language and inserted into an "Examples" section.
+When generating docs, the code snippet will be wrapped in a code block tagged for the `grain` language and added to an "Examples" section.
 
 ### @since
 
@@ -87,11 +87,11 @@ When generating docs, the code snippet will be wrapped in a code block tagged fo
  */
 ```
 
-The `@since` attribute can be used to specify when the documented code was added.
+The `@since` attribute provides the version in which the documented code was added.
 
-This must be provided a [Semantic Version](https://semver.org/), optionally prefixed with `v`. For example,`v0.2.0` or `0.2.0` are treated the same.
+This attribute requires a [Semantic Version](https://semver.org/), optionally prefixed with `v`. For example,`v0.2.0` or `0.2.0` are treated the same.
 
-When generating docs, a `<details>` element titled "Added in X.X.X" will be inserted above the type signature. When using this attribute, you'll be required to specify the `--current-version=X.X.X` flag to the `grain doc` command. This allows you to specify newer versions in your source code, and the generated docs will show "Added in next" instead of the version.
+When generating docs, a `<details>` element titled "Added in X.X.X" will be added above the type signature. When this attribute is specified, you'll be required to specify the `--current-version=X.X.X` flag to the `grain doc` command. This allows you to specify newer versions in your source code, and the generated docs will show "Added in next", instead of the version.
 
 ### @history
 
@@ -101,21 +101,25 @@ When generating docs, a `<details>` element titled "Added in X.X.X" will be inse
  */
 ```
 
-The `@history` attribute can be used to share significant changes to the documented code.
+The `@history` attribute provides details on significant changes to the documented code.
 
-This must be provided a [Semantic Version](https://semver.org/), optionally prefixed with `v` before the colon (`:`) and a description of the change after the colon.
+This attribute requires a [Semantic Version](https://semver.org/) before the colon (`:`) and a description of the change after the colon.
 
-When generating docs, will add a history table to the `<details>` element created by the `@since` attribute if both were used; otherwise, a new `<details>` element titled  "History" will be inserted above the type signature. When using this attribute, you'll be required to specify the `--current-version=X.X.X` flag to the `grain doc` command. This allows you to specify newer versions in your source code, and the generated docs will show "next" instead of the version.
+When generating docs, adds a history table to the `<details>` element created by the `@since` attribute if both were used; otherwise, a new `<details>` element titled  "History" will be inserted above the type signature. When using this attribute, you'll be required to specify the `--current-version=X.X.X` flag to the `grain doc` command. This allows you to specify newer versions in your source code, and the generated docs will show "next" instead of the version.
 
 ### @deprecated
 
 ```gr
 /***
- * @deprecated
+ * @deprecated description
  */
 ```
 
-The `@deprecated` attribute indicates the deprecation of the documenting export.
+The `@deprecated` attribute provides a description or reason for the deprecation of the documented code.
+
+This attribute requires a description of the deprecation and will mark the export as deprecated when used.
+
+When generating docs, adds a blockquote containing `**Deprecated:**` and the description immediately below the title.
 
 ### @module
 
