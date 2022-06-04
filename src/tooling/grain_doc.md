@@ -4,11 +4,11 @@ title: grain doc
 
 Grain ships with a documentation generator built directly into the compiler!
 
-You may be used to similar tools, such as `JSDoc`, that allow you to add a comment above code which describes the input and output types, along with other documentation. Generally, you'll run an external tool against your source code to generate your documentation.
+You may be used to similar tools, such as JSDoc, that allow you to add a comment above code which describes the input and output types, along with other documentation. Generally, you'll run an external tool against your source code to generate your documentation.
 
 In Grain, we have provided this as another command via the CLI, and it inherits the full power of the compiler. For example, you won't need to specify any types in your doc comments, as the compiler will infer them. 🎉
 
-Here's a quick example of adding a doc block to your grain code:
+Here's a quick example of adding a docblock to your grain code:
 ```gr
 /**
  * An alias for normal syntactic array access, i.e. `array[n]`.
@@ -30,13 +30,13 @@ export let get = (index, array) => {
 
 ## Usage
 
-Before running `grain doc`, you'll want to add doc block comments to your code. Doc block comments are started with `/**` and ended with `*/`. They must exist on the line above a type declaration or exported value. No docs will be generated for non-exported values so you can keep module internals private.
+Before running `grain doc`, you'll want to add docblock comments to your code. Docblock comments are started with `/**` and ended with `*/`. They must exist on the line above a type declaration or exported value. No documentation will be generated for non-exported values so you can keep module internals private.
 
 You can run `grain doc <file|dir> -o <file|dir>` to generate markdown documentation for your code. As of Grain v0.5, the `grain doc` command supports directory input to recursively generate documentation for all `.gr` files.
 
-### Without doc blocks
+### Without docblocks
 
-You can even use `grain doc` without doc blocks in your code. It will still generate simple documentation for data types and exported values, such as displaying their names and type signatures.
+You can even use `grain doc` without docblocks in your code. It will still generate simple documentation for data types and exported values, such as displaying their names and type signatures.
 
 ## Attributes
 
@@ -47,7 +47,7 @@ You can even use `grain doc` without doc blocks in your code. It will still gene
  * @param name: description
  */
 ```
-The `@param` attribute indicates a parameter to the function that the doc block is documenting.
+The `@param` attribute indicates a parameter to the function that the docblock is documenting.
 
 These should be specified in order of the function parameters and the name specified before the colon (`:`) should match the parameter name exactly—while not currently enforced, it will be required for named parameters in the future. The content after the colon is the description of the parameter.
 
@@ -61,7 +61,7 @@ When generating docs, the type of the parameter will be detected by the compiler
  */
 ```
 
-The `@returns` attribute indicates the value that is returned by the function that the doc block is documenting.
+The `@returns` attribute indicates the value that is returned by the function that the docblock is documenting.
 
 These must be provided a description of the return value. In the Grain stdlib, we don't use the `@returns` attribute if the function returns `Void`.
 
