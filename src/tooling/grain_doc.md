@@ -38,7 +38,7 @@ You can run `grain doc <file|dir> -o <file|dir>` to generate markdown documentat
 
 You can even use `grain doc` without doc blocks in your code. It will still generate simple documentation for data types and exported values, such as displaying their names and type signatures.
 
-## Annotations
+## Attributes
 
 ### @param
 
@@ -47,7 +47,7 @@ You can even use `grain doc` without doc blocks in your code. It will still gene
  * @param name: description
  */
 ```
-The `@param` annotation indicates a parameter to the function that the doc block is documenting.
+The `@param` attribute indicates a parameter to the function that the doc block is documenting.
 
 These should be specified in order of the function parameters and the name specified before the colon (`:`) should match the parameter name exactly—while not currently enforced, it will be required for named parameters in the future. The content after the colon is the description of the parameter.
 
@@ -61,9 +61,9 @@ When generating docs, the type of the parameter will be detected by the compiler
  */
 ```
 
-The `@returns` annotation indicates the value that is returned by the function that the doc block is documenting.
+The `@returns` attribute indicates the value that is returned by the function that the doc block is documenting.
 
-These must be provided a description of the return value. In the Grain stdlib, we don't use the `@returns` annotation if the function returns `Void`.
+These must be provided a description of the return value. In the Grain stdlib, we don't use the `@returns` attribute if the function returns `Void`.
 
 When generating docs, the type of the return value will be detected by the compiler and inserted into the "Returns" table.
 
@@ -75,7 +75,7 @@ When generating docs, the type of the return value will be detected by the compi
  */
 ```
 
-The `@example` annotation can be added to show how the documented code is used. Currently, only single line examples are allowed.
+The `@example` attribute can be added to show how the documented code is used. Currently, only single line examples are allowed.
 
 When generating docs, the code snippet will be wrapped in a code block tagged for the `grain` language and inserted into an "Examples" section.
 
@@ -87,11 +87,11 @@ When generating docs, the code snippet will be wrapped in a code block tagged fo
  */
 ```
 
-The `@since` annotation can be used to specify when the documented code was added.
+The `@since` attribute can be used to specify when the documented code was added.
 
 This must be provided a [Semantic Version](https://semver.org/), optionally prefixed with `v`. For example,`v0.2.0` or `0.2.0` are treated the same.
 
-When generating docs, a `<details>` element titled "Added in X.X.X" will be inserted above the type signature. When using this annotation, you'll be required to specify the `--current-version=X.X.X` flag to the `grain doc` command. This allows you to specify newer versions in your source code, and the generated docs will show "Added in next" instead of the version.
+When generating docs, a `<details>` element titled "Added in X.X.X" will be inserted above the type signature. When using this attribute, you'll be required to specify the `--current-version=X.X.X` flag to the `grain doc` command. This allows you to specify newer versions in your source code, and the generated docs will show "Added in next" instead of the version.
 
 ### @history
 
@@ -101,7 +101,7 @@ When generating docs, a `<details>` element titled "Added in X.X.X" will be inse
  */
 ```
 
-The `@history` annotation can be used to share significant changes to the documented code.
+The `@history` attribute can be used to share significant changes to the documented code.
 
 This must be provided a [Semantic Version](https://semver.org/), optionally prefixed with `v` before the colon (`:`) and a description of the change after the colon.
 
@@ -115,7 +115,7 @@ When generating docs, will add a history table to the `<details>` element create
  */
 ```
 
-The `@deprecated` annotation indicates the deprecation of the documenting export. 
+The `@deprecated` attribute indicates the deprecation of the documenting export.
 
 ### @module
 
@@ -131,7 +131,7 @@ The `@deprecated` annotation indicates the deprecation of the documenting export
  */
 ```
 
-The `@module` annotation allows you to add header documenting to a module. A module docblock can contain `@example`, `@since`, and `@history` annotations.
+The `@module` attribute allows you to add header documenting to a module. A module docblock can contain `@example`, `@since`, and `@history` attributes.
 
 ### @section
 
@@ -141,4 +141,4 @@ The `@module` annotation allows you to add header documenting to a module. A mod
  */
 ```
 
-The `@section` annotation is used to group exports into catagories. Any docblocks after a given function are grouped under that header.
+The `@section` attribute is used to group exports into catagories. Any docblocks after a given function are grouped under that header.
