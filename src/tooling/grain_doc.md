@@ -54,40 +54,49 @@ These should be specified in order of the function parameters and the name speci
 When generating docs, the type of the parameter will be detected by the compiler and inserted into the parameters table.
 
 ### @returns
-The `@returns` annotation provides a description for the return value of the annotated function.
+
 ```gr
 /**
  * @returns description
  */
 ```
 
+The `@returns` annotation indicates the return of the function that the doc block is documenting.
+
+When generating docs, the type of the return will b detected by the compiler and inserted into the output.
+
 ### @example
-The `@example` annotation can be used to add single-line examples for the function. These are rendered in a markdown code block annotated as the “grain” language. Multiple examples can be specified with separate annotations.
+
 ```gr
 /**
  * @example code
  */
 ```
 
+The `@example` annotation displaying how the function will be used. Currently only single line examples are allowed.
+
 ### @since
-The `@since` annotation specifies a [Semantic Version](https://semver.org/) for the version in which this function was added.
+
 ```gr
 /**
  * @since version
  */
 ```
 
+The `@since` annotation specifies the [Semantic Version](https://semver.org/) the documenting export was added in.
+
 ### @history
-The `@history` annotation is similar to `@since`, but, in addition to the version, provides a description of a change that was made. While only 1 `@since` annotation can be specified, multiple `@history` annotations can be used.
 ```gr
 /**
  * @history version description
  */
 ```
 
+The `@history` annotation similar to `@since` specifies the [Semantic Version](https://semvar.org/) a change to the documenting feature was made, multiple history annotations can be used in a single docblock. 
+
 
 ### @module
-The `@module` annotation allows you to add header documentation to a module. A module docblock can also contain `@example`, `@since`, and `@history` annotations. Our `array` module is a good example of this:
+
 ```gr
 /***
  * @module Array: Utilities for working with arrays.
@@ -100,14 +109,24 @@ The `@module` annotation allows you to add header documentation to a module. A m
  */
 ```
 
+The `@module` annotation allows you to add header documenting to a module. A module docblock can contain `@example`, `@since`, and `@history` annotations.
+
 ### @section
-The `@section` annotation is used as a grouping mechanism. Any docblocks between a section and the next are grouped under that header. In the standard library documentation, we use these to separate “Types” and “Values”:
+
 ```gr
 /***
  * @section Values: Functions for working with the Array data type.
  */
 ```
 
-### @deprecated
-From time to time, we’ll need to deprecate things in the standard library. In fact, we’ve already had deprecations in the v0.3.x releases that will be removed in v0.4. This has led us to add the `@deprecated` annotation that will produce a warning with the deprecation message.
+The `@section` annotation is used to group exports into catagories. Any docblocks after a given function are grouped under that header.
 
+### @deprecated
+
+```gr
+/***
+ * @deprecated
+ */
+```
+
+The `@deprecated` annotation indicates the deprecation of the documenting export. 
