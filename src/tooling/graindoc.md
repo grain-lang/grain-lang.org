@@ -1,5 +1,5 @@
 ---
-title: grain doc
+title: Graindoc
 ---
 
 Grain ships with a documentation generator built directly into the compiler!
@@ -9,6 +9,7 @@ You may be used to similar tools, such as JSDoc, that allow you to add a comment
 In Grain, we have provided this as another command via the CLI, and it inherits the full power of the compiler. For example, you won't need to specify any types in your code comments, as the compiler will infer them. 🎉
 
 Here's a quick example of adding a docblock to your grain code:
+
 ```gr
 /**
  * An alias for normal syntactic array access, i.e. `array[n]`.
@@ -47,6 +48,7 @@ You can even use `grain doc` without docblocks in your code. It will still gener
  * @param name: description
  */
 ```
+
 The `@param` attribute provides information for one parameter of the function being documented.
 
 Multiple `@param` attributes should be specified in order of the function parameters. The name specified before the colon (`:`) should match the parameter name exactly—while not currently enforced, it will be required for named parameters in the future. The content after the colon is the description of the parameter.
@@ -105,7 +107,7 @@ The `@history` attribute provides details on significant changes to the document
 
 This attribute requires a [Semantic Version](https://semver.org/) before the colon (`:`) and a description of the change after the colon.
 
-When generating docs, adds a history table to the `<details>` element created by the `@since` attribute if both were used; otherwise, a new `<details>` element titled  "History" will be added above the type signature. When using this attribute, you'll be required to specify the `--current-version=X.X.X` flag to the `grain doc` command. This allows you to specify unreleased versions in your source code, and the generated docs will show "next" instead of the version.
+When generating docs, adds a history table to the `<details>` element created by the `@since` attribute if both were used; otherwise, a new `<details>` element titled "History" will be added above the type signature. When using this attribute, you'll be required to specify the `--current-version=X.X.X` flag to the `grain doc` command. This allows you to specify unreleased versions in your source code, and the generated docs will show "next" instead of the version.
 
 ### @deprecated
 
