@@ -2,7 +2,7 @@
 title: Built-in Types
 ---
 
-Grain provides some basic types to be used throughout your programs.
+Grain provides some built-in types to be used throughout your programs.
 
 ### **Bool**
 
