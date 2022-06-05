@@ -2,14 +2,8 @@
 title: Introduction
 ---
 
-## The Grain Docs
+Welcome to the Grain docs! Here you'll find information about the language, the standard library, and officially supported tools. If you're brand new to Grain, we highly recommend starting with [the Grain guide](/docs), where you can have a tour of the language and make sure you're all set to write some code.
 
-These docs are divided into two sections—the **Standard Library** and **Language Constructs**.
+## Getting additional help
 
-### Standard Library
-
-The Standard Library docs document all of the modules that comprise Grain's standard library, along with detailed information about the values that can be imported from them.
-
-### Language Constructs
-
-The Language Constructs docs provide detailed information about the semantics of all of Grain's language features.
+If something isn't making sense or you have more questions, reach out in the `#support` channel on the [Grain Discord server](https://discord.com/invite/grain-lang). There are a bunch of friendly folks happy to help out.
