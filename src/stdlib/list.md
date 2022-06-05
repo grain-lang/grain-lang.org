@@ -91,38 +91,6 @@ Returns:
 |----|-----------|
 |`Number`|The number of elements in the list|
 
-### List.**sum**
-
-<details>
-<summary>Added in <code>0.1.0</code></summary>
-<table>
-<thead>
-<tr><th>version</th><th>changes</th></tr>
-</thead>
-<tbody>
-<tr><td><code>0.2.0</code></td><td>Made the function tail-recursive</td></tr>
-</tbody>
-</table>
-</details>
-
-```grain
-sum : List<Number> -> Number
-```
-
-Adds all numbers in the input list.
-
-Parameters:
-
-|param|type|description|
-|-----|----|-----------|
-|`list`|`List<Number>`|The input list|
-
-Returns:
-
-|type|description|
-|----|-----------|
-|`Number`|The combined sum of all values|
-
 ### List.**reverse**
 
 <details disabled>
@@ -441,7 +409,7 @@ No other changes yet.
 </details>
 
 ```grain
-forEach : ((a -> b), List<a>) -> Void
+forEach : ((a -> Void), List<a>) -> Void
 ```
 
 Iterates a list, calling an iterator function on each element.
@@ -450,7 +418,7 @@ Parameters:
 
 |param|type|description|
 |-----|----|-----------|
-|`fn`|`a -> b`|The iterator function to call with each element|
+|`fn`|`a -> Void`|The iterator function to call with each element|
 |`list`|`List<a>`|The list to iterate|
 
 ### List.**forEachi**
@@ -461,7 +429,7 @@ No other changes yet.
 </details>
 
 ```grain
-forEachi : (((a, Number) -> b), List<a>) -> Void
+forEachi : (((a, Number) -> Void), List<a>) -> Void
 ```
 
 Iterates a list, calling an iterator function on each element.
@@ -471,7 +439,7 @@ Parameters:
 
 |param|type|description|
 |-----|----|-----------|
-|`fn`|`(a, Number) -> b`|The iterator function to call with each element|
+|`fn`|`(a, Number) -> Void`|The iterator function to call with each element|
 |`list`|`List<a>`|The list to iterate|
 
 ### List.**filter**
@@ -1137,6 +1105,12 @@ Parameters:
 |`list1`|`List<a>`|The list to reverse|
 |`list2`|`List<a>`|The list to append|
 
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<a>`|The new list|
+
 ### List.**sort**
 
 <details disabled>
@@ -1158,4 +1132,10 @@ Parameters:
 |-----|----|-----------|
 |`comp`|`(a, a) -> Number`|The comparator function used to indicate sort order|
 |`list`|`List<a>`|The list to be sorted|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<a>`|The sorted list|
 
