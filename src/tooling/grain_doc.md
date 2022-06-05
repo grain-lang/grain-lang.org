@@ -89,9 +89,9 @@ When generating docs, the code snippet will be wrapped in a code block tagged fo
 
 The `@since` attribute provides the version in which the documented code was added.
 
-This attribute requires a [Semantic Version](https://semver.org/), optionally prefixed with `v`. For example,`v0.2.0` or `0.2.0` are treated the same.
+This attribute requires a [Semantic Version](https://semver.org/), optionally prefixed with `v`. For example,`v0.2.0` and `0.2.0` are treated the same.
 
-When generating docs, a `<details>` element titled "Added in X.X.X" will be added above the type signature. When this attribute is specified, you'll be required to specify the `--current-version=X.X.X` flag to the `grain doc` command. This allows you to specify newer versions in your source code, and the generated docs will show "Added in next", instead of the version.
+When generating docs, a `<details>` element titled "Added in X.X.X" will be added above the type signature. When this attribute is specified, you'll be required to specify the `--current-version=X.X.X` flag to the `grain doc` command. This allows you to specify unreleased versions in your source code, and the generated docs will show "Added in next", instead of the version.
 
 ### @history
 
@@ -105,7 +105,7 @@ The `@history` attribute provides details on significant changes to the document
 
 This attribute requires a [Semantic Version](https://semver.org/) before the colon (`:`) and a description of the change after the colon.
 
-When generating docs, adds a history table to the `<details>` element created by the `@since` attribute if both were used; otherwise, a new `<details>` element titled  "History" will be added above the type signature. When using this attribute, you'll be required to specify the `--current-version=X.X.X` flag to the `grain doc` command. This allows you to specify newer versions in your source code, and the generated docs will show "next" instead of the version.
+When generating docs, adds a history table to the `<details>` element created by the `@since` attribute if both were used; otherwise, a new `<details>` element titled  "History" will be added above the type signature. When using this attribute, you'll be required to specify the `--current-version=X.X.X` flag to the `grain doc` command. This allows you to specify unreleased versions in your source code, and the generated docs will show "next" instead of the version.
 
 ### @deprecated
 
@@ -147,6 +147,6 @@ When generating docs, adds the description at the top of the documentation, and 
 
 The `@section` attribute provides a grouping within the documented code.
 
-This attribute requires a subtitle and description. When specified, any docblocks between sections are grouped under the heading.
+This special attribute is used within a docblock comment that is not attached to a type declaration or exported value. It requires a subtitle and description. When specified, any docblocks between sections are grouped under the heading.
 
-When generating docs, a subtitle will be added for each section and be followed by the description. If any `@section` attributes are specified, no output will be generated for exports outside of all sections.
+When generating docs, a subtitle will be added for each section followed by the description. If any `@section` attributes are specified, no output will be generated for exports outside of all sections.
