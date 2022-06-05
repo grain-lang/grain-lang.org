@@ -240,26 +240,6 @@ Returns:
 |----|-----------|
 |`String`|A string made with a subset of data copied from the buffer|
 
-### Buffer.**addChar**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.4.0</code></summary>
-No other changes yet.
-</details>
-
-```grain
-addChar : (Char, Buffer) -> Void
-```
-
-Appends the bytes of a char to a buffer.
-
-Parameters:
-
-|param|type|description|
-|-----|----|-----------|
-|`char`|`Char`|The character to append to the buffer|
-|`buffer`|`Buffer`|The buffer to mutate|
-
 ### Buffer.**addBytes**
 
 <details disabled>
@@ -300,11 +280,38 @@ Parameters:
 |`string`|`String`|The string to append|
 |`buffer`|`Buffer`|The buffer to mutate|
 
-### Buffer.**addStringSlice**
+### Buffer.**addChar**
 
 <details disabled>
 <summary tabindex="-1">Added in <code>0.4.0</code></summary>
 No other changes yet.
+</details>
+
+```grain
+addChar : (Char, Buffer) -> Void
+```
+
+Appends the bytes of a char to a buffer.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`char`|`Char`|The character to append to the buffer|
+|`buffer`|`Buffer`|The buffer to mutate|
+
+### Buffer.**addStringSlice**
+
+<details>
+<summary>Added in <code>0.4.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>next</code></td><td>Now takes the end offset instead of length</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
@@ -318,7 +325,7 @@ Parameters:
 |param|type|description|
 |-----|----|-----------|
 |`start`|`Number`|The char offset into the string|
-|`length`|`Number`|The number of bytes to append|
+|`end`|`Number`|The end offset into the string|
 |`string`|`String`|The string to append|
 |`buffer`|`Buffer`|The buffer to mutate|
 
@@ -333,7 +340,7 @@ No other changes yet.
 addBytesSlice : (Number, Number, Bytes, Buffer) -> Void
 ```
 
-Appends the bytes of a subset of a byte seuqnece to a buffer.
+Appends the bytes of a subset of a byte sequence to a buffer.
 
 Parameters:
 

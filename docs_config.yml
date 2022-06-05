@@ -60,6 +60,7 @@ docs_groups:
     - stdlib/map
     - stdlib/number
     - stdlib/option
+    - stdlib/random
     - stdlib/range
     - stdlib/regex
     - stdlib/result
@@ -75,6 +76,7 @@ docs_groups:
     - stdlib/int64
     - stdlib/float32
     - stdlib/float64
+    - stdlib/bigint
   # TODO: Re-enable when docs are more mature
   # Language Constructs:
   #   - constructs/bindings

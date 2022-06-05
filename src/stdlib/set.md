@@ -13,23 +13,19 @@ No other changes yet.
 import Set from "set"
 ```
 
-### Set.**Bucket**
+## Types
 
-```grain
-record Bucket<t> {
-  key: t,
-  next: Option<Bucket<t>>,
-}
-```
+Type declarations included in the Set module.
 
 ### Set.**Set**
 
 ```grain
-record Set<k> {
-  size: Number,
-  buckets: Array<Option<Bucket<k>>>,
-}
+type Set<k>
 ```
+
+## Values
+
+Functions for working with Sets.
 
 ### Set.**makeSized**
 
@@ -42,19 +38,19 @@ No other changes yet.
 makeSized : Number -> Set<a>
 ```
 
-Creates a new empty set with an initial storage of the given length. As values are added or removed, the length may grow or shrink. Generally, you won't need to care about the length of your set and can use `Set.make()` instead.
+Creates a new empty set with an initial storage of the given size. As values are added or removed, the internal storage may grow or shrink. Generally, you won't need to care about the storage size of your set and can use `Set.make()` instead.
 
 Parameters:
 
 |param|type|description|
 |-----|----|-----------|
-|`storageLength`|`Number`|The initial storage length of the set|
+|`size`|`Number`|The initial storage size of the set|
 
 Returns:
 
 |type|description|
 |----|-----------|
-|`Set<a>`|An empty set with the given initial storage length|
+|`Set<a>`|An empty set with the given initial storage size|
 
 ### Set.**make**
 
@@ -152,7 +148,7 @@ No other changes yet.
 size : Set<a> -> Number
 ```
 
-Returns the number of values within the set.
+Provides the count of values within the set.
 
 Parameters:
 
@@ -164,7 +160,7 @@ Returns:
 
 |type|description|
 |----|-----------|
-|`Number`|The number of elements in the set|
+|`Number`|The count of elements in the set|
 
 ### Set.**isEmpty**
 
@@ -212,13 +208,20 @@ Parameters:
 
 ### Set.**forEach**
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.3.0</code></summary>
-No other changes yet.
+<details>
+<summary>Added in <code>0.3.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>next</code></td><td>Ensured the iterator function return type is always `Void`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-forEach : ((a -> b), Set<a>) -> Void
+forEach : ((a -> Void), Set<a>) -> Void
 ```
 
 Iterates the set, calling an iterator function on each element.
@@ -227,7 +230,7 @@ Parameters:
 
 |param|type|description|
 |-----|----|-----------|
-|`fn`|`a -> b`|The iterator function to call with each element|
+|`fn`|`a -> Void`|The iterator function to call with each element|
 |`set`|`Set<a>`|The set to iterate|
 
 ### Set.**reduce**

@@ -402,7 +402,7 @@ Returns:
 
 |type|description|
 |----|-----------|
-|`Bool`|`true` if the value is finite, otherwise `false`|
+|`Bool`|`true` if the value is finite or `false` otherwise|
 
 ### Number.**isNaN**
 
@@ -454,12 +454,12 @@ Returns:
 
 |type|description|
 |----|-----------|
-|`Bool`|`true` if the value is infinite, otherwise `false`|
+|`Bool`|`true` if the value is infinite or `false` otherwise|
 
 ### Number.**parseInt**
 
 <details disabled>
-<summary tabindex="-1">Added in <code>next</code></summary>
+<summary tabindex="-1">Added in <code>0.4.5</code></summary>
 No other changes yet.
 </details>
 

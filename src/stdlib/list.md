@@ -4,25 +4,74 @@ title: List
 
 Utilities for working with lists.
 
+<details>
+<summary>Added in <code>0.2.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.1.0</code></td><td>Originally named `lists`</td></tr>
+<tr><td><code>0.2.0</code></td><td>Renamed to `list`</td></tr>
+</tbody>
+</table>
+</details>
+
 ```grain
 import List from "list"
 ```
 
 ## Values
 
+Functions for working with the List data type.
+
 ### List.**init**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-init : (Number, Number -> a) -> List<a>
+init : (Number, (Number -> a)) -> List<a>
 ```
 
-`List.init(n, fn)` creates a new list of length `n` where each value is initialized with the result of the initializer `fn`. The initializer is called with the index of each list element.
+Creates a new list of the specified length where each element is
+initialized with the result of an initializer function. The initializer
+is called with the index of each list element.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`length`|`Number`|The length of the new list|
+|`fn`|`Number -> a`|The initializer function to call with each index, where the value returned will be used to initialize the element|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<a>`|The new list|
+
+Examples:
 
 ```grain
-List.init(5, n => n + 3) // [8, 9, 10, 11, 12]
+List.init(5, n => n + 3) // [3, 4, 5, 6, 7]
 ```
 
 ### List.**length**
+
+<details>
+<summary>Added in <code>0.1.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Made the function tail-recursive</td></tr>
+</tbody>
+</table>
+</details>
 
 ```grain
 length : List<a> -> Number
@@ -30,289 +79,1063 @@ length : List<a> -> Number
 
 Computes the length of the input list.
 
-### List.**sum**
+Parameters:
 
-```grain
-sum : List<Number> -> Number
-```
+|param|type|description|
+|-----|----|-----------|
+|`list`|`List<a>`|The list to inspect|
 
-Adds all numbers in the input list.
+Returns:
+
+|type|description|
+|----|-----------|
+|`Number`|The number of elements in the list|
 
 ### List.**reverse**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.1.0</code></summary>
+No other changes yet.
+</details>
 
 ```grain
 reverse : List<a> -> List<a>
 ```
 
-Reverses the input list.
+Creates a new list with all elements in reverse order.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`list`|`List<a>`|The list to reverse|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<a>`|The new list|
 
 ### List.**append**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.1.0</code></summary>
+No other changes yet.
+</details>
 
 ```grain
 append : (List<a>, List<a>) -> List<a>
 ```
 
-`List.append(list1, list2)` creates a new list with the elements of `list1` followed by the elements of `list2`.
+Creates a new list with the elements of the first list followed by
+the elements of the second list.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`list1`|`List<a>`|The list containing elements to appear first|
+|`list2`|`List<a>`|The list containing elements to appear second|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<a>`|The new list containing elements from `list1` followed by elements from `list2`|
 
 ### List.**contains**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.1.0</code></summary>
+No other changes yet.
+</details>
 
 ```grain
 contains : (a, List<a>) -> Bool
 ```
 
-Checks if the item is an element of the input list. Uses the generic `==` equality operator.
+Checks if the value is an element of the input list.
+Uses the generic `==` structural equality operator.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`search`|`a`|The value to compare|
+|`list`|`List<a>`|The list to inspect|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Bool`|`true` if the value exists in the list or `false` otherwise|
 
 ### List.**reduce**
 
+<details>
+<summary>Added in <code>0.2.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.1.0</code></td><td>Originally named `foldLeft`</td></tr>
+<tr><td><code>0.2.0</code></td><td>Renamed to `reduce`</td></tr>
+</tbody>
+</table>
+</details>
+
 ```grain
-reduce : ((b, a) -> b, b, List<a>) -> b
+reduce : (((a, b) -> a), a, List<b>) -> a
 ```
 
-Using a reducer function, `reduce` combines all elements of a list, starting from the "head", or left side, of the list.
+Combines all elements of a list using a reducer function,
+starting from the "head", or left side, of the list.
 
-In `List.reduce(fn, base, list)`, `fn` is called with the accumulator and each element of the list, and returns a new accumulator. The final value is the result of `reduce`.
-The accumulator starts with value `base`.
+In `List.reduce(fn, initial, list)`, `fn` is called with
+an accumulator and each element of the list, and returns
+a new accumulator. The final value is the last accumulator
+returned. The accumulator starts with value `initial`.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`fn`|`(a, b) -> a`|The reducer function to call on each element, where the value returned will be the next accumulator value|
+|`initial`|`a`|The initial value to use for the accumulator on the first iteration|
+|`list`|`List<b>`|The list to iterate|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`a`|The final accumulator returned from `fn`|
+
+Examples:
 
 ```grain
-let add = a + b
-let sum = (list) => List.reduce(add, 0, list)
-sum([1, 2, 3]) // 6
+List.reduce((a, b) => a + b, 0, [1, 2, 3]) // 6
 ```
 
 ### List.**reduceRight**
 
+<details>
+<summary>Added in <code>0.2.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.1.0</code></td><td>Originally named `foldRight`</td></tr>
+<tr><td><code>0.2.0</code></td><td>Renamed to `reduceRight`</td></tr>
+</tbody>
+</table>
+</details>
+
 ```grain
-reduceRight : ((a, b) -> b, b, List<a>) -> b
+reduceRight : (((a, b) -> b), b, List<a>) -> b
 ```
 
-Using a reducer function, `reduceRight` combines all elements of a list, starting from the end, or right side, of the list.
+Combines all elements of a list using a reducer function,
+starting from the "end", or right side, of the list.
 
-In `List.reduceRight(fn, base, list)`, `fn` is called with the each element of the list and the accumulator, and returns a new accumulator. The final value is the result of `reduceRight`.
-The accumulator starts with value `base`.
+In `List.reduceRight(fn, initial, list)`, `fn` is called with
+each element of the list and an accumulator, and returns
+a new accumulator. The final value is the last accumulator
+returned. The accumulator starts with value `initial`.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`fn`|`(a, b) -> b`|The reducer function to call on each element, where the value returned will be the next accumulator value|
+|`initial`|`b`|The initial value to use for the accumulator on the first iteration|
+|`list`|`List<a>`|The list to iterate|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`b`|The final accumulator returned from `fn`|
+
+Examples:
 
 ```grain
-let add = a + b
-let sum = (list) => List.reduceRight(add, 0, list)
-sum([1, 2, 3]) // 6
+List.reduceRight((a, b) => b ++ a, "", ["baz", "bar", "foo"]) // "foobarbaz"
 ```
 
 ### List.**map**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.1.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-map : (a -> b, List<a>) -> List<b>
+map : ((a -> b), List<a>) -> List<b>
 ```
 
-`List.map(fn, list)` produces a new list by calling `fn` on each element of the list.
+Produces a new list initialized with the results of a mapper function
+called on each element of the input list.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`fn`|`a -> b`|The mapper function to call on each element, where the value returned will be used to initialize the element in the new list|
+|`list`|`List<a>`|The list to iterate|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<b>`|The new list with mapped values|
 
 ### List.**mapi**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.1.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-mapi : ((a, Number) -> b, List<a>) -> List<b>
+mapi : (((a, Number) -> b), List<a>) -> List<b>
 ```
 
-`List.mapi(fn, list)` produces a new list by calling `fn` on each element of the input list, along with the index of the element.
+Produces a new list initialized with the results of a mapper function
+called on each element of the input list and its index.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`fn`|`(a, Number) -> b`|The mapper function to call on each element, where the value returned will be used to initialize the element in the new list|
+|`list`|`List<a>`|The list to iterate|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<b>`|The new list with mapped values|
 
 ### List.**flatMap**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.2.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-flatMap : ((a) -> List<b>, List<a>) -> List<b>
+flatMap : ((a -> List<b>), List<a>) -> List<b>
 ```
 
-`List.flatMap(fn, list)` produces a new list by calling `fn` on each element of the input list. Each iteration produces an intermediate list, which are all appended to produce a "flattened" list of all values.
+Produces a new list by calling a function on each element
+of the input list. Each iteration produces an intermediate
+list, which are all appended to produce a "flattened" list
+of all results.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`fn`|`a -> List<b>`|The function to be called on each element, where the value returned will be a list that gets appended to the new list|
+|`list`|`List<a>`|The list to iterate|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<b>`|The new list|
 
 ### List.**every**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.1.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-every : (a -> Bool, List<a>) -> Bool
+every : ((a -> Bool), List<a>) -> Bool
 ```
 
-Checks that the given condition is satisfied for all items in the input list.
+Checks that the given condition is satisfied for all
+elements in the input list.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`fn`|`a -> Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
+|`list`|`List<a>`|The list to check|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Bool`|`true` if all elements satify the condition or `false` otherwise|
 
 ### List.**some**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.1.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-some : (a -> Bool, List<a>) -> Bool
+some : ((a -> Bool), List<a>) -> Bool
 ```
 
-Checks that the given condition is satisfied **at least** once by an item in the input list.
+Checks that the given condition is satisfied **at least
+once** by an element in the input list.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`fn`|`a -> Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
+|`list`|`List<a>`|The list to iterate|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Bool`|`true` if one or more elements satify the condition or `false` otherwise|
 
 ### List.**forEach**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.1.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-forEach : (a -> Void, List<a>) -> Void
+forEach : ((a -> Void), List<a>) -> Void
 ```
 
-Evaluates the given function for each item in the list.
+Iterates a list, calling an iterator function on each element.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`fn`|`a -> Void`|The iterator function to call with each element|
+|`list`|`List<a>`|The list to iterate|
 
 ### List.**forEachi**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.1.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-forEachi : ((a, Number) -> Void, List<a>) -> Void
+forEachi : (((a, Number) -> Void), List<a>) -> Void
 ```
 
-Evaluates the given function for each item in the list. The given function is called with the element and its index in the list.
+Iterates a list, calling an iterator function on each element.
+Also passes the index as the second argument to the function.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`fn`|`(a, Number) -> Void`|The iterator function to call with each element|
+|`list`|`List<a>`|The list to iterate|
 
 ### List.**filter**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.1.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-filter : (a -> Bool, List<a>) -> List<a>
+filter : ((a -> Bool), List<a>) -> List<a>
 ```
 
-`List.filter(fn, list)` produces a new list by calling `fn` on each element of the list. If the `fn` returns `false`, the value will not be included the new list.
+Produces a new list by calling a function on each element of
+the input list and only including it in the result list if the element satisfies
+the condition.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`fn`|`a -> Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
+|`list`|`List<a>`|The list to iterate|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<a>`|The new list containing elements where `fn` returned `true`|
+
+### List.**filteri**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.3.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+filteri : (((a, Number) -> Bool), List<a>) -> List<a>
+```
+
+Produces a new list by calling a function on each element of
+the input list and only including it in the result list if the element satisfies
+the condition. Also passes the index to the function.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`fn`|`(a, Number) -> Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
+|`list`|`List<a>`|The list to iterate|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<a>`|The new list containing elements where `fn` returned `true`|
 
 ### List.**reject**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.1.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-reject : (a -> Bool, List<a>) -> List<a>
+reject : ((a -> Bool), List<a>) -> List<a>
 ```
 
-`List.reject(fn, list)` produces a new list by calling `fn` on each element of the list. If the `fn` returns `true`, the value will not be included in the new list.
+Produces a new list by calling a function on each element of
+the input list and excluding it from the result list if the element satisfies
+the condition.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`fn`|`a -> Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
+|`list`|`List<a>`|The list to iterate|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<a>`|The new list containing elements where `fn` returned `false`|
 
 ### List.**head**
+
+<details>
+<summary>Added in <code>0.2.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.1.0</code></td><td>Originally named `hd`</td></tr>
+<tr><td><code>0.2.0</code></td><td>Renamed to `head`</td></tr>
+<tr><td><code>0.3.0</code></td><td>Return type converted to `Option` type</td></tr>
+</tbody>
+</table>
+</details>
 
 ```grain
 head : List<a> -> Option<a>
 ```
 
-Returns `Some(element)` containing the first element from the list or `None` if the list is empty.
+Provides `Some(element)` containing the first element, or "head", of
+the input list or `None` if the list is empty.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`list`|`List<a>`|The list to access|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Option<a>`|`Some(firstElement)` if the list has elements or `None` otherwise|
 
 ### List.**tail**
+
+<details>
+<summary>Added in <code>0.2.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.1.0</code></td><td>Originally named `tl`</td></tr>
+<tr><td><code>0.2.0</code></td><td>Renamed to `tail`</td></tr>
+<tr><td><code>0.3.0</code></td><td>Return type converted to `Option` type</td></tr>
+</tbody>
+</table>
+</details>
 
 ```grain
 tail : List<a> -> Option<List<a>>
 ```
 
-Returns `Some(elements)` containing the all elements in a list except the first elementt, `Some([])` if the list only contains one element, or `None` if the list is empty.
+Provides `Some(tail)` containing all list items except the first element, or "tail", of
+the input list or `None` if the list is empty.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`list`|`List<a>`|The list to access|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Option<List<a>>`|`Some(tail)` if the list has elements or `None` otherwise|
 
 ### List.**nth**
+
+<details>
+<summary>Added in <code>0.1.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.1.0</code></td><td>Originally failed for index out-of-bounds or list empty</td></tr>
+<tr><td><code>0.3.0</code></td><td>Return type converted to `Option` type</td></tr>
+</tbody>
+</table>
+</details>
 
 ```grain
 nth : (Number, List<a>) -> Option<a>
 ```
 
-Returns `Some(element)` containing the element in the list at the index provided or `None` if the index is out-of-bounds or if the list is empty.
+Provides `Some(element)` containing the element in the list at the specified index
+or `None` if the index is out-of-bounds or the list is empty.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`index`|`Number`|The index to access|
+|`list`|`List<a>`|The list to access|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Option<a>`|`Some(element)` if the list contains an element at the index or `None` otherwise|
 
 ### List.**flatten**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.1.0</code></summary>
+No other changes yet.
+</details>
 
 ```grain
 flatten : List<List<a>> -> List<a>
 ```
 
-Turns a list of lists of values into a "flattened" list of the values.
+Flattens nested lists.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`list`|`List<List<a>>`|The list to flatten|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<a>`|A new list containing all nested list elements combined|
+
+Examples:
+
+```grain
+List.flatten([[1, 2], [3, 4]]) // [1, 2, 3, 4]
+```
 
 ### List.**insert**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.1.0</code></summary>
+No other changes yet.
+</details>
 
 ```grain
 insert : (a, Number, List<a>) -> List<a>
 ```
 
-Attempts to insert a value into the input list at the given index. Fails if the index is out-of-bounds.
+Inserts a new value into a list at the specified index.
+Fails if the index is out-of-bounds.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`value`|`a`|The value to insert|
+|`index`|`Number`|The index to update|
+|`list`|`List<a>`|The list to update|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<a>`|The new list|
 
 ### List.**count**
 
+<details>
+<summary>Added in <code>0.1.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Made the function tail-recursive</td></tr>
+</tbody>
+</table>
+</details>
+
 ```grain
-count : (a -> Bool, List<a>) -> Number
+count : ((a -> Bool), List<a>) -> Number
 ```
 
 Counts the number of elements in a list that satisfy the given condition.
 
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`fn`|`a -> Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
+|`list`|`List<a>`|The list to iterate|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Number`|The total number of elements that satisfy the condition|
+
 ### List.**part**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.1.0</code></summary>
+No other changes yet.
+</details>
 
 ```grain
 part : (Number, List<a>) -> (List<a>, List<a>)
 ```
 
-Splits a list into two lists: a list containing the first `count` elements, and a list containing the remaining elements. Fails if the count is out-of-bounds.
+Split a list into two, with the first list containing the required number of elements.
+Fails if the input list doesn't contain at least the required amount of elements.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`count`|`Number`|The number of elements required|
+|`list`|`List<a>`|The list to split|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`(List<a>, List<a>)`|Two lists where the first contains exactly the required amount of elements and the second contains any remaining elements|
 
 ### List.**rotate**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.1.0</code></summary>
+No other changes yet.
+</details>
 
 ```grain
 rotate : (Number, List<a>) -> List<a>
 ```
 
-Produces a new list where the `count` elements are moved to the end of the list. If a negative count is provided, moves the last `-count` elements to the beginning of the list.
+Rotates list elements by the specified amount to the left.
+
+If value is negative, list elements will be rotated by the
+specified amount to the right. See examples.
+
+Fails if the input list doesn't contain at least the required amount of elements.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`count`|`Number`|The number of elements to rotate by|
+|`list`|`List<a>`|The list to be rotated|
+
+Examples:
+
+```grain
+List.rotate(2, [1, 2, 3, 4, 5]) // [3, 4, 5, 1, 2]
+```
+
+```grain
+List.rotate(-1, [1, 2, 3, 4, 5]) // [5, 1, 2, 3, 4]
+```
 
 ### List.**unique**
+
+<details>
+<summary>Added in <code>0.2.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.1.0</code></td><td>Originally named `uniq`</td></tr>
+<tr><td><code>0.2.0</code></td><td>Renamed to `unique`</td></tr>
+</tbody>
+</table>
+</details>
 
 ```grain
 unique : List<a> -> List<a>
 ```
 
-Produces a new list with any duplicates removed. Uses the generic `==` structural equality operator.
+Produces a new list with any duplicates removed.
+Uses the generic `==` structural equality operator.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`list`|`List<a>`|The list to filter|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<a>`|The new list with only unique values|
 
 ### List.**drop**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.2.0</code></summary>
+No other changes yet.
+</details>
 
 ```grain
 drop : (Number, List<a>) -> List<a>
 ```
 
-Removes the first `n` items from the list. Fails if `n` is a negative number.
+Produces a new list with the specified number of elements removed from
+the beginning of the input list.
+
+Fails if the specified amount is a negative number.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`count`|`Number`|The amount of elements to remove|
+|`list`|`List<a>`|The input list|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<a>`|The new list without the dropped elements|
 
 ### List.**dropWhile**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.2.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-dropWhile : (a -> Bool, List<a>) -> List<a>
+dropWhile : ((a -> Bool), List<a>) -> List<a>
 ```
 
-Removes items from the beginning of the list until the given function returns `false`.
+Produces a new list with the elements removed from the beginning
+of the input list until they no longer satisfy the given condition.
+Stops when the predicate function returns `false`.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`fn`|`a -> Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
+|`list`|`List<a>`|The input list|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<a>`|The new list without the dropped elements|
 
 ### List.**take**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.2.0</code></summary>
+No other changes yet.
+</details>
 
 ```grain
 take : (Number, List<a>) -> List<a>
 ```
 
-Returns the first `n` items from the list. Fails if `n` is a negative number.
+Produces a new list with–at most—the specified amount elements from
+the beginning of the input list.
+
+Fails if the specified amount is a negative number.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`count`|`Number`|The amount of elements to keep|
+|`list`|`List<a>`|The input list|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<a>`|The new list containing the taken elements|
 
 ### List.**takeWhile**
 
+<details disabled>
+<summary tabindex="-1">Added in <code>0.2.0</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-takeWhile : (a -> Bool, List<a>) -> List<a>
+takeWhile : ((a -> Bool), List<a>) -> List<a>
 ```
 
-Returns a list containing the first elements satisfying the given predicate. Stops when the function returns `false`.
+Produces a new list with elements from the beginning of the input list
+as long as they satisfy the given condition.
+Stops when the predicate function returns `false`.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`fn`|`a -> Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
+|`list`|`List<a>`|The input list|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<a>`|The new list containing the taken elements|
 
 ### List.**find**
 
+<details>
+<summary>Added in <code>0.2.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally failed if the list was empty</td></tr>
+<tr><td><code>0.3.0</code></td><td>Return type converted to `Option` type</td></tr>
+</tbody>
+</table>
+</details>
+
 ```grain
-find : (a -> Bool, List<a>) -> Option<a>
+find : ((a -> Bool), List<a>) -> Option<a>
 ```
 
-`List.find(fn, list)` calls `fn` on each element of the list and returns `Some(element)` containing the first element for which `fn` returns `true` or `None` if no element was found.
+Finds the first element in a list that satifies the given condition.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`fn`|`a -> Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
+|`list`|`List<a>`|The list to search|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Option<a>`|`Some(element)` containing the first value found or `None` otherwise|
 
 ### List.**findIndex**
 
+<details>
+<summary>Added in <code>0.2.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally failed if the list was empty</td></tr>
+<tr><td><code>0.3.0</code></td><td>Return type converted to `Option` type</td></tr>
+</tbody>
+</table>
+</details>
+
 ```grain
-findIndex : (a -> Bool, List<a>) -> Option<Number>
+findIndex : ((a -> Bool), List<a>) -> Option<Number>
 ```
 
-`List.findIndex(fn, list)` calls `fn` on each element of the list and returns `Some(index)` containing the index of the first element for which `fn` returns `true` or `None` if no element was found.
+Finds the first index in a list where the element satifies the given condition.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`fn`|`a -> Bool`|The function to call on each element, where the returned value indicates if the element satisfies the condition|
+|`list`|`List<a>`|The list to search|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Option<Number>`|`Some(index)` containing the index of the first element found or `None` otherwise|
 
 ### List.**product**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.2.0</code></summary>
+No other changes yet.
+</details>
 
 ```grain
 product : (List<a>, List<b>) -> List<(a, b)>
 ```
 
-Combines two lists into a Cartesian product of tuples containing all ordered pairs `(a, b)`.
+Combines two lists into a Cartesian product of tuples containing
+all ordered pairs `(a, b)`.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`list1`|`List<a>`|The list to provide values for the first tuple element|
+|`list2`|`List<b>`|The list to provide values for the second tuple element|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<(a, b)>`|The new list containing all pairs of `(a, b)`|
 
 ### List.**sub**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.2.0</code></summary>
+No other changes yet.
+</details>
 
 ```grain
 sub : (Number, Number, List<a>) -> List<a>
 ```
 
-Returns a sub-list of the given list starting from index `start` (inclusive) and up to `length` elements. Fails if `start` or `length` are negative numbers.
+Provides the subset of a list given zero-based start index and amount of elements
+to include.
+
+Fails if the start index or amount of elements are negative numbers.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`start`|`Number`|The index of the list where the subset will begin (inclusive)|
+|`length`|`Number`|The amount of elements to be included in the subset|
+|`list`|`List<a>`|The input list|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<a>`|The subset of the list|
 
 ### List.**join**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.4.0</code></summary>
+No other changes yet.
+</details>
 
 ```grain
 join : (String, List<String>) -> String
 ```
 
-Concatenates the strings in the given list, separating them with the given separator.
+Combine the given list of strings into one string with the specified
+separator inserted between each item.
 
-Example:
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`separator`|`String`|The separator to insert between elements|
+|`list`|`List<String>`|The list to combine|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`String`|The combined elements with the separator between each|
+
+### List.**revAppend**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.4.5</code></summary>
+No other changes yet.
+</details>
+
 ```grain
-List.join(", ", ["a", "b", "c"]) == "a, b, c"
+revAppend : (List<a>, List<a>) -> List<a>
 ```
+
+Reverses the first list and appends the second list to the end.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`list1`|`List<a>`|The list to reverse|
+|`list2`|`List<a>`|The list to append|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<a>`|The new list|
+
+### List.**sort**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.4.5</code></summary>
+No other changes yet.
+</details>
+
+```grain
+sort : (((a, a) -> Number), List<a>) -> List<a>
+```
+
+Sorts the given list based on a given comparator function. The resulting list is sorted in increasing order.
+
+Ordering is calculated using a comparator function which takes two list elements and must return 0 if both are equal, a positive number if the first is greater, and a negative number if the first is smaller.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`comp`|`(a, a) -> Number`|The comparator function used to indicate sort order|
+|`list`|`List<a>`|The list to be sorted|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`List<a>`|The sorted list|
+
