@@ -7,3 +7,7 @@ Welcome to the Grain docs! Here you'll find information about the language, the 
 ## Getting additional help
 
 If something isn't making sense or you have more questions, reach out in the `#support` channel on the [Grain Discord server](https://discord.com/invite/grain-lang). There are a bunch of friendly folks happy to help out!
+
+## Improving the docs
+
+Everything you see in the docs is completely open source and editable! If you think something could be explained more clearly or that some additional information could be helpful, we happily welcome pull requests. The "Edit on GitHub" buttons on each page will take you directly to where the changes would need to be made, and you can contribute without even leaving your browser!
