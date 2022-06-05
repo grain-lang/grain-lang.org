@@ -6,4 +6,4 @@ Welcome to the Grain docs! Here you'll find information about the language, the 
 
 ## Getting additional help
 
-If something isn't making sense or you have more questions, reach out in the `#support` channel on the [Grain Discord server](https://discord.com/invite/grain-lang). There are a bunch of friendly folks happy to help out.
+If something isn't making sense or you have more questions, reach out in the `#support` channel on the [Grain Discord server](https://discord.com/invite/grain-lang). There are a bunch of friendly folks happy to help out!
