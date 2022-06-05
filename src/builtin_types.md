@@ -1,5 +1,5 @@
 ---
-title: Basic Types
+title: Built-in Types
 ---
 
 Grain provides some basic types to be used throughout your programs.
