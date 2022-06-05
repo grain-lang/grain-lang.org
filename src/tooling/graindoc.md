@@ -2,7 +2,7 @@
 title: Graindoc
 ---
 
-Grain ships with a documentation generator built directly into the compiler!
+Grain ships with a documentation generator built directly into the Grain CLI!
 
 You may be used to similar tools, such as JSDoc, that allow you to add a comment above code which describes the input and output types, along with other documentation. Generally, you'll run an external tool against your source code to generate your documentation.
 
@@ -31,7 +31,7 @@ export let get = (index, array) => {
 
 ## Usage
 
-Before running `grain doc`, you'll want to add docblock comments to your code. Docblock comments are started with `/**` and ended with `*/`. They must exist on the line above a type declaration or exported value. No documentation will be generated for non-exported values—to keep module internals private.
+Before running `grain doc`, you'll want to add docblock comments to your code. Docblock comments are started with `/**` and ended with `*/`. They must exist on the line above a type declaration or exported value. No documentation will be generated for non-exported values to keep module internals private.
 
 You can run `grain doc <file|dir> -o <file|dir>` to generate markdown documentation for your code. As of Grain v0.5, the `grain doc` command supports directory input to recursively generate documentation for all `.gr` files.
 
