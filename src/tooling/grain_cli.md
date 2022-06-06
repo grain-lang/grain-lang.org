@@ -67,6 +67,26 @@ It should be noted that `grain run` is used here on the WebAssembly file produce
 
 Produces documentation for a Grain program. See the full [Graindoc page](./graindoc) to learn more!
 
+### Example
+
+Generating docs for a single file on stdout:
+
+```sh
+grain doc hello.gr
+```
+
+Generating docs for a single file:
+
+```sh
+grain doc hello.gr -o hello.md
+```
+
+Generating docs for an entire project:
+
+```sh
+grain format . -o .
+```
+
 ## `grain format`
 
 Formats Grain files. Running `grain format` on a single file will write the formatted file on stdout, and the result can be written to a file via the `-o` flag. `grain format` can also be used on a directory to format all of the Grain files in a project.
