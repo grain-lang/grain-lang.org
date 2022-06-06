@@ -47,6 +47,7 @@ docs_groups:
   The Docs:
     - intro
     - builtin_types
+    - tooling/grain_cli
     - tooling/graindoc
   Standard Library:
     - stdlib/pervasives
