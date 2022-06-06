@@ -8,8 +8,6 @@ The Grain CLI is an all-in-one tool for compiling, running, documenting, and for
 
 The top level `grain` command will compile and run a Grain program. This can be useful during development for quick iteration cycles. The flags available for this command are equivalent to the flags for `grain compile`.
 
-### Example
-
 ```sh
 grain hello.gr
 ```
@@ -45,8 +43,6 @@ Compiles a Grain program to WebAssembly. All of the supported flags can be found
 | --verbose                     | print critical information at various stages of compilation                 |
 | -h, --help                    | display help for command                                                    |
 
-### Example
-
 ```sh
 grain compile hello.gr
 ```
@@ -54,8 +50,6 @@ grain compile hello.gr
 ## `grain run`
 
 Runs a WebAssembly file. The `grain run` command can run Grain programs compiled with `--no-link`, and can also run WebAssembly files produced by other compilers.
-
-### Example
 
 ```sh
 grain run hello.gr.wasm
@@ -66,8 +60,6 @@ It should be noted that `grain run` is used here on the WebAssembly file produce
 ## `grain doc`
 
 Produces documentation for a Grain program. See the full [Graindoc page](./graindoc) to learn more!
-
-### Example
 
 Generating docs for a single file on stdout:
 
@@ -90,8 +82,6 @@ grain doc . -o .
 ## `grain format`
 
 Formats Grain files. Running `grain format` on a single file will write the formatted file on stdout, and the result can be written to a file via the `-o` flag. `grain format` can also be used on a directory to format all of the Grain files in a project.
-
-### Example
 
 Formatting a single file to stdout:
 
