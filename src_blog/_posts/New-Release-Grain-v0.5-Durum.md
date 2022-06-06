@@ -76,7 +76,7 @@ To make the configuration for building modules for production much easier, we’
 
 Previously, Grain editor support was exclusive to Visual Studio Code due to a required shim layer between the extension and compiler. In this release of Grain, core team member [Marcus](https://twitter.com/marcusr) added a long-running language server directly into the `grain` command that speaks the language server protocol.
 
-This means that the newest version of the VSCode extension is exclusively a “language client” that launches `grain lsp`, and any other editor that supports the language server protocol will be able to integrate seamlessly. Let us know what editors you want to see support for!
+This means that the newest version of the VSCode extension is exclusively a “language client” that launches `grain lsp`, and any other editor that supports the language server protocol will be able to integrate seamlessly. Support for Emacs is coming soon, but let us know what other editors you want to see support for!
 
 ### Unified version numbers
 
