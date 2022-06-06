@@ -151,4 +151,4 @@ The `@section` attribute provides a grouping within the documented code.
 
 This special attribute is used within a docblock comment that is not attached to a type declaration or exported value. It requires a subtitle and description. When specified, any docblocks between sections are grouped under the heading.
 
-When generating docs, a subtitle will be added for each section followed by the description. If any `@section` attributes are specified, no output will be generated for exports outside of all sections.
+When generating docs, exports that are outside all `@section` attributes, if any are specified, will not be output. Similarly if an `@section` attribute does not have any exports following it, there will be no output in that section apart from the `@section` subtitle and description.
