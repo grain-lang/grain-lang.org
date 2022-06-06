@@ -16,7 +16,7 @@ First up: the new language features included in this release.
 
 ### Arbitrary precision math
 
-In Grain v0.5, you’ll find that number operations no longer overflow—you can create numbers as large as you like, only limited by the total memory of your Wasm host. Whether you need to do some data science or you just like really big numbers, Grain has your back.
+In Grain v0.5, you’ll find that number operations no longer overflow—you can create integer `Number`s as large as you like, only limited by the total memory of your Wasm host. Whether you need to do some data science or you just like really big numbers, Grain has your back.
 
 In addition to our `Number` type now having arbitrary precision, we’ve also added the `BigInt` type for situations where you want some added type safety while staying firmly in the realm of large integers. `BigInt`s have a new literal syntax, `42t`, and you can find operators in the new [bigint](https://grain-lang.org/docs/stdlib/bigint) standard library module.
 
