@@ -14,7 +14,13 @@ grain hello.gr
 
 ## `grain compile`
 
-Compiles a Grain program to WebAssembly. All of the supported flags can be found below:
+Compiles a Grain program to WebAssembly.
+
+```sh
+grain compile hello.gr
+```
+
+All of the supported flags can be found below:
 
 | Flag                          | Description                                                                 |
 | ----------------------------- | --------------------------------------------------------------------------- |
@@ -42,10 +48,6 @@ Compiles a Grain program to WebAssembly. All of the supported flags can be found
 | --strict-sequence             | enable strict sequencing                                                    |
 | --verbose                     | print critical information at various stages of compilation                 |
 | -h, --help                    | display help for command                                                    |
-
-```sh
-grain compile hello.gr
-```
 
 ## `grain run`
 
