@@ -3,8 +3,8 @@ title: New Release! Grain v0.5 - Durum
 subtitle: Announcing the release of Grain v0.5, Durum, with faster compile times, big numbers, and more.
 date: 2022-06-06 12:00:00
 author: Oscar Spencer
-cover: /blog/photos/cover/nyana-stoica-EV6C1LjH1Lk-unsplash.jpg
-coverAttribution: Nyana Stoica / Unsplash
+cover: /blog/photos/cover/heather-gill-pasta-unsplash.jpg
+coverAttribution: Heather Gill / Unsplash
 tags: Release, Changelog
 ---
 
