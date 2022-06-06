@@ -84,7 +84,7 @@ grain doc hello.gr -o hello.md
 Generating docs for an entire project:
 
 ```sh
-grain format . -o .
+grain doc . -o .
 ```
 
 ## `grain format`
