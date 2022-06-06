@@ -1,4 +1,4 @@
-<% var githubUrl = 'https://github.com/grain-lang/grain-lang.org/blob/master/src/' + page.path.replace(/\.html$/, '.md'); %>
+<% var githubUrl = page.path.startsWith('stdlib/') ? 'https://github.com/grain-lang/grain/blob/main/' + page.path.replace(/\.html$/, '.gr') : 'https://github.com/grain-lang/grain-lang.org/blob/master/src/' + page.path.replace(/\.html$/, '.md'); %>
 <% var next = next(site, page); %>
 <% var prev = prev(site, page); %>
 <%- partial('_partial/hero') %>
