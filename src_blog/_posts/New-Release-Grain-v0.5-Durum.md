@@ -58,7 +58,7 @@ We care deeply about developer experience and make sure we’re improving it wit
 
 We’ve heard the community loud and clear—the pre-built binaries were painfully slow. To that end, the team spent this release cycle working tirelessly to speed up various slow paths in the compiler. With these improvements, compiling a program is an order of magnitude faster.
 
-We’ll talk about the [new parser](#new-parser) and [compilation profiles](#compilation-profiles) below, which were the biggest improvements by far.
+We’ll talk about the [new parser](#New-parser) and [compilation profiles](#Compilation-profiles) below, which were the biggest improvements by far.
 
 If you build Grain from source, we now fully support the Mac M1 architecture. Both the initial compilation and incremental builds are much, much faster on an M1 computer. In the near future, we hope to provide arm64 Docker images, but that will take some more work.
 
