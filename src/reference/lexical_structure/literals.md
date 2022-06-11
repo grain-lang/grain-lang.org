@@ -149,7 +149,7 @@ Unicode escapes can be written in a fixed-width form with exactly four hexadecim
 
 ## Numerics
 
-The lexer recognizes numerics of the `Number`, `Int32`, `Int64`, `Float32`, `Float64`, `WasmI32`, `WasmI64`, `WasmF32`, and `WasmF64` types.
+The lexer recognizes numerics of the `Number`, `BigInt`, `Int32`, `Int64`, `Float32`, `Float64`, `WasmI32`, `WasmI64`, `WasmF32`, and `WasmF64` types.
 
 ### Integers
 
@@ -166,7 +166,7 @@ bin_digit = ['0'-'1'] ;
 oct_digit = ['0'-'7'] ;
 hex_digit = ['0'-'9' 'A'-'F' 'a'-'f'] ;
 
-int_suffix = ['l' 'L' 'n' 'N'] ;
+int_suffix = ['t', 'l' 'L' 'n' 'N'] ;
 ```
 
 Integers can be written in decimal (base 10), binary (base 2), octal (base 8), or hexadecimal (base 16). An integer written without a prefix is considered to be a decimal integer, while an `0b` or `0B` prefix denotes a binary integer, `0o` or `0O` denotes an octal integer, and `0x` or `0X` denotes a hexadecimal integer. The numeric part of the integer must start with a digit, but underscores are allowed to appear throughout the numeric portion to help with the readability of the integer and don't affect the value of the integer.
@@ -176,6 +176,7 @@ A suffix (or lack of suffix) denotes the Grain type of the integer:
 | Suffix | Type      |
 | ------ | --------- |
 | none   | `Number`  |
+| `t`    | `BigInt`  |
 | `l`    | `Int32`   |
 | `L`    | `Int64`   |
 | `n`    | `WasmI32` |
