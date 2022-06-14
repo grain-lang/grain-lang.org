@@ -62,6 +62,7 @@ docs_groups:
     - stdlib/map
     - stdlib/number
     - stdlib/option
+    - stdlib/queue
     - stdlib/random
     - stdlib/range
     - stdlib/regex
@@ -69,7 +70,6 @@ docs_groups:
     - stdlib/set
     - stdlib/stack
     - stdlib/string
-    - stdlib/queue
     - stdlib/sys/file
     - stdlib/sys/process
     - stdlib/sys/random
