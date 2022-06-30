@@ -57,6 +57,7 @@ docs_groups:
     - stdlib/bytes
     - stdlib/char
     - stdlib/DOM
+    - stdlib/exception
     - stdlib/hash
     - stdlib/list
     - stdlib/map
