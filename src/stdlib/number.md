@@ -13,6 +13,53 @@ No other changes yet.
 import Number from "number"
 ```
 
+## Constants
+
+Number constant values.
+
+### Number.**pi**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.5.2</code></summary>
+No other changes yet.
+</details>
+
+```grain
+pi : Number
+```
+
+Pi represented as a Number value.
+
+### Number.**tau**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.5.2</code></summary>
+No other changes yet.
+</details>
+
+```grain
+tau : Number
+```
+
+Tau represented as a Number value.
+
+### Number.**e**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.5.2</code></summary>
+No other changes yet.
+</details>
+
+```grain
+e : Number
+```
+
+Euler's number represented as a Number value.
+
+## Operations
+
+Functions for operating on values of the Number type.
+
 ### Number.**add**
 
 <details disabled>
@@ -487,4 +534,54 @@ Returns:
 |type|description|
 |----|-----------|
 |`Result<Number, String>`|`Ok(value)` containing the parsed number on a successful parse or `Err(msg)` containing an error message string otherwise|
+
+### Number.**sin**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.5.2</code></summary>
+No other changes yet.
+</details>
+
+```grain
+sin : Number -> Number
+```
+
+Computes the sine of a number (in radians) using Chebyshev polynomials.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`radians`|`Number`|The input in radians|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Number`|The computed sine|
+
+### Number.**cos**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.5.2</code></summary>
+No other changes yet.
+</details>
+
+```grain
+cos : Number -> Number
+```
+
+Computes the cosine of a number (in radians) using Chebyshev polynomials.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`radians`|`Number`|The input in radians|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Number`|The computed cosine|
 
