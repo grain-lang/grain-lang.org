@@ -17,10 +17,10 @@ let strings = ["foo", "bar", "baz"]
 Lists in Grain are linked lists, so if we'd like to add a new item to a list, we add it to the front:
 
 ```grain
-let numbers = [2, 3]
-let numbers1 = [1, ...numbers]
+let pair = [2, 3]
+let triple = [1, ...pair]
 
-print(numbers1) // [1, 2, 3]
+print(triple) // [1, 2, 3]
 ```
 
 We can also write functions that process data in lists, but we'll save that fun for the section on Pattern Matching.
