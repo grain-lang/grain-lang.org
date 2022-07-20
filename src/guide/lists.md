@@ -18,9 +18,9 @@ Lists in Grain are linked lists, so if we'd like to add a new item to a list, we
 
 ```grain
 let numbers = [2, 3]
-let numbers = [1, ...numbers]
+let numbers1 = [1, ...numbers]
 
-print(numbers) // [1, 2, 3]
+print(numbers1) // [1, 2, 3]
 ```
 
 We can also write functions that process data in lists, but we'll save that fun for the section on Pattern Matching.
