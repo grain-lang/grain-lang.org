@@ -17,8 +17,8 @@ let strings = ["foo", "bar", "baz"]
 Lists in Grain are linked lists, so if we'd like to add a new item to a list, we add it to the front:
 
 ```grain
-let pair = [2, 3]
-let triple = [1, ...pair]
+let twoThree = [2, 3]
+let oneTwoThree = [1, ...twoThree]
 
 print(triple) // [1, 2, 3]
 ```
