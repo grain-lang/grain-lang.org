@@ -30,7 +30,7 @@ feed:
   hub:
   content: true
   content_limit: 140
-  content_limit_delim: ' '
+  content_limit_delim: " "
   order_by: -date
   icon: ./../favicon/favicon.ico
   autodiscovery: true
@@ -59,16 +59,16 @@ relative_link: false
 future: true
 highlight:
   enable: false
-  
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
+  path: ""
   per_page: 10
   order_by: -date
-  
+
 # Category & Tag
 default_category: uncategorized
 category_map:
@@ -100,3 +100,7 @@ server:
   serveStatic:
     extensions:
       - html
+
+marked:
+  gfm: true
+  breaks: false

@@ -148,3 +148,7 @@ server:
   serveStatic:
     extensions:
       - html
+
+marked:
+  gfm: true
+  breaks: false
