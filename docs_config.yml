@@ -59,10 +59,13 @@ docs_groups:
     - stdlib/DOM
     - stdlib/exception
     - stdlib/hash
+    - stdlib/immutablepriorityqueue
     - stdlib/list
     - stdlib/map
+    - stdlib/marshal
     - stdlib/number
     - stdlib/option
+    - stdlib/priorityqueue
     - stdlib/queue
     - stdlib/random
     - stdlib/range
