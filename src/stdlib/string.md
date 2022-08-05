@@ -148,7 +148,7 @@ No other changes yet.
 indexOf : (String, String) -> Option<Number>
 ```
 
-Finds the position of a substring in the input string.
+Finds the first position of a substring in the input string.
 
 Parameters:
 
@@ -167,6 +167,70 @@ Examples:
 
 ```grain
 String.indexOf("world", "Hello world") == Some(6)
+```
+
+### String.**lastIndexOf**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.5.3</code></summary>
+No other changes yet.
+</details>
+
+```grain
+lastIndexOf : (String, String) -> Option<Number>
+```
+
+Finds the last position of a substring in the input string.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`search`|`String`|The substring to find|
+|`string`|`String`|The string to inspect|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Option<Number>`|`Some(position)` containing the starting position of the substring if found or `None` otherwise|
+
+Examples:
+
+```grain
+String.lastIndexOf("world", "Hello world world") == Some(12)
+```
+
+### String.**charCodeAt**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.5.3</code></summary>
+No other changes yet.
+</details>
+
+```grain
+charCodeAt : (Number, String) -> Number
+```
+
+Get the Unicode code point at the position in the input string.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`position`|`Number`|The position to check|
+|`string`|`String`|The string to search|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Number`|The character code at the provided position|
+
+Examples:
+
+```grain
+String.charCodeAt(5, "Hello world") == 32
 ```
 
 ### String.**charAt**
