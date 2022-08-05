@@ -53,13 +53,18 @@ docs_groups:
   Standard Library:
     - stdlib/pervasives
     - stdlib/array
+    - stdlib/bigint
     - stdlib/buffer
     - stdlib/bytes
     - stdlib/char
     - stdlib/DOM
     - stdlib/exception
+    - stdlib/float32
+    - stdlib/float64
     - stdlib/hash
     - stdlib/immutablepriorityqueue
+    - stdlib/int32
+    - stdlib/int64
     - stdlib/list
     - stdlib/map
     - stdlib/marshal
@@ -78,11 +83,6 @@ docs_groups:
     - stdlib/sys/process
     - stdlib/sys/random
     - stdlib/sys/time
-    - stdlib/int32
-    - stdlib/int64
-    - stdlib/float32
-    - stdlib/float64
-    - stdlib/bigint
   # TODO: Re-enable when docs are more mature
   # Language Constructs:
   #   - constructs/bindings
