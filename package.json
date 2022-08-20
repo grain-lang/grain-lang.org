@@ -29,6 +29,6 @@
   },
   "devDependencies": {
     "express": "^4.17.1",
-    "hexo-renderer-scss": "^1.2.0"
+    "hexo-renderer-dartsass": "^0.1.2"
   }
 }
