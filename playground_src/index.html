@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123482724-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-123482724-1');
+    </script>
+    <title>Grain: A strongly-typed functional programming language for the modern web.</title>
+    <meta name="description"
+        content="Grain is a new programming language that puts academic language features to work.">
+    <link rel="canonical" href="https://grain-lang.org/" />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/favicon/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/favicon/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/favicon/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/favicon/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/favicon/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/favicon/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/favicon/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="/favicon/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/favicon/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="&nbsp;" />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,initial-scale=1,user-scalable=yes">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600,700&display=swap" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600,700&display=swap">
+    </noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    </noscript>
+    <script async src="https://kit.fontawesome.com/080d9b67ba.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/playground.css" />
+    <script type="module" src="./scripts/playground.js"></script>
+</head>
+
+<body>
+    <section id="hero">
+        <nav id="nav">
+            <a href="/"><img class="nav-logo" width="127" height="32" src="/images/grain_logo_white.svg"></a>
+            <div class="nav-links">
+                <a href="/docs" class="nav-link heading">Guide</a>
+                <a href="/docs/intro" class="nav-link heading">Documentation</a>
+                <a href="https://github.com/grain-lang/grain/graphs/contributors" class="nav-link heading">Community</a>
+                <a href="/blog" class="nav-link heading">Blog</a>
+                <a href="/playground" class="nav-link heading">Playground</a>
+            </div>
+            <div class="nav-social-links">
+                <a href="https://github.com/grain-lang/grain" class="nav-link"><i
+                        class="fab fa-github nav-social-link"></i></a>
+                <a href="https://twitter.com/grain_lang" class="nav-link"><i
+                        class="fab fa-twitter nav-social-link"></i></a>
+                <a href="https://discord.com/invite/grain-lang" class="nav-link"><i
+                        class="fab fa-discord nav-social-link"></i></a>
+            </div>
+        </nav>
+        <div class="nav-links-mobile">
+            <a href="/docs" class="nav-link heading">Guide</a>
+            <a href="/docs/intro" class="nav-link heading">Documentation</a>
+            <a href="https://github.com/grain-lang/grain/graphs/contributors" class="nav-link heading">Community</a>
+            <a href="/blog" class="nav-link heading">Blog</a>
+            <a href="/playground" class="nav-link heading">Playground</a>
+        </div>
+    </section>
+    <div id="editor-wrapper">
+        <main id="editor"></main>
+        <section id="output-panel">
+            <pre id="output"></pre>
+            <button id="run">Compile &amp; Run &#9654;</button>
+        </section>
+    </div>
+</body>

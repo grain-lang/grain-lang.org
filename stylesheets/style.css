@@ -5,6 +5,7 @@
 html {
   --orange: rgb(255, 133, 14);
   --white: white;
+  --gray: #EFEFEF;
   --gray2: #9B9B9B;
   --blue: #202C59;
   --black: #33333A;
@@ -329,6 +330,7 @@ html, body {
   }
   .nav-links-mobile {
     display: block;
+    margin-bottom: 1rem;
   }
   .blurb:not(:last-of-type) {
     margin-right: 0;
