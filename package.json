@@ -25,10 +25,10 @@
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0",
     "onigasm": "^2.2.4",
-    "vscode-textmate": "^5.2.0"
+    "vscode-textmate": "^7.0.1"
   },
   "devDependencies": {
     "express": "^4.17.1",
-    "hexo-renderer-scss": "^1.2.0"
+    "hexo-renderer-dartsass": "^0.1.2"
   }
 }
