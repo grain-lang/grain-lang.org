@@ -17,19 +17,29 @@ export async function loadStdlib() {
     eager: true,
   });
 
+  const fileContents = {};
+
   for (let [filename, url] of Object.entries(grainFiles)) {
     filename = filename.split("@grain/stdlib")[1];
     filename = path.join(stdlibRoot, filename);
-    const content = await fetch(url).then((res) => res.text());
-    volume.mkdirpSync(path.dirname(filename), { recursive: true });
-    volume.writeFileSync(filename, content);
+    fileContents[filename] = fetch(url)
+      .then((res) => res.text())
+      .then((content) => {
+        volume.mkdirpSync(path.dirname(filename), { recursive: true });
+        volume.writeFileSync(filename, content);
+      });
   }
 
   for (let [filename, url] of Object.entries(wasmFiles)) {
     filename = filename.split("@grain/stdlib")[1];
     filename = path.join(stdlibRoot, filename);
-    const content = await fetch(url).then((res) => res.arrayBuffer());
-    volume.mkdirpSync(path.dirname(filename), { recursive: true });
-    volume.writeFileSync(filename, content);
+    fileContents[filename] = fetch(url)
+      .then((res) => res.arrayBuffer())
+      .then((content) => {
+        volume.mkdirpSync(path.dirname(filename), { recursive: true });
+        volume.writeFileSync(filename, content);
+      });
   }
+
+  await Promise.all(Object.values(fileContents));
 }
