@@ -1,8 +1,8 @@
 import fs, { loadStdlib, stdlibRoot } from "./browser-fs/fs";
 import grainc from "./grain/grainc.bc.mjs";
 import constants from "constants-browserify/constants.json";
-import * as Grain from "./js-runner/grain-runner-browser.js";
 import { Buffer } from "buffer";
+import { init, WASI } from "@wasmer/wasi";
 
 globalThis.Buffer = Buffer;
 
@@ -37,16 +37,14 @@ globalThis.process = {
   },
 };
 
-let ogConsoleLog = console.log;
 let ogConsoleError = console.error;
 
 function restoreConsole() {
-  console.log = ogConsoleLog;
   console.error = ogConsoleError;
 }
 
 function processStdout(stdout) {
-  return stdout.join("\n").trim();
+  return stdout.trim();
 }
 
 function processStderr(stderr) {
@@ -71,7 +69,6 @@ addEventListener("message", async ({ data }) => {
   }
 
   if (data) {
-    const stdout = [];
     const stderr = [];
 
     fs.writeFileSync("/test.gr", data.content);
@@ -82,18 +79,21 @@ addEventListener("message", async ({ data }) => {
     try {
       grainc(globalThis);
 
-      console.log = function (txt) {
-        stdout.push(txt);
-      };
-      const locator = Grain.defaultURLLocator(["/", stdlibRoot]);
-      const GrainRunner = Grain.buildGrainRunner(locator);
-      const wasm = fs.readFileSync("/test.gr.wasm");
       try {
-        // Wait for the program to complete before posting the output back to the main thread
-        await GrainRunner.runBuffer(wasm);
-        postMessage({ stdout: processStdout(stdout) });
+        await init();
+        const wasm = fs.readFileSync("/test.gr.wasm");
+        const wasi = new WASI({
+          env: {},
+          args: [],
+        });
+        const module = await WebAssembly.compile(wasm);
+        await wasi.instantiate(module, {});
+        // TODO: Do we actually want to handle the exitCode?
+        wasi.start();
+        postMessage({ stdout: processStdout(wasi.getStdoutString()) });
       } catch (err) {
         // TODO: deal with err
+        console.log(err);
       }
     } catch (err) {
       postMessage({ stderr: processStderr(stderr) });

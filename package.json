@@ -16,8 +16,8 @@
     "build": "npm run cleanup && hexo generate --config docs_config.yml && npm run cleanup && hexo generate --config blog_config.yml && vite build"
   },
   "dependencies": {
-    "@grain/js-runner": "0.5.3",
     "@grain/stdlib": "0.5.3",
+    "@wasmer/wasi": "^1.0.2",
     "assert": "^2.0.0",
     "buffer": "^6.0.3",
     "constants-browserify": "^1.0.0",
