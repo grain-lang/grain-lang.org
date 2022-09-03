@@ -110,5 +110,10 @@ export async function createGrainEditor(id, value) {
     language: "grain",
     value,
     automaticLayout: true,
+    minimap: {
+      enabled: false,
+    },
+    renderLineHighlight: "none",
+    scrollBeyondLastLine: false,
   });
 }

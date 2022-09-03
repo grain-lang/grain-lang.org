@@ -5,14 +5,15 @@ worker.onerror = (err) => console.error(err);
 
 async function start() {
   const { createGrainEditor } = await import("./editor");
-  const editor = await createGrainEditor("editor", 'print("hello world")');
+  const editor = await createGrainEditor("editor", 'print("hello world")\n');
 
+  const outputPanel = document.getElementById("output-panel");
   const output = document.getElementById("output");
   const runButton = document.getElementById("run");
 
   runButton.onclick = function compile() {
     runButton.disabled = true;
-    output.style.backgroundColor = "unset";
+    outputPanel.style.backgroundColor = "#EFEFEF";
     output.innerText = "Compiling...";
 
     worker.postMessage({
@@ -23,12 +24,12 @@ async function start() {
       runButton.disabled = false;
 
       if (data?.stderr) {
-        output.style.backgroundColor = "rgba(255, 0, 0, 0.25)";
+        outputPanel.style.backgroundColor = "rgba(255, 0, 0, 0.25)";
         output.innerText = data.stderr;
         return;
       }
 
-      output.style.backgroundColor = "rgba(0, 255, 0, 0.25)";
+      outputPanel.style.backgroundColor = "rgba(0, 255, 0, 0.25)";
       if (data?.stdout) {
         output.innerText = data.stdout;
       } else {
