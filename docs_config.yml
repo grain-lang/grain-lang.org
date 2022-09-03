@@ -87,11 +87,6 @@ docs_groups:
     - stdlib/sys/process
     - stdlib/sys/random
     - stdlib/sys/time
-    - stdlib/int32
-    - stdlib/int64
-    - stdlib/float32
-    - stdlib/float64
-    - stdlib/bigint
   Language Reference:
     - reference/introduction
     - reference/lexical_structure:
