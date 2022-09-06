@@ -8,5 +8,5 @@ _multiconfig.yml
 /docs
 /guide
 /blog
-/playground
+/try
 /*.gr.wasm
