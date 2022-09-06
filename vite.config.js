@@ -5,7 +5,7 @@ const root = path.join(__dirname, "./playground_src");
 module.exports = ({ mode }) => {
   return {
     root,
-    base: mode === "development" ? "/" : "/playground/",
+    base: mode === "development" ? "/" : "/try/",
     // Load styles and stuff from the root of the website
     publicDir: mode === "development" ? path.join(root, "..") : undefined,
     // We want to include wasm files as raw data and then we glob for their urls
@@ -36,7 +36,7 @@ module.exports = ({ mode }) => {
 
     build: {
       target: "es2020",
-      outDir: "../playground",
+      outDir: "../try",
       emptyOutDir: true,
       assetsInlineLimit: 0,
     },
