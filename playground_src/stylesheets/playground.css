@@ -1,0 +1,73 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#toolbar {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--gray);
+}
+
+#run {
+    padding: 0 2rem;
+    height: 2.5rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    border: 0;
+    background-color: var(--orange);
+    color: var(--white);
+    font-weight: 700;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    align-self: center;
+    border-radius: 2px;
+}
+
+#run>i.fas {
+    font-size: .875rem;
+    padding-left: 0.5rem;
+}
+
+#run:disabled {
+    background-color: var(--gray2);
+}
+
+#editor-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+#editor {
+    flex: 3;
+}
+.monaco-editor {
+    padding-top: 1rem;
+}
+
+#output-panel {
+    flex: 1;
+    background-color: var(--gray);
+    display: flex;
+    flex-direction: column;
+}
+
+#output {
+    padding: 1rem;
+    margin: 0;
+    flex-grow: 1;
+    white-space: pre-wrap;
+}
+
+@media only screen and (max-width: 768px) {
+    #editor-wrapper {
+        flex-direction: column;
+    }
+}
