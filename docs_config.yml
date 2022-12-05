@@ -72,6 +72,7 @@ docs_groups:
     - stdlib/marshal
     - stdlib/number
     - stdlib/option
+    - stdlib/path
     - stdlib/priorityqueue
     - stdlib/queue
     - stdlib/random
