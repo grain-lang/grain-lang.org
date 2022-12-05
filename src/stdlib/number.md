@@ -729,6 +729,58 @@ Returns:
 |----|-----------|
 |`Result<Number, String>`|`Ok(value)` containing the parsed number on a successful parse or `Err(msg)` containing an error message string otherwise|
 
+### Number.**parseFloat**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.5.5</code></summary>
+No other changes yet.
+</details>
+
+```grain
+parseFloat : String -> Result<Number, String>
+```
+
+Parses a string representation of a float into a `Number`. Underscores that appear
+in numeric portions of the input are ignored.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`input`|`String`|The string to parse|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Result<Number, String>`|`Ok(value)` containing the parsed number on a successful parse or `Err(msg)` containing an error message string otherwise|
+
+### Number.**parse**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.5.5</code></summary>
+No other changes yet.
+</details>
+
+```grain
+parse : String -> Result<Number, String>
+```
+
+Parses a string representation of an integer, float, or rational into a `Number`.
+Underscores that appear in the numeric portion of the input are ignored.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`input`|`String`|The string to parse|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Result<Number, String>`|`Ok(value)` containing the parsed number on a successful parse or `Err(msg)` containing an error message string otherwise|
+
 ### Number.**sin**
 
 <details>
@@ -830,7 +882,6 @@ gamma : Number -> Number
 ```
 
 Computes the gamma function of a value using Lanczos approximation.
-Fails when the given value is zero.
 
 Parameters:
 
@@ -844,6 +895,12 @@ Returns:
 |----|-----------|
 |`Number`|The gamma of the given value|
 
+Throws:
+
+`InvalidArgument(String)`
+
+* When `z` is zero
+
 ### Number.**factorial**
 
 <details disabled>
@@ -856,7 +913,6 @@ factorial : Number -> Number
 ```
 
 Computes the product of consecutive integers for an integer input and computes the gamma function for non-integer inputs.
-Fails if the input is a negative number.
 
 Parameters:
 
@@ -869,6 +925,12 @@ Returns:
 |type|description|
 |----|-----------|
 |`Number`|The factorial of the given value|
+
+Throws:
+
+`InvalidArgument(String)`
+
+* When `n` is negative
 
 ### Number.**toRadians**
 
