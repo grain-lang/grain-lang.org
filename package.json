@@ -16,7 +16,7 @@
     "build": "npm run cleanup && hexo generate --config docs_config.yml && npm run cleanup && hexo generate --config blog_config.yml && vite build"
   },
   "dependencies": {
-    "@grain/stdlib": "0.5.4",
+    "@grain/stdlib": "0.5.7",
     "@wasmer/wasi": "^1.0.2",
     "assert": "^2.0.0",
     "buffer": "^6.0.3",
