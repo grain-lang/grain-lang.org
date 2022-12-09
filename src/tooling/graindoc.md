@@ -69,6 +69,24 @@ This attribute requires a description of the return value. In the Grain standard
 
 When generating docs, the type of the return value will be detected by the compiler and added to the row in the "Returns" table.
 
+### @throws
+
+```gr
+/**
+ * @throws Exception(Types): description
+ */
+
+/**
+ * @throws Exception: description
+ */
+```
+
+The `@throws` attribute provides information about any exceptions the function may throw.
+
+This attribute requires an exception and the types of the exception data before the colon (`:`) and a description of when the exception occurs after the colon.
+
+When generating docs, adds the exception to the output followed by a list of cases the exception occurs under.
+
 ### @example
 
 ```gr
