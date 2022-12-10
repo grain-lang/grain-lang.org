@@ -62,6 +62,7 @@ docs_groups:
     - stdlib/float32
     - stdlib/float64
     - stdlib/hash
+    - stdlib/immutablearray
     - stdlib/immutablemap
     - stdlib/immutablepriorityqueue
     - stdlib/immutableset
