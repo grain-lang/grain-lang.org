@@ -36,9 +36,9 @@ print(strings[-3]) // "foo"
 
 If we try to access an element beyond the length of the array, we'll get an `IndexOutOfBounds` error.
 
-## Updaing Arrays
+## Updating Arrays
 
-One of the major benefits arrays have is the ability to change the values it contains. We can update an array's values like so:
+One of the major benefits of an array is the ability to change the values it contains. We can update an array's values like so:
 
 ```grain
 let strings = [> "foo", "bar", "baz"]
@@ -84,7 +84,7 @@ Lists are excellent because they're
 
 Lists might not be the right choice because they're
 
-- unable to be modified
+- unable to be modified in place
 - inefficient at accessing random elements
 - inefficient at determining the number of elements
 
