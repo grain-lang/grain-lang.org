@@ -14,7 +14,7 @@ let numbers = [1, 2, 3]
 let strings = ["foo", "bar", "baz"]
 ```
 
-Lists in Grain are linked lists, so if we'd like to add a new item to a list, we add it to the front:
+Lists in Grain are linked lists, so if we'd like to add a new item to a list, the preferred way is to add it to the front, which we can do with the spread syntax (`...`):
 
 ```grain
 let twoThree = [2, 3]
@@ -22,6 +22,18 @@ let oneTwoThree = [1, ...twoThree]
 
 print(oneTwoThree) // [1, 2, 3]
 ```
+
+For convenience, it is also possible to use the spread syntax at any position in a list:
+
+```grain
+let oneTwo = [1, 2]
+let threeFour = [3, 4]
+let result = [...oneTwo, ...threeFour, 5]
+
+print(result) // [1, 2, 3, 4, 5]
+```
+
+However, it is important to be aware of the **performance implications of arbitrary-position spreads**: in general, including a single spread at the end of a list expression is much more efficient than including a spread anywhere else as the latter requires copying the entire list(s) being spread.
 
 We can also write functions that process data in lists, but we'll save that fun for the section on Pattern Matching.
 
