@@ -95,9 +95,29 @@ When generating docs, adds the exception to the output followed by a list of cas
  */
 ```
 
-The `@example` attribute provides snippets showing how the documented code is used. Currently, only single line examples are allowed.
+The `@example` attribute provides snippets showing how the documented code is used.
 
 When generating docs, the code snippet will be wrapped in a code block tagged for the `grain` language and added to an "Examples" section.
+
+Below are a few examples:
+```gr
+/**
+ * @example print("Hello World")
+ */
+
+/**
+ * @example let arr = [> 2, 1, 3]
+ * Array.sort((a, b) => a-b, arr)
+ * assert arr = [>1,2,3]
+ */
+
+/**
+ * @example 
+ * let arr = [> 2, 1, 3]
+ * Array.sort((a, b) => a-b, arr)
+ * assert arr = [>1,2,3]
+ */
+```
 
 ### @since
 
@@ -157,16 +177,3 @@ The `@module` docblock comment can also contain `@example`, `@since`, and `@hist
 
 When generating docs, adds the description at the top of the documentation, and a [Front Matter](https://jekyllrb.com/docs/front-matter/) section containing the title.
 
-### @section
-
-```gr
-/**
- * @section subtitle: description
- */
-```
-
-The `@section` attribute provides a grouping within the documented code.
-
-This special attribute is used within a docblock comment that is not attached to a type declaration or exported value. It requires a subtitle and description. When specified, any docblocks between sections are grouped under the heading.
-
-When generating docs, exports that are outside all `@section` attributes, if any are specified, will not be output. Similarly if an `@section` attribute does not have any exports following it, there will be no output in that section apart from the `@section` subtitle and description.
