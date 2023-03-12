@@ -9,12 +9,16 @@ Functions are essential to any language. They allow us to reuse code and solve c
 Defining a named function is similar to naming any other value in Grain.
 
 ```grain
+module Main
+
 let add = (x, y) => x + y
 ```
 
 A function can perform a series of actions. One thing to note about functions in Grain is that they always return the result of the final expression in the function body, without needing an explicit `return` statement.
 
 ```grain
+module Main
+
 let logAndAdd = (x, y) => {
   print(x)
   print(y)
@@ -27,6 +31,8 @@ let logAndAdd = (x, y) => {
 Since functions are just like any other values in Grain, they can be passed as arguments to other functions.
 
 ```grain
+module Main
+
 let doMath = (fn, x, y) => fn(x, y)
 
 let multiply = (x, y) => x * y
@@ -40,6 +46,8 @@ doMath(multiply, 4, 6) // 24
 You can return multiple values from functions using tuples.
 
 ```grain
+module Main
+
 let translateCoordinates = (x, y) => {
   (x + 4, y + 4)
 }
@@ -54,6 +62,8 @@ print(y) // 6
 We can define recursive functions using the `rec` keyword. Recursive functions are a key part of Grain, so remember to use `let rec` when necessary!
 
 ```grain
+module Main
+
 let rec fibonacci = (n) => {
   if (n == 0 || n == 1) {
     n

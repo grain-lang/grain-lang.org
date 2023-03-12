@@ -9,9 +9,14 @@ Boxes can be used for adding a mutable property to an immutable data structure, 
 ## Syntax
 
 ```grain
-let name1 = box(value1)
-unbox(name1)
-name1 := newValue
+module Main
+
+let name1 = box([1, 2, 3])
+print(name1) // box([1, 2, 3])
+unbox(name1) // [1, 2, 3]
+name1 := [2, 3, 4]
+print(name1) // box([2, 3, 4])
+
 ```
 
 ### Parameters
@@ -33,6 +38,8 @@ Any valid Grain expression.
 Take a look at the following example:
 
 ```grain
+module Main
+
 let b = box("foo")
 
 print(unbox(b)) // "foo"

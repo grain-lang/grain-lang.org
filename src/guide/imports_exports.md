@@ -9,10 +9,12 @@ Larger projects are best maintained when the project's code is broken up into sm
 When we want to make a value in a module available for another module to import, we export it. The easiest way to export values from a module is to export everything:
 
 ```grain
+module Main
+
 let add = (a, b) => a + b
 let five = 5
 
-export *
+provide *
 ```
 
 In this example, the values `add` and `five` could both be imported into another module.
@@ -35,16 +37,20 @@ It sometimes makes sense to export everything from a module, but often it's best
 Using the same example, we could choose to only export `add` with an export statement.
 
 ```grain
+module Library
+
 let add = (a, b) => a + b
 let five = 5
 
-export add
+provide { add }
 ```
 
 We could also define the export inline:
 
 ```grain
-export let add = (a, b) => a + b
+module Library
+
+provide let add = (a, b) => a + b
 let five = 5
 ```
 
@@ -53,7 +59,9 @@ let five = 5
 Exports work the same way for data types. If we had a record type that we wanted to include in another module, we'd just export it as we'd export anything else.
 
 ```grain
-export record User {
+module Library
+
+provide record User {
   name: String,
   id: Number
 }
@@ -62,7 +70,9 @@ export record User {
 If we export a variant type, each variant constructor gets exported and is available to other modules. For example, in this code:
 
 ```grain
-export enum Vehicle { Car, Minivan, Bus }
+module Library
+
+provide enum Vehicle { Car, Minivan, Bus }
 ```
 
 constructors `Car`, `Minivan`, and `Bus` will all be imported with the `Vehicle` type.
@@ -76,7 +86,9 @@ Things can be imported from standard libraries or other files we've written.
 We can import a module by giving it a name and providing the path to the module.
 
 ```grain
-import List from "list"
+module Main
+
+include "list"
 
 List.length([1, 2, 3])
 ```
@@ -91,12 +103,15 @@ With these two files in the same directory, `math.gr` and `main.gr`, we'd have t
 
 ```grain
 // math.gr
-export let add = (a, b) => a + b
+module Math
+
+provide let add = (a, b) => a + b
 ```
 
 ```grain
 // main.gr
-import Math from "./math"
+module Main
+
 Math.add(5, 6)
 ```
 
@@ -105,7 +120,9 @@ Math.add(5, 6)
 As you've seen so far, we can import an entire module from the standard library by giving it a name beginning with a capital letter, like so:
 
 ```grain
-import List from "list"
+module Main
+
+include "list"
 
 List.length([1, 2, 3])
 ```
@@ -113,7 +130,9 @@ List.length([1, 2, 3])
 Module names don't have to mirror the path name. We can name them whatever we'd like:
 
 ```grain
-import Stdlist from "list"
+module Main
+
+include "list" as Stdlist
 
 Stdlist.length([1, 2, 3])
 ```
@@ -123,7 +142,11 @@ Stdlist.length([1, 2, 3])
 If we want to include all of the values from another module in our program, we can use an asterisk.
 
 ```grain
-import * from "list"
+module Main
+
+include "list"
+
+from List use *
 
 length([1, 2, 3])
 reverse([1, 2, 3])
@@ -134,7 +157,11 @@ reverse([1, 2, 3])
 Individual values in a module can be imported by placing the names in curly braces.
 
 ```grain
-import { length, reverse } from "list"
+module Main
+
+include "list"
+
+from List use { length, reverse }
 
 length([1, 2, 3])
 reverse([1, 2, 3])

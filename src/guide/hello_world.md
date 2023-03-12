@@ -16,7 +16,8 @@ All Grain files end with the extension `.gr`. Let's create our first file and ca
 The code for this program is fairly straightforward and should feel familiar from other languages.
 
 ```grain
-// hello.gr
+module Hello
+
 print("Hello, world!")
 ```
 

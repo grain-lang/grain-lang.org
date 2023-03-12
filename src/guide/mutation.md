@@ -9,6 +9,8 @@ Value bindings in Grain are immutable, which means that they do not change after
 Take a look at the following example:
 
 ```grain
+module Main
+
 let mut b = "foo"
 
 print(b) // "foo"
@@ -30,6 +32,8 @@ A couple things to note from this example:
 When using mutable values that are `Numbers`, we can use some built-in operators to make working with them easier. Grain provides `+=`, `-=`, `*=`, `/=`, and `%=`, which perform the math operation on the value and re-assign the result.
 
 ```grain
+module Main
+
 let mut count = 7
 
 count += 9
@@ -43,6 +47,8 @@ print(count) // 2
 These operators return `void` to help alleviate ambiguity and make code easier to understand—use the name of the binding to get its current value.
 
 ```grain
+module Main
+
 let mut count = 7
 
 print(count += 9) // void

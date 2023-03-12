@@ -9,10 +9,16 @@ While we typically call it an `if` _statement_, `if` is technically an expressio
 ### Single-sided `if`
 
 ```grain
+module Main
+
+let expr = true
 if (expr) print("Single-sided conditional")
 ```
 
 ```grain
+module Main
+
+let expr = true
 if (expr) {
   print("Single-sided conditional")
   print("with multiple statements")
@@ -24,10 +30,16 @@ An `if` with no `else` clause always evaluates to `Void`.
 ### Double-sided `if`
 
 ```grain
+module Main
+
+let expr = true
 if (expr) print("true branch") else print("false branch")
 ```
 
 ```grain
+module Main
+
+let expr = false
 if (expr) {
   print("true branch")
   print("with multiple statements")
@@ -44,17 +56,23 @@ An `if` with both a true branch and a false branch evaluates to the last express
 Since the `if` expression evaluates to a value, it can be assigned:
 
 ```grain
+module Main
+
+let expr = true
 let result = if (expr) {
   "true branch"
 } else {
   "false branch"
 }
 
-print(result)
+print(result) // true branch
 ```
 
 It can also be used inline, like a ternary operator:
 
 ```grain
-print(if (expr) "true branch" else "false branch")
+module Main
+
+let expr = false
+print(if (expr) "true branch" else "false branch") // false branch
 ```
