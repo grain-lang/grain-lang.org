@@ -161,19 +161,34 @@ This attribute requires a description of the deprecation and will mark the expor
 
 When generating docs, adds a blockquote containing `**Deprecated:**` and the description immediately below the title.
 
-### @module
+## Module Blocks
 
 ```gr
 /**
- * @module title: description
+ * description
  */
+module Math
 ```
 
-The `@module` attribute provides top-level information about a file, including the module title and a description.
+The module doc block provides top-level information about a file, including a description.
 
-This special attribute is used within a docblock comment that is not attached to a type declaration or exported value. It can only be specified once per file and should exist near the top.
+This special attribute is used within a docblock comment that is attached to a module header. The module block is allowed on both top-level and sub modules.
 
-The `@module` docblock comment can also contain `@example`, `@since`, and `@history` attributes that will add their corresponding output to the top of the documentation.
+The `module` docblock comment can also contain `@example`, `@since`, and `@history` attributes that will add their corresponding output to the top of the documentation.
 
 When generating docs, adds the description at the top of the documentation, and a [Front Matter](https://jekyllrb.com/docs/front-matter/) section containing the title.
 
+## Re-providing
+When you re-provide a value in grain such as:
+```grain
+module Library
+
+include "list"
+
+from List use { length }
+
+provide {
+  length
+}
+```
+grain doc will automatically pull the doc block from the `list` library and use that for its documentation.
