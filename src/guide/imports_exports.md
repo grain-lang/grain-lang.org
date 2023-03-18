@@ -6,31 +6,7 @@ Larger projects are best maintained when the project's code is broken up into sm
 
 ## Exporting From a Module
 
-When we want to make a value in a module available for another module to import, we export it. The easiest way to export values from a module is to export everything:
-
-```grain
-module Main
-
-let add = (a, b) => a + b
-let five = 5
-
-provide *
-```
-
-In this example, the values `add` and `five` could both be imported into another module.
-
-Grain also includes a way to exclude values from being exported this way.
-
-```grain
-let add = (a, b) => a + b
-let five = 5
-
-export * except five
-```
-
-Here, the only value available for export is `add`.
-
-It sometimes makes sense to export everything from a module, but often it's best to explicitly declare which values should be exported.
+When we want to make a value in a module available for another module to import, we export it.
 
 ### Exporting Specific Names
 

@@ -125,20 +125,6 @@ let fruitInventory = [Crate(Apples), Truckload(Oranges)]
 
 Type variables always begin with a lowercase letter. Something to note from this example: although we've created one type that works with both fruits and vegetables, we would still not be allowed to mix inventory types, i.e. `[Crate(Broccoli), Crate(Apples)]` because `veggieInventory` has type `Inventory<Veggie>` and `fruitInventory` has type `Inventory<Fruit>`.
 
-### Printing Variants
-
-If your variant type is exported from your module, the variants are printable.
-
-```grain
-module Main
-
-abstract enum Veggie { Squash, Cabbage, Broccoli }
-
-print(Cabbage)
-```
-
-We haven't discussed exports yet, but we'll go much deeper into them in another section.
-
 ## Record Types
 
 Records are sort of like tuples, though each field has a name.
@@ -168,20 +154,6 @@ let age = 42
 
 { name, age }
 ```
-
-### Printing Records
-
-If your record type is exported from your module, records of that type are printable.
-
-```grain
-module Main
-
-abstract record Person { name: String, age: Number }
-
-print({ name: "Klaus Teuber", age: 42 })
-```
-
-We haven't discussed exports yet, but we'll go much deeper into them in another section.
 
 ## Mutable record properties
 
