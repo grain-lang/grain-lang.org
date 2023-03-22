@@ -16,7 +16,7 @@ jobs:
       - name: Replace download links
         # This checks the "grain" prefix so our preview links aren't updated
         run: |
-          sed -E -i 's|(https://github\.com/grain-lang/grain/releases/download/)grain[^/]+(/)|\1foobar\2|g' src/getting_grain.md
+          sed -E -i 's|(https://github\.com/grain-lang/grain/releases/download/)grain[^/]+(/)|\1${{ github.event.inputs.tag }}\2|g' src/getting_grain.md
 
       - name: Checkout Grain
         uses: actions/checkout@v2
