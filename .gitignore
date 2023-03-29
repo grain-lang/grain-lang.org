@@ -10,3 +10,4 @@ _multiconfig.yml
 /blog
 /try
 /*.gr.wasm
+/.next/
