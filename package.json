@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@grain/stdlib": "0.6.0",
+    "@heroicons/react": "^2.0.17",
     "@wasmer/wasi": "^1.2.2",
     "assert": "^2.0.0",
     "buffer": "^6.0.3",
