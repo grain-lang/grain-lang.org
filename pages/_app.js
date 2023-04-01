@@ -21,6 +21,11 @@ const soehne = localFont({
       weight: "500",
       style: "normal",
     },
+    {
+      path: "../public/fonts/soehne-halbfett.woff2",
+      weight: "600",
+      style: "normal",
+    },
   ],
   variable: "--font-soehne",
 });
@@ -62,7 +67,7 @@ export default function App({ Component, pageProps }) {
       <main
         className={`${
           soehne.variable
-        } font-sans antialiased tracking-wide bg-gray-10 ${
+        } font-sans antialiased tracking-wide bg-gray-5 ${
           darkMode ? "dark bg-purple-90" : ""
         }`}
       >

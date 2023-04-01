@@ -11,6 +11,7 @@ module.exports = {
     extend: {
       colors: {
         black: "#36343A",
+        "gray-90": "#36343A",
         "gray-80": "#464251",
         "gray-70": "#54515D",
         "gray-60": "#6A6771",
@@ -20,6 +21,9 @@ module.exports = {
         "gray-30": "#D7D6DB",
         "gray-20": "#EDEDED",
         "gray-10": "#F5F5F5",
+        "gray-5": "#FBFBFB",
+        "gray-variant-70": "#4A4164",
+        "gray-variant-50": "#9790A6",
         "purple-100": "#1D182E",
         "purple-90": "#231C36",
         "purple-80": "#312946",
@@ -28,6 +32,7 @@ module.exports = {
         "purple-40": "#9371F4",
         "purple-30": "#C0ADE5",
         "purple-20": "#D5C5F5",
+        "purple-10": "#EFEEF1",
       },
       fontFamily: {
         sans: ["var(--font-soehne)", ...fontFamily.sans],

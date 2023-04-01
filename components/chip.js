@@ -1,0 +1,7 @@
+export default function Chip({ children }) {
+  return (
+    <div className="flex items-center w-fit rounded-2xl border border-gray-30 dark:border-purple-80 hover:border-gray-30 text-xs text-gray-60 dark:text-gray-10 bg-gray-10 dark:bg-purple-100 px-4 py-1">
+      {children}
+    </div>
+  );
+}
