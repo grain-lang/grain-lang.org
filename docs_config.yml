@@ -38,9 +38,11 @@ docs_groups:
   The Guide:
     - guide/hello_world
     - guide/basics
+    - guide/mutation
     - guide/functions
     - guide/lists
-    - guide/mutation
+    - guide/arrays
+    - guide/loops
     - guide/data_types
     - guide/pattern_matching
     - guide/imports_exports
