@@ -202,20 +202,22 @@ function Nav() {
   return (
     <nav className="shadow-sm dark:shadow-purple-80 bg-white dark:bg-purple-90 relative z-40 sticky top-0">
       <div className="container mx-auto h-14 px-4 py-2 flex items-center text-sm text-gray-60 dark:text-gray-30">
-        <Image
-          src="./images/grain-logo.svg"
-          width={84}
-          height={26}
-          alt="The Grain logo, consisting of a single blood-orange wheat flower with three points followed the word 'Grain'."
-          className="dark:hidden mr-2"
-        />
-        <Image
-          src="./images/grain-logo-dark.svg"
-          width={84}
-          height={26}
-          alt="The Grain logo, consisting of a single blood-orange wheat flower with three points followed the word 'Grain'."
-          className="hidden dark:block mr-2"
-        />
+        <Link href="/">
+          <Image
+            src="./images/grain-logo.svg"
+            width={84}
+            height={26}
+            alt="The Grain logo, consisting of a single blood-orange wheat flower with three points followed the word 'Grain'."
+            className="dark:hidden mr-2"
+          />
+          <Image
+            src="./images/grain-logo-dark.svg"
+            width={84}
+            height={26}
+            alt="The Grain logo, consisting of a single blood-orange wheat flower with three points followed the word 'Grain'."
+            className="hidden dark:block mr-2"
+          />
+        </Link>
         <div className="hidden lg:block mx-auto">
           <NavLinks />
         </div>
