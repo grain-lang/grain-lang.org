@@ -43,7 +43,7 @@
     "vscode-textmate": "^7.0.1"
   },
   "devDependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "hexo-renderer-dartsass": "^0.1.2",
     "vite": "^3.0.8"
   }
