@@ -98,11 +98,13 @@ true || false // true
 !true // false
 ```
 
-## The `if` Statement
+## The `if` Expression
 
-The `if` statement in Grain always returns a value. For this reason, our `if` statements must always have an `else` branch. The last value in the block is the value of the statement.
+The `if` Expression in grain returns a value when it is the last Expression in the block if this is the case your if statement must have an attached `else` branch in order to be type safe.
 
 ```grain
+let test = if (10 < 12) 10 else 12
+if (10 < 12) print(test)
 if (7 < 14) {
   "This is a true statement"
 } else {
