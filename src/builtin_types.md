@@ -71,7 +71,7 @@ The type of Grain boxes. Boxes are wrappers that allow the internal data to be s
 type Number
 ```
 
-The type of Grain numbers, i.e. `42`, `0x2a`, `23.19`, `2/3`. Grain numbers can be arbitrarily large integers, floats, or rationals.
+The type of Grain numbers, i.e. `42`, `0x2a`, `23.19`, `2/3`. Grain numbers can be arbitrarily large integers, 64-bit floating-point numbers, or rationals.
 
 ### **BigInt**
 
