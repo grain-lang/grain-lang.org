@@ -17,6 +17,7 @@ The code for this program is fairly straightforward and should feel familiar fro
 
 ```grain
 // hello.gr
+module Main
 print("Hello, world!")
 ```
 
