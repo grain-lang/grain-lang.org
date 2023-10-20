@@ -2,7 +2,7 @@
 title: Welcome to Grain!
 ---
 
-We're ecstatic to have you here! Grain is still in its early days, so the language is still changing rapidly. Nonetheless, we're trying our best to keep the guide and the documentation as up to date as possible. If you see a typo or know a better way to explain something, feel free to hit the handy "Edit on GitHub" button located at the top of each page. Any and all contributions are welcome and greatly appreciated.
+We're excited to have you here! Grain is still in its early days, so the language is still changing rapidly. Nonetheless, we're trying our best to keep the guide and the documentation as up to date as possible. If you see a typo or know a better way to explain something, feel free to hit the handy "Edit on GitHub" button located at the top of each page. Any and all contributions are welcome and greatly appreciated.
 
 ## The Premise
 
