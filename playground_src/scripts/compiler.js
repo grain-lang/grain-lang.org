@@ -3,6 +3,7 @@ import grainc from "./grain/grainc.bc.mjs";
 import constants from "constants-browserify/constants.json";
 import { Buffer } from "buffer";
 import { init, WASI } from "@wasmer/wasi";
+import binaryen from "binaryen";
 
 globalThis.Buffer = Buffer;
 
@@ -86,11 +87,13 @@ addEventListener("message", async ({ data }) => {
           env: {},
           args: [],
         });
+        const binaryenModule = binaryen.readBinary(wasm);
+        const wast = binaryenModule.emitText();
         const module = await WebAssembly.compile(wasm);
         await wasi.instantiate(module, {});
         // TODO: Do we actually want to handle the exitCode?
         wasi.start();
-        postMessage({ stdout: processStdout(wasi.getStdoutString()) });
+        postMessage({ stdout: processStdout(wasi.getStdoutString()), wast });
       } catch (err) {
         // TODO: deal with err better?
         postMessage({ stderr: err.message });

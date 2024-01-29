@@ -19,6 +19,7 @@
     "@grain/stdlib": "0.5.13",
     "@wasmer/wasi": "^1.0.2",
     "assert": "^2.0.0",
+    "binaryen": "^116.0.0",
     "buffer": "^6.0.3",
     "constants-browserify": "^1.0.0",
     "events": "^3.3.0",

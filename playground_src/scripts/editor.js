@@ -109,7 +109,7 @@ export async function createGrainEditor(id, value) {
   return createConfiguredEditor(document.getElementById(id), {
     language: "grain",
     value,
-    automaticLayout: true,
+    automaticLayout: false,
     minimap: {
       enabled: false,
     },
