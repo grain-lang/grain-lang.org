@@ -88,6 +88,8 @@ addEventListener("message", async ({ data }) => {
           args: [],
         });
         const binaryenModule = binaryen.readBinary(wasm);
+        binaryenModule.setFeatures(binaryen.Features.All);
+        binaryenModule.optimize();
         const wast = binaryenModule.emitText();
         const module = await WebAssembly.compile(wasm);
         await wasi.instantiate(module, {});
