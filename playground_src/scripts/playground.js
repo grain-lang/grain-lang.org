@@ -30,9 +30,11 @@ async function start() {
     if (showWastCheckbox.checked) {
       editorWrapper.style.gridTemplateColumns = "2fr 1fr 1fr";
       wastPanel.style.display = "flex";
+      runButton.click();
       return;
     }
     editorWrapper.style.gridTemplateColumns = "2fr 1fr";
+    wastPanel.querySelector('pre').innerText = "";
     wastPanel.style.display = "none";
   };
   showWastCheckbox.addEventListener("change", onShowWastCheckboxChange);
