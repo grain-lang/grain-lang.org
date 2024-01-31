@@ -41,9 +41,14 @@ body {
     background-color: var(--gray2);
 }
 
+form {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
 #editor-wrapper {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
 }
 
 #output-panel {
@@ -53,6 +58,7 @@ body {
 }
 
 #wast-panel {
+    display: none;
     background-color: var(--gray2);
     height: calc(100vh - var(--nav-height) - var(--grid-gap));
     overflow: auto;
