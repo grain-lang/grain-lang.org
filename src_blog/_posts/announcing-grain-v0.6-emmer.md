@@ -41,7 +41,7 @@ module Immutable {
 }
 ```
 
-And then you'd access the submodule using dot-syntax, like `Queue.Immutable`. We've also updated the standard library to utilize these patterns—the Queue example is exactly what you'll find if you include Queue from our standard library!
+And then you will access the submodule using dot-syntax, like `Queue.Immutable`. We've also updated the standard library to utilize these patterns—the Queue example is exactly what you'll find if you include Queue from our standard library!
 
 Nested submodule identifiers can get unwieldy, but you can leverage our new scoping operator to keep your code concise. Within any scope, you can bring in new functionality with the `use` operator:
 
