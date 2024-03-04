@@ -126,7 +126,7 @@ Historically, some Grain behavior was a holdover from the original implementatio
 
 One of these was types being recursive by default while bindings were non-recursive. We've now standardized by making types non-recursive. This includes mutually recursive types, but the compiler will provide a helpful error message if we detect the `rec` keyword is needed!
 
-The purpose of this change is to ensure recursive code is clear, and to the end, we heard feedback that the comma between recursive types/bindings was easy to miss or forget. To keep it clear, we added the `and` keyword between mutually recursive types and bindings.
+The purpose of this change is to ensure recursive code is clear, and to that end, we heard feedback that the comma between recursive types/bindings was easy to miss or forget. To keep it clear, we added the `and` keyword between mutually recursive types and bindings.
 
 ```grain
 module Main
