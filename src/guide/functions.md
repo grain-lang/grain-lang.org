@@ -114,7 +114,6 @@ let isEven = n => {
   }
   return false
 }
-
 ```
 
 `return` can also be used without a value, in which case `void` is returned implicitly
