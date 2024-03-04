@@ -10,12 +10,28 @@ No other changes yet.
 </details>
 
 ```grain
-import Float32 from "float32"
+from "float32" include Float32
 ```
 
-## Constants
+```grain
+4.0f
+```
 
-Float32 constant values.
+```grain
+-4.0f
+```
+
+```grain
+Infinityf
+```
+
+```grain
+NaNf
+```
+
+## Values
+
+Functions and constants included in the Float32 module.
 
 ### Float32.**infinity**
 
@@ -29,6 +45,7 @@ infinity : Float32
 ```
 
 Infinity represented as a Float32 value.
+This is an alternative to the `Infinityf` literal.
 
 ### Float32.**nan**
 
@@ -42,6 +59,7 @@ nan : Float32
 ```
 
 NaN (Not a Number) represented as a Float32 value.
+This is an alternative to the `NaNf` literal.
 
 ### Float32.**pi**
 
@@ -82,10 +100,6 @@ e : Float32
 
 Euler's number represented as a Float32 value.
 
-## Conversions
-
-Functions for converting between Numbers and the Float32 type.
-
 ### Float32.**fromNumber**
 
 <details disabled>
@@ -94,7 +108,7 @@ No other changes yet.
 </details>
 
 ```grain
-fromNumber : Number -> Float32
+fromNumber : (number: Number) => Float32
 ```
 
 Converts a Number to a Float32.
@@ -119,7 +133,7 @@ No other changes yet.
 </details>
 
 ```grain
-toNumber : Float32 -> Number
+toNumber : (float: Float32) => Number
 ```
 
 Converts a Float32 to a Number.
@@ -136,19 +150,22 @@ Returns:
 |----|-----------|
 |`Number`|The Float32 represented as a Number|
 
-## Operations
+### Float32.**(+)**
 
-Mathematical operations for Float32 values.
-
-### Float32.**add**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `add`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-add : (Float32, Float32) -> Float32
+(+) : (x: Float32, y: Float32) => Float32
 ```
 
 Computes the sum of its operands.
@@ -166,15 +183,29 @@ Returns:
 |----|-----------|
 |`Float32`|The sum of the two operands|
 
-### Float32.**sub**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Float32.{ (+) }
+assert 1.0f + 1.0f == 2.0f
+```
+
+### Float32.**(-)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `sub`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-sub : (Float32, Float32) -> Float32
+(-) : (x: Float32, y: Float32) => Float32
 ```
 
 Computes the difference of its operands.
@@ -192,15 +223,29 @@ Returns:
 |----|-----------|
 |`Float32`|The difference of the two operands|
 
-### Float32.**mul**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Float32.{ (-) }
+assert 1.0f - 1.0f == 0.0f
+```
+
+### Float32.**(*)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `mul`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-mul : (Float32, Float32) -> Float32
+(*) : (x: Float32, y: Float32) => Float32
 ```
 
 Computes the product of its operands.
@@ -218,15 +263,29 @@ Returns:
 |----|-----------|
 |`Float32`|The product of the two operands|
 
-### Float32.**div**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Float32.{ (*) }
+assert 2.0f * 2.0f == 4.0f
+```
+
+### Float32.**(/)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `div`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-div : (Float32, Float32) -> Float32
+(/) : (x: Float32, y: Float32) => Float32
 ```
 
 Computes the quotient of its operands.
@@ -244,19 +303,29 @@ Returns:
 |----|-----------|
 |`Float32`|The quotient of the two operands|
 
-## Comparisons
+Examples:
 
-Functions for comparing Float32 values.
+```grain
+use Float32.{ (/) }
+assert 10.0f / 4.0f == 2.5f
+```
 
-### Float32.**lt**
+### Float32.**(<)**
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `lt`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-lt : (Float32, Float32) -> Bool
+(<) : (x: Float32, y: Float32) => Bool
 ```
 
 Checks if the first value is less than the second value.
@@ -274,15 +343,29 @@ Returns:
 |----|-----------|
 |`Bool`|`true` if the first value is less than the second value or `false` otherwise|
 
-### Float32.**gt**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Float32.{ (<) }
+assert 1.0f < 2.0f
+```
+
+### Float32.**(>)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `gt`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-gt : (Float32, Float32) -> Bool
+(>) : (x: Float32, y: Float32) => Bool
 ```
 
 Checks if the first value is greater than the second value.
@@ -300,15 +383,29 @@ Returns:
 |----|-----------|
 |`Bool`|`true` if the first value is greater than the second value or `false` otherwise|
 
-### Float32.**lte**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Float32.{ (>) }
+assert 2.0f > 1.0f
+```
+
+### Float32.**(<=)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `lte`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-lte : (Float32, Float32) -> Bool
+(<=) : (x: Float32, y: Float32) => Bool
 ```
 
 Checks if the first value is less than or equal to the second value.
@@ -326,15 +423,34 @@ Returns:
 |----|-----------|
 |`Bool`|`true` if the first value is less than or equal to the second value or `false` otherwise|
 
-### Float32.**gte**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Float32.{ (<=) }
+assert -1.0f <= 1.0f
+```
+
+```grain
+use Float32.{ (<=) }
+assert -2.0f <= -2.0f
+```
+
+### Float32.**(>=)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `gte`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-gte : (Float32, Float32) -> Bool
+(>=) : (x: Float32, y: Float32) => Bool
 ```
 
 Checks if the first value is greater than or equal to the second value.
@@ -351,4 +467,16 @@ Returns:
 |type|description|
 |----|-----------|
 |`Bool`|`true` if the first value is greater than or equal to the second value or `false` otherwise|
+
+Examples:
+
+```grain
+use Float32.{ (>=) }
+assert 4.0f >= 1.0f
+```
+
+```grain
+use Float32.{ (>=) }
+assert 3.0f >= 3.0f
+```
 
