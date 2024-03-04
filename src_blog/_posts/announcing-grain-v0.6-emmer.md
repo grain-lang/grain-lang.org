@@ -8,7 +8,7 @@ coverAttribution: Vadim Paripa / Unsplash
 tags: Release, Changelog
 ---
 
-It's been a minute, but we're back with a new Grain release—v0.6.0, codenamed Emmer. This release has been a year in the making and it is jam-packed with new syntax, features, and fixes we are excited to share with y'all. None of this would be possible without our amazing team and community, so much thanks to everyone involved. As always, you can find the full [release notes]() on GitHub but we wanted to highlight some things we are excited about.
+It's been a minute, but we're back with a new Grain release—v0.6.0, codenamed Emmer. This release has been a year in the making and it is jam-packed with new syntax, features, and fixes we are excited to share with y'all. None of this would be possible without our amazing team and community, so much thanks to everyone involved. As always, you can find the full [release notes](https://github.com/grain-lang/grain/releases/tag/grain-v0.6.0) on GitHub but we wanted to highlight some things we are excited about.
 
 ## Module include and scoping system
 
