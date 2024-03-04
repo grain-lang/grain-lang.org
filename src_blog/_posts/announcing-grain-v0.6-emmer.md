@@ -183,7 +183,7 @@ Our `js-runner` project helped us get through the lack of support for early WASI
 
 This means you'll need to shim WASI yourself if running Grain in the browser, since we are a WASI-first language. You can find some helpful tools in the WASI community to help you transpile or shim WASI for the browser.
 
-With the switch to Node's WASI implementation, we reworked how the WASI sandbox is constructed in the Grain CLI. This lead us to better support preopens, command line arguments, and the environment. All of these are now provided via flags and you can check out their usage via `grain run —help`.
+With the switch to Node's WASI implementation, we reworked how the WASI sandbox is constructed in the Grain CLI. This lead us to better support preopens, command line arguments, and the environment. All of these are now provided via flags and you can check out their usage via `grain run --help`.
 
 ## Numbers!
 
