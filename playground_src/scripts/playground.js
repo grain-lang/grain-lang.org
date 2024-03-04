@@ -20,25 +20,9 @@ async function start() {
   const editor = await createGrainEditor("editor", 'print("hello world")\n');
 
   const outputPanel = document.getElementById("output-panel");
-  const wastPanel = document.getElementById("wast-panel");
   const output = document.getElementById("output");
   const runButton = document.getElementById("run");
-  const showWastCheckbox = document.getElementById("show-wast-checkbox");
   const editorWrapper = document.getElementById("editor-wrapper");
-
-  const onShowWastCheckboxChange = () => {
-    if (showWastCheckbox.checked) {
-      editorWrapper.style.gridTemplateColumns = "2fr 1fr 1fr";
-      wastPanel.style.display = "flex";
-      runButton.click();
-      return;
-    }
-    editorWrapper.style.gridTemplateColumns = "2fr 1fr";
-    wastPanel.querySelector('pre').innerText = "";
-    wastPanel.style.display = "none";
-  };
-  showWastCheckbox.addEventListener("change", onShowWastCheckboxChange);
-  onShowWastCheckboxChange();
 
   window.addEventListener("resize", debounce(
    () => {
@@ -53,11 +37,9 @@ async function start() {
     runButton.disabled = true;
     outputPanel.style.backgroundColor = "#EFEFEF";
     output.innerText = "Compiling...";
-    wastPanel.querySelector('pre').innerText = "";
 
     worker.postMessage({
       content: editor.getValue(),
-      showWast: showWastCheckbox.checked,
     });
 
     worker.onmessage = ({ data }) => {
@@ -75,7 +57,6 @@ async function start() {
       } else {
         output.innerText = "< no program output >";
       }
-      wastPanel.querySelector('pre').innerText = data?.wast || "";
     };
 
     worker.onerror = (err) => {

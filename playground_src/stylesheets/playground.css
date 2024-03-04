@@ -48,7 +48,7 @@ form {
 
 #editor-wrapper {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
 }
 
 #output-panel {
@@ -57,15 +57,7 @@ form {
     flex-direction: column;
 }
 
-#wast-panel {
-    display: none;
-    background-color: var(--gray2);
-    height: calc(100vh - var(--nav-height) - var(--grid-gap));
-    overflow: auto;
-}
-
-#output,
-#wast {
+#output {
     flex-grow: 1;
     padding: 1rem;
     margin: 0;
@@ -75,7 +67,7 @@ form {
 @media only screen and (max-width: 1024px) {
     #editor-wrapper {
         grid-template-columns: 1fr;
-        grid-template-rows: 33% 33% 33%;
+        grid-template-rows: 50% 50%;
     }
     #editor {
         height: calc(100% / 3);
