@@ -24,7 +24,7 @@ Here's a quick example of adding a docblock to your grain code:
  * @since v0.1.0
  * @history v0.2.0: Argument order changed to data-last
  */
-export let get = (index, array) => {
+provide let get = (index, array) => {
   array[index]
 }
 ```
@@ -183,9 +183,9 @@ When you re-provide a value in grain such as:
 ```grain
 module Library
 
-include "list"
+from "list" include List
 
-from List use { length }
+use List.{ length }
 
 provide {
   length
