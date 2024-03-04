@@ -201,7 +201,7 @@ A massive undertaking in this release was the rewrite of our code formatter. The
 
 Last year, [Blaine](https://github.com/phated) and [Oscar](https://github.com/ospencer) got together to build the skeleton for the new formatter and Oscar recently put on the finishing touches with a pretty-printing library built for our needs. The result of all of this work is a faster formatter that is much easier for us to maintain.
 
-Please be aware that your code **will** change when formatting with Grain v0.6, but we hope the structure will be more correct. Please [file an issue]() if you find a bug in the formatter and we'll get it fixed up quickly!
+Please be aware that your code **will** change when formatting with Grain v0.6, but we hope the structure will be more correct. Please [file an issue](https://github.com/grain-lang/grain/issues/new) if you find a bug in the formatter and we'll get it fixed up quickly!
 
 ## Graindoc
 
