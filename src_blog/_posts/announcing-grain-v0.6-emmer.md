@@ -160,7 +160,7 @@ Our tail call support has been experimental for quite a while. This was primaril
 
 ## Early return
 
-Over the years, we've needed to implement some _interesting_ patterns in our runtime and standard library to ensure that functions always returned the same value—big `if-else` blocks, an `Option` to track error states during a loop, etc. In this release, we've deviated slightly from other functional languages and added the much requested "early"return” feature to avoid these patterns. You can return early from a function with the `return` keyword, which also requires you to use `return` at every other return site inside the function, including the final statement.
+Over the years, we've needed to implement some _interesting_ patterns in our runtime and standard library to ensure that functions always returned the same value—big `if-else` blocks, an `Option` to track error states during a loop, etc. In this release, we've deviated slightly from other functional languages and added the much requested "early return" feature to avoid these patterns. You can return early from a function with the `return` keyword, which also requires you to use `return` at every other return site inside the function, including the final statement.
 
 ```grain
 module Main
