@@ -80,9 +80,9 @@ You can also abstractly provide types with the `abstract` keyword, instead of `p
 ```grain
 module Main
 
-abstract type Identifier = string
+abstract type Identifier = String
 abstract record Queue<a> {
-  Impl: List<a>
+  impl: List<a>
 }
 ```
 
