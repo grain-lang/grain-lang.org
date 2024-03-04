@@ -41,11 +41,6 @@ body {
     background-color: var(--gray2);
 }
 
-form {
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
 #editor-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;

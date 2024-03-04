@@ -26,9 +26,9 @@ async function start() {
 
   window.addEventListener("resize", debounce(
    () => {
-    const isThreeColumnLayout = document.body.clientWidth >= 1024;
+    const isTwoColumnLayout = document.body.clientWidth >= 1024;
     editor.layout({
-      width: isThreeColumnLayout ? Math.floor(document.body.clientWidth / 2) : document.body.clientWidth,
+      width: isTwoColumnLayout ? Math.floor(document.body.clientWidth / 2) : document.body.clientWidth,
       height: editor.getContentHeight()
     });
   }, 100));
