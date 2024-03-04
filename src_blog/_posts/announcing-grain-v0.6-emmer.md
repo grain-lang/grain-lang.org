@@ -1,6 +1,6 @@
 ---
 title: Announcing Grain v0.6 - Emmer
-subtitle: Announcing the release of Grain v0.5, Emmer, with a new module system, early return, labeled + default arguments, and much more.
+subtitle: The release of Grain v0.6, Emmer, features a new module system, early return, labeled + default arguments, and much more.
 date: 2024-03-04 12:00:00
 author: Blaine Bublitz
 cover: /blog/photos/cover/vadim-paripa-vEK0mCz4Ow0-unsplash.jpg
