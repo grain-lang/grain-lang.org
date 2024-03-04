@@ -62,7 +62,7 @@ print(counter) // { count: 1 }
 
 ## Enum Types
 
-Enums allow you to represent data that has multiple variations. Combined with pattern matching, they will make you feel like you've got superpowers. They're the backbone of programming in Grain, and you'll come to find that they are a very useful tool for expressing complex scenarios intuitively. Among other benefits, they enable Grain to have safe nullability throug the `Option` type and intuitive errors-as-values through the `Result` type (both of which we will cover more extensively in later sections).
+Enums allow you to represent data that has multiple variations. Combined with pattern matching, they will make you feel like you've got superpowers. They're the backbone of programming in Grain, and you'll come to find that they are a very useful tool for expressing complex scenarios intuitively. Among other benefits, they enable Grain to have safe nullability through the `Option` type and intuitive errors-as-values through the `Result` type (both of which we will cover more extensively in later sections).
 
 Let's imagine for a moment that we're vegetable farmers and we want to represent the vegetables we offer. We could represent them like this:
 
