@@ -14,7 +14,7 @@ module Main
 let add = (x, y) => x + y
 ```
 
-A function can perform a series of actions. One thing to note about functions in Grain is that they always return the result of the final expression in the function body, without needing an explicit `return` statement.
+A function can perform a series of actions. One thing to note about functions in Grain is that by default they return the result of the final expression in the function body, without needing an explicit `return` statement.
 
 ```grain
 module Main
@@ -24,6 +24,19 @@ let logAndAdd = (x, y) => {
   print(y)
   x + y
 }
+```
+
+## Calling Functions
+
+Functions can be called with each argument passed either positionally or by name:
+
+```grain
+let add = (x, y) => x + y
+
+// The following are equivalent
+add(10, 20)
+add(x=10, y=20)
+add(y=20, x=10)
 ```
 
 ### Functions as First Class Citizens
@@ -41,9 +54,24 @@ let subtract = (x, y) => x - y
 doMath(multiply, 4, 6) // 24
 ```
 
-### Multiple Return Values
+Furthermore, functions can return functions themselves!
 
-You can return multiple values from functions using tuples.
+```grain
+module Main
+
+let addTo = num1 => {
+  num2 => {
+    num1 + num2
+  }
+}
+
+let addTo5 = addTo(5)
+print(addTo5(10)) // 15
+```
+
+### Returning multiple Values
+
+You can use tuples to return multiple values from functions.
 
 ```grain
 module Main
@@ -72,3 +100,124 @@ let rec fibonacci = (n) => {
   }
 }
 ```
+
+## Early `return`
+
+The `return` keyword can be used to explicitly cut the execution of a function short. Note that if `return` is used somewhere in a function, the remaining places where a value is returned must also use the `return` keyword
+
+```grain
+module Main
+
+let isEven = n => {
+  if (n % 2 == 0) {
+    return true
+  }
+  return false
+}
+
+```
+
+`return` can also be used without a value, in which case `void` is returned implicitly
+
+```grain
+module Main
+
+let fizzBuzz = num => {
+  if (num % 15 == 0) {
+    print("FizzBuzz!")
+    return
+  }
+  if (num % 3 == 0) {
+    print("Fizz!")
+    return
+  }
+  if (num % 5 == 0) {
+    print("Buzz!")
+    return
+  }
+  return
+}
+
+fizzBuzz(9) // prints "Fizz!"
+```
+
+## Infix Operators
+
+Custom infix operators can be defined like regular functions, with the desired operator surrounded by parentheses.
+
+```grain
+module Main
+
+let (*+*) = (a, b) => (a * a) + (b * b)
+
+let value = 3 *+* 4 // 25
+```
+
+## Default Arguments
+
+Function parameters can be given a default value, and if the caller does not supply an argument value the default will be used. Note that if a parameter has a default value, the corresponding argument must be passed by name.
+
+```grain
+module Main
+
+let addWithDefault = (x, y=0) => x + y
+
+addWithDefault(10, y=5) // 15
+addWithDefault(10) // 10
+```
+
+Parameters with default arguments can be placed anywhere in the parameter list. Furthermore, positional arguments supplied to the function when invoked will only be applied to required parameters.
+
+```grain
+module Main
+
+let printWithDefaults = (first="First", middle, last="Last") => {
+  print(first ++ ", " ++ middle ++ ", and " ++ last)
+}
+
+printWithDefaults("Middle") // "First, Middle, and Last"
+printWithDefaults(x="A", z="C", "B") // "A, B, and C"
+```
+
+## Closures
+
+Grain functions have access to values defined in their enclosing scope(s). In technical terms, Grain will automatically create a _closure_ for you when a function uses a value defined outside of its parameter list.
+
+```grain
+module Main
+
+let run = () => {
+  let mut toLog = "hello"
+  let log = () => {
+    print(toLog)
+  }
+
+  log() // hello
+  toLog = "world"
+  log() // world
+}
+```
+
+The `log` function doesn't define any bindings itself, but it has access to `run`'s mutable binding `toLog`. When the `log` function is called, it utilizes the current value stored in `toLog`.
+
+Furthermore, function closures will continue to "remember" values even when they're used outside of their original scope. Here's an example that makes a counter:
+
+```grain
+module Main
+
+let makeCounter = () => {
+  let mut count = 0
+  let increment = () => {
+    count += 1
+    print(count)
+  }
+  increment
+}
+
+let counter = makeCounter()
+counter() // 1
+counter() // 2
+counter() // 3
+```
+
+The `makeCounter` function returns a counter function which will print sequential numbers when called.

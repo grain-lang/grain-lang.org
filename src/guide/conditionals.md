@@ -4,9 +4,11 @@ title: Conditionals
 
 ## The `if` Expression
 
-While we typically call it an `if` _statement_, `if` is technically an expression—and can be used anywhere an expression is allowed.
+Code can be executed conditionally using `if` expressions.
 
 ### Single-sided `if`
+
+The `if` expression can be used with no `else` in order to execute side effects:
 
 ```grain
 module Main
@@ -29,6 +31,8 @@ An `if` with no `else` clause always evaluates to `Void`.
 
 ### Double-sided `if`
 
+An `if` expression with an `else` clause executes the code in the `if` branch and evaluates to the last expression in the branch if the condition evaluates to `true`, and vice versa if the condition evaluates to `false`. Both branches must typecheck to the same type.
+
 ```grain
 module Main
 
@@ -49,19 +53,19 @@ if (expr) {
 }
 ```
 
-An `if` with both a true branch and a false branch evaluates to the last expression of the true branch if `expr` evaluates to `true`, and the last expression of the false branch if `expr` evaluates to `false`. Both branches must typecheck to the same type.
-
 ### As an expression
 
-Since the `if` expression evaluates to a value, it can be assigned:
+Since the `if` expression evaluates to a value, it can be assigned to a binding like any other value:
 
 ```grain
 module Main
 
 let expr = true
 let result = if (expr) {
+  print("got into if branch")
   "true branch"
 } else {
+  print("got into else branch")
   "false branch"
 }
 

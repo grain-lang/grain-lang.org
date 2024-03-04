@@ -13,7 +13,18 @@ module Main
 
 let someNumber = 42
 let someBoolean = true
-let someString = "Welcome to Grain!"
+// We can also use the `and` keyword to declare multiple bindings in sequence
+let someString = "Welcome to Grain!" and someChar = 'A'
+```
+
+Grain uses type inference to automatically determine the type of values throughout your program. Even though in the above example we did not explicitly define the type of each binding, Grain deduced them automatically based on context. It is also possible to explicitly specify the types of binding:
+
+```grain
+module Main
+
+let someNumber: Number = 42
+let someBoolean: Boolean = true
+let someString: String = "Welcome to Grain!" and someChar: Char = 'A'
 ```
 
 We can reference bindings we've created in Grain to form compound expressions:
@@ -21,7 +32,7 @@ We can reference bindings we've created in Grain to form compound expressions:
 ```grain
 module Main
 
-let firstNumber = 3, secondNumber = 4
+let firstNumber = 3 and secondNumber = 4
 let thirdNumber = firstNumber + secondNumber
 ```
 
@@ -114,18 +125,4 @@ module Main
 true && false // false
 true || false // true
 !true // false
-```
-
-## The `if` Statement
-
-The `if` statement in Grain always returns a value. For this reason, our `if` statements must always have an `else` branch. The last value in the block is the value of the statement.
-
-```grain
-module Main
-
-if (7 < 14) {
-  "This is a true statement"
-} else {
-  "This is a false statement"
-}
 ```

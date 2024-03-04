@@ -110,7 +110,13 @@ We can bind portions of a `match` pattern to a name and use that bound value in 
 module Main
 
 enum Topping { Cheese, Pepperoni, Peppers, Pineapple }
-enum Menu { Pizza(Topping), Calzone(Topping) }
+enum Menu {
+  Calzone(Topping),
+  Pizza{
+    stuffedCrust: Bool,
+    topping: Topping
+  }
+}
 
 let checkSpecials = topping => {
   match (topping) {
@@ -126,11 +132,13 @@ match (item) {
   Calzone(topping) => {
     if (checkSpecials(topping)) {
       print("These are half off this week.")
-    } else {
-      print("No current specials.")
     }
   },
-  _ => print("No current specials.")
+  Pizza{stuffedCrust, topping} => {
+    if (!stuffedCrust && checkSpecials(topping)) {
+      print("These are 30% off this week.")
+    }
+  }
 }
 ```
 
