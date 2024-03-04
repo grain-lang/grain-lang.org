@@ -38,12 +38,14 @@ docs_groups:
   The Guide:
     - guide/hello_world
     - guide/basics
+    - guide/conditionals
     - guide/functions
-    - guide/lists
     - guide/mutation
+    - guide/loops
+    - guide/collections_and_libraries
     - guide/data_types
     - guide/pattern_matching
-    - guide/imports_exports
+    - guide/modules
   The Docs:
     - intro
     - builtin_types

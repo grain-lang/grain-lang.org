@@ -2,7 +2,7 @@
 title: Numbers
 ---
 
-Grain has a unified number type, called `Number`, which contains integer (whole) numbers, floating-point (decimal) numbers, and rational (fractional) numbers. Grain also has separate fixed-length integer and float types for programs which require more precise typechecking.
+Grain has a unified number type, called `Number`, which can contain integer (whole) numbers, floating-point (decimal) numbers, and rational (fractional) numbers; compacting and conversions between the possible internal representations are handled behind-the-scenes when needed. Grain also offers separate types for each of these distinct numeric types for programs which require more precise typechecking.
 
 ## Number Syntax
 
@@ -40,6 +40,11 @@ Underscores can be used with these other formats:
 ```grain
 // 0xDEC0DE in binary
 let dec0de = 0b1101_1110_1100_0000_1101_1110
+```
+
+Grain supports unbounded-size integers as well:
+```grain
+let bigint = 999_999_999_999_999_999_999_999_999_999
 ```
 
 ### Floating-point Numbers
@@ -88,20 +93,24 @@ Similarly, a rational with a numerator that is divisible by its denominator will
 9/3 // becomes 3
 ```
 
-## Number Size
-
-Currently, the `Number` type supports ints and floats up to 64 bits in size, though this may increase in the future.
-
 ## Other Number Types
 
-In addition to the `Number` type, there are more restrictive number types, namely `Int32`, `Int64`, `Float32`, and `Float64`. Operations on these types are available from their respective standard libraries. A suffix may be added to the regular number syntax to create number literals for each of these types:
+In addition to the `Number` type, there are more restrictive number types, namely `Int8`, `Int16`, `Int32`, `Int64`, `Uint8`, `Uint16`, `Uint32`, `Uint64`, `Float32`, `Float64`, `Rational`, and `BigInt` (unbounded-length integers). Operations on these types are available from their respective standard libraries and are not directly compatible with each other without conversions. A suffix may be added to the regular number syntax to create number literals for each of these types:
 
 |Type|Suffix|
 |-|-|
+|`Int8`|s|
+|`Int16`|S|
 |`Int32`|l|
 |`Int64`|L|
+|`Uint8`|us|
+|`Uint16`|uS|
+|`Uint32`|ul|
+|`Uint64`|uL|
 |`Float32`|f|
 |`Float64`|d|
+|`Rational`|r|
+|`BigInt`|t|
 
 ```grain
 42l // Int32 literal
@@ -117,4 +126,8 @@ In addition to the `Number` type, there are more restrictive number types, namel
 
 ```grain
 12.34d // Float64 literal
+```
+
+```grain
+1/2r // Rational literal
 ```
