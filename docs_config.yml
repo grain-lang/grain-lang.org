@@ -68,8 +68,11 @@ docs_groups:
     - stdlib/immutablemap
     - stdlib/immutablepriorityqueue
     - stdlib/immutableset
+    - stdlib/int8
+    - stdlib/int16
     - stdlib/int32
     - stdlib/int64
+    - stdlib/json
     - stdlib/list
     - stdlib/map
     - stdlib/marshal
@@ -80,15 +83,20 @@ docs_groups:
     - stdlib/queue
     - stdlib/random
     - stdlib/range
+    - stdlib/rational
     - stdlib/regex
     - stdlib/result
     - stdlib/set
     - stdlib/stack
     - stdlib/string
-    - stdlib/sys/file
-    - stdlib/sys/process
-    - stdlib/sys/random
-    - stdlib/sys/time
+    - stdlib/uint8
+    - stdlib/uint16
+    - stdlib/uint32
+    - stdlib/uint64
+    - stdlib/wasi/file
+    - stdlib/wasi/process
+    - stdlib/wasi/random
+    - stdlib/wasi/time
   # TODO: Re-enable when docs are more mature
   # Language Constructs:
   #   - constructs/bindings
