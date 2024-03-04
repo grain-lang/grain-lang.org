@@ -192,3 +192,28 @@ provide {
 }
 ```
 grain doc will automatically pull the doc block from the `list` library and use that for its documentation.
+
+## Documenting types
+
+When providing types we allow for documentation as well:
+```grain
+module Library
+
+/**
+ * Data structure representing JSON in Grain.
+ **/
+provide enum Json {
+  /**
+   * Grain representation of a null JSON value.
+   **/
+  JsonNull,
+  /**
+   * Grain representation of a boolean JSON value.
+   *
+   * @example 
+   **/
+  JsonBoolean(Bool),
+}
+```
+
+When documenting types, graindoc supports documenting both `enum` variants and `record` fields, with a description.
