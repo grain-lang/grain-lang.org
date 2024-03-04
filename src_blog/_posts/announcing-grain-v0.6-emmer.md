@@ -214,7 +214,7 @@ We strive for our tools to fully support the entire language, so we've added sup
 
 ## Language Server
 
-We continue to add more features to the Grain Language Server. Marcus added "go to" definition, so you can easily jump to definitions in other Grain modules. For a quick glance at available types, values, and modules, Oscar and Jake added hover support for the new module system! We're also hard at work on autocomplete and inlay hints, which should land in a v0.6.x point-release.
+We continue to add more features to the Grain Language Server. Marcus added "go to definition", so you can easily jump to definitions in other Grain modules. For a quick glance at available types, values, and modules, Oscar and Jake added hover support for the new module system! We're also hard at work on autocomplete and inlay hints, which should land in a v0.6.x point-release.
 
 ## JSON
 
