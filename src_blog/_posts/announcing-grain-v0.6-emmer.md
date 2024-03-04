@@ -112,7 +112,7 @@ sayHello()
 sayHello(name="Oscar")
 ```
 
-We even leverage this new functionality to allow specialized suffix behavior on the `print()` function if you don't want to include a newline at the end. You can check out the full [release notes]() to see the other places we're currently using default arguments in the standard library.
+We even leverage this new functionality to allow specialized suffix behavior on the `print()` function if you don't want to include a newline at the end. You can check out the full [release notes](https://github.com/grain-lang/grain/releases/tag/grain-v0.6.0) to see the other places we're currently using default arguments in the standard library.
 
 ```grain
 module Main
