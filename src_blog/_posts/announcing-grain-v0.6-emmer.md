@@ -207,10 +207,10 @@ Please be aware that your code **will** change when formatting with Grain v0.6, 
 
 As a part of our tool suite, our documentation generator has been refreshed for this release. Oscar replaced our naive RegExp implementation with a proper parser, which allowed us to support multi-line attributes—you can now spread examples, descriptions, etc across multiple lines!
 We strive for our tools to fully support the entire language, so we've added support for documenting:
-The `module` keyword. Say goodbye to `@module` and `@section` attributes; you now add normal docblocks to your module header or submodules.
-Record fields and enum variants.
-Labeled arguments by validating the name provided to `@param` matches the binding.
-Re-exported values by looking up the original docblock.
+* The `module` keyword. Say goodbye to `@module` and `@section` attributes; you now add normal docblocks to your module header or submodules.
+* Record fields and enum variants.
+* Labeled arguments by validating the name provided to `@param` matches the binding.
+* Re-exported values by looking up the original docblock.
 
 ## LSP
 
