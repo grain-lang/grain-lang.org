@@ -12,7 +12,7 @@ It's been a minute, but we're back with a new Grain release—v0.6.0, codenamed 
 
 ## Module include and scoping system
 
-We've completely reworked our module system, including new module _include_ syntax to bring other modules into scope.
+We've completely reworked our module system, featuring new module **include** syntax to bring other modules into scope.
 
 ```grain
 module Main
