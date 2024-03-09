@@ -22,30 +22,66 @@ _The `--no-quarantine` flag will avoid having to approve the binary in the Secur
 
 ### MacOS x64 - Download
 
-If you'd prefer not to use homebrew, you can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.5.13/grain-mac-x64) directly from GitHub or using `curl`.
+If you'd prefer not to use homebrew, you can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.6.0/grain-mac-x64) directly from GitHub or using `curl`.
 
 ```sh
 sudo curl -L --output /usr/local/bin/grain \
-https://github.com/grain-lang/grain/releases/download/grain-v0.5.13/grain-mac-x64 \
+https://github.com/grain-lang/grain/releases/download/grain-v0.6.0/grain-mac-x64 \
 && sudo chmod +x /usr/local/bin/grain
 ```
 
 ### Linux x64 - Download
 
-You can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.5.13/grain-linux-x64) directly from GitHub or using `curl`.
+You can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.6.0/grain-linux-x64) directly from GitHub or using `curl`.
 
 ```sh
 sudo curl -L --output /usr/local/bin/grain \
-https://github.com/grain-lang/grain/releases/download/grain-v0.5.13/grain-linux-x64 \
+https://github.com/grain-lang/grain/releases/download/grain-v0.6.0/grain-linux-x64 \
 && sudo chmod +x /usr/local/bin/grain
 ```
 
 ### Windows x64 - Download
 
-You can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.5.13/grain-win-x64.exe) directly from GitHub or using `curl`.
+You can [download it](https://github.com/grain-lang/grain/releases/download/grain-v0.6.0/grain-win-x64.exe) directly from GitHub or using `curl`.
 
 ```batch
-curl -LO https://github.com/grain-lang/grain/releases/download/grain-v0.5.13/grain-win-x64.exe
+curl -LO https://github.com/grain-lang/grain/releases/download/grain-v0.6.0/grain-win-x64.exe
+```
+
+You'll either want to put it into your path or keep it inside your project and invoke with `.\grain-win-x64.exe`.
+
+## Previews
+
+We also provide Preview binaries for developers that want to live on the bleeding edge.
+
+**Note:** These are built on almost every commit to our main branch, so they should be considered unstable and the website documentation likely won't match up! Using these binaries successfully requires following the development of Grain closely and/or reviewing our [rolling changelog](https://github.com/grain-lang/grain/pulls?q=is%3Aopen+is%3Apr+label%3A%22autorelease%3A+pending%22).
+
+### MacOS x64 - Preview
+
+You can [download it](https://github.com/grain-lang/grain/releases/download/preview/grain-mac-x64) directly from GitHub or using `curl`.
+
+```sh
+sudo curl -L --output /usr/local/bin/grain \
+https://github.com/grain-lang/grain/releases/download/preview/grain-mac-x64 \
+&& sudo chmod +x /usr/local/bin/grain
+```
+
+### Linux x64 - Preview
+
+You can [download it](https://github.com/grain-lang/grain/releases/download/preview/grain-linux-x64) directly from GitHub or using `curl`.
+
+```sh
+sudo curl -L --output /usr/local/bin/grain \
+https://github.com/grain-lang/grain/releases/download/preview/grain-linux-x64 \
+&& sudo chmod +x /usr/local/bin/grain
+```
+
+### Windows x64 - Preview
+
+You can [download it](https://github.com/grain-lang/grain/releases/download/preview/grain-win-x64.exe) directly from GitHub or using `curl`.
+
+```batch
+curl -LO https://github.com/grain-lang/grain/releases/download/preview/grain-win-x64.exe
 ```
 
 You'll either want to put it into your path or keep it inside your project and invoke with `.\grain-win-x64.exe`.

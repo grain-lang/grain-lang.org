@@ -10,12 +10,24 @@ No other changes yet.
 </details>
 
 ```grain
-import Marshal from "marshal"
+from "marshal" include Marshal
+```
+
+```grain
+Marshal.marshal(1)
+```
+
+```grain
+Marshal.marshal("Hello World")
+```
+
+```grain
+Marshal.unmarshal(b"\x03\x00\x00\x00")
 ```
 
 ## Values
 
-Functions for marshaling and unmarshaling data.
+Functions and constants included in the Marshal module.
 
 ### Marshal.**marshal**
 
@@ -25,7 +37,7 @@ No other changes yet.
 </details>
 
 ```grain
-marshal : a -> Bytes
+marshal : (value: a) => Bytes
 ```
 
 Serialize a value into a byte-based representation suitable for transmission
@@ -44,6 +56,16 @@ Returns:
 |----|-----------|
 |`Bytes`|A byte-based representation of the value|
 
+Examples:
+
+```grain
+Marshal.marshal(1) == b"\x03\x00\x00\x00"
+```
+
+```grain
+Marshal.marshal("🌾") == Marshal.marshal("🌾")
+```
+
 ### Marshal.**unmarshal**
 
 <details disabled>
@@ -52,7 +74,7 @@ No other changes yet.
 </details>
 
 ```grain
-unmarshal : Bytes -> Result<a, String>
+unmarshal : (bytes: Bytes) => Result<a, String>
 ```
 
 Deserialize the byte-based representation of a value back into an in-memory
@@ -73,4 +95,14 @@ Returns:
 |type|description|
 |----|-----------|
 |`Result<a, String>`|An in-memory value|
+
+Examples:
+
+```grain
+Marshal.unmarshal(Marshal.marshal('🌾')) == Ok('🌾')
+```
+
+```grain
+Marshal.unmarshal(b"\x03\x00\x00\x00") == Ok(1)
+```
 

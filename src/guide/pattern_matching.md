@@ -9,6 +9,8 @@ Pattern matching is a powerful tool to work with data structures. It's like a sw
 Let's start by looking at a simple enum type.
 
 ```grain
+module Main
+
 enum PizzaTopping { Cheese, Pepperoni, Peppers, Pineapple }
 
 let topping = Peppers
@@ -26,6 +28,8 @@ This example prints out a fun message depending on which pizza topping is bound 
 You can also surround the body of your `match` case with curly braces to include more statements.
 
 ```grain
+module Main
+
 enum PizzaTopping { Cheese, Pepperoni, Peppers, Pineapple }
 
 let getPrice = (topping) => {
@@ -48,6 +52,8 @@ getPrice(Peppers)
 If we only care about some of the cases, we can use an underscore pattern to match all other possible cases.
 
 ```grain
+module Main
+
 enum PizzaTopping { Cheese, Pepperoni, Peppers, Pineapple }
 
 let topping = Peppers
@@ -65,6 +71,8 @@ If we were to omit the last underscore "catch-all" case, the Grain compiler woul
 We can nest match patterns as deeply as we'd like. If we sold both one-topping pizzas and calzones, we may want to single out a particular pizza/topping combo:
 
 ```grain
+module Main
+
 enum Topping { Cheese, Pepperoni, Peppers, Pineapple }
 enum Menu { Pizza(Topping), Calzone(Topping) }
 
@@ -80,6 +88,8 @@ match (item) {
 We can also use an underscore anywhere within a pattern to match remaining cases.
 
 ```grain
+module Main
+
 enum Topping { Cheese, Pepperoni, Peppers, Pineapple }
 enum Menu { Pizza(Topping), Calzone(Topping) }
 
@@ -97,8 +107,24 @@ match (item) {
 We can bind portions of a `match` pattern to a name and use that bound value in the body the corresponding case.
 
 ```grain
+module Main
+
 enum Topping { Cheese, Pepperoni, Peppers, Pineapple }
-enum Menu { Pizza(Topping), Calzone(Topping) }
+enum Menu {
+  Calzone(Topping),
+  Pizza{
+    stuffedCrust: Bool,
+    topping: Topping
+  }
+}
+
+let checkSpecials = topping => {
+  match (topping) {
+    Cheese => true,
+    Pepperoni => true,
+    _ => false,
+  }
+}
 
 let item = Calzone(Peppers)
 
@@ -106,27 +132,31 @@ match (item) {
   Calzone(topping) => {
     if (checkSpecials(topping)) {
       print("These are half off this week.")
-    } else {
-      print("No current specials.")
     }
   },
-  _ => print("No current specials.")
+  Pizza{stuffedCrust, topping} => {
+    if (!stuffedCrust && checkSpecials(topping)) {
+      print("These are 30% off this week.")
+    }
+  }
 }
 ```
 
 One common use of pattern matching and binding is working with `Option` and `Result` enums. 
 
 ```grain
+module Main
+
 let opt = Some("I'm a match")
 match (opt) {
-    Some(msg) => print(msg),
-    None => print("No match found")
+  Some(msg) => print(msg),
+  None => print("No match found")
 }
 
 let result = Err("This is an error")
 match (result) {
-    Ok(msg) => print(msg),
-    Err(e) => print(e)
+  Ok(msg) => print(msg),
+  Err(e) => print(e)
 }
 ```
 
@@ -139,6 +169,8 @@ The second example will print `This is an error` because the `Result` contains a
 Like most Grain data structures, pattern matching can also be done on records.
 
 ```grain
+module Main
+
 record Person { name: String, age: Number }
 
 let person = { name: "Steve", age: 25 }
@@ -151,6 +183,8 @@ match (person) {
 If we don't care about some of the record fields, we can use an underscore to tell the Grain compiler that we've intentionally left those fields out.
 
 ```grain
+module Main
+
 record Person { name: String, age: Number }
 
 let person = { name: "Steve", age: 25 }
@@ -165,6 +199,8 @@ match (person) {
 Things are a bit more interesting when we have data structures nested within records.
 
 ```grain
+module Main
+
 enum Topping { Cheese, Pepperoni, Peppers, Pineapple }
 enum Order { Pizza(Topping), Calzone(Topping) }
 
@@ -184,6 +220,8 @@ match (person) {
 Pattern matching can also be performed on tuples.
 
 ```grain
+module Main
+
 enum Topping { Cheese, Pepperoni, Peppers, Pineapple }
 enum Order { Pizza(Topping), Calzone(Topping) }
 enum OrderType { DineIn, Takeaway }
@@ -206,6 +244,8 @@ Often with lists, we want to do something with the first element of a list and t
 In this example, we define an `add2` function to increment each value in a list of numbers by 2.
 
 ```grain
+module Main
+
 let rec add2 = (list) => {
   match (list) {
     [first, ...rest] => [first + 2, ...add2(rest)],
@@ -223,6 +263,8 @@ The `[first, ...rest]` pattern creates bindings for the first element in the lis
 We can also match on multiple elements at the beginning of a list:
 
 ```grain
+module Main
+
 let list = [1, 2, 3]
 
 match (list) {
@@ -234,6 +276,8 @@ match (list) {
 Finally, matches can also be performed on lists with specific lengths.
 
 ```grain
+module Main
+
 let list = [1, 2, 3]
 
 match (list) {
@@ -252,11 +296,13 @@ Sometimes you want to be more specific about conditions for matching. You can us
 You can think of a match guard as a combination of a `match` and an `if`. A guard allows you to add an additional statement to qualify whether the case matches.
 
 ```grain
+module Main
+
 let myNumber = Some(123)
 match (myNumber) {
-    Some(val) when val > 100 => print("More than 100"),
-    Some(val) => print("Less than or equal to 100"),
-    None => print("Nothing at all")
+  Some(val) when val > 100 => print("More than 100"),
+  Some(val) => print("Less than or equal to 100"),
+  None => print("Nothing at all")
 }
 ```
 
@@ -267,11 +313,13 @@ The next case, `Some(val)`, will match any `Some()` value that is not matched by
 Order is important when using guards. The **first case to match** is the one that will be used. For example, we could change the above example to this:
 
 ```grain
+module Main
+
 let myNumber = Some(123)
 match (myNumber) {
-    Some(val) => print("Less than or equal to 100"),
-    Some(val) when val > 100 => print("More than 100"),
-    None => print("Nothing at all")
+  Some(val) => print("Less than or equal to 100"),
+  Some(val) when val > 100 => print("More than 100"),
+  None => print("Nothing at all")
 }
 ```
 
@@ -280,12 +328,14 @@ In this version, regardless of the size of `myNumber`, it would always match the
 Even default cases can have guards.
 
 ```grain
+module Main
+
 let myNumber = Some(99)
 let isTuesday = true
 match (myNumber) {
-    Some(val) when val > 100 => print("Greater than 100"),
-    _ when isTuesday => print("It's Tuesday"),
-    _ => print("Nothing else matched")
+  Some(val) when val > 100 => print("Greater than 100"),
+  _ when isTuesday => print("It's Tuesday"),
+  _ => print("Nothing else matched")
 }
 ```
 
