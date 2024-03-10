@@ -9,6 +9,8 @@ Primitive types like numbers and strings are all cool, but sometimes we need to 
 Records are sort of like tuples, though each field has a name.
 
 ```grain
+module Main
+
 record Person { name: String, age: Number }
 
 let user = { name: "Klaus Teuber", age: 42 }
@@ -17,11 +19,13 @@ print(user.name) // prints "Klaus Teuber"
 
 Record fields are accessed using the dot operator, i.e. `record.field`.
 
-### Field Shorthand
+### Punning
 
 If we create a binding with the same name as our record's fields, we can use a shorthand to create the fields of our record: this is called "punning".
 
 ```grain
+module Main
+
 record Person { name: String, age: Number }
 
 let name = "Klaus Teuber"
@@ -31,11 +35,25 @@ let user = { name, age }
 print(user) // { name: "Klaus Teuber", age: 42 }
 ```
 
-## Mutable record properties
+A catch with punning is that in order to pun the field for a record with a single field, you need to use a comma after the field name, to avoid accidentally creating a block expression with a single nested expression.
+
+```grain
+module Main
+
+record Person { name: String }
+
+let name = "Klaus Teuber"
+let personRecord: Person = { name, }
+let personName: String = { name } // Oops, this is just `name` in a block expression!
+```
+
+### Mutable Record Fields
 
 We've previously created mutable `let` bindings with the `mut` keyword. In a similar fashion, we can also create mutable record fields.
 
 ```grain
+module Main
+
 record Counter {
   mut count: Number
 }
@@ -58,6 +76,26 @@ print(counter) // { count: 2 }
 subtractOne(counter)
 
 print(counter) // { count: 1 }
+```
+
+### Record Spread
+
+Record spread syntax can be used to create a new record value by taking another record value of the same type as a base and overriding some fields. Using the record spread does not mutate the base record.
+
+```grain
+module Main
+
+record Person {
+  name: String,
+  age: Number,
+  favoriteFood: String
+}
+
+let oldMe = { name: "Victor", age: 23, favoriteFood: "Lasagna" }
+// Equivalent to { name: oldMe.name, age: oldMe.age, favoriteFood: "Sushi" }
+let newMe = { ...oldMe, favoriteFood: "Sushi" }
+
+print(newMe) // { name: "Victor", age: 23, favoriteFood: "Sushi" }
 ```
 
 ## Enum Types
@@ -244,6 +282,8 @@ This example compiles without any issues.
 `enum` variants can also have record-like constructors, which can be useful in cases where we want to explicitly label the data associated with a variant.
 
 ```grain
+module Main
+
 enum Color {
   Red,
   Green,

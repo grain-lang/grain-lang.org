@@ -14,7 +14,17 @@ module Main
 let add = (x, y) => x + y
 ```
 
-A function can perform a series of actions. One thing to note about functions in Grain is that by default they return the result of the final expression in the function body, without needing an explicit `return` statement.
+The parameters of a function are put in parentheses, and functions evaluate to an expression. Unlike other languages, you do not need to use an explicit `return` keyword to return a value (though the `return` keyword does exist in Grain; more on that later).
+
+Like in other places, Grain infers the parameter and return types automatically based on their usage. In this particular example, both of the parameters to this function and its return type were inferred to be `Number`. Here is the same example with parameter types specified explicitly:
+
+```grain
+module Main
+
+let add = (x: Number, y: Number) => x + y
+```
+
+Real-world functions are usually more complex than a simple expression, so using block expressions is often desirable.
 
 ```grain
 module Main
