@@ -100,7 +100,22 @@ from "list" include List as Stdlist
 Stdlist.length([1, 2, 3]) // 3
 ```
 
-### Including All Values
+### Bring Values from a Module into Scope
+
+Individual items in a module can be brought into scope by using the `use` keyword, placing the desired items in curly braces. Similar to with the `provide { ... }` syntax, we need to prefix types with `type` and modules with `module`
+
+```grain
+module Main
+
+from "array" include Array
+
+use Array.{ length, module Immutable }
+
+length([> 1, 2, 3])
+let imm = Immutable.fromList([1, 2, 3])
+```
+
+#### Bringing All Values into Scope
 
 If we want to bring all of the values from another module into scope in our program, we can use an asterisk.
 
@@ -113,19 +128,4 @@ use List.*
 
 length([1, 2, 3]) // 3
 reverse([1, 2, 3]) // [3, 2, 1]
-```
-
-### Including Specific Values
-
-Individual items in a module can be brought into scope by placing the included items in curly braces. Similar to with the `provide { ... }` syntax, we need to prefix types with `type` and modules with `module`
-
-```grain
-module Main
-
-from "array" include Array
-
-use Array.{ length, module Immutable }
-
-length([> 1, 2, 3])
-let imm = Immutable.fromList([1, 2, 3])
 ```

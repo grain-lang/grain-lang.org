@@ -140,33 +140,3 @@ The `@deprecated` attribute provides a description or reason for the deprecation
 This attribute requires a description of the deprecation and will mark the export as deprecated when used.
 
 When generating docs, adds a blockquote containing `**Deprecated:**` and the description immediately below the title.
-
-### @module
-
-```gr
-/**
- * @module title: description
- */
-```
-
-The `@module` attribute provides top-level information about a file, including the module title and a description.
-
-This special attribute is used within a docblock comment that is not attached to a type declaration or exported value. It can only be specified once per file and should exist near the top.
-
-The `@module` docblock comment can also contain `@example`, `@since`, and `@history` attributes that will add their corresponding output to the top of the documentation.
-
-When generating docs, adds the description at the top of the documentation, and a [Front Matter](https://jekyllrb.com/docs/front-matter/) section containing the title.
-
-### @section
-
-```gr
-/**
- * @section subtitle: description
- */
-```
-
-The `@section` attribute provides a grouping within the documented code.
-
-This special attribute is used within a docblock comment that is not attached to a type declaration or exported value. It requires a subtitle and description. When specified, any docblocks between sections are grouped under the heading.
-
-When generating docs, exports that are outside all `@section` attributes, if any are specified, will not be output. Similarly if an `@section` attribute does not have any exports following it, there will be no output in that section apart from the `@section` subtitle and description.
