@@ -23,7 +23,10 @@ async function collectGrainFiles(...segments) {
           ...segments,
           dirent.name.replace(".gr", ""),
         ];
-        const importIdent = importPathSegments.join("").toUpperCase();
+        const contents = await fs.readFile(
+          path.join(stdlibDir, ...segments, dirent.name)
+        );
+        const importIdent = contents.toString().match(/.*?^module\s+(\w+)/m)[1];
         const filepathSegment = importPathSegments.join("/");
         grainFiles.set(importIdent, filepathSegment);
       }
@@ -33,9 +36,9 @@ async function collectGrainFiles(...segments) {
 
 await collectGrainFiles();
 
-let outputStr = "";
+let outputStr = "module Stdlib\n\n";
 for (const [importIdent, filepathSegment] of grainFiles.entries()) {
-  outputStr += `import ${importIdent} from "${filepathSegment}"` + "\n";
+  outputStr += `from "${filepathSegment}" include ${importIdent}\n`;
 }
 
 const entryFile = "stdlib.gr";
