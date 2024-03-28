@@ -20,6 +20,7 @@ module.exports = ({ mode }) => {
       },
     },
     define: {
+      process: JSON.stringify({}),
       "process.env.NODE_DEBUG": "false",
     },
     optimizeDeps: {
