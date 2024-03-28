@@ -16,7 +16,7 @@
     "build": "npm run cleanup && hexo generate --config docs_config.yml && npm run cleanup && hexo generate --config blog_config.yml && vite build"
   },
   "dependencies": {
-    "@grain/stdlib": "0.5.13",
+    "@grain/stdlib": "0.6.0",
     "@wasmer/wasi": "^1.0.2",
     "assert": "^2.0.0",
     "buffer": "^6.0.3",
@@ -32,7 +32,7 @@
     "hexo-renderer-marked": "^3.0.0",
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0",
-    "memfs": "^3.4.7",
+    "memfs": "^4.7.7",
     "monaco-editor": "^0.34.0",
     "onigasm": "^2.2.4",
     "path-browserify": "^1.0.1",
