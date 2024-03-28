@@ -43,19 +43,20 @@ function restoreConsole() {
   console.error = ogConsoleError;
 }
 
-function processStdout(stdout) {
+function processWasiStdout(stdout) {
   return stdout.trim();
 }
 
-function processStderr(stderr) {
+function processStderr() {
+  let buf = Buffer.alloc(16384);
+  let nread = fs.readSync(2, buf, 0, 16384, 0);
+  let stderr = buf.toString("utf8", 0, nread);
+
   // Because we throw the an error in exit to bail out of JSOO,
-  // we need to process filter the internal error lines
-  const sliceEnd = stderr.findIndex((line) =>
-    line.startsWith("grain: internal error")
-  );
+  // we need to filter the internal error lines
+  const sliceEnd = stderr.indexOf("grain: internal error");
   return stderr
     .slice(0, sliceEnd)
-    .join("\n")
     .replace('File "test.gr",', "Error on")
     .trim();
 }
@@ -69,13 +70,12 @@ addEventListener("message", async ({ data }) => {
   }
 
   if (data) {
-    const stderr = [];
+    // Clear stdout and stderr
+    fs.truncateSync(1);
+    fs.truncateSync(2);
 
     fs.writeFileSync("/test.gr", data.content);
     fs.writeFileSync("/test.gr.wasm", "");
-    console.error = function (txt) {
-      stderr.push(txt);
-    };
     try {
       grainc(globalThis);
 
@@ -90,13 +90,13 @@ addEventListener("message", async ({ data }) => {
         await wasi.instantiate(module, {});
         // TODO: Do we actually want to handle the exitCode?
         wasi.start();
-        postMessage({ stdout: processStdout(wasi.getStdoutString()) });
+        postMessage({ stdout: processWasiStdout(wasi.getStdoutString()) });
       } catch (err) {
         // TODO: deal with err better?
         postMessage({ stderr: err.message });
       }
     } catch (err) {
-      postMessage({ stderr: processStderr(stderr) });
+      postMessage({ stderr: processStderr() });
     } finally {
       restoreConsole();
     }
