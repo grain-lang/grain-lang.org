@@ -25,7 +25,7 @@ module.exports = ({ mode }) => {
     },
     optimizeDeps: {
       esbuildOptions: {
-        target: "es2020",
+        target: "esnext",
         define: {
           global: "globalThis",
           process: JSON.stringify({}),

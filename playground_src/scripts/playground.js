@@ -3,6 +3,18 @@ import CompilerWorker from "./compiler?worker";
 const worker = new CompilerWorker();
 worker.onerror = (err) => console.error(err);
 
+const debounce = (func, wait) => {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+};
+
 async function start() {
   const { createGrainEditor } = await import("./editor");
   const editor = await createGrainEditor(
@@ -13,6 +25,16 @@ async function start() {
   const outputPanel = document.getElementById("output-panel");
   const output = document.getElementById("output");
   const runButton = document.getElementById("run");
+  const editorWrapper = document.getElementById("editor-wrapper");
+
+  window.addEventListener("resize", debounce(
+   () => {
+    const isTwoColumnLayout = document.body.clientWidth >= 1024;
+    editor.layout({
+      width: isTwoColumnLayout ? Math.floor(document.body.clientWidth / 2) : document.body.clientWidth,
+      height: editor.getContentHeight()
+    });
+  }, 100));
 
   runButton.onclick = function compile() {
     runButton.disabled = true;
@@ -43,6 +65,8 @@ async function start() {
     worker.onerror = (err) => {
       console.error(err);
     };
+
+    editor.layout();
   };
 }
 

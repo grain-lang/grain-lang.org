@@ -1,13 +1,15 @@
-body {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
+:root {
+    --nav-height: 5.5rem;
+    --grid-gap: 0.5rem;
 }
-
-#toolbar {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--gray);
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    max-height: 100vh;
+    display: grid;
+    gap: var(--grid-gap);
+    grid-template-rows: var(--nav-height) 1fr;
 }
 
 #run {
@@ -40,34 +42,29 @@ body {
 }
 
 #editor-wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-}
-
-#editor {
-    flex: 3;
-}
-.monaco-editor {
-    padding-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 #output-panel {
-    flex: 1;
     background-color: var(--gray);
     display: flex;
     flex-direction: column;
 }
 
 #output {
+    flex-grow: 1;
     padding: 1rem;
     margin: 0;
-    flex-grow: 1;
     white-space: pre-wrap;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
     #editor-wrapper {
-        flex-direction: column;
+        grid-template-columns: 1fr;
+        grid-template-rows: 50% 50%;
+    }
+    #editor {
+        height: calc(100% / 3);
     }
 }
