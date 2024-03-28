@@ -2,7 +2,7 @@
 title: Graindoc
 ---
 
-Grain ships with a documentation generator built directly into the Grain CLI!
+Grain ships with a documentation generator built directly into the Grain CLI, known as Graindoc!
 
 You may be used to similar tools, such as JSDoc, that allow you to add a comment above code which describes the input and output types, along with other documentation. Generally, you'll run an external tool against your source code to generate your documentation.
 
