@@ -5,7 +5,10 @@ worker.onerror = (err) => console.error(err);
 
 async function start() {
   const { createGrainEditor } = await import("./editor");
-  const editor = await createGrainEditor("editor", 'print("hello world")\n');
+  const editor = await createGrainEditor(
+    "editor",
+    'module Playground\n\nprint("hello world")\n'
+  );
 
   const outputPanel = document.getElementById("output-panel");
   const output = document.getElementById("output");
