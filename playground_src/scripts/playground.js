@@ -27,14 +27,18 @@ async function start() {
   const runButton = document.getElementById("run");
   const editorWrapper = document.getElementById("editor-wrapper");
 
-  window.addEventListener("resize", debounce(
-   () => {
-    const isTwoColumnLayout = document.body.clientWidth >= 1024;
-    editor.layout({
-      width: isTwoColumnLayout ? Math.floor(document.body.clientWidth / 2) : document.body.clientWidth,
-      height: editor.getContentHeight()
-    });
-  }, 100));
+  window.addEventListener(
+    "resize",
+    debounce(() => {
+      const isTwoColumnLayout = document.body.clientWidth >= 1024;
+      editor.layout({
+        width: isTwoColumnLayout
+          ? Math.floor(document.body.clientWidth / 2)
+          : document.body.clientWidth,
+        height: editor.getContentHeight(),
+      });
+    }, 100)
+  );
 
   runButton.onclick = function compile() {
     runButton.disabled = true;
