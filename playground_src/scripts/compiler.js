@@ -93,7 +93,6 @@ addEventListener("message", async ({ data }) => {
         postMessage({ stdout: processWasiStdout(wasi.getStdoutString()) });
       } catch (err) {
         // TODO: deal with err better?
-        console.log(err);
         postMessage({ stderr: err.message });
       }
     } catch (err) {
