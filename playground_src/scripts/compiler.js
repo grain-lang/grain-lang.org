@@ -52,7 +52,7 @@ function processStderr() {
   let nread = fs.readSync(2, buf, 0, 16384, 0);
   let stderr = buf.toString("utf8", 0, nread);
 
-  // Because we throw the an error in exit to bail out of JSOO,
+  // Because a JSOO error is thrown when the compiler exits,
   // we need to filter the internal error lines
   const sliceEnd = stderr.indexOf("grain: internal error");
   return stderr
@@ -93,6 +93,7 @@ addEventListener("message", async ({ data }) => {
         postMessage({ stdout: processWasiStdout(wasi.getStdoutString()) });
       } catch (err) {
         // TODO: deal with err better?
+        console.log(err);
         postMessage({ stderr: err.message });
       }
     } catch (err) {
