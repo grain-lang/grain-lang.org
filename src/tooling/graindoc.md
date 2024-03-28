@@ -191,7 +191,7 @@ provide {
   length
 }
 ```
-grain doc will automatically pull the doc block from the `list` library and use that for its documentation.
+Graindoc will automatically pull the doc block from the `list` library and use that for its documentation.
 
 ## Documenting types
 
