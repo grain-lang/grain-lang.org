@@ -37,7 +37,7 @@ The type of Grain strings, i.e. `"The quick brown fox jumps over the lazy dog."`
 type Bytes
 ```
 
-The type of Grain byte sequences.
+The type of Grain byte sequences, i.e. `b"The quick brown fox jumps over the lazy dog."`
 
 ### **Void**
 
@@ -47,7 +47,7 @@ enum Void {
 }
 ```
 
-The type of `void`, also known as "unit" or "nothing".
+The type of `void`, Grain's "unit" type.
 
 ### **Option**
 
@@ -58,7 +58,7 @@ enum Option<a> {
 }
 ```
 
-The type of Grain options (i.e. `Some(1)` or `None`). The `a` is the type of the value. This is useful for functions that might return `None` instead of a value.
+The type of Grain options (i.e. `Some(1)` or `None`). The `a` is the type of the value. This is useful for functions that might return "nullable" values.
 
 ### **Result**
 
@@ -69,7 +69,7 @@ enum Result<t, e> {
 }
 ```
 
-The type of Grain results (i.e. `Ok(1)` or `Err("Something went wrong")`). The `t` and `e` are the types of the value and error, respectively. This is useful for functions that might fail, and is the type of the `Result` module.
+The type of Grain results (i.e. `Ok(1)` or `Err("Something went wrong")`). The `t` and `e` are the types of the value and error, respectively. This is useful for functions that might fail.
 
 ### **Array**
 
@@ -94,7 +94,7 @@ type Box<a>
 
 The type of Grain boxes. Boxes are wrappers that allow the internal data to be swapped during execution.
 
-# **Rational**
+### **Rational**
 
 ```grain
 type Rational
