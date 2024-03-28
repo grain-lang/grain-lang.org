@@ -1,7 +1,15 @@
 import CompilerWorker from "./compiler?worker";
 
+const runButton = document.getElementById("run");
+
 const worker = new CompilerWorker();
 worker.onerror = (err) => console.error(err);
+worker.onmessage = ({ data }) => {
+  if (data?.initialized) {
+    runButton.disabled = false;
+    return;
+  }
+};
 
 const debounce = (func, wait) => {
   let timeout;
@@ -24,8 +32,6 @@ async function start() {
 
   const outputPanel = document.getElementById("output-panel");
   const output = document.getElementById("output");
-  const runButton = document.getElementById("run");
-  const editorWrapper = document.getElementById("editor-wrapper");
 
   window.addEventListener(
     "resize",
