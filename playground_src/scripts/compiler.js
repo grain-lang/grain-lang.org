@@ -76,6 +76,9 @@ addEventListener("message", async ({ data }) => {
 
     fs.writeFileSync("/test.gr", data.content);
     fs.writeFileSync("/test.gr.wasm", "");
+    console.error = function (txt) {
+      // stderr.push(txt);
+    };
     try {
       grainc(globalThis);
 
