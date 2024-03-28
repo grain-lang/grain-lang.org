@@ -19,7 +19,7 @@ async function start() {
   const { createGrainEditor } = await import("./editor");
   const editor = await createGrainEditor(
     "editor",
-    'module Playground\n\nprint("hello world")\n'
+    'module Playground\n\nprint("Hello, world!")\n'
   );
 
   const outputPanel = document.getElementById("output-panel");
