@@ -29,6 +29,7 @@ module.exports = ({ mode }) => {
           global: "globalThis",
           process: JSON.stringify({}),
           "process.env": JSON.stringify({}),
+          "process.platform": JSON.stringify("posix"),
           "process.env.NODE_DEBUG": "false",
         },
       },

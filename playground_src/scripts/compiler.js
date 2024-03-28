@@ -1,3 +1,21 @@
+import fs, { loadStdlib, stdlibRoot } from "./browser-fs/fs";
+import grainc from "./grain/grainc.bc.mjs";
+import constants from "constants-browserify/constants.json";
+import { Buffer } from "buffer";
+import { init, WASI } from "@wasmer/wasi";
+
+globalThis.Buffer = Buffer;
+
+globalThis.require = (name) => {
+  switch (name) {
+    case "fs":
+      return fs;
+    case "constants":
+      return constants;
+  }
+  throw new Error(`Unable to require '${name}'`);
+};
+
 globalThis.process = {
   versions: {
     node: "fake",
@@ -17,24 +35,6 @@ globalThis.process = {
   cwd() {
     return "/";
   },
-};
-
-import fs, { loadStdlib, stdlibRoot } from "./browser-fs/fs";
-import grainc from "./grain/grainc.bc.mjs";
-import constants from "constants-browserify/constants.json";
-import { Buffer } from "buffer";
-import { init, WASI } from "@wasmer/wasi";
-
-globalThis.Buffer = Buffer;
-
-globalThis.require = (name) => {
-  switch (name) {
-    case "fs":
-      return fs;
-    case "constants":
-      return constants;
-  }
-  throw new Error(`Unable to require '${name}'`);
 };
 
 let ogConsoleError = console.error;
@@ -64,7 +64,6 @@ function processStderr() {
 let stdlibLoaded = false;
 
 addEventListener("message", async ({ data }) => {
-  console.log("message!");
   if (!stdlibLoaded) {
     await loadStdlib();
     stdlibLoaded = true;
