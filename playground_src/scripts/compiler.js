@@ -36,6 +36,7 @@ globalThis.process = {
     return "/";
   },
 };
+console.log("process set");
 
 let ogConsoleError = console.error;
 
@@ -76,9 +77,6 @@ addEventListener("message", async ({ data }) => {
 
     fs.writeFileSync("/test.gr", data.content);
     fs.writeFileSync("/test.gr.wasm", "");
-    console.error = function (txt) {
-      // stderr.push(txt);
-    };
     try {
       grainc(globalThis);
 
