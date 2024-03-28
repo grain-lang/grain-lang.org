@@ -53,12 +53,12 @@ async function start() {
       runButton.disabled = false;
 
       if (data?.stderr) {
-        outputPanel.style.backgroundColor = "rgba(255, 0, 0, 0.25)";
+        outputPanel.style.backgroundColor = "#F9DCDE";
         output.innerText = data.stderr;
         return;
       }
 
-      outputPanel.style.backgroundColor = "rgba(0, 255, 0, 0.25)";
+      outputPanel.style.backgroundColor = "#E6EFE6";
       if (data?.stdout) {
         output.innerText = data.stdout;
       } else {
