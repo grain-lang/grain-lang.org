@@ -43,7 +43,7 @@ if (expr) {
 }
 ```
 
-`if`-`else` expressions can be chained together to create more complex branching behavior
+`if`-`else` expressions can be chained together to create more complex branching behavior:
 
 ```grain
 module Main
