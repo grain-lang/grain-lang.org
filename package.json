@@ -40,7 +40,8 @@
     "string_decoder": "^1.3.0",
     "vscode": "npm:@codingame/monaco-vscode-api@1.69.2",
     "vscode-oniguruma": "^1.6.2",
-    "vscode-textmate": "^7.0.1"
+    "vscode-textmate": "^7.0.1",
+    "wasm-feature-detect": "^1.6.1"
   },
   "devDependencies": {
     "express": "^4.17.1",

@@ -3,6 +3,7 @@ import grainc from "./grain/grainc.bc.mjs";
 import constants from "constants-browserify/constants.json";
 import { Buffer } from "buffer";
 import { init, WASI } from "@wasmer/wasi";
+import { tailCall } from "wasm-feature-detect";
 
 globalThis.Buffer = Buffer;
 
@@ -22,7 +23,6 @@ globalThis.process = {
   },
   platform: "posix",
   env: {},
-  argv: ["", "grain", "--stdlib", stdlibRoot, "test.gr"],
   exit(code) {
     throw `Forced exit with code ${code}`;
   },
@@ -61,14 +61,27 @@ function processStderr() {
     .trim();
 }
 
-let stdlibLoaded = false;
-
-addEventListener("message", async ({ data }) => {
-  if (!stdlibLoaded) {
-    await loadStdlib();
-    stdlibLoaded = true;
+async function grainInit() {
+  await loadStdlib();
+  if (await tailCall()) {
+    globalThis.process.argv = ["", "grain", "--stdlib", stdlibRoot, "test.gr"];
+  } else {
+    globalThis.process.argv = [
+      "",
+      "grain",
+      "--no-wasm-tail-call",
+      "--stdlib",
+      stdlibRoot,
+      "test.gr",
+    ];
   }
 
+  postMessage({ initialized: true });
+}
+
+grainInit();
+
+addEventListener("message", async ({ data }) => {
   if (data) {
     // Clear stdout and stderr
     fs.truncateSync(1);
