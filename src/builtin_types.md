@@ -47,7 +47,7 @@ enum Void {
 }
 ```
 
-The type of `void`, Grain's "unit" type.
+The type of `void`, Grain's special type for indicating the absence of a meaningful value i.e. Grain's [unit type](https://en.wikipedia.org/wiki/Unit_type).
 
 ### **Option**
 
@@ -58,7 +58,7 @@ enum Option<a> {
 }
 ```
 
-The type of Grain options (e.g. `Some(1)` or `None`). The `a` is the type of the value. Options are analagous to "nullable" values in some other languages, but are much safer to work with due to the "nullability" being encoded explicitly in the type.
+The type of Grain options (e.g. `Some(1)` or `None`). The `a` is the type of the value. Options are analagous to nullable values in some other languages, but are much safer to work with due to the nullability being encoded explicitly in the type.
 
 ### **Result**
 

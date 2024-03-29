@@ -129,7 +129,7 @@ true || false // true
 
 ### Block expressions
 
-Block expressions allow you to group several expressions together to be executed one after another: to write a block expression simply surround several expressions in curly braces. The block expression as a whole will evaluate to its last expression's value. For example:
+Block expressions allow you to group several expressions together to be executed one after another: to write a block expression surround several expressions with curly braces. The block expression as a whole will evaluate to its last expression's value. For example:
 
 ```grain
 module Main

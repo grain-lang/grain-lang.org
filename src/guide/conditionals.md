@@ -72,7 +72,7 @@ if (expr) {
 }
 ```
 
-An `if` with no `else` clause evaluates to `void`
+An `if` with no `else` clause evaluates to `void`.
 
 #### An aside on `Void`
 

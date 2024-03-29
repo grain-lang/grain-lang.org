@@ -35,18 +35,6 @@ let user = { name, age }
 print(user) // { name: "Klaus Teuber", age: 42 }
 ```
 
-A catch with punning is that in order to pun the field for a record with a single field, you need to use a comma after the field name, to avoid accidentally creating a block expression with a single nested expression.
-
-```grain
-module Main
-
-record Person { name: String }
-
-let name = "Klaus Teuber"
-let personRecord: Person = { name, }
-let personName: String = { name } // Oops, this is just `name` in a block expression!
-```
-
 ### Mutable Record Fields
 
 We've previously created mutable `let` bindings with the `mut` keyword. In a similar fashion, we can also create mutable record fields.
