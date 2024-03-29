@@ -2,7 +2,7 @@
 title: Pattern Matching
 ---
 
-Pattern matching is a powerful tool to work with values. It's like a switch statement in other languages, but with a bit more pizazz. Each case of a `match` statement defines the shape, or pattern, of the data that will match the case.
+Pattern matching is a powerful tool to work with data structures. It's like a switch statement in other languages, but with a bit more pizazz. Each case of a `match` statement defines the shape, or pattern, of the data that will match the case.
 
 ## Matching Enum Types
 

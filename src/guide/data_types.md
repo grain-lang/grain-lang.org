@@ -21,7 +21,7 @@ Record fields are accessed using the dot operator, i.e. `record.field`.
 
 ### Punning
 
-If we create a binding with the same name as our record's fields, we can use a shorthand to create the fields of our record: this is called "punning".
+If we create a binding with the same name as our record's fields, we can use a shorthand to create the fields of our record: this is called **punning**.
 
 ```grain
 module Main
@@ -80,7 +80,7 @@ print(counter) // { count: 1 }
 
 ### Record Spread
 
-Record spread syntax can be used to create a new record value by taking another record value of the same type as a base and overriding some fields. Using the record spread does not mutate the base record.
+Record spread syntax can be used to create a new record value by taking another record value of the same type as a base and overriding some fields. Using the record spread does not mutate the base record but rather creates a shallow copy of it.
 
 ```grain
 module Main

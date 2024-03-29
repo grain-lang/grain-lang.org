@@ -28,25 +28,6 @@ let result = if (expr) "true branch" else "false branch"
 print(result) // true branch
 ```
 
-Now is a great opportunity to introduce block expressions: to write a block expression simply surround several expressions in curly braces. When entering a block, each of the expressions in the block will be executed. The block expression as a whole will evaluate to its last expression's value. For example:
-
-```grain
-module Main
-
-let value = {
-  let n = 123
-  print("In an expression block") // This will be printed
-  n // The block expression will evaluate to the last expression's value
-}
-
-print(value) // 123
-
-// A block expression containing only one expression is also valid
-let a = { 1 }
-let b = 1
-print(a == b) // true
-```
-
 Block expressions are frequently used in combination with `if` expressions in order to execute several expressions together based on a condition, or to improve readability.
 
 ```grain
@@ -59,6 +40,22 @@ if (expr) {
 } else {
   print("false branch")
   print("with block expressions")
+}
+```
+
+`if`-`else` expressions can be chained together to create more complex branching behavior
+
+```grain
+module Main
+
+let expr = false
+let otherExpr = true
+if (expr) {
+  print("First branch")
+} else if (otherExpr) {
+  print("Second branch") // This will be printed
+} else {
+  print("Third branch")
 }
 ```
 
@@ -89,6 +86,6 @@ let printValue: Void = print("Print")
 
 let ifValue: Void = if (true) print("If")
 
-print(printValue == void) // true
-print(ifValue == void) // true
+assert printValue == void
+assert ifValue == void
 ```

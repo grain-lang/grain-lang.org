@@ -24,7 +24,7 @@ module Main
 let add = (x: Number, y: Number) => x + y
 ```
 
-Real-world functions are usually more complex than a simple expression, so using block expressions is often desirable.
+Real-world functions are usually more complex than a simple expression, so using block expressions is often desirable. In this case, the function will effectively return the last expression in the block.
 
 ```grain
 module Main

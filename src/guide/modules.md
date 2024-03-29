@@ -83,7 +83,7 @@ module Main
 
 from "list" include List
 
-List.length([1, 2, 3])
+assert List.length([1, 2, 3]) == 3
 ```
 
 The name in quotes, `"list"`, is the path to the module. Grain knows how to find all of the modules in the standard library, so we can just say `"list"` without having to determine where the standard library files exist on our computer.
@@ -97,12 +97,12 @@ module Main
 
 from "list" include List as Stdlist
 
-Stdlist.length([1, 2, 3]) // 3
+assert Stdlist.length([1, 2, 3]) == 3
 ```
 
 ### Bring Values from a Module into Scope
 
-Individual items in a module can be brought into scope by using the `use` keyword, placing the desired items in curly braces. Similar to with the `provide { ... }` syntax, we need to prefix types with `type` and modules with `module`
+Individual items in a module can be brought into scope with the `use` keyword and placing the desired items in curly braces. Similar to with the `provide { ... }` syntax, we need to prefix types with `type` and modules with `module`. `as` can also be used to change the name an item from the target module is brought into scope as
 
 ```grain
 module Main
@@ -110,14 +110,16 @@ module Main
 from "array" include Array
 
 use Array.{ length, module Immutable }
+use Array.Immutable.{ length as immArrLength }
 
-length([> 1, 2, 3])
+assert length([> 1, 2, 3]) == 3
 let imm = Immutable.fromList([1, 2, 3])
+assert Immutable.length(imm) == immArrLength(imm)
 ```
 
 #### Bringing All Values into Scope
 
-If we want to bring all of the values from another module into scope in our program, we can use an asterisk.
+If we want to bring all of the contents of another module into scope in our program, we can use an asterisk.
 
 ```grain
 module Main
@@ -126,6 +128,6 @@ from "list" include List
 
 use List.*
 
-length([1, 2, 3]) // 3
-reverse([1, 2, 3]) // [3, 2, 1]
+assert length([1, 2, 3]) == 3
+assert reverse([1, 2, 3]) == [3, 2, 1]
 ```
