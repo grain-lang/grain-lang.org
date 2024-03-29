@@ -23,7 +23,7 @@ Grain uses type inference to automatically determine the type of values througho
 module Main
 
 let someNumber: Number = 42
-let someBoolean: Boolean = true
+let someBoolean: Bool = true
 let someString: String = "Welcome to Grain!" and someChar: Char = 'A'
 ```
 
@@ -125,4 +125,25 @@ module Main
 true && false // false
 true || false // true
 !true // false
+```
+
+### Block expressions
+
+Block expressions allow you to group several expressions together to be executed one after another: to write a block expression surround several expressions with curly braces. The block expression as a whole will evaluate to its last expression's value. For example:
+
+```grain
+module Main
+
+let value = {
+  let n = 123
+  print("In an expression block") // This will be printed
+  n // The block expression will evaluate to the last expression's value
+}
+
+print(value) // 123
+
+// A block expression containing only one expression is also valid
+let a = { 1 }
+let b = 1
+assert a == b
 ```

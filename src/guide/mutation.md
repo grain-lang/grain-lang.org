@@ -108,7 +108,7 @@ print(tuple) // (1, box(2))
 
 let (_, secondValue) = tuple
 secondValue := 3
-print(tuple) // (1, box(2))
+print(tuple) // (1, box(3))
 ```
 
 ```grain
