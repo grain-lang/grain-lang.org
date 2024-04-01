@@ -3,7 +3,7 @@ import grainc from "./grain/grainc.bc.mjs";
 import constants from "constants-browserify/constants.json";
 import { Buffer } from "buffer";
 import { init, WASI } from "@wasmer/wasi";
-import { tailCall } from "wasm-feature-detect";
+import { tailCall, bulkMemory } from "wasm-feature-detect";
 
 globalThis.Buffer = Buffer;
 
@@ -63,18 +63,10 @@ function processStderr() {
 
 async function grainInit() {
   await loadStdlib();
-  if (await tailCall()) {
-    globalThis.process.argv = ["", "grain", "--stdlib", stdlibRoot, "test.gr"];
-  } else {
-    globalThis.process.argv = [
-      "",
-      "grain",
-      "--no-wasm-tail-call",
-      "--stdlib",
-      stdlibRoot,
-      "test.gr",
-    ];
-  }
+  const args = ["", "grain", "test.gr", "--stdlib", stdlibRoot]
+  if (!(await tailCall())) args.push("--no-wasm-tail-call");
+  if (!(await bulkMemory())) args.push("--no-bulk-memory");
+  globalThis.process.argv = args;
 
   postMessage({ initialized: true });
 }
