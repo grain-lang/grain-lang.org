@@ -86,42 +86,6 @@ curl -LO https://github.com/grain-lang/grain/releases/download/preview/grain-win
 
 You'll either want to put it into your path or keep it inside your project and invoke with `.\grain-win-x64.exe`.
 
-## Previews
-
-We also provide Preview binaries for developers that want to live on the bleeding edge.
-
-**Note:** These are built on almost every commit to our main branch, so they should be considered unstable and the website documentation likely won't match up! Using these binaries successfully requires following the development of Grain closely and/or reviewing our [rolling changelog](https://github.com/grain-lang/grain/pulls?q=is%3Aopen+is%3Apr+label%3A%22autorelease%3A+pending%22).
-
-### MacOS x64 - Preview
-
-You can [download it](https://github.com/grain-lang/grain/releases/download/preview/grain-mac-x64) directly from GitHub or using `curl`.
-
-```sh
-sudo curl -L --output /usr/local/bin/grain \
-https://github.com/grain-lang/grain/releases/download/preview/grain-mac-x64 \
-&& sudo chmod +x /usr/local/bin/grain
-```
-
-### Linux x64 - Preview
-
-You can [download it](https://github.com/grain-lang/grain/releases/download/preview/grain-linux-x64) directly from GitHub or using `curl`.
-
-```sh
-sudo curl -L --output /usr/local/bin/grain \
-https://github.com/grain-lang/grain/releases/download/preview/grain-linux-x64 \
-&& sudo chmod +x /usr/local/bin/grain
-```
-
-### Windows x64 - Preview
-
-You can [download it](https://github.com/grain-lang/grain/releases/download/preview/grain-win-x64.exe) directly from GitHub or using `curl`.
-
-```batch
-curl -LO https://github.com/grain-lang/grain/releases/download/preview/grain-win-x64.exe
-```
-
-You'll either want to put it into your path or keep it inside your project and invoke with `.\grain-win-x64.exe`.
-
 ## Community
 
 These installation methods are maintained by the community—they're not supplied by the Grain team, but you may find them to be useful alternatives to the official distributions.
