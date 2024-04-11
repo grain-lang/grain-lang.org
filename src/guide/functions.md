@@ -185,7 +185,7 @@ let printWithDefaults = (first="First", middle, last="Last") => {
 }
 
 printWithDefaults("Middle") // "First, Middle, and Last"
-printWithDefaults(x="A", z="C", "B") // "A, B, and C"
+printWithDefaults(first="A", last="C", "B") // "A, B, and C"
 ```
 
 ## Closures
