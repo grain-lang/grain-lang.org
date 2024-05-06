@@ -1,0 +1,65 @@
+---
+import IconLinks from "./IconLinks.astro";
+import NavLinks from "./NavLinks.astro";
+import Search from "./Search.astro";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import grainLogo from "../images/grain-logo.svg";
+import grainLogoDark from "../images/grain-logo-dark.svg";
+---
+
+<script is:inline>
+  let isSidebarOpen = false;
+  document.getElementById("sidebar-open").addEventListener("click", () => {
+    isSidebarOpen = !isSidebarOpen;
+    if (isSidebarOpen) {
+      document.getElementById("sidebar-links").classList.add("translate-x-0");
+      document.getElementById("sidebar-links").classList.remove("translate-x-full");
+    } else {
+      document.getElementById("sidebar-links").classList.remove("translate-x-0");
+      document.getElementById("sidebar-links").classList.add("translate-x-full");
+    }
+  })
+</script>
+
+<nav class="shadow-sm dark:shadow-purple-80 bg-white dark:bg-purple-90 relative z-40 sticky top-0">
+  <div class="container mx-auto h-14 px-4 py-2 flex items-center text-sm text-gray-60 dark:text-gray-30">
+    <a href="/">
+      <Image
+        src={grainLogo}
+        width={84}
+        height={26}
+        alt="The Grain logo, consisting of a single blood-orange wheat flower with three points followed the word 'Grain'."
+        class="dark:hidden mr-2"
+      />
+      <Image
+        src={grainLogoDark}
+        width={84}
+        height={26}
+        alt="The Grain logo, consisting of a single blood-orange wheat flower with three points followed the word 'Grain'."
+        class="hidden dark:block mr-2"
+      />
+    </a>
+    <div class="hidden lg:block mx-auto">
+      <NavLinks />
+    </div>
+    <Search />
+    <div class="hidden lg:flex">
+      <IconLinks />
+    </div>
+    <div
+      id="sidebar-links"
+      class="flex lg:hidden flex-col w-72 h-[calc(100vh-3.5rem)] fixed top-14 right-0 p-3 bg-gray-5 dark:bg-purple-90 shadow transition-transform"
+    >
+      <NavLinks />
+      <IconLinks />
+    </div>
+    <a
+      id="sidebar-open"
+      class="lg:hidden"
+      role="button"
+    >
+      <Icon name="bars" class="w-6 h-6 text-gray-40 dark:text-gray-60 ml-4" />
+    </a>
+  </div>
+</nav>

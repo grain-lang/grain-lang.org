@@ -1,0 +1,52 @@
+---
+import CommunityInfoFact from "./CommunityInfoFact.astro";
+import ButtonLink from "./ButtonLink.astro";
+import codeIcon from "../images/code-icon.svg";
+import peopleIcon from "../images/people-icon.svg";
+import passionIcon from "../images/passion.svg";
+---
+
+<section>
+  <div class="lg:flex-row container mx-auto px-4">
+    <div class="mx-auto text-center w-1/2">
+      <h1 class="font-bold text-6xl mb-4 leading-tight">Behind the Scenes with the Grain Core Team</h1>
+      <p class="text-lg">The high-level programming language for WebAssembly</p>
+    </div>
+    <div class="flex gap-28 lg:my-32">
+      <CommunityInfoFact
+        iconSrc={codeIcon}
+        iconAlt="Code block."
+      >
+        We are passionate about WebAssembly, programming languages, and
+        developer experience. Each member of the Grain core team relies
+        on full-time work outside of Grain.
+      </CommunityInfoFact>
+
+      <CommunityInfoFact
+        iconSrc={peopleIcon}
+        iconAlt="People."
+      >
+        Grain's growth is organic. (What? We appreciate a good pun.) Core
+        team members initially met as classmates and colleagues or found
+        each other through the project.
+      </CommunityInfoFact>
+
+      <CommunityInfoFact
+        iconSrc={passionIcon}
+        iconAlt="A hand holding a heart."
+      >
+        Grain is an open-source passion project. We do this because we love
+        it, and feel strongly that WebAssembly deserves an easy-to-use
+        high-level language
+      </CommunityInfoFact>
+    </div>
+    <div class="text-center w-3/4 mx-auto lg:mb-32">
+      <h2 class="font-medium text-4xl leading-tight mb-12">
+        We each have unique skills that we bring to the table. Together, with
+        our volunteer contributors, we have accomplished more than we ever
+        expected.
+      </h2>
+      <ButtonLink class="mx-auto" href="https://discord.com/invite/grain-lang">Let's Hang Out</ButtonLink>
+    </div>
+  </div>
+</section>

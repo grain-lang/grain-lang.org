@@ -1,0 +1,36 @@
+---
+// import ThemeToggle from "./ThemeToggle.astro";
+import ThemeToggle from "./ThemeToggle.svelte";
+import DiscordIcon from "./icons/DiscordIcon.astro";
+import GithubIcon from "./icons/GithubIcon.astro";
+import TwitterIcon from "./icons/TwitterIcon.astro";
+---
+
+<div class="flex space-x-4 lg:space-x-3 mt-4 lg:mt-0 lg:ml-8">
+  <a
+    class="my-auto"
+    href="https://discord.com/invite/grain-lang"
+    target="_blank"
+  >
+    <DiscordIcon class="fill-gray-30 hover:fill-gray-40 h-6 lg:h-4 dark:fill-gray-50 dark:hover:fill-gray-40" />
+  </a>
+  <a
+    class="my-auto"
+    href="https://twitter.com/grain_lang"
+    target="_blank"
+  >
+    <TwitterIcon class="fill-gray-30 hover:fill-gray-40 h-6 lg:h-4 dark:fill-gray-50 dark:hover:fill-gray-40" />
+  </a>
+  <a
+    class="my-auto"
+    href="https://github.com/grain-lang/grain"
+    target="_blank"
+  >
+    <GithubIcon class="fill-gray-30 hover:fill-gray-40 h-6 lg:h-[17px] dark:fill-gray-50 dark:hover:fill-gray-40" />
+  </a>
+  <div class="h-8 border-r border-r-gray-20 dark:border-r-gray-50 my-auto" />
+
+  <div class="my-auto relative">
+    <ThemeToggle client:load />
+  </div>
+</div>

@@ -1,0 +1,41 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import BlogAuthor from './BlogAuthor.astro';
+
+interface Props {
+  entry: CollectionEntry<'blog'>;
+}
+
+const { entry } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/cover/*.jpg');
+if (!images[entry.data.cover]) {
+  throw new Error(`Image ${entry.data.cover} not found for blog`);
+}
+---
+
+<div class="flex flex-col drop-shadow-sm border rounded-lg border-gray-10">
+  <a href={`/blog/${entry.slug}`}>
+    <Image
+      src={images[entry.data.cover]()}
+      alt={entry.data.coverAttribution ?? `${entry.data.title} thumbnail`}
+      class="w-full h-[12rem] object-cover"
+    />
+    <div class="bg-white p-6">
+      <h2 class="text-lg font-semibold mb-2">{entry.data.title}</h2>
+      <p>{entry.data.subtitle}</p>
+    </div>
+  </a>
+  <div class="mt-auto flex justify-between p-6 items-center">
+    <BlogAuthor entry={entry} imgClass="w-10 h-10" />
+
+    <div class="flex flex-wrap gap-2 justify-end">
+      {entry.data.tags?.map(t => (
+        <span class="text-white text-xs uppercase rounded-full bg-black py-1 px-3">
+          {t}
+        </span>
+      ))}
+    </div>
+  </div>
+</div>

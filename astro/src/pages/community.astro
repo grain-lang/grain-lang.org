@@ -1,0 +1,15 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CommunityInfo from '../components/CommunityInfo.astro';
+import CoreTeam from '../components/CoreTeam.astro';
+---
+
+<Layout title="Grain Community">
+  <div class="dark:hidden absolute -top-[34rem] lg:-left-20 bg-purple-20 w-[30rem] h-[46rem] rounded-full -rotate-[150deg] blur-3xl" />
+  <div class="dark:hidden absolute -top-40 lg:left-[10rem] bg-purple-40 w-[28rem] h-60 rounded-full -rotate-[170deg] blur-3xl" />
+  <div class="dark:hidden absolute -top-60 lg:left-[36rem] bg-[#FFF0C8] w-72 h-96 rounded-full -rotate-[150deg] blur-3xl" />
+	<div class="px-28 my-40">
+		<CommunityInfo />
+		<CoreTeam />
+	</div>
+</Layout>

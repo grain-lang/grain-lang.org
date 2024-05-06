@@ -1,0 +1,43 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import BlogAuthor from './BlogAuthor.astro';
+import ChevronRightIcon from './icons/ChevronRightIcon.astro';
+
+interface Props {
+  entry: CollectionEntry<'blog'>;
+}
+
+const { entry } = Astro.props;
+---
+
+<div class="mx-auto max-w-[70rem] pb-28">
+  <div class="my-10 flex justify-between text-orange-50">
+    <div class="text-xl font-semibold">The Grain Blog</div>
+    <div>
+      Find us also on
+      <a href="https://twitter.com/grain_lang" class="underline">Twitter</a>
+      and
+      <a href="https://discord.com/invite/grain-lang" class="underline">Discord</a>
+    </div>
+  </div>
+  <div class="flex items-center bg-white rounded p-4 drop-shadow-xl">
+    <div class="p-10 w-1/2">
+      <h1 class="text-2xl font-bold mb-4">{entry.data.title}</h1>
+      <BlogAuthor entry={entry} imgClass="w-12 h-12" nameClass="text-lg" />
+      <p class="my-4">{entry.data.subtitle}</p>
+      <p class="my-4 text-gray-60">{entry.body.substring(0, 300)}...</p>
+      <a href={`/blog/${entry.slug}`} class="font-medium text-purple-50 hover:text-purple-70">
+        Read more
+        <ChevronRightIcon class="inline-block w-4 mb-0.5" />
+      </a>
+    </div>
+    <Image
+      src={entry.data.cover}
+      alt={entry.data.coverAttribution ?? `${entry.data.title} cover image`}
+      width={100}
+      height={100}
+      class="h-full w-1/2 object-cover"
+    />
+  </div>
+</div>

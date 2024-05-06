@@ -1,0 +1,71 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  profileImage: ImageMetadata;
+  name: string;
+  title: string;
+  role: string;
+}
+
+const { profileImage, name, title, role } = Astro.props;
+---
+
+<script>
+  document.querySelectorAll("[data-desc='headshot']").forEach(e => {
+    const info = e.querySelector("[data-desc='info']")!;
+    const img = e.querySelector("img")!;
+    const colorEllipses = e.parentNode?.querySelectorAll("[data-desc='color-ellipsis']")!;
+
+    e.addEventListener("click", () => {
+      info.classList.toggle("invisible");
+      img.classList.toggle("grayscale-[50%]");
+      img.classList.toggle("scale-105");
+      colorEllipses.forEach(el => el.classList.toggle("opacity-0"));
+    })
+  });
+</script>
+
+<div class="relative">
+  <div data-desc="headshot" class="peer relative w-[20rem] h-[26rem] rounded-2xl overflow-hidden hover:cursor-pointer">
+    <Image
+      src={profileImage}
+      alt=`A picture of ${name}`
+      class="h-full object-cover hover:scale-105 grayscale hover:grayscale-[25%] transition duration-300"
+    />
+    <div class="font-light absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black rounded-xl w-[19rem] h-[25rem] text-white p-2 invisible" data-desc="info">
+      <div class="flex flex-col gap-4 overflow-auto h-full p-3">
+        <slot />
+      </div>
+    </div>
+  </div>
+
+  <div class="-z-10 transition duration-300 opacity-0 peer-hover:opacity-100 dark:hidden absolute -top-10 -right-[11rem] lg:left-24 bg-purple-40 w-36 h-[26rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
+  <div class="-z-10 transition duration-300 opacity-0 peer-hover:opacity-100 dark:hidden absolute top-10 -right-[11rem] lg:left-0 bg-[#A2DDEF] w-36 h-[26rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
+  <div class="-z-10 transition duration-300 opacity-0 peer-hover:opacity-100 dark:hidden absolute top-20 -right-[11rem] lg:left-44 bg-[#FFE6A6] w-36 h-[26rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
+
+  <div class="px-2 mt-4">
+    <h2 class="text-2xl font-bold mb-2">{name}</h2>
+    <h3 class="text-lg">{title}</h3>
+    <h3 class="text-lg text-gray-50">{role}</h3>
+  </div>
+</div>
+
+<!-- <div class="bg-gray-10 p-10 rounded-3xl">
+  <div class="flex gap-8 items-center mb-6">
+    <Image
+      src={profileImage}
+      alt=`A picture of ${name}`
+      width={160}
+      class="rounded-full"
+    />
+    <div>
+      <h2 class="text-3xl font-bold my-1">{name}</h2>
+      <h3 class="text-lg">{title}</h3>
+      <h3 class="text-lg">{role}</h3>
+    </div>
+  </div>
+  <div class="flex flex-col gap-3 text-gray-80">
+    <slot />
+  </div>
+</div> -->

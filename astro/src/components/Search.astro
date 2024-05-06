@@ -1,0 +1,27 @@
+---
+import SearchIcon from "./icons/SearchIcon.astro";
+---
+
+<div class="h-10 grow lg:grow-0">
+  <a
+    class="flex items-center w-full lg:w-auto h-full px-4 text-sm text-gray-50 bg-gray-10 dark:bg-purple-100 rounded border border-gray-20 dark:border-purple-80 hover:border-gray-30 dark:hover:border-purple-70"
+    role="button"
+  >
+    <SearchIcon class="w-4 h-4 mr-3 stroke-gray-50" />
+    <span class="mr-8">Search docs...</span>
+    <span id="action-key" class="hidden md:inline-block text-gray-50 text-xs font-medium ml-auto"></span>
+  </a>
+</div>
+
+<script>
+  const ACTION_KEY_DEFAULT = "Ctrl+";
+  const ACTION_KEY_APPLE = "⌘";
+
+  if (typeof navigator !== "undefined") {
+    const actionKey = /(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent)
+      ? ACTION_KEY_APPLE
+      : ACTION_KEY_DEFAULT;
+
+    document.getElementById("action-key")!.innerHTML = actionKey + "K";
+  }
+</script>

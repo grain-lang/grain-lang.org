@@ -1,0 +1,51 @@
+---
+import Chip from "./Chip.astro";
+import ButtonLink from "./ButtonLink.astro";
+import ExternalIcon from "./icons/ExternalIcon.astro";
+import CodeExamples from "./CodeExamples.astro";
+---
+
+<section class="relative overflow-hidden">
+  <!-- <div class="dark:hidden absolute -top-8 -right-[21rem] lg:right-[27%] bg-purple-40 w-72 h-96 rounded-full -rotate-[60deg] blur-3xl" />
+  <div class="dark:hidden absolute top-40 -right-[21rem] lg:right-[27%] bg-[#FFF0C8] w-72 h-96 rounded-full -rotate-[60deg] blur-3xl" />
+  <div class="dark:hidden absolute top-96 -right-[21rem] lg:right-[27%] bg-purple-20 w-72 h-96 rounded-full -rotate-[60deg] blur-3xl" /> -->
+  <div class="lg:bg-gradient-to-r from-transparent from-60% to-purple-100 to-60%">
+    <div class="flex flex-col lg:items-stretch lg:flex-row container mx-auto px-4">
+      <div class="relative lg:w-3/5 py-32">
+        <a href="#">
+          <Chip>
+            <span class="font-medium mr-1">New release!</span> Grain
+            v0.6 - Emmer
+            <ExternalIcon class="text-gray-60 w-3 h-3 ml-1.5" />
+          </Chip>
+        </a>
+        <h1 class="text-5xl lg:text-6xl max-w-[42rem] font-semibold text-gray-90 dark:text-purple-10 leading-[1.125] mt-6">
+          An effortless programming language for WebAssembly
+        </h1>
+        <p class="w-fit max-w-[32rem] text-gray-60 dark:text-gray-variant-50 text-lg mt-6 mb-12 w-7/12">
+          Designed to be a practical functional language, Grain makes
+          WebAssembly simple for the world's developers solving everyday
+          problems.
+        </p>
+        <ButtonLink href="/docs">
+          Get started
+        </ButtonLink>
+        <!-- <div class="absolute hidden lg:block top-0 right-0 bg-purple-80 w-20 h-full [clip-path:polygon(0%_100%,101%_0%,101%_100%)]" />
+        <div class="absolute hidden lg:block top-0 right-0 bg-purple-90 w-10 h-full [clip-path:polygon(0%_100%,101%_0%,101%_100%)]" /> -->
+      </div>
+      <!-- <div class="lg:w-2/5 h-96 lg:h-auto bg-purple-100 z-10 p-8">
+      </div> -->
+    </div>
+  </div>
+    <div class="absolute z-30 right-0 top-0 w-2/5 lg:h-full bg-purple-100 z-10">
+      <div class="-z-10 dark:hidden absolute -top-8 -right-[21rem] lg:-left-6 bg-purple-40 w-72 h-96 rounded-full -rotate-[60deg] blur-3xl" />
+      <div class="-z-10 dark:hidden absolute top-40 -right-[21rem] lg:-left-10 bg-[#FFF0C8] w-72 h-96 rounded-full -rotate-[60deg] blur-3xl" />
+      <div class="-z-10 dark:hidden absolute top-96 -right-[21rem] lg:-left-14 bg-purple-20 w-72 h-96 rounded-full -rotate-[60deg] blur-3xl" />
+
+      <div class="absolute hidden lg:block top-0 right-full bg-purple-80 w-20 h-full [clip-path:polygon(0%_100%,101%_0%,101%_100%)]" />
+      <div class="absolute hidden lg:block top-0 right-full bg-purple-90 w-10 h-full [clip-path:polygon(0%_100%,101%_0%,101%_100%)]" />
+      <div class="w-full h-full bg-purple-100 p-10">
+        <CodeExamples />
+      </div>
+    </div>
+</section>

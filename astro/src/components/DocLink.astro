@@ -1,0 +1,14 @@
+---
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+
+const href = `/docs/${slug}`;
+const isCurrentPage = new URL(Astro.request.url).pathname === href;
+---
+
+<a href={href} class={`block -ml-[2px] my-1 text-lg hover:text-orange-50 border-l-2 border-gray-20 pl-3 ${isCurrentPage ? "text-orange-50 border-l-2 border-orange-50 font-medium" : "hover:border-orange-10"}`}>
+  <slot />
+</a>

@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import BlogHero from '../components/BlogHero.astro';
+import BlogEntries from '../components/BlogEntries.astro';
+import Subscribe from '../components/Subscribe.astro';
+
+const blogEntries = await getCollection('blog');
+blogEntries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+---
+
+<Layout title="Grain Blog">
+	<BlogHero entry={blogEntries[0]} />
+	<BlogEntries entries={blogEntries.slice(1)} />
+	<Subscribe />
+</Layout>

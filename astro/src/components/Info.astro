@@ -1,0 +1,72 @@
+---
+import { Image } from "astro:assets";
+import easyImg from "../images/easy-tag.svg";
+import pragmaticImg from "../images/pragmatic.svg";
+import developerFirstImg from "../images/developer-first.svg";
+import reliableImg from "../images/reliable.svg";
+import InfoDetails from "./InfoDetails.astro";
+---
+
+<section class="relative overflow-hidden">
+  <div class="flex flex-col lg:items-stretch lg:flex-row container mx-auto px-4">
+    <div class="relative lg:w-1/2 py-32">
+      <h3 class="text-1xl lg:text-2xl font-semibold text-purple-50 dark:text-purple-10">Why use Grain?</h3>
+      <h1 class="text-3xl lg:text-4xl max-w-[42rem] font-semibold text-gray-90 dark:text-purple-10 leading-[1.125] mt-6">
+        A modern web staple for today's developer
+      </h1>
+      <p class="w-fit max-w-[32rem] text-gray-60 dark:text-gray-variant-50 text-lg mt-6 mb-12 w-7/12">
+        Grain is an easy-to-use, high-level programming language specifically
+        created for WebAssembly. Designed to be a practical functional language,
+        Grain makes WebAssembly simple for the world's developers solving
+        everyday problems.
+      </p>
+    </div>
+    <div class="lg:w-1/2 h-96 lg:h-auto z-10 my-auto">
+      <div class="grid grid-cols-2 gap-12">
+        <div>
+          <InfoDetails
+            imgSrc={easyImg}
+            imgAlt="A tag saying 'easy'."
+            header="Easy to use, easy to learn"
+          >
+            Grain is a blend of recognizable and exceptional features. With
+            its familiar syntax and straightforward semantics, picking up Grain
+            is fast and intuitive.
+          </InfoDetails>
+        </div>
+        <div>
+          <InfoDetails
+            imgSrc={pragmaticImg}
+            imgAlt="Two overlapping diamonds."
+            header="Pragmatic"
+          >
+            Grain has its roots in functional programming, but borrows some
+            handy features from imperative languages—think loops and mutable
+            variables.
+          </InfoDetails>
+        </div>
+        <div>
+          <InfoDetails
+            imgSrc={developerFirstImg}
+            imgAlt="A terminal window."
+            header="Developer-first"
+          >
+            Between Grain's standard library, code editor integrations, and
+            other developer tools, Grain makes you more productive.
+          </InfoDetails>
+        </div>
+        <div>
+          <InfoDetails
+            imgSrc={reliableImg}
+            imgAlt="A shield covering a cog."
+            header="Reliable"
+          >
+            No runtime type errors, ever. Every bit of Grain you write is
+            thoroughly sifted for type errors. Type annotations optional - not
+            required.
+          </InfoDetails>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

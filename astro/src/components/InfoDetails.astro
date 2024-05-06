@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  imgSrc: ImageMetadata;
+  imgAlt: string;
+  header: string;
+}
+
+const { imgSrc, imgAlt, header } = Astro.props;
+---
+
+<div>
+  <div class="h-10">
+    <Image
+      src={imgSrc}
+      height={40}
+      alt={imgAlt}
+      class="dark:hidden mr-2"
+    />
+  </div>
+  <h3 class="font-semibold text-lg my-1.5">{header}</h3>
+  <p>
+    <slot />
+  </p>
+</div>

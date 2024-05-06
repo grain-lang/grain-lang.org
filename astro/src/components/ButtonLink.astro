@@ -1,0 +1,15 @@
+---
+import ChevronRightIcon from "./icons/ChevronRightIcon.astro";
+
+interface Props {
+  href: string;
+  class: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a href={href} class=`flex w-fit items-center rounded h-12 px-5 py-3 bg-gray-90 dark:bg-gray-variant-70 text-white text-sm ${Astro.props.class}`>
+  <slot />
+  <ChevronRightIcon class="h-3.5 text-white ml-1.5" />
+</a>

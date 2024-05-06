@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  iconSrc: ImageMetadata;
+  iconAlt: string;
+}
+
+const { iconSrc, iconAlt } = Astro.props;
+---
+
+<div class="mx-auto text-center">
+  <Image
+    src={iconSrc}
+    alt={iconAlt}
+    width={40}
+    class="mx-auto mb-6"
+  />
+  <p class="text-gray-60 dark:text-gray-40">
+    <slot />
+  </p>
+</div>

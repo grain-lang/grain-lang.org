@@ -1,0 +1,37 @@
+---
+interface Props {
+  class?: string;
+}
+---
+
+<div class={`
+  prose dark:prose-invert
+  prose-lg max-w-none
+  
+  prose-a:text-orange-50 prose-a:font-normal
+  prose-a:-mt-[160px] prose-a:pt-[160px]
+
+  [&:not([data-block=true])]:prose-code:py-0.5 [&:not([data-block=true])]:prose-code:px-1
+  [&:not([data-block=true])]:prose-code:bg-gray-10 dark:[&:not([data-block=true])]:prose-code:bg-gray-variant-80
+  [&:not([data-block=true])]:prose-code:border [&:not([data-block=true])]:prose-code:rounded [&:not([data-block=true])]:prose-code:border-gray dark:[&:not([data-block=true])]:prose-code:border-none
+  [&:not([data-block=true])]:before:prose-code:content-none [&:not([data-block=true])]:after:prose-code:content-none
+
+  prose-ol:list-none prose-ol:[counter-reset:item] prose-li:[counter-increment:item]
+
+  before:prose-li:[content:counter(item)] before:prose-li:mr-4
+  before:prose-li:bg-gray-20 before:prose-li:text-gray-50
+  before:prose-li:rounded-full
+  before:prose-li:w-8 before:prose-li:h-8
+  before:prose-li:inline-block before:prose-li:text-center
+  
+  prose-td:p-2
+  prose-td:border-none
+  prose-tr:rounded
+  prose-tr:border-none
+  last:prose-tr:border-solid last:prose-tr:border last:prose-tr:border-black last:prose-tr:rounded
+
+  ${Astro.props.class ?? ""}
+  `}
+>
+  <slot />
+</div>

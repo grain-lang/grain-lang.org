@@ -1,0 +1,63 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import TypographyContainer from './TypographyContainer.astro';
+import ArrowLeft from './icons/ArrowLeft.astro';
+import TwitterIcon from "./icons/TwitterIcon.astro";
+import GithubIcon from "./icons/GithubIcon.astro";
+import type { BlogAuthor } from '../types';
+import { Image } from 'astro:assets';
+
+const socialMediaHandles: Record<BlogAuthor, { twitter: string; github: string; }> = {
+  'Oscar Spencer': { twitter: "oscar_spen", github: "ospencer" },
+  'Philip Blair': { twitter: "Philip_E_Blair", github: "peblair" },
+  'Blaine Bublitz': { twitter: "BlaineBublitz", github: "phated" },
+  'Marcus Roberts': { twitter: "marcusr", github: "marcusroberts" },
+};
+
+interface Props {
+  entry: CollectionEntry<'blog'>;
+}
+
+const { entry } = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/cover/*.jpg');
+if (!images[entry.data.cover]) {
+  throw new Error(`Image ${entry.data.cover} not found for blog`);
+}
+---
+
+<div class="w-[44rem] mx-auto py-8">
+  <a href="/blog" class="flex gap-6 font-semibold">
+    <ArrowLeft class="w-6" />
+    Back to Blog
+  </a>
+  <h1 class="text-4xl font-bold pt-14">{entry.data.title}</h1>
+  <h2 class="pb-8 pt-4 text-xl">
+    {entry.data.subtitle}
+  </h2>
+  <div class="flex gap-20">
+    <div>
+      <p class="uppercase text-xs font-semibold">Published</p>
+      <p>{entry.data.date.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}</p>
+    </div>
+    <div>
+      <p class="uppercase text-xs font-semibold">Author</p>
+      <div class="flex gap-2 items-center">
+        {entry.data.author}
+        <a href={`https://twitter.com/${socialMediaHandles[entry.data.author as BlogAuthor].twitter}`}><TwitterIcon class="w-4" /></a>
+        <a href={`https://github.com/${socialMediaHandles[entry.data.author as BlogAuthor].github}`}><GithubIcon class="w-4" /></a>
+      </div>
+    </div>
+  </div>
+  <figure class="py-10">
+    <Image
+      src={images[entry.data.cover]()}
+      alt={entry.data.coverAttribution}
+      class="max-h-[26rem] w-full object-cover"
+    />
+    <figcaption class="pt-2 text-sm text-gray-50">Photo: {entry.data.coverAttribution}</figcaption>
+  </figure>
+  <TypographyContainer>
+    <slot />
+  </TypographyContainer>
+</div>

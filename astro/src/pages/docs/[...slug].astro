@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import DocsEntry from '../../components/DocsEntry.astro';
+
+export async function getStaticPaths() {
+  const docsEntries = await getCollection('docs');
+  return docsEntries.map((entry, i) => ({
+    params: { slug: entry.slug },
+    props: {
+      entry,
+      prev: docsEntries[i - 1],
+      next: docsEntries[i + 1]
+    },
+  }));
+}
+
+const { entry, prev, next } = Astro.props;
+const { Content, headings } = await entry.render();
+---
+
+<Layout title={`Grain Docs | ${entry.data.title}`}>
+	<DocsEntry data={entry.data} headings={headings} prev={prev} next={next}>
+		<Content />
+  </DocsEntry>
+</Layout>

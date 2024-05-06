@@ -1,0 +1,59 @@
+---
+import { getCollection } from "astro:content"
+import TableOfContents from "./TableOfContents.astro";
+import type { MarkdownHeading } from "astro";
+import DocLinkGroup from "./DocLinkGroup.astro";
+import type { CollectionEntry } from "astro:content";
+import DocsSwitchPageLink from "./DocsSwitchPageLink.astro";
+import TypographyContainer from "./TypographyContainer.astro";
+import NewsletterSignup from "./NewsletterSignup.astro";
+
+const introEntries = await getCollection("docs", x => x.id.startsWith("intro/"));
+const guideEntries = await getCollection("docs", x => x.id.startsWith("guide/"));
+const stdlibEntries = await getCollection("docs", x => x.id.startsWith("stdlib/"));
+const toolingEntries = await getCollection("docs", x => x.id.startsWith("tooling/"));
+
+const sidebarWidth = "2xl:w-[calc(1536px/5)]";
+const sidebarPadding = "calc(50%-calc(1536px/2))";
+
+interface Props {
+  data: { title?: string | undefined };
+  headings: MarkdownHeading[];
+  prev: CollectionEntry<'docs'> | undefined;
+  next: CollectionEntry<'docs'> | undefined;
+}
+
+const { data, headings, prev, next } = Astro.props;
+---
+
+<div class="container mx-auto pt-14">
+  <div class="flex">
+    <div class=`${sidebarWidth} fixed overflow-auto left-[${sidebarPadding}] top-[3.5rem] h-[calc(100vh-3.5rem)] py-14`>
+      <h1 class="text-2xl font-semibold">Grain Docs</h1>
+
+      <DocLinkGroup title="Intro" entries={introEntries} />
+      <DocLinkGroup title="The Guide" entries={guideEntries} />
+      <DocLinkGroup title="Tooling" entries={toolingEntries} />
+      <DocLinkGroup title="Standard Library" entries={stdlibEntries} />
+    </div>
+
+    <article class="w-3/5 mx-auto px-20">
+      <div><span class="text-orange-10">Grain Docs&nbsp;&nbsp;/&nbsp;&nbsp;</span><span class="text-orange-50">{data.title}</span></div>
+      <h1 class="text-5xl font-bold my-6 mt-10">{data.title}</h1>
+      <!-- TODO list dark mode, text justification -->
+      <TypographyContainer>
+        <slot />
+        <div class="flex justify-between">
+          <DocsSwitchPageLink entry={prev} isPrev={true} />
+          <DocsSwitchPageLink entry={next} />
+        </div>
+        <hr />
+        <NewsletterSignup />
+      </TypographyContainer>
+    </article>
+
+    <div class=`${sidebarWidth} fixed overflow-auto right-[calc(50%-calc(1536px/2))] top-[3.5rem] h-[calc(100vh-3.5rem)] py-14`>
+      <TableOfContents headings={headings} />
+    </div>
+  </div>
+</div>

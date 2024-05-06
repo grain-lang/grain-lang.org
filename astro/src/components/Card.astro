@@ -1,0 +1,15 @@
+---
+interface Props {
+  title: string;
+  class: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class={`relative flex flex-col gap-4 overflow-hidden rounded-3xl p-12 ${Astro.props.class}`}>
+  <h2 class="z-20 text-2xl font-bold">
+    {title}
+  </h2>
+  <slot />
+</div>

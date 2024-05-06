@@ -1,0 +1,148 @@
+---
+import { Code } from "astro:components";
+import ChevronRightIcon from "./icons/ChevronRightIcon.astro";
+import ExternalIcon from "./icons/ExternalIcon.astro";
+import grainLang from "../../grain.json";
+import theme from "../../themes/github-dark-modified.json";
+
+const basicExample =
+`module Main
+
+let translateCoordinates = (x, y) => {
+  (x + 4, y + 4)
+}
+
+let (x, y) = translateCoordinates(1, 2)
+print(x) // 5
+print(y) // 6
+`;
+
+const typeInferenceExample = 
+`module Main
+
+let square = num => num * num
+
+square("🌾") // Compile error: expected a Number
+`;
+
+const safeExample =
+`module Main
+
+from "map" include Map
+
+let printMovieRating = movie => {
+  let catalog = Map.fromList([
+    ("Godzilla", 7.5),
+    ("Star Wars: Episode IV - A New Hope", 8.6),
+    ("The Dark Knight", 9.0),
+  ])
+
+  // All cases must be handled
+  match (Map.get(movie, movieRatings)) {
+    Some(rating) => print(rating),
+    None => print("Rating unavailable") // No unexpected null!
+  }
+}
+
+printMovieRating("The Matrix") // Rating not found
+`;
+
+// TODO
+const practicalExample =
+`module Main
+
+from "json" include Json
+
+Json.parse("{\"")
+`;
+
+const functionalExample = 
+`module Main
+
+let rec map = (f, list) => {
+  match (list) {
+    [] => [],
+    [first, ...rest] => [f(first), ...map(f, rest)]
+  }
+}
+
+let doubled = map(x => x * 2, [1, 2, 3])
+assert doubled == [2, 4, 6]
+`;
+
+const imperativeExample =
+`module Main
+
+from "array" include Array
+
+let contains = (value, array) => {
+  for (let mut i = 0; i < Array.length(array); i += 1) {
+    if (array[i] == value) {
+      return true
+    }
+  }
+
+  return false
+}
+
+print(contains(3, [> 1, 2, 3, 4])) // true
+`;
+
+---
+
+<script>
+  const mod = (n: number, k: number) => (n + k) % k;
+
+  const examples = document.getElementById("codeSamples")!;
+  const selectedExample = document.getElementById("selected-example")!;
+
+  const numExamples = examples.childElementCount;
+
+  let currIndex = 0;
+  function changeView(delta: number) {
+    const nextIndex = mod(currIndex + delta, numExamples);
+    examples.children[currIndex].classList.add("hidden");
+    examples.children[nextIndex].classList.remove("hidden");
+    currIndex = nextIndex;
+
+    selectedExample.innerHTML = examples.children[currIndex].getAttribute("data-name")!;
+  }
+
+  document.getElementById("prev")!.addEventListener("click", () => changeView(-1));
+  document.getElementById("next")!.addEventListener("click", () => changeView(+1));
+
+  changeView(0);
+</script>
+
+<div class="relative h-full w-full">
+  <div class="flex gap-2 mb-10">
+    <span class="flex gap-2 border rounded bg-orange-50 border-orange-50 text-orange-10 py-0.5 px-2 w-fit">
+      <div class="flex items-center gap-1">
+        <span class="text-xs">●</span>
+        Grain
+      </div>
+    </span>
+
+    <a href="/try" class="flex gap-2 border rounded border-gray-variant-70 text-gray-variant-70 py-0.5 px-2 w-fit">
+      Playground
+      <ExternalIcon class="w-4" />
+    </a>
+  </div>
+  <div id="codeSamples">
+    <Code code={basicExample} theme={theme} lang={grainLang} data-name="Basic" />
+    <Code class="hidden" code={typeInferenceExample} theme={theme} lang={grainLang} data-name="Type-inferred" />
+    <Code class="hidden" code={safeExample} theme={theme} lang={grainLang} data-name="Safe" />
+    <Code class="hidden" code={practicalExample} theme={theme} lang={grainLang} data-name="Practical" />
+    <Code class="hidden" code={functionalExample} theme={theme} lang={grainLang} data-name="Functional" />
+    <Code class="hidden" code={imperativeExample} theme={theme} lang={grainLang} data-name="Imperative" />
+  </div>
+  <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex justify-between items-center text-purple-40 w-3/5 mx-auto">
+    <button id="prev" class="inline-block border border-purple-40 hover:bg-purple-80 rounded-full p-3 rotate-180">
+      <ChevronRightIcon class="h-3.5" />
+    </button>
+    <p id="selected-example" class="text-lg"></p>
+    <button id="next" class="inline-block border border-purple-40 hover:bg-purple-80 rounded-full p-3">
+      <ChevronRightIcon class="h-3.5" />
+    </button>
+  </div>
+</div>

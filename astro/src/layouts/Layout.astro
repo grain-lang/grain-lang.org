@@ -1,0 +1,123 @@
+---
+import { Image } from "astro:assets";
+import footerImg from "../images/grain-footer.svg";
+import Nav from "../components/Nav.astro";
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-pt-20">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body class="bg-gray-5 dark:bg-purple-90">
+		<Nav />
+		<main class="font-sans antialiased tracking-wide text-gray-90 dark:text-gray-10">
+			<slot />
+		</main>
+		<footer class="mt-32">
+			<div class="flex gap-6 justify-center items-center bg-gray-5 dark:bg-purple-90 pr-[28rem]">
+				<Image src={footerImg} alt="Grain logo ballons." />
+				<div class="text-gray-50">Copyright © 2022 Grain Lang</div>
+			</div>
+		</footer>
+	</body>
+</html>
+
+<script>
+	import { selectedTheme } from "../store";
+
+	selectedTheme.subscribe(theme => {
+    if (theme == "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+	})
+
+
+  // function getTheme() {
+  //   if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+  //     return localStorage.getItem('theme');
+  //   }
+
+  //   return window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
+  // }
+
+	// const theme = getTheme();
+  // if (theme === 'light') {
+  //   document.documentElement.classList.remove('dark');
+  // } else {
+  //   document.documentElement.classList.add('dark');
+  // }
+
+  // window.localStorage.setItem('theme', theme);
+</script>
+
+<style is:global>
+	@font-face {
+		font-family: 'Soehne';
+		src: url('/fonts/soehne-leicht.woff2') format('woff');
+		font-weight: 300;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: 'Soehne';
+		src: url('/fonts/soehne-buch.woff2') format('woff');
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: 'Soehne';
+		src: url('/fonts/soehne-kraftig.woff2') format('woff');
+		font-weight: 500;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: 'Soehne';
+		src: url('/fonts/soehne-halbfett.woff2') format('woff');
+		font-weight: 600;
+		font-style: normal;
+	}
+
+	/* :root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		background-size: 224px;
+	}
+	code {
+		font-family:
+			Menlo,
+			Monaco,
+			Lucida Console,
+			Liberation Mono,
+			DejaVu Sans Mono,
+			Bitstream Vera Sans Mono,
+			Courier New,
+			monospace;
+	} */
+</style>

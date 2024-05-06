@@ -1,0 +1,38 @@
+---
+import { Image } from "astro:assets";
+import oscarHeadshot from "../images/headshots/oscar-headshot-square.jpg";
+import philipHeadshot from "../images/headshots/philip-headshot-square.jpg";
+import blaineHeadshot from "../images/headshots/blaine-headshot-square.jpg";
+import marcusHeadshot from "../images/headshots/marcus-headshot-square.jpg";
+import type { CollectionEntry } from "astro:content";
+import type { BlogAuthor } from "../types";
+
+const headshotMap: Record<BlogAuthor, ImageMetadata> = {
+  'Oscar Spencer': oscarHeadshot,
+  'Philip Blair': philipHeadshot,
+  'Blaine Bublitz': blaineHeadshot,
+  'Marcus Roberts': marcusHeadshot,
+};
+
+interface Props {
+  entry: CollectionEntry<'blog'>;
+  imgClass?: string;
+  nameClass?: string;
+}
+
+const { entry, imgClass, nameClass } = Astro.props;
+---
+
+<div class="flex items-center gap-3 w-fit">
+  <Image
+    src={headshotMap[entry.data.author as BlogAuthor]}
+    alt={entry.data.author}
+    class={`rounded-full object-cover ${imgClass ?? ""}`}
+  />
+  <div class="w-fit">
+    <p class={`whitespace-nowrap ${nameClass ?? ""}`}>{entry.data.author}</p>
+    <p class="text-gray-50">
+      {entry.data.date.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}
+    </p>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+---
+import type { HeirarchicalHeading } from '../types';
+
+interface Props {
+  heading: HeirarchicalHeading;
+}
+
+const { heading } = Astro.props;
+---
+
+<li class="my-1.5">
+  <a href={'#' + heading.slug}>
+    {heading.text}
+  </a>
+  {heading.subheadings.length > 0 && (
+    <ul class="ml-4 text-gray-50">
+      {heading.subheadings.map((x: any) => (
+        <Astro.self heading={x} />
+      ))}
+    </ul>
+  )}
+</li>

@@ -1,0 +1,73 @@
+---
+import { Image } from "astro:assets";
+import gradientLineImg from "../images/gradient-line.svg";
+import discordIllustrationImg from "../images/discord-illustration.svg";
+import branchingImg from "../images/branching.svg";
+import heartImg from "../images/heart.svg";
+import Card from "./Card.astro";
+---
+
+<section class="container mx-auto py-32">
+  <div class="max-w-fit mx-auto mb-16 flex flex-col items-center gap-2">
+    <Image src={gradientLineImg} alt="A gradient line." class="mb-2" />
+    <h1 class="font-bold text-3xl">
+      Grain
+      <Image src={heartImg} alt="A heart." class="inline" />
+      open source
+    </h1>
+    <p>Grain is a passion project. All of our projects are open source.</p>
+  </div>
+  <div class="mx-auto">
+    <div class="grid grid-cols-2 gap-14">
+      <Card title="We continuously strive to" class="bg-white">
+        <ul class="pl-6 [&>li]:my-1 [&>li]:pl-1 text-orange-70 list-outside list-image-[url(/src/images/check-icon.svg)]">
+          <li>Improve the language</li>
+          <li>Address more use cases and provide exceptional documentation</li>
+          <li>Prioritize developer experience</li>
+          <li>Facilitate an active, engaged, and respectful community</li>
+        </ul>
+        <p>
+          <b>Our bottom line:</b>
+          Help you reap the benefits of Grain and WebAssembly, with an
+          effortless language, great developer experience, broad application
+          potential, and an awesome community.
+        </p>
+      </Card>
+      <Card title="Sponsors and Contributors" class="bg-white relative">
+        <div class="z-10 dark:hidden absolute -top-10 -right-[11rem] lg:left-[25rem] bg-[#A2DDEF] w-36 h-[26rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
+        <div class="z-10 dark:hidden absolute -top-10 -right-[11rem] lg:left-[31rem] bg-purple-40 w-36 h-[26rem] rounded-full rotate-[10deg] blur-3xl" />
+        <div class="z-10 dark:hidden absolute top-0 -right-[11rem] lg:left-[36rem] bg-[#FFE6A6] w-36 h-[26rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
+        <p class="z-20">
+          We rely on volunteer contributors and sponsors to sustain the project.
+          Development of the Grain programming language is financially
+          supported by our GitHub Sponsors supporters, corporate sponsors,
+          and Open Collective donors.
+        </p>
+        <p class="z-20">
+          Our current contributors come from a wide variety of experiences and
+          backgrounds, which adds significant value to how we approach
+          developer experience.
+        </p>
+      </Card>
+      <Card title="Want to be a part of Grain's development?" class="bg-gray-variant-90 text-purple-20">
+        <p class="text-gray-variant-50">
+          Contributors come in many forms—code contributors, documentation
+          writers, bug finders, community organizers, language evangelists, and
+          more. Whether you want to dive into some code, write some docs,
+          give us your ideas, or just come hang out, we've got a place for you.
+        </p>
+        <Image src={branchingImg} alt="An illustration of git branching." />
+      </Card>
+      <Card title="Not sure where to start?" class="bg-[#F6F1EF]">
+        <p>
+          Connect with us on <a href="https://discord.com/invite/grain-lang" class="underline">Discord</a>!
+          We'll walk through contributor opportunities with you, and we're even
+          glad to do a pair programming session to get you up to speed. We'll go
+          over how to get involved and teach you anything you need to know, even
+          if you've never touched a compiler or worked on a programming language.
+        </p>
+        <Image src={discordIllustrationImg} alt="Discord illustration." />
+      </Card>
+    </div>
+  </div>
+</section>

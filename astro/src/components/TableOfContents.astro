@@ -1,0 +1,57 @@
+---
+import type { MarkdownHeading } from "astro";
+import TableOfContentsHeading from "./TableOfContentsHeading.astro";
+import type { HeirarchicalHeading } from "../types";
+
+interface Props {
+  headings: MarkdownHeading[];
+}
+
+const { headings } = Astro.props;
+
+function buildSubheading(i: number): [number, HeirarchicalHeading[]] {
+  const thisLevel: HeirarchicalHeading[] = [];
+  for (; i < headings.length - 1; i++) {
+    const thisHeading = headings[i];
+    const nextHeading = headings[i + 1];
+    if (nextHeading.depth === thisHeading.depth) {
+      thisLevel.push({ ...thisHeading, subheadings: [] });
+    } else if (nextHeading.depth > thisHeading.depth) {
+      const [newI, subheadings] = buildSubheading(i + 1)
+      thisLevel.push({ ...thisHeading, subheadings });
+      i = newI;
+    } else {
+      break;
+    }
+  }
+
+  thisLevel.push({ ...headings[i], subheadings: [] });
+  return [i, thisLevel];
+}
+
+const [_, toc] = buildSubheading(0);
+---
+
+<nav id="table-of-contents">
+  <h2 class="mb-6 text-2xl font-semibold">On this page</h2>
+  <ul>
+    {toc.map(heading => (
+      <TableOfContentsHeading heading={heading} />
+    ))}
+  </ul>
+</nav>
+
+<script>
+  const anchors = document.querySelectorAll("article h2, article h3, article h4")!;
+  const links = document.querySelectorAll("#table-of-contents a")!;
+
+  window.addEventListener("scroll", () => {
+    links.forEach(link => link.classList.remove("text-orange-50"));
+
+    // html scroll-offset-top set to 80px; account for this for currently active element
+    const activeI = [...anchors].findLastIndex(a => a.getBoundingClientRect().top <= 81);
+    if (activeI > -1) {
+      links[activeI].classList.add("text-orange-50");
+    }
+  });
+</script>
