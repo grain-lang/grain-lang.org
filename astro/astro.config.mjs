@@ -1,10 +1,10 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import svelte from "@astrojs/svelte";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
-import rehypeContentIntroTextTransformer from './src/rehype/rehype-content-intro-text-transformer';
-import rehypeAutolinkHeadingsConfig from './src/rehype/rehype-autolink-headings-config';
+import rehypeContentIntroTextTransformer from "./src/rehype/rehype-content-intro-text-transformer";
+import rehypeAutolinkHeadingsConfig from "./src/rehype/rehype-autolink-headings-config";
 
 const grainLang = JSON.parse(fs.readFileSync("./grain.json"));
 const theme = JSON.parse(fs.readFileSync("./themes/github-dark-modified.json"));

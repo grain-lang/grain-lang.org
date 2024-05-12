@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Soehne";
+  src: url("/fonts/soehne-leicht.woff2") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Soehne";
+  src: url("/fonts/soehne-buch.woff2") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Soehne";
+  src: url("/fonts/soehne-kraftig.woff2") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Soehne";
+  src: url("/fonts/soehne-halbfett.woff2") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@layer base {
+  :root {
+    --color-heading: 54 52 58; /* gray-90 */
+    --color-primary: 70 66 81; /* gray-80 */
+    --color-dim: 106 103 113; /* gray-60 */
+    --color-dim-1: 148 145 157; /* gray-50 */
+    --color-dim-2: 200 199 204; /* gray-40 */
+    --color-dimmer: 237 237 237; /* gray-20 */
+    --color-background: 251 251 251; /* gray-5 */
+    --color-background-bright: 255 255 255;
+    --color-accent: 236 77 27;
+    --color-accent-dim: 244 125 88;
+
+    @media (min-width: 640px) {
+      --container-width: 640px;
+    }
+
+    @media (min-width: 768px) {
+      --container-width: 768px;
+    }
+
+    @media (min-width: 1024px) {
+      --container-width: 1024px;
+    }
+
+    @media (min-width: 1280px) {
+      --container-width: 1280px;
+    }
+
+    @media (min-width: 1536px) {
+      --container-width: 1536px;
+    }
+  }
+
+
+  :root[class~="dark"] {
+    --color-heading: 239 238 241; /* gray-variant-20 */
+    --color-primary: 213 211 217; /* gray-variant-30 */
+    --color-dim: 151 144 166; /* gray-variant-50 */
+    --color-dim-1: 74 65 100; /* gray-variant-70 */
+    --color-dim-2: 74 65 100; /* gray-variant-70 */
+    --color-dimmer: 49 41 70; /* gray-variant-80 */
+    --color-background: 35 28 54; /* gray-variant-90 */
+    --color-background-bright: 29 24 46;
+    --color-accent: 225 101 62;
+    --color-accent-dim: 220 153 132;
+  }
+}

@@ -11,21 +11,6 @@ interface Props {
 const { profileImage, name, title, role } = Astro.props;
 ---
 
-<script>
-  document.querySelectorAll("[data-desc='headshot']").forEach(e => {
-    const info = e.querySelector("[data-desc='info']")!;
-    const img = e.querySelector("img")!;
-    const colorEllipses = e.parentNode?.querySelectorAll("[data-desc='color-ellipsis']")!;
-
-    e.addEventListener("click", () => {
-      info.classList.toggle("invisible");
-      img.classList.toggle("grayscale-[50%]");
-      img.classList.toggle("scale-105");
-      colorEllipses.forEach(el => el.classList.toggle("opacity-0"));
-    })
-  });
-</script>
-
 <div class="relative w-[20rem]">
   <div data-desc="headshot" class="peer relative h-[26rem] rounded-2xl overflow-hidden hover:cursor-pointer">
     <Image
@@ -40,9 +25,9 @@ const { profileImage, name, title, role } = Astro.props;
     </div>
   </div>
 
-  <div class="-z-10 transition duration-300 opacity-0 peer-hover:opacity-100 dark:hidden absolute -top-10 -right-[11rem] lg:left-24 bg-purple-40 w-36 h-[26rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
-  <div class="-z-10 transition duration-300 opacity-0 peer-hover:opacity-100 dark:hidden absolute top-10 -right-[11rem] lg:left-0 bg-[#A2DDEF] w-36 h-[26rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
-  <div class="-z-10 transition duration-300 opacity-0 peer-hover:opacity-100 dark:hidden absolute top-20 -right-[11rem] lg:left-44 bg-[#FFE6A6] w-36 h-[26rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
+  <div class="-z-10 transition duration-300 opacity-0 peer-hover:opacity-100 dark:hidden absolute -top-10 left-24 bg-purple-40 w-36 h-[26rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
+  <div class="-z-10 transition duration-300 opacity-0 peer-hover:opacity-100 dark:hidden absolute top-10 left-0 bg-[#A2DDEF] w-36 h-[26rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
+  <div class="-z-10 transition duration-300 opacity-0 peer-hover:opacity-100 dark:hidden absolute top-20 left-44 bg-[#FFE6A6] w-36 h-[26rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
 
   <div class="px-2 mt-4">
     <h2 class="text-2xl font-bold mb-2">{name}</h2>
@@ -50,3 +35,18 @@ const { profileImage, name, title, role } = Astro.props;
     <h3 class="text-lg text-gray-50">{role}</h3>
   </div>
 </div>
+
+<script>
+  document.querySelectorAll("[data-desc='headshot']").forEach(e => {
+    const info = e.querySelector("[data-desc='info']")!;
+    const img = e.querySelector("img")!;
+    const colorEllipses = e.parentNode?.querySelectorAll("[data-desc='color-ellipsis']")!;
+
+    e.addEventListener("click", () => {
+      info.classList.toggle("invisible");
+      img.classList.toggle("grayscale-[50%]");
+      img.classList.toggle("scale-105");
+      colorEllipses.forEach(el => el.classList.toggle("opacity-0"));
+    })
+  });
+</script>

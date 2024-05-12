@@ -1,26 +1,26 @@
 ---
-import type { CollectionEntry } from 'astro:content'
-import TypographyContainer from './TypographyContainer.astro';
-import ArrowLeft from './icons/ArrowLeft.astro';
+import type { CollectionEntry } from "astro:content"
+import TypographyContainer from "./TypographyContainer.astro";
+import ArrowLeft from "./icons/ArrowLeft.astro";
 import TwitterIcon from "./icons/TwitterIcon.astro";
 import GithubIcon from "./icons/GithubIcon.astro";
-import type { BlogAuthor } from '../types';
-import { Image } from 'astro:assets';
+import type { BlogAuthor } from "../types";
+import { Image } from "astro:assets";
 
 const socialMediaHandles: Record<BlogAuthor, { twitter: string; github: string; }> = {
-  'Oscar Spencer': { twitter: "oscar_spen", github: "ospencer" },
-  'Philip Blair': { twitter: "Philip_E_Blair", github: "peblair" },
-  'Blaine Bublitz': { twitter: "BlaineBublitz", github: "phated" },
-  'Marcus Roberts': { twitter: "marcusr", github: "marcusroberts" },
+  "Oscar Spencer": { twitter: "oscar_spen", github: "ospencer" },
+  "Philip Blair": { twitter: "Philip_E_Blair", github: "peblair" },
+  "Blaine Bublitz": { twitter: "BlaineBublitz", github: "phated" },
+  "Marcus Roberts": { twitter: "marcusr", github: "marcusroberts" },
 };
 
 interface Props {
-  entry: CollectionEntry<'blog'>;
+  entry: CollectionEntry<"blog">;
 }
 
 const { entry } = Astro.props;
 
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/cover/*.jpg');
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/images/cover/*.jpg");
 if (!images[entry.data.cover]) {
   throw new Error(`Image ${entry.data.cover} not found for blog`);
 }

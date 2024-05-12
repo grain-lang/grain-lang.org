@@ -8,14 +8,14 @@ import type { CollectionEntry } from "astro:content";
 import type { BlogAuthor } from "../types";
 
 const headshotMap: Record<BlogAuthor, ImageMetadata> = {
-  'Oscar Spencer': oscarHeadshot,
-  'Philip Blair': philipHeadshot,
-  'Blaine Bublitz': blaineHeadshot,
-  'Marcus Roberts': marcusHeadshot,
+  "Oscar Spencer": oscarHeadshot,
+  "Philip Blair": philipHeadshot,
+  "Blaine Bublitz": blaineHeadshot,
+  "Marcus Roberts": marcusHeadshot,
 };
 
 interface Props {
-  entry: CollectionEntry<'blog'>;
+  entry: CollectionEntry<"blog">;
   imgClass?: string;
   nameClass?: string;
 }

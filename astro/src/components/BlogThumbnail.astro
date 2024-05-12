@@ -1,15 +1,15 @@
 ---
-import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
-import BlogAuthor from './BlogAuthor.astro';
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import BlogAuthor from "./BlogAuthor.astro";
 
 interface Props {
-  entry: CollectionEntry<'blog'>;
+  entry: CollectionEntry<"blog">;
 }
 
 const { entry } = Astro.props;
 
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/images/cover/*.jpg');
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/images/cover/*.jpg");
 if (!images[entry.data.cover]) {
   throw new Error(`Image ${entry.data.cover} not found for blog`);
 }

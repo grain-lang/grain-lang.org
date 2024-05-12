@@ -1,5 +1,5 @@
 ---
-import type { HeirarchicalHeading } from '../types';
+import type { HeirarchicalHeading } from "../types";
 
 interface Props {
   heading: HeirarchicalHeading;
@@ -9,7 +9,7 @@ const { heading } = Astro.props;
 ---
 
 <li class="my-1.5">
-  <a href={'#' + heading.slug}>
+  <a href={"#" + heading.slug}>
     {heading.text}
   </a>
   {heading.subheadings.length > 0 && (

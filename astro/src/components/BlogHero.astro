@@ -1,17 +1,17 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import { Image } from 'astro:assets';
-import BlogAuthor from './BlogAuthor.astro';
-import ChevronRightIcon from './icons/ChevronRightIcon.astro';
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import BlogAuthor from "./BlogAuthor.astro";
+import ChevronRightIcon from "./icons/ChevronRightIcon.astro";
 
 interface Props {
-  entry: CollectionEntry<'blog'>;
+  entry: CollectionEntry<"blog">;
 }
 
 const { entry } = Astro.props;
 ---
 
-<div class="mx-auto max-w-[70rem] pb-28 px-4">
+<div class="mx-auto max-w-[70rem] pb-8 lg:pb-28 px-4">
   <div class="my-10 flex justify-between text-color-accent">
     <div class="text-xl font-semibold">The Grain Blog</div>
     <div>

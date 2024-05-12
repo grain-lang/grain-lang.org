@@ -1,11 +1,11 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../layouts/Layout.astro';
-import BlogHero from '../components/BlogHero.astro';
-import BlogEntries from '../components/BlogEntries.astro';
-import Subscribe from '../components/Subscribe.astro';
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import BlogHero from "../components/BlogHero.astro";
+import BlogEntries from "../components/BlogEntries.astro";
+import Subscribe from "../components/Subscribe.astro";
 
-const blogEntries = await getCollection('blog');
+const blogEntries = await getCollection("blog");
 blogEntries.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 ---
 

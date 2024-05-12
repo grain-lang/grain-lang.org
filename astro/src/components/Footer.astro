@@ -1,0 +1,15 @@
+---
+import { Image } from "astro:assets";
+import footerImg from "../images/grain-footer.svg";
+
+interface Props {
+  class?: string;
+}
+---
+
+<footer class="mt-20 lg:mt-32 container mx-auto">
+  <div class=`flex gap-6 items-center ${Astro.props.class ?? ""}`>
+    <Image src={footerImg} alt="Grain logo ballons." />
+    <div class="text-gray-50">Copyright © 2022 Grain Lang</div>
+  </div>
+</footer>

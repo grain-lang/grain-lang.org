@@ -7,7 +7,7 @@ import heartImg from "../images/heart.svg";
 import Card from "./Card.astro";
 ---
 
-<section class="container mx-auto py-32">
+<section class="container mx-auto py-32 px-4">
   <div class="max-w-fit mx-auto mb-16 flex flex-col items-center gap-2">
     <Image src={gradientLineImg} alt="A gradient line." class="mb-2" />
     <h1 class="font-bold text-3xl">
@@ -18,7 +18,7 @@ import Card from "./Card.astro";
     <p>Grain is a passion project. All of our projects are open source.</p>
   </div>
   <div class="mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-14">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-14">
       <Card title="We continuously strive to" class="bg-color-background-bright">
         <ul class="pl-6 [&>li]:my-1 [&>li]:pl-1 text-orange-70 list-outside list-image-[url(/src/images/check-icon.svg)]">
           <li>Improve the language</li>
@@ -34,9 +34,9 @@ import Card from "./Card.astro";
         </p>
       </Card>
       <Card title="Sponsors and Contributors" class="bg-color-background-bright relative">
-        <div class="z-10 dark:hidden absolute -top-10 -right-[11rem] lg:left-[25rem] bg-[#A2DDEF] w-36 h-[26rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
-        <div class="z-10 dark:hidden absolute -top-10 -right-[11rem] lg:left-[31rem] bg-purple-40 w-36 h-[26rem] rounded-full rotate-[10deg] blur-3xl" />
-        <div class="z-10 dark:hidden absolute top-0 -right-[11rem] lg:left-[36rem] bg-[#FFE6A6] w-36 h-[26rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
+        <div class="z-10 dark:hidden absolute -top-10 right-[11rem] bg-[#A2DDEF] w-36 h-[32rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
+        <div class="z-10 dark:hidden absolute -top-10 right-[5rem] bg-purple-40 w-36 h-[32rem] rounded-full rotate-[10deg] blur-3xl" />
+        <div class="z-10 dark:hidden absolute top-0 right-[0rem] bg-[#FFE6A6] w-36 h-[32rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
         <p class="z-20">
           We rely on volunteer contributors and sponsors to sustain the project.
           Development of the Grain programming language is financially
@@ -58,7 +58,7 @@ import Card from "./Card.astro";
         </p>
         <Image src={branchingImg} alt="An illustration of git branching." />
       </Card>
-      <Card title="Not sure where to start?" class="bg-[#F6F1EF]">
+      <Card title="Not sure where to start?" class="bg-[#F6F1EF] bg-[#180f26]">
         <p>
           Connect with us on <a href="https://discord.com/invite/grain-lang" class="underline">Discord</a>!
           We'll walk through contributor opportunities with you, and we're even

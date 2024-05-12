@@ -1,18 +1,18 @@
 ---
-import type { CollectionEntry } from 'astro:content'
-import BlogThumbnail from './BlogThumbnail.astro';
-import NewsletterSignup from './NewsletterSignup.astro';
-import GrainLogo from './icons/GrainLogo.astro';
+import type { CollectionEntry } from "astro:content"
+import BlogThumbnail from "./BlogThumbnail.astro";
+import NewsletterSignup from "./NewsletterSignup.astro";
+import GrainLogo from "./icons/GrainLogo.astro";
 
 interface Props {
-  entries: CollectionEntry<'blog'>[];
+  entries: CollectionEntry<"blog">[];
 }
 
 const { entries } = Astro.props;
 ---
 
 <div class="max-w-[80rem] mx-auto px-4">
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-12">
     {entries.map(entry => <BlogThumbnail entry={entry} />)}
   </div>
 
