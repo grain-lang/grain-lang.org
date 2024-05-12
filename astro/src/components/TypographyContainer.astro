@@ -8,8 +8,7 @@ interface Props {
   prose dark:prose-invert
   prose-lg max-w-none
   
-  prose-a:text-orange-50 prose-a:font-normal
-  prose-a:-mt-[160px] prose-a:pt-[160px]
+  prose-a:text-color-accent prose-a:font-normal
 
   [&:not([data-block=true])]:prose-code:py-0.5 [&:not([data-block=true])]:prose-code:px-1
   [&:not([data-block=true])]:prose-code:bg-gray-10 dark:[&:not([data-block=true])]:prose-code:bg-gray-variant-80
@@ -24,11 +23,12 @@ interface Props {
   before:prose-li:w-8 before:prose-li:h-8
   before:prose-li:inline-block before:prose-li:text-center
   
+  prose-th:text-left prose-th:p-2
   prose-td:p-2
   prose-td:border-none
   prose-tr:rounded
   prose-tr:border-none
-  last:prose-tr:border-solid last:prose-tr:border last:prose-tr:border-black last:prose-tr:rounded
+  last:prose-tr:border-solid last:prose-tr:border last:prose-tr:border-color-dim-1 last:prose-tr:rounded
 
   ${Astro.props.class ?? ""}
   `}

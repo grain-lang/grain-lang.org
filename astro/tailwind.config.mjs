@@ -4,10 +4,20 @@ const { fontFamily } = require("tailwindcss/defaultTheme");
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   darkMode: "class",
-  safelist: ["group", "pr-2", "-left-8", "z-40", "top-2", "opacity-0", "opacity-100", "group-hover:opacity-100", "scroll-pt-[200px]"],
 	theme: {
     extend: {
       colors: {
+        "color-heading": "rgb(var(--color-heading) / <alpha-value>)",
+        "color-primary": "rgb(var(--color-primary) / <alpha-value>)",
+        "color-dim": "rgb(var(--color-dim) / <alpha-value>)",
+        "color-dim-1": "rgb(var(--color-dim-1) / <alpha-value>)",
+        "color-dim-2": "rgb(var(--color-dim-2) / <alpha-value>)",
+        "color-dimmer": "rgb(var(--color-dimmer) / <alpha-value>)",
+        "color-background": "rgb(var(--color-background) / <alpha-value>)",
+        "color-background-bright": "rgb(var(--color-background-bright) / <alpha-value>)",
+        "color-accent": "rgb(var(--color-accent) / <alpha-value>)",
+        "color-accent-dim": "rgb(var(--color-accent-dim) / <alpha-value>)",
+
         black: "#36343A",
         "gray-90": "#36343A",
         "gray-80": "#464251",

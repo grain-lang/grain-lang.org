@@ -46,12 +46,12 @@ const [_, toc] = buildSubheading(0);
   const links = document.querySelectorAll("#table-of-contents a")!;
 
   window.addEventListener("scroll", () => {
-    links.forEach(link => link.classList.remove("text-orange-50"));
+    links.forEach(link => link.classList.remove("text-color-accent"));
 
     // html scroll-offset-top set to 80px; account for this for currently active element
     const activeI = [...anchors].findLastIndex(a => a.getBoundingClientRect().top <= 81);
     if (activeI > -1) {
-      links[activeI].classList.add("text-orange-50");
+      links[activeI].classList.add("text-color-accent");
     }
   });
 </script>

@@ -10,6 +10,6 @@ const { title, entries } = Astro.props;
 ---
 
 <h2 class="text-xl font-semibold mt-6 mb-2">{title}</h2>
-<div class="border-l-2 border-gray-20">
+<div class="border-l-2 border-color-dimmer">
   {entries.map(x => <DocLink slug={x.slug}>{x.data.title}</DocLink>)}
 </div>

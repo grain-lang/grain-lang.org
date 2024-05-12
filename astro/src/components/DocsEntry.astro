@@ -7,6 +7,7 @@ import type { CollectionEntry } from "astro:content";
 import DocsSwitchPageLink from "./DocsSwitchPageLink.astro";
 import TypographyContainer from "./TypographyContainer.astro";
 import NewsletterSignup from "./NewsletterSignup.astro";
+import HashIcon from "./icons/HashIcon.astro";
 
 const introEntries = await getCollection("docs", x => x.id.startsWith("intro/"));
 const guideEntries = await getCollection("docs", x => x.id.startsWith("guide/"));
@@ -38,7 +39,7 @@ const { data, headings, prev, next } = Astro.props;
     </div>
 
     <article class="w-3/5 mx-auto px-20">
-      <div><span class="text-orange-10">Grain Docs&nbsp;&nbsp;/&nbsp;&nbsp;</span><span class="text-orange-50">{data.title}</span></div>
+      <div><span class="text-orange-10">Grain Docs&nbsp;&nbsp;/&nbsp;&nbsp;</span><span class="text-color-accent">{data.title}</span></div>
       <h1 class="text-5xl font-bold my-6 mt-10">{data.title}</h1>
       <!-- TODO list dark mode, text justification -->
       <TypographyContainer>

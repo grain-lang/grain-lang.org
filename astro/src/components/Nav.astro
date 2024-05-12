@@ -3,27 +3,30 @@ import IconLinks from "./IconLinks.astro";
 import NavLinks from "./NavLinks.astro";
 import Search from "./Search.astro";
 import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
 import grainLogo from "../images/grain-logo.svg";
 import grainLogoDark from "../images/grain-logo-dark.svg";
+import BarsIcon from "./icons/BarsIcon.astro";
+import SearchDialog from "./SearchDialog.svelte";
 ---
 
-<script is:inline>
+<script>
   let isSidebarOpen = false;
-  document.getElementById("sidebar-open").addEventListener("click", () => {
+  const sidebarLinks = document.getElementById("sidebar-links")!;
+
+  document.getElementById("sidebar-open")!.addEventListener("click", () => {
     isSidebarOpen = !isSidebarOpen;
     if (isSidebarOpen) {
-      document.getElementById("sidebar-links").classList.add("translate-x-0");
-      document.getElementById("sidebar-links").classList.remove("translate-x-full");
+      sidebarLinks.classList.add("translate-x-0");
+      sidebarLinks.classList.remove("translate-x-full");
     } else {
-      document.getElementById("sidebar-links").classList.remove("translate-x-0");
-      document.getElementById("sidebar-links").classList.add("translate-x-full");
+      sidebarLinks.classList.remove("translate-x-0");
+      sidebarLinks.classList.add("translate-x-full");
     }
-  })
+  });
 </script>
 
 <nav class="shadow-sm dark:shadow-purple-80 bg-white dark:bg-purple-90 relative z-40 sticky top-0">
-  <div class="container mx-auto h-14 px-4 py-2 flex items-center text-sm text-gray-60 dark:text-gray-30">
+  <div class="container mx-auto h-14 px-4 py-2 flex items-center text-sm text-color-dim dark:text-gray-30">
     <a href="/">
       <Image
         src={grainLogo}
@@ -49,7 +52,7 @@ import grainLogoDark from "../images/grain-logo-dark.svg";
     </div>
     <div
       id="sidebar-links"
-      class="flex lg:hidden flex-col w-72 h-[calc(100vh-3.5rem)] fixed top-14 right-0 p-3 bg-gray-5 dark:bg-purple-90 shadow transition-transform"
+      class="flex lg:hidden flex-col w-72 h-[calc(100vh-3.5rem)] fixed top-14 right-0 p-3 bg-color-background shadow transition-transform translate-x-full"
     >
       <NavLinks />
       <IconLinks />
@@ -59,7 +62,9 @@ import grainLogoDark from "../images/grain-logo-dark.svg";
       class="lg:hidden"
       role="button"
     >
-      <Icon name="bars" class="w-6 h-6 text-gray-40 dark:text-gray-60 ml-4" />
+      <BarsIcon class="w-6 h-6 text-gray-40 dark:text-gray-60 ml-4" />
     </a>
   </div>
 </nav>
+
+<SearchDialog />

@@ -20,13 +20,13 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="bg-gray-5 dark:bg-purple-90">
+	<body class="bg-color-background">
 		<Nav />
-		<main class="font-sans antialiased tracking-wide text-gray-90 dark:text-gray-10">
+		<main class="font-sans antialiased tracking-wide text-color-heading">
 			<slot />
 		</main>
 		<footer class="mt-32">
-			<div class="flex gap-6 justify-center items-center bg-gray-5 dark:bg-purple-90 pr-[28rem]">
+			<div class="flex gap-6 justify-center items-center bg-color-background pr-[28rem]">
 				<Image src={footerImg} alt="Grain logo ballons." />
 				<div class="text-gray-50">Copyright © 2022 Grain Lang</div>
 			</div>
@@ -44,27 +44,13 @@ const { title } = Astro.props;
       document.documentElement.classList.remove("dark");
     }
 	})
-
-
-  // function getTheme() {
-  //   if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-  //     return localStorage.getItem('theme');
-  //   }
-
-  //   return window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
-  // }
-
-	// const theme = getTheme();
-  // if (theme === 'light') {
-  //   document.documentElement.classList.remove('dark');
-  // } else {
-  //   document.documentElement.classList.add('dark');
-  // }
-
-  // window.localStorage.setItem('theme', theme);
 </script>
 
 <style is:global>
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+
 	@font-face {
 		font-family: 'Soehne';
 		src: url('/fonts/soehne-leicht.woff2') format('woff');
@@ -93,31 +79,31 @@ const { title } = Astro.props;
 		font-style: normal;
 	}
 
-	/* :root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
+	@layer base {
+		:root {
+			--color-heading: 54 52 58; /* gray-90 */
+			--color-primary: 70 66 81; /* gray-80 */
+			--color-dim: 106 103 113; /* gray-60 */
+			--color-dim-1: 148 145 157; /* gray-50 */
+			--color-dim-2: 200 199 204; /* gray-40 */
+			--color-dimmer: 237 237 237; /* gray-20 */
+			--color-background: 251 251 251; /* gray-5 */
+			--color-background-bright: 255 255 255;
+			--color-accent: 236 77 27;
+			--color-accent-dim: 244 125 88;
+		}
+
+		:root[class~="dark"] {
+			--color-heading: 239 238 241; /* gray-variant-20 */
+			--color-primary: 213 211 217; /* gray-variant-30 */
+			--color-dim: 151 144 166; /* gray-variant-50 */
+			--color-dim-1: 74 65 100; /* gray-variant-70 */
+			--color-dim-2: 74 65 100; /* gray-variant-70 */
+			--color-dimmer: 49 41 70; /* gray-variant-80 */
+			--color-background: 35 28 54; /* gray-variant-90 */
+			--color-background-bright: 29 24 46;
+			--color-accent: 225 101 62;
+			--color-accent-dim: 220 153 132;
+		}
 	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	} */
 </style>

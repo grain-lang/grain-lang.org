@@ -9,20 +9,20 @@ import InfoDetails from "./InfoDetails.astro";
 
 <section class="relative overflow-hidden">
   <div class="flex flex-col lg:items-stretch lg:flex-row container mx-auto px-4">
-    <div class="relative lg:w-1/2 py-32">
+    <div class="relative lg:w-1/2 py-32 px-12">
       <h3 class="text-1xl lg:text-2xl font-semibold text-purple-50 dark:text-purple-10">Why use Grain?</h3>
-      <h1 class="text-3xl lg:text-4xl max-w-[42rem] font-semibold text-gray-90 dark:text-purple-10 leading-[1.125] mt-6">
+      <h1 class="text-3xl lg:text-4xl max-w-[42rem] font-semibold text-color-heading leading-[1.125] mt-6">
         A modern web staple for today's developer
       </h1>
-      <p class="w-fit max-w-[32rem] text-gray-60 dark:text-gray-variant-50 text-lg mt-6 mb-12 w-7/12">
+      <p class="w-fit max-w-[32rem] text-color-dim text-lg mt-6 mb-12 w-7/12">
         Grain is an easy-to-use, high-level programming language specifically
         created for WebAssembly. Designed to be a practical functional language,
         Grain makes WebAssembly simple for the world's developers solving
         everyday problems.
       </p>
     </div>
-    <div class="lg:w-1/2 h-96 lg:h-auto z-10 my-auto">
-      <div class="grid grid-cols-2 gap-12">
+    <div class="lg:w-1/2 z-10 my-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
           <InfoDetails
             imgSrc={easyImg}

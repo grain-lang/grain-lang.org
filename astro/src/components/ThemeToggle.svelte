@@ -63,7 +63,7 @@
           class={`flex items-center font-medium hover:bg-gray-10 dark:hover:bg-purple-80 p-2 rounded ${
             theme === "light"
               ? "text-purple-50 dark:text-purple-30"
-              : "text-gray-60 dark:text-gray-50"
+              : "text-color-dim"
           }`}
         >
           <SunIcon
@@ -83,7 +83,7 @@
           class={`flex items-center font-medium hover:bg-gray-10 dark:hover:bg-purple-80 p-2 rounded ${
             theme === "dark"
               ? "text-purple-50 dark:text-purple-30"
-              : "text-gray-60 dark:text-gray-50"
+              : "text-color-dim"
           }`}
         >
           <MoonIcon
@@ -103,7 +103,7 @@
           class={`flex items-center font-medium hover:bg-gray-10 dark:hover:bg-purple-80 p-2 rounded ${
             theme === "system"
               ? "text-purple-50 dark:text-purple-30"
-              : "text-gray-60 dark:text-gray-50"
+              : "text-color-dim"
           }`}
         >
           <DesktopIcon

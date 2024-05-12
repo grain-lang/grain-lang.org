@@ -26,8 +26,8 @@ const { profileImage, name, title, role } = Astro.props;
   });
 </script>
 
-<div class="relative">
-  <div data-desc="headshot" class="peer relative w-[20rem] h-[26rem] rounded-2xl overflow-hidden hover:cursor-pointer">
+<div class="relative w-[20rem]">
+  <div data-desc="headshot" class="peer relative h-[26rem] rounded-2xl overflow-hidden hover:cursor-pointer">
     <Image
       src={profileImage}
       alt=`A picture of ${name}`
@@ -50,22 +50,3 @@ const { profileImage, name, title, role } = Astro.props;
     <h3 class="text-lg text-gray-50">{role}</h3>
   </div>
 </div>
-
-<!-- <div class="bg-gray-10 p-10 rounded-3xl">
-  <div class="flex gap-8 items-center mb-6">
-    <Image
-      src={profileImage}
-      alt=`A picture of ${name}`
-      width={160}
-      class="rounded-full"
-    />
-    <div>
-      <h2 class="text-3xl font-bold my-1">{name}</h2>
-      <h3 class="text-lg">{title}</h3>
-      <h3 class="text-lg">{role}</h3>
-    </div>
-  </div>
-  <div class="flex flex-col gap-3 text-gray-80">
-    <slot />
-  </div>
-</div> -->
