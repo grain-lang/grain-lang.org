@@ -26,9 +26,9 @@ interface Props {
 const { data, headings, prev, next } = Astro.props;
 ---
 
-<div class="container mx-auto pt-14 px-4 lg:px-0">
+<div class="container mx-auto pt-5 md:pt-14 px-5 lg:px-0">
   <div class="flex justify-end">
-    <div class=`${sidebarClass} hidden lg:block left-[calc(50%-calc(var(--container-width)/2))]`>
+    <div class=`${sidebarClass} hidden lg:block left-[calc(50%-calc(var(--container-width)/2))] pl-5`>
       <h1 class="text-2xl font-semibold">Grain Docs</h1>
 
       <DocLinkGroup title="Intro" entries={introEntries} />
@@ -39,7 +39,7 @@ const { data, headings, prev, next } = Astro.props;
 
     <article class="w-full lg:w-4/5 xl:w-3/5 xl:float-none xl:mx-auto lg:pl-20 xl:pr-20">
       <div><span class="text-orange-10">Grain Docs&nbsp;&nbsp;/&nbsp;&nbsp;</span><span class="text-color-accent">{data.title}</span></div>
-      <h1 class="text-4xl lg:text-5xl font-bold my-6 mt-10">{data.title}</h1>
+      <h1 class="text-4xl lg:text-5xl font-bold my-6 md:mt-10">{data.title}</h1>
       <!-- TODO list dark mode, text justification -->
       <TypographyContainer>
         <slot />
@@ -53,7 +53,7 @@ const { data, headings, prev, next } = Astro.props;
       <Footer />
     </article>
 
-    <div class=`${sidebarClass} hidden xl:block right-[calc(50%-calc(var(--container-width)/2))]`>
+    <div class=`${sidebarClass} hidden xl:block right-[calc(50%-calc(var(--container-width)/2))] pr-5`>
       <TableOfContents headings={headings} />
     </div>
   </div>

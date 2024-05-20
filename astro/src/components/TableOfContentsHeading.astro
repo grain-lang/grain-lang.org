@@ -13,7 +13,7 @@ const { heading } = Astro.props;
     {heading.text}
   </a>
   {heading.subheadings.length > 0 && (
-    <ul class="ml-4 text-gray-50">
+    <ul class="ml-5 text-gray-50">
       {heading.subheadings.map((x: any) => (
         <Astro.self heading={x} />
       ))}

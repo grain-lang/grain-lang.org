@@ -7,8 +7,8 @@ import heartImg from "../images/heart.svg";
 import Card from "./Card.astro";
 ---
 
-<section class="container mx-auto py-32 px-4">
-  <div class="max-w-fit mx-auto mb-16 flex flex-col items-center gap-2">
+<section class="container mx-auto pt-16 lg:py-32 px-5">
+  <div class="max-w-fit mx-auto mb-5 lg:mb-16 flex flex-col items-center gap-2">
     <Image src={gradientLineImg} alt="A gradient line." class="mb-2" />
     <h1 class="font-bold text-3xl">
       Grain
@@ -18,7 +18,7 @@ import Card from "./Card.astro";
     <p>Grain is a passion project. All of our projects are open source.</p>
   </div>
   <div class="mx-auto">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-14">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-14">
       <Card title="We continuously strive to" class="bg-color-background-bright">
         <ul class="pl-6 [&>li]:my-1 [&>li]:pl-1 text-orange-70 list-outside list-image-[url(/src/images/check-icon.svg)]">
           <li>Improve the language</li>

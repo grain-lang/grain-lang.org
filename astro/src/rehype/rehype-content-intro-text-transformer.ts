@@ -16,7 +16,7 @@ const rehypeContentIntroTextTransformer: RehypePlugin = () => (tree, file) => {
       "a",
       {
         role: "button",
-        class: "flex gap-2 my-10 text-color-accent fill-color-accent hover:text-orange-70 hover:fill-orange-70 no-underline"
+        class: "flex gap-2 my-5 md:my-10 text-color-accent fill-color-accent hover:text-orange-70 hover:fill-orange-70 no-underline"
       },
       fromHtml(githubSvg),
       h("span", "Edit on GitHub")

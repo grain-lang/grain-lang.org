@@ -7,7 +7,7 @@
 </script>
 
 <dialog id="search" class="w-[500px] rounded">
-  <div class="flex items-center gap-4">
+  <div class="flex items-center gap-5">
     <SearchIcon class="w-6 h-6 stroke-color-primary" />
     <input
       bind:value={input}

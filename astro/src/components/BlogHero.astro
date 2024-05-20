@@ -3,6 +3,8 @@ import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 import BlogAuthor from "./BlogAuthor.astro";
 import ChevronRightIcon from "./icons/ChevronRightIcon.astro";
+import TwitterIcon from "./icons/TwitterIcon.astro";
+import DiscordIcon from "./icons/DiscordIcon.astro";
 
 interface Props {
   entry: CollectionEntry<"blog">;
@@ -11,19 +13,33 @@ interface Props {
 const { entry } = Astro.props;
 ---
 
-<div class="mx-auto max-w-[70rem] pb-8 lg:pb-28 px-4">
-  <div class="my-10 flex justify-between text-color-accent">
+<div class="mx-auto max-w-[70rem] pb-5 lg:pb-28 px-5">
+  <div class="my-6 md:my-10 flex justify-between text-color-accent">
     <div class="text-xl font-semibold">The Grain Blog</div>
-    <div>
+    <div class="flex md:hidden gap-5">
+      <a
+        href="https://twitter.com/grain_lang"
+        target="_blank"
+      >
+        <TwitterIcon class="w-8 h-8 fill-color-accent" />
+      </a>
+      <a
+        href="https://twitter.com/grain_lang"
+        target="_blank"
+      >
+        <DiscordIcon class="w-8 h-8 fill-color-accent" />
+      </a>
+    </div>
+    <div class="hidden md:block">
       Find us also on
       <a href="https://twitter.com/grain_lang" class="underline">Twitter</a>
       and
       <a href="https://discord.com/invite/grain-lang" class="underline">Discord</a>
     </div>
   </div>
-  <div class="flex flex-col lg:flex-row items-center bg-color-background-bright rounded p-8 drop-shadow-xl">
+  <div class="flex flex-col lg:flex-row items-center bg-color-background-bright rounded-lg p-6 drop-shadow-xl">
     <div class="p-0 lg:p-10 lg:w-1/2">
-      <h1 class="text-2xl font-bold mb-4">{entry.data.title}</h1>
+      <h1 class="text-2xl font-bold mb-5">{entry.data.title}</h1>
       <BlogAuthor entry={entry} imgClass="w-12 h-12" nameClass="text-lg" />
       <p class="my-4">{entry.data.subtitle}</p>
       <p class="my-4 text-color-dim">{entry.body.substring(0, 300)}...</p>

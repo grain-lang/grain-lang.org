@@ -5,11 +5,12 @@ interface Props {
 ---
 
 <div class={`
-  prose dark:prose-invert
-  prose-lg max-w-none
+  prose lg:prose-lg dark:prose-invert
+  max-w-none
   
   prose-a:text-color-accent prose-a:font-normal
 
+  [&:not([data-block=true])]:prose-code:font-medium
   [&:not([data-block=true])]:prose-code:py-0.5 [&:not([data-block=true])]:prose-code:px-1
   [&:not([data-block=true])]:prose-code:bg-gray-10 dark:[&:not([data-block=true])]:prose-code:bg-gray-variant-80
   [&:not([data-block=true])]:prose-code:border [&:not([data-block=true])]:prose-code:rounded [&:not([data-block=true])]:prose-code:border-gray dark:[&:not([data-block=true])]:prose-code:border-none

@@ -17,10 +17,10 @@ const { imgSrc, imgAlt, header } = Astro.props;
         src={imgSrc}
         height={40}
         alt={imgAlt}
-        class="dark:hidden mx-auto lg:mx-0"
+        class="dark:hidden mx-auto md:mx-0"
       />
     </div>
-    <h3 class="font-semibold text-lg my-1.5 mx-auto w-fit lg:mx-0">{header}</h3>
+    <h3 class="font-semibold text-xl md:text-lg my-1.5 mx-auto w-fit md:mx-0">{header}</h3>
   </div>
   <p>
     <slot />
