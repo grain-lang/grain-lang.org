@@ -285,7 +285,7 @@ match (list) {
   [_] => print("List contains one element"),
   [_, _] => print("List contains two elements"),
   [_, _, _] => print("List contains three elements"),
-  _ => print("List containes more than 3 elements")
+  _ => print("List contains more than 3 elements")
 }
 ```
 

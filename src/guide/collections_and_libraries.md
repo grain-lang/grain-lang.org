@@ -139,7 +139,7 @@ Lists are excellent because they're
 - Immutable
 - Efficient at adding or removing elements to the front
 - Easy to work with and well-supported by the pattern matching system
-- Less succeptible to mutation-related bugs
+- Less susceptible to mutation-related bugs
 
 Arrays are excellent because they're
 
