@@ -59,7 +59,6 @@ docs_groups:
     - stdlib/buffer
     - stdlib/bytes
     - stdlib/char
-    - stdlib/DOM
     - stdlib/exception
     - stdlib/float32
     - stdlib/float64
