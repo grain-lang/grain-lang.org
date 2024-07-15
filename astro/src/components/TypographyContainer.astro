@@ -16,20 +16,23 @@ interface Props {
   [&:not([data-block=true])]:prose-code:border [&:not([data-block=true])]:prose-code:rounded [&:not([data-block=true])]:prose-code:border-gray dark:[&:not([data-block=true])]:prose-code:border-none
   [&:not([data-block=true])]:before:prose-code:content-none [&:not([data-block=true])]:after:prose-code:content-none
 
-  prose-ol:list-none prose-ol:[counter-reset:item] prose-li:[counter-increment:item]
+  prose-ol:list-none prose-ol:[counter-reset:item] prose-ol:relative prose-ol:pl-9
 
-  before:prose-li:[content:counter(item)] before:prose-li:mr-4
-  before:prose-li:bg-gray-20 before:prose-li:text-gray-50
+  prose-li:[counter-increment:item]
+  before:[&>li]:prose-ul:hidden
+  before:prose-li:[content:counter(item)] before:prose-li:left-0 before:prose-li:absolute
+  before:prose-li:bg-color-dimmer before:prose-li:text-color-dim
+  before:prose-li:leading-relaxed
   before:prose-li:rounded-full
   before:prose-li:w-8 before:prose-li:h-8
   before:prose-li:inline-block before:prose-li:text-center
   
-  prose-th:text-left prose-th:p-2
-  prose-td:p-2
-  prose-td:border-none
-  prose-tr:rounded
-  prose-tr:border-none
-  last:prose-tr:border-solid last:prose-tr:border last:prose-tr:border-color-dim-1 last:prose-tr:rounded
+  prose-th:px-4 prose-th:py-3 prose-th:text-left
+  prose-td:px-4 prose-td:py-3
+  prose-td:border-color-dimmer
+  prose-td:border-b
+  prose-table:border-separate
+  prose-table:border-spacing-0
 
   ${Astro.props.class ?? ""}
   `}

@@ -11,7 +11,26 @@ interface Props {
 const { profileImage, name, title, role } = Astro.props;
 ---
 
-<div class="relative w-[20rem]">
+<div class="md:hidden bg-color-dimmer p-5 rounded-3xl">
+  <div class="flex items-center gap-4">
+    <Image
+      src={profileImage}
+      alt=`A picture of ${name}`
+      class="rounded-full object-cover w-24 h-24"
+    />
+    <div class="w-fit">
+      <h2 class="text-2xl font-bold mb-1">{name}</h2>
+      <h3>{title}</h3>
+      <h3 class="text-gray-50">{role}</h3>
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-3 overflow-auto h-full pt-4">
+    <slot />
+  </div>
+</div>
+
+<div class="hidden md:block relative w-[20rem]">
   <div data-desc="headshot" class="peer relative h-[26rem] rounded-2xl overflow-hidden hover:cursor-pointer">
     <Image
       src={profileImage}

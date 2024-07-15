@@ -57,6 +57,35 @@ export default {
       typography: {
         DEFAULT: {
           css: {
+            'table': {
+              'tr': {
+                'td:first-child': {
+                  'border-left-width': '1px'
+                },
+                'td:last-child': {
+                  'border-right-width': '1px'
+                },
+              },
+              'tr:first-child': {
+                'td': {
+                  'border-top-width': '1px',
+                },
+                'td:first-child': {
+                  'border-top-left-radius': '4px'
+                },
+                'td:last-child': {
+                  'border-top-right-radius': '4px'
+                },
+              },
+              'tr:last-child': {
+                'td:first-child': {
+                  'border-bottom-left-radius': '4px'
+                },
+                'td:last-child': {
+                  'border-bottom-right-radius': '4px'
+                }
+              },
+            },
             // ol: {
             //   margin: 0,
             //   padding: 0,

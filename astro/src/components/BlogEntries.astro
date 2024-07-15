@@ -16,7 +16,7 @@ const { entries } = Astro.props;
     {entries.map(entry => <BlogThumbnail entry={entry} />)}
   </div>
 
-  <div class="relative rounded-lg my-20 w-full h-64 md:h-52 bg-gray-variant-90 dark:bg-gray-variant-80 overflow-hidden">
+  <div class="relative rounded-lg my-8 lg:my-20 w-full h-64 md:h-52 bg-gray-variant-90 dark:bg-gray-variant-80 overflow-hidden">
     <div class="hidden md:block absolute z-20 -left-72 w-96 h-80 opacity-80 bg-purple-40 transform -skew-x-[45deg]"></div>
     <div class="hidden md:block absolute z-10 left-5 w-72 h-80 bg-[radial-gradient(#6B40E4,#DF573A)] transform -skew-x-[45deg]"></div>
     <div class="absolute px-6 md:px-12 lg:px-20 w-full top-1/2 transform -translate-y-1/2 flex gap-6 z-30 text-white items-center flex-col md:flex-row justify-center md:justify-between">

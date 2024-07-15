@@ -15,14 +15,14 @@ if (!images[entry.data.cover]) {
 }
 ---
 
-<div class="flex flex-col drop-shadow-sm border rounded-lg border-gray-10 dark:border-color-background-bright overflow-hidden">
+<div class="flex flex-col drop-shadow-sm border rounded-lg border-gray-10 dark:border-color-background-bright dark:bg-color-dimmer overflow-hidden">
   <a href={`/blog/${entry.slug}`}>
     <Image
       src={images[entry.data.cover]()}
       alt={entry.data.coverAttribution ?? `${entry.data.title} thumbnail`}
-      class="w-full h-[12rem] object-cover"
+      class="w-full h-[10rem] md:h-[14rem] object-cover"
     />
-    <div class="bg-color-background-bright p-6">
+    <div class="bg-color-background-bright dark:bg-color-dimmer p-4 md:p-6">
       <h2 class="text-lg font-semibold mb-2">{entry.data.title}</h2>
       <p>{entry.data.subtitle}</p>
     </div>

@@ -45,7 +45,7 @@ const [_, toc] = buildSubheading(0);
   const anchors = document.querySelectorAll("article h2, article h3, article h4")!;
   const links = document.querySelectorAll("#table-of-contents a")!;
 
-  window.addEventListener("scroll", () => {
+  function highlightCurrent() {
     links.forEach(link => link.classList.remove("text-color-accent"));
 
     // html scroll-offset-top set to 80px; account for this for currently active element
@@ -53,5 +53,8 @@ const [_, toc] = buildSubheading(0);
     if (activeI > -1) {
       links[activeI].classList.add("text-color-accent");
     }
-  });
+  }
+
+  window.addEventListener("scroll", highlightCurrent);
+  highlightCurrent();
 </script>
