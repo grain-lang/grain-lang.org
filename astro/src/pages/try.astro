@@ -1,0 +1,74 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<style>
+  #run {
+      padding: 0 2rem;
+      height: 2.5rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      border: 0;
+      background-color: var(--orange);
+      color: var(--white);
+      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      align-self: center;
+      border-radius: 2px;
+  }
+
+  #run>i.fas {
+      font-size: .875rem;
+      padding-left: 0.5rem;
+  }
+
+  #run:disabled {
+      background-color: var(--gray2);
+  }
+
+  #editor-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+  }
+
+  #output-panel {
+      background-color: var(--gray);
+      display: flex;
+      flex-direction: column;
+  }
+
+  #output {
+      flex-grow: 1;
+      padding: 1rem;
+      margin: 0;
+      white-space: pre-wrap;
+  }
+
+  @media only screen and (max-width: 1024px) {
+      #editor-wrapper {
+          grid-template-columns: 1fr;
+          grid-template-rows: 50% 50%;
+      }
+      #editor {
+          height: calc(100% / 3);
+      }
+  }
+</style>
+
+<script src="../playground_src/scripts/playground.js"></script>
+
+<Layout title="Grain Community">
+  <div id="editor-wrapper">
+      <main id="editor"></main>
+      <section id="output-panel">
+          <pre id="output"></pre>
+          <button id="run" disabled>Compile &amp; Run <i class="fas fa-play"></i></button>
+      </section>
+  </div>
+</Layout>
