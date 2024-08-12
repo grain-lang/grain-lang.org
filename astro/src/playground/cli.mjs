@@ -1,7 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import { createRequire } from "module";
-import grainc from "./scripts/grain/grainc.bc.mjs";
+import grainc from "./grain/grainc.bc.mjs";
 
 globalThis.require = createRequire(import.meta.url);
 

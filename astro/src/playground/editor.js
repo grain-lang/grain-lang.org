@@ -1,5 +1,5 @@
 // TODO: I don't know if we actually need this
-// import "monaco-editor/esm/vs/editor/editor.all.js";
+import "monaco-editor/esm/vs/editor/editor.all.js";
 
 import { StandaloneServices } from "vscode/services";
 import getMessageServiceOverride from "vscode/service-override/messages";
@@ -28,10 +28,10 @@ import DarkVsThemeUrl from "./themes/dark_vs.json?url";
 import LightPlusThemeUrl from "./themes/light_plus.json?url";
 import LightVsThemeUrl from "./themes/light_vs.json?url";
 
-import LanguageConfigurationUrl from "../../../../grain-language-server/editor-extensions/vscode/language-configuration.json?url";
-import SyntaxUrl from "../../../../grain-language-server/editor-extensions/vscode/syntaxes/grain.json?url";
+import LanguageConfigurationUrl from "../../../grain-language-server/editor-extensions/vscode/language-configuration.json?url";
+import SyntaxUrl from "../../../grain-language-server/editor-extensions/vscode/syntaxes/grain.json?url";
 
-import PackageJsonUrl from "../../../../grain-language-server/editor-extensions/vscode/package.json?url";
+import PackageJsonUrl from "../../../grain-language-server/editor-extensions/vscode/package.json?url";
 
 window.MonacoEnvironment = {
   getWorker(moduleId, label) {
@@ -115,5 +115,6 @@ export async function createGrainEditor(id, value) {
     },
     renderLineHighlight: "none",
     scrollBeyondLastLine: false,
+    glyphMargin: false,
   });
 }

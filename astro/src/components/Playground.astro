@@ -1,0 +1,139 @@
+---
+import { codeExamples } from "../examples";
+import ButtonLink from "./ButtonLink.astro";
+import Tooltip from "./Tooltip.astro";
+import lzString from "lz-string";
+---
+
+<script>
+  import CompilerWorker from "../playground/compiler?worker";
+  import lzString from "lz-string";
+
+  const runButton = document.getElementById("run")! as HTMLButtonElement;
+
+  document.getElementById("share-button")!.addEventListener("click", () => {
+    navigator.clipboard.writeText(window.location.href);
+  });
+
+  document.querySelectorAll<HTMLButtonElement>("[data-example]")!.forEach(elem => {
+    elem.addEventListener("click", () => {
+      const compressedCode = elem.getAttribute("data-example")!;
+      window.history.pushState(null, "", "?code=" + compressedCode);
+      editor.setValue(lzString.decompressFromEncodedURIComponent(compressedCode));
+    })
+  });
+
+  const worker = new CompilerWorker();
+  worker.onerror = (err) => console.error(err);
+  worker.addEventListener("message", ({ data }) => {
+    if (data?.initialized) {
+      runButton.disabled = false;
+      return;
+    }
+  });
+
+  const debounce = (func: (...args: any[]) => void, wait: number) => {
+    let timeout: NodeJS.Timeout;
+    return function executedFunction(...args: any[]) {
+      const later = () => {
+        clearTimeout(timeout);
+        func(...args);
+      };
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+    };
+  };
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const code = lzString.decompressFromEncodedURIComponent(urlParams.get("code")!)
+    || 'module Playground\n\nprint("Hello, world!")\n';
+
+  const { createGrainEditor } = await import("../playground/editor");
+  const editor = await createGrainEditor("editor", code);
+
+  function compile() {
+    runButton.disabled = true;
+    outputPanel.style.backgroundColor = "#EFEFEF";
+    output.innerText = "Compiling...";
+
+    worker.postMessage({
+      content: editor.getValue(),
+    });
+
+    worker.onmessage = ({ data }) => {
+      runButton.disabled = false;
+
+      if (data?.stderr) {
+        outputPanel.style.backgroundColor = "#F9DCDE";
+        output.innerText = data.stderr;
+        return;
+      }
+
+      outputPanel.style.backgroundColor = "#E6EFE6";
+      if (data?.stdout) {
+        output.innerText = data.stdout;
+      } else {
+        output.innerText = "< no program output >";
+      }
+    };
+
+    worker.onerror = (err) => {
+      console.error(err);
+    };
+
+    editor.layout();
+  }
+
+  worker.addEventListener("message", ({ data }) => {
+    if (data?.initialized) {
+      compile();
+    }
+  });
+
+  editor.onDidChangeModelContent(() => {
+    const code = editor.getValue();
+    const compressed = lzString.compressToEncodedURIComponent(code);
+    const searchParams = new URLSearchParams({
+      code: compressed
+    });
+    window.history.pushState(null, "", "?" + searchParams.toString());
+  });
+
+  const outputPanel = document.getElementById("output-panel")!;
+  const output = document.getElementById("output")!;
+
+  window.addEventListener(
+    "resize",
+    debounce(() => {
+      editor.layout();
+    }, 100)
+  );
+
+  runButton.onclick = compile;
+</script>
+
+<div>
+  <div class="flex text-lg justify-between items-center px-16 py-4">
+    <ButtonLink id="run" disabled class="disabled:bg-[#9B9B9B]">Run</ButtonLink>
+    <div class="flex gap-6">
+      <div class="relative">
+        <div class="peer cursor-pointer hover:text-orange-50 px-6 py-2">Examples</div>
+        <div class="absolute left-1/2 -translate-x-1/2 hidden hover:grid peer-hover:grid grid-cols-2 px-2 py-4 bg-white rounded-lg border border-gray-30 w-96">
+          {codeExamples.map(example => (
+            <div class="cursor-pointer hover:text-orange-50 px-6 py-2" data-example={lzString.compressToEncodedURIComponent(example.code)}>{example.name}</div>
+          ))}
+        </div>
+      </div>
+      <div class="relative">
+        <div id="share-button" class="peer cursor-pointer hover:text-orange-50 px-6 py-2">Share</div>
+        <Tooltip>Copy URL to clipboard</Tooltip>
+      </div>
+    </div>
+  </div>
+  <div id="editor-wrapper" class="grid grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 h-[calc(100vh-3.5rem-5rem)] max-h-[calc(100vh-3.5rem-5rem)]">
+    <main id="editor"></main>
+    <section id="output-panel" class="flex flex-col bg-[#EFEFEF]">
+      <pre id="output" class="m-0 p-4 grow whitespace-pre-wrap">Initializing...</pre>
+    </section>
+  </div>
+</div>

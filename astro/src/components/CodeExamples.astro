@@ -4,95 +4,11 @@ import ChevronRightIcon from "./icons/ChevronRightIcon.astro";
 import ExternalIcon from "./icons/ExternalIcon.astro";
 import grainLang from "../../grain.json";
 import githubDarkModifiedTheme from "../../themes/github-dark-modified.json";
+import lzString from "lz-string";
+import { codeExamples } from "../examples";
 
 const theme = githubDarkModifiedTheme as any;
 const lang = grainLang as any;
-
-const basicExample =
-`module Main
-
-let translateCoordinates = (x, y) => {
-  (x + 4, y + 4)
-}
-
-let (x, y) = translateCoordinates(1, 2)
-print(x) // 5
-print(y) // 6
-`;
-
-const typeInferenceExample = 
-`module Main
-
-let square = n => n * n
-
-square("🌾") // Compile error: expected a Number
-`;
-
-const safeExample =
-`module Main
-
-from "map" include Map
-
-let printMovieRating = movie => {
-  let catalog = Map.fromList([
-    ("Godzilla", 7.5),
-    ("Forrest Gump", 8.8),
-    ("The Dark Knight", 9.0),
-  ])
-
-  // All cases must be handled
-  match (Map.get(movie, catalog)) {
-    Some(rating) => print(rating),
-    None => print("Rating unavailable") // No unexpected null!
-  }
-}
-
-printMovieRating("The Matrix") // Rating unavailable
-`;
-
-// TODO
-const practicalExample =
-`module Main
-
-from "json" include Json
-
-
-
-Json.parse("{\\\"")
-`;
-
-const functionalExample = 
-`module Main
-
-let rec map = (f, list) => {
-  match (list) {
-    [] => [],
-    [first, ...rest] => [f(first), ...map(f, rest)]
-  }
-}
-
-let doubled = map(x => x * 2, [1, 2, 3])
-assert doubled == [2, 4, 6]
-`;
-
-const imperativeExample =
-`module Main
-
-from "array" include Array
-
-let contains = (value, array) => {
-  for (let mut i = 0; i < Array.length(array); i += 1) {
-    if (array[i] == value) {
-      return true
-    }
-  }
-
-  return false
-}
-
-print(contains(3, [> 1, 2, 3, 4])) // true
-`;
-
 ---
 
 <script>
@@ -100,6 +16,7 @@ print(contains(3, [> 1, 2, 3, 4])) // true
 
   const examples = document.getElementById("code-samples")!;
   const selectedExample = document.getElementById("selected-example")!;
+  const playgroundLink = document.getElementById("playground-link")!;
 
   const numExamples = examples.childElementCount;
 
@@ -109,6 +26,9 @@ print(contains(3, [> 1, 2, 3, 4])) // true
     examples.children[currIndex].classList.add("hidden");
     examples.children[nextIndex].classList.remove("hidden");
     currIndex = nextIndex;
+
+    const compressedCode = examples.children[currIndex].getAttribute("data-compressed-code");
+    playgroundLink.setAttribute("href", `/try?code=${compressedCode}`)
 
     selectedExample.innerHTML = examples.children[currIndex].getAttribute("data-name")!;
   }
@@ -128,19 +48,23 @@ print(contains(3, [> 1, 2, 3, 4])) // true
       </div>
     </span>
 
-    <a href="/try" class="flex gap-2 border rounded border-gray-variant-70 text-gray-variant-70 py-0.5 px-2 w-fit">
+    <a id="playground-link" href="/try" class="flex gap-2 border rounded border-gray-variant-60 text-gray-variant-60 py-0.5 px-2 w-fit">
       Playground
       <ExternalIcon class="w-4" />
     </a>
   </div>
   <div class="flex flex-col-reverse lg:flex-col flex-auto justify-between">
     <div id="code-samples" class="pt-6 lg:pt-0 h-[calc(100%-24px)]">
-      <Code code={basicExample} theme={theme} lang={lang} data-name="Basic" />
-      <Code class="hidden" code={typeInferenceExample} theme={theme} lang={lang} data-name="Type-inferred" />
-      <Code class="hidden" code={safeExample} theme={theme} lang={lang} data-name="Safe" />
-      <Code class="hidden" code={practicalExample} theme={theme} lang={lang} data-name="Practical" />
-      <Code class="hidden" code={functionalExample} theme={theme} lang={lang} data-name="Functional" />
-      <Code class="hidden" code={imperativeExample} theme={theme} lang={lang} data-name="Imperative" />
+      {codeExamples.map((example, i) => (
+        <Code
+          class:list={[{"hidden": i !== 0}]}
+          code={example.code}
+          theme={theme}
+          lang={lang}
+          data-name={example.name}
+          data-compressed-code={lzString.compressToEncodedURIComponent(example.code)}
+        />
+      ))}
     </div>
     <div class="flex justify-between items-center text-purple-40 w-full lg:w-3/5 mx-auto">
       <button id="prev" class="inline-block border border-purple-40 hover:bg-purple-80 rounded-full p-3 rotate-180">

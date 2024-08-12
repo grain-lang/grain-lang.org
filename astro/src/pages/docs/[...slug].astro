@@ -19,7 +19,7 @@ const { entry, prev, next } = Astro.props;
 const { Content, headings } = await entry.render();
 ---
 
-<Layout title={`Grain Docs | ${entry.data.title}`} excludeFooter={true}>
+<Layout title={`Grain Docs | ${entry.data.title}`} excludeFooter>
 	<DocsEntry data={entry.data} headings={headings} prev={prev} next={next}>
 		<Content />
   </DocsEntry>

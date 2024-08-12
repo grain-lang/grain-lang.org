@@ -33,6 +33,7 @@ export default {
         "gray-variant-90": "#231C36",
         "gray-variant-80": "#312946",
         "gray-variant-70": "#4A4164",
+        "gray-variant-60": "#716985",
         "gray-variant-50": "#9790A6",
         "purple-100": "#1D182E",
         "purple-90": "#231C36",
