@@ -230,3 +230,13 @@ counter() // 3
 ```
 
 The `makeCounter` function returns a counter function which will print sequential numbers when called.
+
+## Foreign Functions
+
+A foreign function declaration can be used to import functions from the webassembly host.
+
+```grain
+foreign wasm alert: WasmI32 => Void from "host"
+
+alert(42)
+```
