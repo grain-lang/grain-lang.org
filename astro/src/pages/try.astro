@@ -1,8 +1,9 @@
 ---
-import Playground from "../components/Playground.astro";
+// import Playground from "../components/Playground.astro";
+import Playground from "../components/Playground.svelte";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Grain Playground" excludeFooter>
-  <Playground />
+  <Playground client:only="svelte">
 </Layout>

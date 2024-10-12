@@ -1,6 +1,7 @@
 ---
 import { codeExamples } from "../examples";
 import ButtonLink from "./ButtonLink.astro";
+import LoadingSpinner from "./LoadingSpinner.astro";
 import Tooltip from "./Tooltip.astro";
 import lzString from "lz-string";
 ---
@@ -8,11 +9,23 @@ import lzString from "lz-string";
 <script>
   import CompilerWorker from "../playground/compiler?worker";
   import lzString from "lz-string";
+  import { createGrainEditor } from "../playground/editor";
+  import { $selectedTheme } from "../store";
+  import * as monaco from "monaco-editor";
 
-  const runButton = document.getElementById("run")! as HTMLButtonElement;
+  const runButtonElement = document.getElementById("run")! as HTMLButtonElement;
+  const outputPanelElement = document.getElementById("output-panel")!;
+  const outputElement = document.getElementById("output")!;
+  const spinnerContainerElement = document.getElementById("spinner-container")!;
+  const loadingStateElement = document.getElementById("loading-state")!;
+  const copiedTextElement = document.getElementById("copied-text")!;
 
+  let existingTimeout: number;
   document.getElementById("share-button")!.addEventListener("click", () => {
     navigator.clipboard.writeText(window.location.href);
+    copiedTextElement.innerText = "Copied!";
+    clearTimeout(existingTimeout);
+    existingTimeout = setTimeout(() => copiedTextElement.innerText = "Copy URL to clipboard", 750) as any as number;
   });
 
   document.querySelectorAll<HTMLButtonElement>("[data-example]")!.forEach(elem => {
@@ -27,7 +40,7 @@ import lzString from "lz-string";
   worker.onerror = (err) => console.error(err);
   worker.addEventListener("message", ({ data }) => {
     if (data?.initialized) {
-      runButton.disabled = false;
+      runButtonElement.disabled = false;
       return;
     }
   });
@@ -47,33 +60,36 @@ import lzString from "lz-string";
   const urlParams = new URLSearchParams(window.location.search);
   const code = lzString.decompressFromEncodedURIComponent(urlParams.get("code")!)
     || 'module Playground\n\nprint("Hello, world!")\n';
-
-  const { createGrainEditor } = await import("../playground/editor");
   const editor = await createGrainEditor("editor", code);
 
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  $selectedTheme.subscribe(selectedTheme => {
+    monaco.editor.setTheme(selectedTheme === "light" || !prefersDark ? "github-light" : "github-dark-modified");
+  });
+
   function compile() {
-    runButton.disabled = true;
-    outputPanel.style.backgroundColor = "#EFEFEF";
-    output.innerText = "Compiling...";
+    runButtonElement.disabled = true;
+    outputElement.style.display = "none";
+    loadingStateElement.innerText = "Compiling";
+    spinnerContainerElement.style.display = "flex";
 
     worker.postMessage({
       content: editor.getValue(),
     });
 
     worker.onmessage = ({ data }) => {
-      runButton.disabled = false;
+      runButtonElement.disabled = false;
 
+      outputElement.style.display = "block";
+      spinnerContainerElement.style.display = "none";
       if (data?.stderr) {
-        outputPanel.style.backgroundColor = "#F9DCDE";
-        output.innerText = data.stderr;
-        return;
-      }
-
-      outputPanel.style.backgroundColor = "#E6EFE6";
-      if (data?.stdout) {
-        output.innerText = data.stdout;
+        outputPanelElement.style.border = "6px solid rgb(242, 84, 84)";
+        outputPanelElement.style.backgroundColor = "rgb(238, 170, 170)";
+        outputElement.innerText = data.stderr;
+      } else if (data?.stdout) {
+        outputElement.innerText = data.stdout;
       } else {
-        output.innerText = "< no program output >";
+        outputElement.innerText = "< no program output >";
       }
     };
 
@@ -99,9 +115,6 @@ import lzString from "lz-string";
     window.history.pushState(null, "", "?" + searchParams.toString());
   });
 
-  const outputPanel = document.getElementById("output-panel")!;
-  const output = document.getElementById("output")!;
-
   window.addEventListener(
     "resize",
     debounce(() => {
@@ -109,31 +122,37 @@ import lzString from "lz-string";
     }, 100)
   );
 
-  runButton.onclick = compile;
+  runButtonElement.onclick = compile;
 </script>
 
 <div>
   <div class="flex text-lg justify-between items-center px-16 py-4">
-    <ButtonLink id="run" disabled class="disabled:bg-[#9B9B9B]">Run</ButtonLink>
+    <ButtonLink id="run" disabled class="dark:disabled:bg-gray-variant-50 disabled:bg-[#9B9B9B]">Run</ButtonLink>
     <div class="flex gap-6">
       <div class="relative">
-        <div class="peer cursor-pointer hover:text-orange-50 px-6 py-2">Examples</div>
-        <div class="absolute left-1/2 -translate-x-1/2 hidden hover:grid peer-hover:grid grid-cols-2 px-2 py-4 bg-white rounded-lg border border-gray-30 w-96">
+        <div class="peer cursor-pointer hover:text-color-accent px-6 py-2">Examples</div>
+        <div class="absolute left-1/2 -translate-x-1/2 hidden hover:grid peer-hover:grid grid-cols-2 px-2 py-2 rounded border border-gray-20 dark:border-purple-70 bg-white dark:bg-purple-90 w-96">
           {codeExamples.map(example => (
-            <div class="cursor-pointer hover:text-orange-50 px-6 py-2" data-example={lzString.compressToEncodedURIComponent(example.code)}>{example.name}</div>
+            <div class="cursor-pointer hover:bg-gray-10 dark:hover:bg-purple-80 rounded px-4 py-2" data-example={lzString.compressToEncodedURIComponent(example.code)}>{example.name}</div>
           ))}
         </div>
       </div>
       <div class="relative">
-        <div id="share-button" class="peer cursor-pointer hover:text-orange-50 px-6 py-2">Share</div>
-        <Tooltip>Copy URL to clipboard</Tooltip>
+        <div id="share-button" class="peer cursor-pointer hover:text-color-accent px-6 py-2">Share</div>
+        <Tooltip><span id="copied-text">Copy URL to clipboard</span></Tooltip>
       </div>
     </div>
   </div>
   <div id="editor-wrapper" class="grid grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 h-[calc(100vh-3.5rem-5rem)] max-h-[calc(100vh-3.5rem-5rem)]">
-    <main id="editor"></main>
-    <section id="output-panel" class="flex flex-col bg-[#EFEFEF]">
-      <pre id="output" class="m-0 p-4 grow whitespace-pre-wrap">Initializing...</pre>
+    <div id="editor"></div>
+    <section id="output-panel" class="dark:bg-[#2F254B] bg-[#EFEFEF]">
+      <pre id="output" class="hidden m-0 p-5 grow whitespace-pre-wrap"></pre>
+      <div id="spinner-container" class="flex items-center justify-center w-full h-full">
+        <div class="flex flex-col gap-2 items-center">
+          <LoadingSpinner />
+          <div id="loading-state" class="font-semibold text-sm">Initializing</div>
+        </div>
+      </div>
     </section>
   </div>
 </div>

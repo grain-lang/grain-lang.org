@@ -87,18 +87,6 @@ export default {
                 }
               },
             },
-            // ol: {
-            //   margin: 0,
-            //   padding: 0,
-            //   "list-style-type": "none",
-            //   li: {
-            //     "counter-increment": "step-counter",
-            //     "&:before": {
-            //       content: "counter(step-counter)",
-            //       "margin-left": "-2rem"
-            //     }
-            //   }
-            // },
           },
         },
       },

@@ -12,4 +12,4 @@ function getTheme(): Theme {
   return "light";
 }
 
-export const selectedTheme = atom(getTheme());
+export const $selectedTheme = atom(getTheme());

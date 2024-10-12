@@ -63,6 +63,7 @@ export default defineConfig({
       transformers: [
         {
           code(node) {
+            // Hack to distinguish block code from inline code in tailwind-typography
             node.properties["data-block"] = "true";
           }
         }

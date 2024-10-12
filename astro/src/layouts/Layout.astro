@@ -31,9 +31,9 @@ const { title, excludeFooter } = Astro.props;
 </html>
 
 <script>
-	import { selectedTheme } from "../store";
+	import { $selectedTheme } from "../store";
 
-	selectedTheme.subscribe(theme => {
+	$selectedTheme.subscribe(theme => {
     if (theme == "dark") {
       document.documentElement.classList.add("dark");
     } else {

@@ -1,12 +1,12 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { selectedTheme, type Theme } from "../store";
+  import * as store from "../store";
   import SunIcon from "./icons/SunIcon.svelte";
   import MoonIcon from "./icons/MoonIcon.svelte";
   import DesktopIcon from "./icons/DesktopIcon.svelte";
 
   let open = false;
-  let theme = selectedTheme.get();
+  let theme = store.$selectedTheme.get();
   let prefersDark = false;
 
   onMount(() => {
@@ -15,16 +15,16 @@
 
   $: isDarkTheme = theme === "dark" || (theme === "system" && prefersDark);
 
-  function applyTheme(newTheme: Theme) {
+  function applyTheme(newTheme: store.Theme) {
     open = false;
     theme = newTheme;
 
     if (["light", "dark"].includes(newTheme)) {
       localStorage.setItem("theme", newTheme);
-      selectedTheme.set(newTheme);
+      store.$selectedTheme.set(newTheme);
     } else {
       localStorage.removeItem("theme");
-      selectedTheme.set(prefersDark ? "dark" : "light");
+      store.$selectedTheme.set(prefersDark ? "dark" : "light");
     }
 
   }
