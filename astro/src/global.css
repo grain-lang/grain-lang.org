@@ -42,6 +42,10 @@
     --color-background-bright: 255 255 255;
     --color-accent: 236 77 27;
     --color-accent-dim: 244 125 88;
+    --color-blurb-1: 213 197 245;
+    --color-blurb-2: 147 113 244;
+    --color-blurb-3: 255 230 166;
+    --color-blurb-4: 162 221 239;
 
     @media (min-width: 640px) {
       --container-width: 640px;
@@ -76,5 +80,9 @@
     --color-background-bright: 29 24 46;
     --color-accent: 225 101 62;
     --color-accent-dim: 220 153 132;
+    --color-blurb-1: 102 85 136;
+    --color-blurb-2: 90 68 153;
+    --color-blurb-3: 157 147 116;
+    --color-blurb-4: 79 124 138;
   }
 }

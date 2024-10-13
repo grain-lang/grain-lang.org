@@ -1,8 +1,10 @@
-### Exception.**Option**
+---
+title: Exception
+---
 
-```grain
-type Option<a>
-```
+## Values
+
+Functions and constants included in the Exception module.
 
 ### Exception.**printers**
 
@@ -13,24 +15,24 @@ printers : WasmI32
 ### Exception.**dangerouslyRegisterBasePrinter**
 
 ```grain
-dangerouslyRegisterBasePrinter : a -> Void
+dangerouslyRegisterBasePrinter : (f: a) => Void
 ```
 
 ### Exception.**dangerouslyRegisterPrinter**
 
 ```grain
-dangerouslyRegisterPrinter : a -> Void
+dangerouslyRegisterPrinter : (f: a) => Void
 ```
 
 ### Exception.**panic**
 
 ```grain
-panic : String -> a
+panic : (msg: String) => a
 ```
 
 ### Exception.**panicWithException**
 
 ```grain
-panicWithException : Exception -> a
+panicWithException : (e: Exception) => a
 ```
 

@@ -20,7 +20,7 @@ import Card from "./Card.astro";
   <div class="mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-14">
       <Card title="We continuously strive to" class="bg-color-background-bright">
-        <ul class="pl-6 [&>li]:my-1 [&>li]:pl-1 text-orange-70 list-outside list-image-[url(/src/images/check-icon.svg)]">
+        <ul class="pl-6 [&>li]:my-1 [&>li]:pl-1 text-color-accent list-outside list-image-[url(/src/images/check-icon.svg)]">
           <li>Improve the language</li>
           <li>Address more use cases and provide exceptional documentation</li>
           <li>Prioritize developer experience</li>
@@ -34,9 +34,9 @@ import Card from "./Card.astro";
         </p>
       </Card>
       <Card title="Sponsors and Contributors" class="bg-color-background-bright relative">
-        <div class="z-10 dark:hidden absolute -top-10 right-[11rem] bg-[#A2DDEF] w-36 h-[32rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
-        <div class="z-10 dark:hidden absolute -top-10 right-[5rem] bg-purple-40 w-36 h-[32rem] rounded-full rotate-[10deg] blur-3xl" />
-        <div class="z-10 dark:hidden absolute top-0 right-[0rem] bg-[#FFE6A6] w-36 h-[32rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
+        <div class="z-10 absolute -top-10 right-[10rem] bg-color-blurb-4 w-36 h-[32rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
+        <div class="z-10 absolute -top-10 right-[3rem] bg-color-blurb-2 w-36 h-[32rem] rounded-full rotate-[10deg] blur-3xl" />
+        <div class="z-10 absolute top-0 -right-[3rem] bg-color-blurb-3 w-36 h-[32rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
         <p class="z-20">
           We rely on volunteer contributors and sponsors to sustain the project.
           Development of the Grain programming language is financially
@@ -49,7 +49,7 @@ import Card from "./Card.astro";
           developer experience.
         </p>
       </Card>
-      <Card title="Want to be a part of Grain's development?" class="bg-gray-variant-90 text-purple-20">
+      <Card title="Want to be a part of Grain's development?" class="bg-gray-variant-90 dark:bg-[#2F2744] text-purple-20">
         <p class="text-gray-variant-50">
           Contributors come in many forms—code contributors, documentation
           writers, bug finders, community organizers, language evangelists, and
@@ -58,7 +58,7 @@ import Card from "./Card.astro";
         </p>
         <Image src={branchingImg} alt="An illustration of git branching." />
       </Card>
-      <Card title="Not sure where to start?" class="bg-[#F6F1EF] bg-[#180f26]">
+      <Card title="Not sure where to start?" class="bg-[#F6F1EF] dark:bg-[#180f26]">
         <p>
           Connect with us on <a href="https://discord.com/invite/grain-lang" class="underline">Discord</a>!
           We'll walk through contributor opportunities with you, and we're even

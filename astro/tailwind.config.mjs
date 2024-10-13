@@ -17,6 +17,10 @@ export default {
         "color-background-bright": "rgb(var(--color-background-bright) / <alpha-value>)",
         "color-accent": "rgb(var(--color-accent) / <alpha-value>)",
         "color-accent-dim": "rgb(var(--color-accent-dim) / <alpha-value>)",
+        "color-blurb-1": "rgb(var(--color-blurb-1) / <alpha-value>)",
+        "color-blurb-2": "rgb(var(--color-blurb-2) / <alpha-value>)",
+        "color-blurb-3": "rgb(var(--color-blurb-3) / <alpha-value>)",
+        "color-blurb-4": "rgb(var(--color-blurb-4) / <alpha-value>)",
 
         black: "#36343A",
         "gray-90": "#36343A",

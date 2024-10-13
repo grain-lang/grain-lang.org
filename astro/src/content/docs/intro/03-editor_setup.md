@@ -1,5 +1,6 @@
 ---
 title: Editor Setup
+slug: intro/editor_setup
 ---
 
 As more editors are supported, they will be added here.

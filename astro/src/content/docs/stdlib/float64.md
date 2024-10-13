@@ -10,12 +10,28 @@ No other changes yet.
 </details>
 
 ```grain
-import Float64 from "float64"
+from "float64" include Float64
 ```
 
-## Constants
+```grain
+5.0d
+```
 
-Float64 constant values.
+```grain
+-5.0d
+```
+
+```grain
+Infinityd
+```
+
+```grain
+NaNd
+```
+
+## Values
+
+Functions and constants included in the Float64 module.
 
 ### Float64.**infinity**
 
@@ -29,6 +45,7 @@ infinity : Float64
 ```
 
 Infinity represented as a Float64 value.
+This is an alternative to the `Infinityd` literal.
 
 ### Float64.**nan**
 
@@ -42,6 +59,7 @@ nan : Float64
 ```
 
 NaN (Not a Number) represented as a Float64 value.
+This is an alternative to the `NaNd` literal.
 
 ### Float64.**pi**
 
@@ -82,10 +100,6 @@ e : Float64
 
 Euler's number represented as a Float64 value.
 
-## Conversions
-
-Functions for converting between Numbers and the Float64 type.
-
 ### Float64.**fromNumber**
 
 <details disabled>
@@ -94,7 +108,7 @@ No other changes yet.
 </details>
 
 ```grain
-fromNumber : Number -> Float64
+fromNumber : (number: Number) => Float64
 ```
 
 Converts a Number to a Float64.
@@ -119,7 +133,7 @@ No other changes yet.
 </details>
 
 ```grain
-toNumber : Float64 -> Number
+toNumber : (float: Float64) => Number
 ```
 
 Converts a Float64 to a Number.
@@ -136,19 +150,22 @@ Returns:
 |----|-----------|
 |`Number`|The Float64 represented as a Number|
 
-## Operations
+### Float64.**(+)**
 
-Mathematical operations for Float64 values.
-
-### Float64.**add**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `add`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-add : (Float64, Float64) -> Float64
+(+) : (x: Float64, y: Float64) => Float64
 ```
 
 Computes the sum of its operands.
@@ -166,15 +183,29 @@ Returns:
 |----|-----------|
 |`Float64`|The sum of the two operands|
 
-### Float64.**sub**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Float64.{ (+) }
+assert 1.0d + 1.0d == 2.0d
+```
+
+### Float64.**(-)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `sub`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-sub : (Float64, Float64) -> Float64
+(-) : (x: Float64, y: Float64) => Float64
 ```
 
 Computes the difference of its operands.
@@ -192,15 +223,29 @@ Returns:
 |----|-----------|
 |`Float64`|The difference of the two operands|
 
-### Float64.**mul**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Float64.{ (-) }
+assert 5.0d - 4.0d == 1.0d
+```
+
+### Float64.**(*)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `mul`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-mul : (Float64, Float64) -> Float64
+(*) : (x: Float64, y: Float64) => Float64
 ```
 
 Computes the product of its operands.
@@ -218,15 +263,29 @@ Returns:
 |----|-----------|
 |`Float64`|The product of the two operands|
 
-### Float64.**div**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Float64.{ (*) }
+assert -5.0d * 4.0d == -20.0d
+```
+
+### Float64.**(/)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `div`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-div : (Float64, Float64) -> Float64
+(/) : (x: Float64, y: Float64) => Float64
 ```
 
 Computes the quotient of its operands.
@@ -244,19 +303,29 @@ Returns:
 |----|-----------|
 |`Float64`|The quotient of the two operands|
 
-## Comparisons
+Examples:
 
-Functions for comparing Float64 values.
+```grain
+use Float64.{ (/) }
+assert 25.0d / 4.0d == 6.25d
+```
 
-### Float64.**lt**
+### Float64.**(<)**
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `lt`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-lt : (Float64, Float64) -> Bool
+(<) : (x: Float64, y: Float64) => Bool
 ```
 
 Checks if the first value is less than the second value.
@@ -274,15 +343,29 @@ Returns:
 |----|-----------|
 |`Bool`|`true` if the first value is less than the second value or `false` otherwise|
 
-### Float64.**gt**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Float64.{ (<) }
+assert -5.0d < 5.0d
+```
+
+### Float64.**(>)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `gt`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-gt : (Float64, Float64) -> Bool
+(>) : (x: Float64, y: Float64) => Bool
 ```
 
 Checks if the first value is greater than the second value.
@@ -300,15 +383,29 @@ Returns:
 |----|-----------|
 |`Bool`|`true` if the first value is greater than the second value or `false` otherwise|
 
-### Float64.**lte**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Float64.{ (>) }
+assert 6.0d > 5.0d
+```
+
+### Float64.**(<=)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `lte`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-lte : (Float64, Float64) -> Bool
+(<=) : (x: Float64, y: Float64) => Bool
 ```
 
 Checks if the first value is less than or equal to the second value.
@@ -326,15 +423,34 @@ Returns:
 |----|-----------|
 |`Bool`|`true` if the first value is less than or equal to the second value or `false` otherwise|
 
-### Float64.**gte**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Float64.{ (<=) }
+assert 1.0d <= 2.0d
+```
+
+```grain
+use Float64.{ (<=) }
+assert 2.0d <= 2.0d
+```
+
+### Float64.**(>=)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `gte`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-gte : (Float64, Float64) -> Bool
+(>=) : (x: Float64, y: Float64) => Bool
 ```
 
 Checks if the first value is greater than or equal to the second value.
@@ -351,4 +467,180 @@ Returns:
 |type|description|
 |----|-----------|
 |`Bool`|`true` if the first value is greater than or equal to the second value or `false` otherwise|
+
+Examples:
+
+```grain
+use Float64.{ (>=) }
+assert 5.0d >= 2.0d
+```
+
+```grain
+use Float64.{ (>=) }
+assert -1.0d >= -1.0d
+```
+
+### Float64.**isNaN**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.6.5</code></summary>
+No other changes yet.
+</details>
+
+```grain
+isNaN : (x: Float64) => Bool
+```
+
+Checks if the value is a float NaN value (Not A Number).
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`x`|`Float64`|The value to check|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Bool`|`true` if the value is NaN, otherwise `false`|
+
+Examples:
+
+```grain
+Float64.isNaN(NaNd)
+```
+
+```grain
+Float64.isNaN(Infinityd) == false
+```
+
+```grain
+Float64.isNaN(-Infinityd) == false
+```
+
+```grain
+Float64.isNaN(0.5d) == false
+```
+
+```grain
+Float64.isNaN(1.0d) == false
+```
+
+### Float64.**isInfinite**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.6.5</code></summary>
+No other changes yet.
+</details>
+
+```grain
+isInfinite : (x: Float64) => Bool
+```
+
+Checks if a float is infinite, that is either of positive or negative infinity.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`x`|`Float64`|The value to check|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Bool`|`true` if the value is infinite or `false` otherwise|
+
+Examples:
+
+```grain
+Float64.isInfinite(Infinityd)
+```
+
+```grain
+Float64.isInfinite(-Infinityd)
+```
+
+```grain
+Float64.isInfinite(NaNd) == false
+```
+
+```grain
+Float64.isInfinite(0.5d) == false
+```
+
+```grain
+Float64.isInfinite(1.0d) == false
+```
+
+### Float64.**abs**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.6.5</code></summary>
+No other changes yet.
+</details>
+
+```grain
+abs : (x: Float64) => Float64
+```
+
+Returns the absolute value. That is, it returns `x` if `x` is positive or zero and the negation of `x` if `x` is negative.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`x`|`Float64`|The operand|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Float64`|The absolute value of the operand|
+
+Examples:
+
+```grain
+Float64.abs(-1.0d) == 1.0d
+```
+
+```grain
+Float64.abs(5.0d) == 5.0d
+```
+
+### Float64.**neg**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.6.5</code></summary>
+No other changes yet.
+</details>
+
+```grain
+neg : (x: Float64) => Float64
+```
+
+Returns the negation of its operand.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`x`|`Float64`|The operand|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Float64`|The negated operand|
+
+Examples:
+
+```grain
+Float64.neg(-1.0d) == 1.0d
+```
+
+```grain
+Float64.neg(1.0d) == -1.0d
+```
 

@@ -2,9 +2,15 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import DocsEntry from "../../components/DocsEntry.astro";
+import { docsCollections } from "../../utils/docsCollections";
 
 export async function getStaticPaths() {
   const docsEntries = await getCollection("docs");
+  docsEntries.sort((x, y) =>
+    docsCollections.findIndex(coll => x.slug.startsWith(coll.slugPrefix))
+    - docsCollections.findIndex(coll => y.slug.startsWith(coll.slugPrefix))
+  );
+
   return docsEntries.map((entry, i) => ({
     params: { slug: entry.slug },
     props: {

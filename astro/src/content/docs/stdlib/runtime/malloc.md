@@ -1,3 +1,11 @@
+---
+title: Malloc
+---
+
+## Values
+
+Functions and constants included in the Malloc module.
+
 ### Malloc.**_RESERVED_RUNTIME_SPACE**
 
 ```grain
@@ -7,7 +15,7 @@ _RESERVED_RUNTIME_SPACE : WasmI32
 ### Malloc.**free**
 
 ```grain
-free : WasmI32 -> Void
+free : (ap: WasmI32) => Void
 ```
 
 Frees the given allocated pointer.
@@ -21,7 +29,7 @@ Parameters:
 ### Malloc.**malloc**
 
 ```grain
-malloc : WasmI32 -> WasmI32
+malloc : (nbytes: WasmI32) => WasmI32
 ```
 
 Allocates the requested number of bytes, returning a pointer.
@@ -38,18 +46,11 @@ Returns:
 |----|-----------|
 |`WasmI32`|The pointer to the allocated region (8-byte aligned) or -1 if the allocation failed|
 
-### Malloc.**getFreePtr**
+### Malloc.**leakAll**
 
 ```grain
-getFreePtr : () -> WasmI32
+leakAll : () => Void
 ```
 
-Returns the current free list pointer.
-Used for debugging.
-
-Returns:
-
-|type|description|
-|----|-----------|
-|`WasmI32`|The free list pointer|
+Leaks all memory in all free lists; used for testing.
 

@@ -20,6 +20,16 @@ const { title, excludeFooter } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+
+		<script is:inline>
+			// Avoid flash of inaccurate color theme
+			const initialTheme =
+				window.localStorage.getItem("theme") ??
+				(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+			if (initialTheme === "dark") {
+				document.documentElement.classList.add("dark");
+			}
+		</script>
 	</head>
 	<body class="bg-color-background">
 		<Nav />

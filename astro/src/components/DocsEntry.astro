@@ -8,11 +8,9 @@ import DocsSwitchPageLink from "./DocsSwitchPageLink.astro";
 import TypographyContainer from "./TypographyContainer.astro";
 import NewsletterSignup from "./NewsletterSignup.astro";
 import Footer from "./Footer.astro";
+import { docsCollections } from "../utils/docsCollections";
 
-const introEntries = await getCollection("docs", x => x.id.startsWith("intro/"));
-const guideEntries = await getCollection("docs", x => x.id.startsWith("guide/"));
-const stdlibEntries = await getCollection("docs", x => x.id.startsWith("stdlib/"));
-const toolingEntries = await getCollection("docs", x => x.id.startsWith("tooling/"));
+const docsEntries = await getCollection("docs");
 
 const sidebarClass = "fixed overflow-auto w-[calc(var(--container-width)/5)] top-[3.5rem] h-[calc(100vh-3.5rem)] py-14";
 
@@ -29,12 +27,11 @@ const { data, headings, prev, next } = Astro.props;
 <div class="container mx-auto pt-5 md:pt-14 px-5 lg:px-0">
   <div class="flex justify-end">
     <div class=`${sidebarClass} hidden lg:block left-[calc(50%-calc(var(--container-width)/2))] pl-5`>
-      <h1 class="text-2xl font-semibold">Grain Docs</h1>
+      <h1 class="text-3xl font-semibold mb-4">Grain Docs</h1>
 
-      <DocLinkGroup title="Intro" entries={introEntries} />
-      <DocLinkGroup title="The Guide" entries={guideEntries} />
-      <DocLinkGroup title="Tooling" entries={toolingEntries} />
-      <DocLinkGroup title="Standard Library" entries={stdlibEntries} />
+      {docsCollections.map(coll => (
+        <DocLinkGroup title={coll.title} entries={docsEntries.filter((x: any) => x.slug.startsWith(coll.slugPrefix))} />
+      ))}
     </div>
 
     <article class="w-full lg:w-4/5 xl:w-3/5 xl:float-none xl:mx-auto lg:pl-20 xl:pr-20">

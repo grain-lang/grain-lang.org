@@ -1,5 +1,6 @@
 ---
 title: Getting Grain
+slug: intro/getting_grain
 ---
 
 We have a couple different ways to get Grain. Most developers will prefer the Packaged Grain binaries, but make sure to read the note about speed!

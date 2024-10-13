@@ -10,12 +10,20 @@ No other changes yet.
 </details>
 
 ```grain
-import Hash from "hash"
+from "hash" include Hash
+```
+
+```grain
+Hash.hash(1)
+```
+
+```grain
+Hash.hash("Hello World")
 ```
 
 ## Values
 
-Functions for hashing.
+Functions and constants included in the Hash module.
 
 ### Hash.**hash**
 
@@ -25,7 +33,7 @@ No other changes yet.
 </details>
 
 ```grain
-hash : a -> Number
+hash : (anything: a) => Number
 ```
 
 A generic hash function that produces an integer from any value. If `a == b` then `Hash.hash(a) == Hash.hash(b)`.
@@ -41,4 +49,20 @@ Returns:
 |type|description|
 |----|-----------|
 |`Number`|A hash for the given value|
+
+Throws:
+
+`Failure(String)`
+
+* If WASI random_get fails
+
+Examples:
+
+```grain
+assert Hash.hash(1) == Hash.hash(1)
+```
+
+```grain
+assert Hash.hash("Hello World") == Hash.hash("Hello World")
+```
 

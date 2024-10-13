@@ -2,7 +2,7 @@
 title: Graindoc
 ---
 
-Grain ships with a documentation generator built directly into the Grain CLI!
+Grain ships with a documentation generator built directly into the Grain CLI, known as Graindoc!
 
 You may be used to similar tools, such as JSDoc, that allow you to add a comment above code which describes the input and output types, along with other documentation. Generally, you'll run an external tool against your source code to generate your documentation.
 
@@ -24,7 +24,7 @@ Here's a quick example of adding a docblock to your grain code:
  * @since v0.1.0
  * @history v0.2.0: Argument order changed to data-last
  */
-export let get = (index, array) => {
+provide let get = (index, array) => {
   array[index]
 }
 ```
@@ -95,9 +95,29 @@ When generating docs, adds the exception to the output followed by a list of cas
  */
 ```
 
-The `@example` attribute provides snippets showing how the documented code is used. Currently, only single line examples are allowed.
+The `@example` attribute provides snippets showing how the documented code is used.
 
 When generating docs, the code snippet will be wrapped in a code block tagged for the `grain` language and added to an "Examples" section.
+
+Below are a few examples:
+```gr
+/**
+ * @example print("Hello World")
+ */
+
+/**
+ * @example let arr = [> 2, 1, 3]
+ * Array.sort((a, b) => a-b, arr)
+ * assert arr = [>1,2,3]
+ */
+
+/**
+ * @example 
+ * let arr = [> 2, 1, 3]
+ * Array.sort((a, b) => a-b, arr)
+ * assert arr = [>1,2,3]
+ */
+```
 
 ### @since
 
@@ -141,32 +161,59 @@ This attribute requires a description of the deprecation and will mark the expor
 
 When generating docs, adds a blockquote containing `**Deprecated:**` and the description immediately below the title.
 
-### @module
+## Module Blocks
 
 ```gr
 /**
- * @module title: description
+ * description
  */
+module Math
 ```
 
-The `@module` attribute provides top-level information about a file, including the module title and a description.
+The module doc block provides top-level information about a file, including a description.
 
-This special attribute is used within a docblock comment that is not attached to a type declaration or exported value. It can only be specified once per file and should exist near the top.
+This special attribute is used within a docblock comment that is attached to a module header. The module block is allowed on both top-level and sub modules.
 
-The `@module` docblock comment can also contain `@example`, `@since`, and `@history` attributes that will add their corresponding output to the top of the documentation.
+The `module` docblock comment can also contain `@example`, `@since`, and `@history` attributes that will add their corresponding output to the top of the documentation.
 
 When generating docs, adds the description at the top of the documentation, and a [Front Matter](https://jekyllrb.com/docs/front-matter/) section containing the title.
 
-### @section
+## Re-providing
+When you re-provide a value in grain such as:
+```grain
+module Library
 
-```gr
+from "list" include List
+
+use List.{ length }
+
+provide {
+  length
+}
+```
+Graindoc will automatically pull the doc block from the `list` library and use that for its documentation.
+
+## Documenting types
+
+When providing types we allow for documentation as well:
+```grain
+module Library
+
 /**
- * @section subtitle: description
- */
+ * Data structure representing JSON in Grain.
+ **/
+provide enum Json {
+  /**
+   * Grain representation of a null JSON value.
+   **/
+  JsonNull,
+  /**
+   * Grain representation of a boolean JSON value.
+   *
+   * @example 
+   **/
+  JsonBoolean(Bool),
+}
 ```
 
-The `@section` attribute provides a grouping within the documented code.
-
-This special attribute is used within a docblock comment that is not attached to a type declaration or exported value. It requires a subtitle and description. When specified, any docblocks between sections are grouped under the heading.
-
-When generating docs, exports that are outside all `@section` attributes, if any are specified, will not be output. Similarly if an `@section` attribute does not have any exports following it, there will be no output in that section apart from the `@section` subtitle and description.
+When documenting types, graindoc supports documenting both `enum` variants and `record` fields, with a description.

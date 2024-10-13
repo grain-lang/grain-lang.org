@@ -10,12 +10,20 @@ No other changes yet.
 </details>
 
 ```grain
-import Int32 from "int32"
+from "int32" include Int32
 ```
 
-## Conversions
+```grain
+1l
+```
 
-Functions for converting between Numbers and the Int32 type.
+```grain
+-1l
+```
+
+## Values
+
+Functions and constants included in the Int32 module.
 
 ### Int32.**fromNumber**
 
@@ -25,7 +33,7 @@ No other changes yet.
 </details>
 
 ```grain
-fromNumber : Number -> Int32
+fromNumber : (number: Number) => Int32
 ```
 
 Converts a Number to an Int32.
@@ -50,7 +58,7 @@ No other changes yet.
 </details>
 
 ```grain
-toNumber : Int32 -> Number
+toNumber : (value: Int32) => Number
 ```
 
 Converts an Int32 to a Number.
@@ -67,9 +75,36 @@ Returns:
 |----|-----------|
 |`Number`|The Int32 represented as a Number|
 
-## Operations
+### Int32.**fromUint32**
 
-Mathematical operations for Int32 values.
+<details disabled>
+<summary tabindex="-1">Added in <code>0.6.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+fromUint32 : (number: Uint32) => Int32
+```
+
+Converts a Uint32 to an Int32.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`number`|`Uint32`|The value to convert|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Int32`|The Uint32 represented as an Int32|
+
+Examples:
+
+```grain
+Int32.fromUint32(1ul) == 1l
+```
 
 ### Int32.**incr**
 
@@ -79,7 +114,7 @@ No other changes yet.
 </details>
 
 ```grain
-incr : Int32 -> Int32
+incr : (value: Int32) => Int32
 ```
 
 Increments the value by one.
@@ -96,6 +131,16 @@ Returns:
 |----|-----------|
 |`Int32`|The incremented value|
 
+Examples:
+
+```grain
+Int32.incr(1l) == 2l
+```
+
+```grain
+Int32.incr(-2l) == -1l
+```
+
 ### Int32.**decr**
 
 <details disabled>
@@ -104,7 +149,7 @@ No other changes yet.
 </details>
 
 ```grain
-decr : Int32 -> Int32
+decr : (value: Int32) => Int32
 ```
 
 Decrements the value by one.
@@ -121,15 +166,32 @@ Returns:
 |----|-----------|
 |`Int32`|The decremented value|
 
-### Int32.**add**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+Int32.decr(2l) == 1l
+```
+
+```grain
+Int32.decr(0l) == -1l
+```
+
+### Int32.**(+)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `add`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-add : (Int32, Int32) -> Int32
+(+) : (x: Int32, y: Int32) => Int32
 ```
 
 Computes the sum of its operands.
@@ -147,15 +209,29 @@ Returns:
 |----|-----------|
 |`Int32`|The sum of the two operands|
 
-### Int32.**sub**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Int32.{ (+) }
+assert 1l + 1l == 2l
+```
+
+### Int32.**(-)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `sub`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-sub : (Int32, Int32) -> Int32
+(-) : (x: Int32, y: Int32) => Int32
 ```
 
 Computes the difference of its operands.
@@ -173,15 +249,29 @@ Returns:
 |----|-----------|
 |`Int32`|The difference of the two operands|
 
-### Int32.**mul**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Int32.{ (-) }
+assert 2l - 1l == 1l
+```
+
+### Int32.**(*)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `mul`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-mul : (Int32, Int32) -> Int32
+(*) : (x: Int32, y: Int32) => Int32
 ```
 
 Computes the product of its operands.
@@ -199,15 +289,29 @@ Returns:
 |----|-----------|
 |`Int32`|The product of the two operands|
 
-### Int32.**div**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Int32.{ (*) }
+assert 2l * 2l == 4l
+```
+
+### Int32.**(/)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `div`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-div : (Int32, Int32) -> Int32
+(/) : (x: Int32, y: Int32) => Int32
 ```
 
 Computes the quotient of its operands using signed division.
@@ -225,31 +329,12 @@ Returns:
 |----|-----------|
 |`Int32`|The quotient of its operands|
 
-### Int32.**divU**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
-</details>
+Examples:
 
 ```grain
-divU : (Int32, Int32) -> Int32
+use Int32.{ (/) }
+assert 8l / 2l == 4l
 ```
-
-Computes the quotient of its operands using unsigned division.
-
-Parameters:
-
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int32`|The first operand|
-|`y`|`Int32`|The second operand|
-
-Returns:
-
-|type|description|
-|----|-----------|
-|`Int32`|The quotient of its operands|
 
 ### Int32.**rem**
 
@@ -259,7 +344,7 @@ No other changes yet.
 </details>
 
 ```grain
-rem : (Int32, Int32) -> Int32
+rem : (x: Int32, y: Int32) => Int32
 ```
 
 Computes the remainder of the division of its operands using signed division.
@@ -277,41 +362,28 @@ Returns:
 |----|-----------|
 |`Int32`|The remainder of its operands|
 
-### Int32.**remU**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
-</details>
+Examples:
 
 ```grain
-remU : (Int32, Int32) -> Int32
+Int32.rem(8l, 3l) == 2l
 ```
 
-Computes the remainder of the division of its operands using unsigned division.
+### Int32.**(%)**
 
-Parameters:
-
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int32`|The first operand|
-|`y`|`Int32`|The second operand|
-
-Returns:
-
-|type|description|
-|----|-----------|
-|`Int32`|The remainder of its operands|
-
-### Int32.**mod**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `mod`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-mod : (Int32, Int32) -> Int32
+(%) : (x: Int32, y: Int32) => Int32
 ```
 
 Computes the remainder of the division of the first operand by the second.
@@ -336,9 +408,12 @@ Throws:
 
 * When `y` is zero
 
-## Bitwise operations
+Examples:
 
-Functions for operating on bits of Int32 values.
+```grain
+use Int32.{ (%) }
+assert -5l % 3l == 1l
+```
 
 ### Int32.**rotl**
 
@@ -348,7 +423,7 @@ No other changes yet.
 </details>
 
 ```grain
-rotl : (Int32, Int32) -> Int32
+rotl : (value: Int32, amount: Int32) => Int32
 ```
 
 Rotates the bits of the value left by the given number of bits.
@@ -366,6 +441,16 @@ Returns:
 |----|-----------|
 |`Int32`|The rotated value|
 
+Examples:
+
+```grain
+Int32.rotl(1l, 1l) == 2l
+```
+
+```grain
+Int32.rotl(1l, 2l) == 4l
+```
+
 ### Int32.**rotr**
 
 <details disabled>
@@ -374,7 +459,7 @@ No other changes yet.
 </details>
 
 ```grain
-rotr : (Int32, Int32) -> Int32
+rotr : (value: Int32, amount: Int32) => Int32
 ```
 
 Rotates the bits of the value right by the given number of bits.
@@ -392,15 +477,32 @@ Returns:
 |----|-----------|
 |`Int32`|The rotated value|
 
-### Int32.**shl**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+Int32.rotr(2l, 1l) == 1l
+```
+
+```grain
+Int32.rotr(4l, 2l) == 1l
+```
+
+### Int32.**(<<)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `shl`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-shl : (Int32, Int32) -> Int32
+(<<) : (value: Int32, amount: Int32) => Int32
 ```
 
 Shifts the bits of the value left by the given number of bits.
@@ -418,15 +520,29 @@ Returns:
 |----|-----------|
 |`Int32`|The shifted value|
 
-### Int32.**shr**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Int32.{ (<<) }
+assert (5l << 1l) == 10l
+```
+
+### Int32.**(>>)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `shr`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-shr : (Int32, Int32) -> Int32
+(>>) : (value: Int32, amount: Int32) => Int32
 ```
 
 Shifts the bits of the value right by the given number of bits, preserving the sign bit.
@@ -444,45 +560,29 @@ Returns:
 |----|-----------|
 |`Int32`|The shifted value|
 
-### Int32.**shrU**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
-</details>
+Examples:
 
 ```grain
-shrU : (Int32, Int32) -> Int32
+use Int32.{ (>>) }
+assert (5l >> 1l) == 2l
 ```
 
-Shifts the bits of the value right by the given number of bits.
+### Int32.**(==)**
 
-Parameters:
-
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int32`|The value to shift|
-|`amount`|`Int32`|The amount to shift by|
-
-Returns:
-
-|type|description|
-|----|-----------|
-|`Int32`|The shifted value|
-
-## Comparisons
-
-Functions for comparing Int32 values.
-
-### Int32.**eq**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.4.0</code></summary>
-No other changes yet.
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.4.0</code></td><td>Originally named `eq`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-eq : (Int32, Int32) -> Bool
+(==) : (x: Int32, y: Int32) => Bool
 ```
 
 Checks if the first value is equal to the second value.
@@ -500,15 +600,29 @@ Returns:
 |----|-----------|
 |`Bool`|`true` if the first value is equal to the second value or `false` otherwise|
 
-### Int32.**ne**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.4.0</code></summary>
-No other changes yet.
+```grain
+use Int32.{ (==) }
+assert 1l == 1l
+```
+
+### Int32.**(!=)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.4.0</code></td><td>Originally named `ne`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-ne : (Int32, Int32) -> Bool
+(!=) : (x: Int32, y: Int32) => Bool
 ```
 
 Checks if the first value is not equal to the second value.
@@ -526,6 +640,13 @@ Returns:
 |----|-----------|
 |`Bool`|`true` if the first value is not equal to the second value or `false` otherwise|
 
+Examples:
+
+```grain
+use Int32.{ (!=) }
+assert 1l != 2l
+```
+
 ### Int32.**eqz**
 
 <details disabled>
@@ -534,7 +655,7 @@ No other changes yet.
 </details>
 
 ```grain
-eqz : Int32 -> Bool
+eqz : (value: Int32) => Bool
 ```
 
 Checks if the given value is equal to zero.
@@ -551,15 +672,32 @@ Returns:
 |----|-----------|
 |`Bool`|`true` if the first value is equal to zero or `false` otherwise|
 
-### Int32.**lt**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+Int32.eqz(0l) == true
+```
+
+```grain
+Int32.eqz(1l) == false
+```
+
+### Int32.**(<)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `lt`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-lt : (Int32, Int32) -> Bool
+(<) : (x: Int32, y: Int32) => Bool
 ```
 
 Checks if the first value is less than the second value.
@@ -577,41 +715,29 @@ Returns:
 |----|-----------|
 |`Bool`|`true` if the first value is less than the second value or `false` otherwise|
 
-### Int32.**ltU**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.5.0</code></summary>
-No other changes yet.
-</details>
+Examples:
 
 ```grain
-ltU : (Int32, Int32) -> Bool
+use Int32.{ (<) }
+assert 1l < 2l
 ```
 
-Checks if the first unsigned value is less than the second unsigned value.
+### Int32.**(>)**
 
-Parameters:
-
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int32`|The first value|
-|`y`|`Int32`|The second value|
-
-Returns:
-
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is less than the second value or `false` otherwise|
-
-### Int32.**gt**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `gt`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-gt : (Int32, Int32) -> Bool
+(>) : (x: Int32, y: Int32) => Bool
 ```
 
 Checks if the first value is greater than the second value.
@@ -629,41 +755,29 @@ Returns:
 |----|-----------|
 |`Bool`|`true` if the first value is greater than the second value or `false` otherwise|
 
-### Int32.**gtU**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.5.0</code></summary>
-No other changes yet.
-</details>
+Examples:
 
 ```grain
-gtU : (Int32, Int32) -> Bool
+use Int32.{ (>) }
+assert 2l > 1l
 ```
 
-Checks if the first unsigned value is greater than the second unsigned value.
+### Int32.**(<=)**
 
-Parameters:
-
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int32`|The first value|
-|`y`|`Int32`|The second value|
-
-Returns:
-
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is greater than the second value or `false` otherwise|
-
-### Int32.**lte**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `lte`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-lte : (Int32, Int32) -> Bool
+(<=) : (x: Int32, y: Int32) => Bool
 ```
 
 Checks if the first value is less than or equal to the second value.
@@ -681,41 +795,34 @@ Returns:
 |----|-----------|
 |`Bool`|`true` if the first value is less than or equal to the second value or `false` otherwise|
 
-### Int32.**lteU**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.5.0</code></summary>
-No other changes yet.
-</details>
+Examples:
 
 ```grain
-lteU : (Int32, Int32) -> Bool
+use Int32.{ (<=) }
+assert 1l <= 2l
 ```
 
-Checks if the first unsigned value is less than or equal to the second unsigned value.
+```grain
+use Int32.{ (<=) }
+assert 1l <= 1l
+```
 
-Parameters:
+### Int32.**(>=)**
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int32`|The first value|
-|`y`|`Int32`|The second value|
-
-Returns:
-
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is less than or equal to the second value or `false` otherwise|
-
-### Int32.**gte**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `gte`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-gte : (Int32, Int32) -> Bool
+(>=) : (x: Int32, y: Int32) => Bool
 ```
 
 Checks if the first value is greater than or equal to the second value.
@@ -733,35 +840,17 @@ Returns:
 |----|-----------|
 |`Bool`|`true` if the first value is greater than or equal to the second value or `false` otherwise|
 
-### Int32.**gteU**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.5.0</code></summary>
-No other changes yet.
-</details>
+Examples:
 
 ```grain
-gteU : (Int32, Int32) -> Bool
+use Int32.{ (>=) }
+assert 2l >= 1l
 ```
 
-Checks if the first unsigned value is greater than or equal to the second unsigned value.
-
-Parameters:
-
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int32`|The first value|
-|`y`|`Int32`|The second value|
-
-Returns:
-
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is greater than or equal to the second value or `false` otherwise|
-
-## Bitwise logic
-
-Boolean operations on the bits of Int32 values.
+```grain
+use Int32.{ (>=) }
+assert 1l >= 1l
+```
 
 ### Int32.**lnot**
 
@@ -771,7 +860,7 @@ No other changes yet.
 </details>
 
 ```grain
-lnot : Int32 -> Int32
+lnot : (value: Int32) => Int32
 ```
 
 Computes the bitwise NOT of the given value.
@@ -788,15 +877,28 @@ Returns:
 |----|-----------|
 |`Int32`|Containing the inverted bits of the given value|
 
-### Int32.**land**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+Int32.lnot(-5l) == 4l
+```
+
+### Int32.**(&)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `land`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-land : (Int32, Int32) -> Int32
+(&) : (x: Int32, y: Int32) => Int32
 ```
 
 Computes the bitwise AND (`&`) on the given operands.
@@ -814,15 +916,29 @@ Returns:
 |----|-----------|
 |`Int32`|Containing a `1` in each bit position for which the corresponding bits of both operands are `1`|
 
-### Int32.**lor**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Int32.{ (&) }
+assert (3l & 4l) == 0l
+```
+
+### Int32.**(|)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `lor`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-lor : (Int32, Int32) -> Int32
+(|) : (x: Int32, y: Int32) => Int32
 ```
 
 Computes the bitwise OR (`|`) on the given operands.
@@ -840,15 +956,29 @@ Returns:
 |----|-----------|
 |`Int32`|Containing a `1` in each bit position for which the corresponding bits of either or both operands are `1`|
 
-### Int32.**lxor**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Int32.{ (|) }
+assert (3l | 4l) == 7l
+```
+
+### Int32.**(^)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `lxor`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-lxor : (Int32, Int32) -> Int32
+(^) : (x: Int32, y: Int32) => Int32
 ```
 
 Computes the bitwise XOR (`^`) on the given operands.
@@ -866,6 +996,13 @@ Returns:
 |----|-----------|
 |`Int32`|Containing a `1` in each bit position for which the corresponding bits of either but not both operands are `1`|
 
+Examples:
+
+```grain
+use Int32.{ (^) }
+assert (3l ^ 5l) == 6l
+```
+
 ### Int32.**clz**
 
 <details disabled>
@@ -874,7 +1011,7 @@ No other changes yet.
 </details>
 
 ```grain
-clz : Int32 -> Int32
+clz : (value: Int32) => Int32
 ```
 
 Counts the number of leading zero bits in the value.
@@ -891,6 +1028,16 @@ Returns:
 |----|-----------|
 |`Int32`|The amount of leading zeros|
 
+Examples:
+
+```grain
+Int32.clz(1l) == 31l
+```
+
+```grain
+Int32.clz(4l) == 29l
+```
+
 ### Int32.**ctz**
 
 <details disabled>
@@ -899,7 +1046,7 @@ No other changes yet.
 </details>
 
 ```grain
-ctz : Int32 -> Int32
+ctz : (value: Int32) => Int32
 ```
 
 Counts the number of trailing zero bits in the value.
@@ -916,6 +1063,16 @@ Returns:
 |----|-----------|
 |`Int32`|The amount of trailing zeros|
 
+Examples:
+
+```grain
+Int32.ctz(1l) == 0l
+```
+
+```grain
+Int32.ctz(4l) == 2l
+```
+
 ### Int32.**popcnt**
 
 <details disabled>
@@ -924,7 +1081,7 @@ No other changes yet.
 </details>
 
 ```grain
-popcnt : Int32 -> Int32
+popcnt : (value: Int32) => Int32
 ```
 
 Counts the number of bits set to `1` in the value, also known as a population count.
@@ -940,4 +1097,47 @@ Returns:
 |type|description|
 |----|-----------|
 |`Int32`|The amount of 1-bits in its operand|
+
+Examples:
+
+```grain
+Int32.popcnt(1l) == 1l
+```
+
+```grain
+Int32.popcnt(3l) == 2l
+```
+
+### Int32.**(\*\*)**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.6.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+(**) : (base: Int32, power: Int32) => Int32
+```
+
+Computes the exponentiation of the given base and power.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`base`|`Int32`|The base number|
+|`power`|`Int32`|The exponent number|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Int32`|The base raised to the given power|
+
+Examples:
+
+```grain
+from Int32 use { (**) }
+assert 2l ** 3l == 8l
+```
 

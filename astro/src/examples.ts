@@ -40,15 +40,25 @@ let printMovieRating = movie => {
 printMovieRating("The Matrix") // Rating unavailable
 `;
 
-// TODO
 const practicalExample =
 `module Main
 
+from "fs" include Fs
+from "path" include Path
 from "json" include Json
+from "result" include Result
 
+enum Error {
+  ReadError(Fs.FileError),
+  ParseError(Json.JsonParseError),
+}
 
-
-Json.parse("{\\\"")
+let parseFileAsJson = filePath => {
+  match (Fs.Utf8.readFile(Path.fromString(filePath))) {
+    Ok(data) => Result.mapErr(err => ParseError(err), Json.parse(data)),
+    Err(err) => Err(ReadError(err))
+  }
+}
 `;
 
 const functionalExample = 

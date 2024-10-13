@@ -10,12 +10,20 @@ No other changes yet.
 </details>
 
 ```grain
-import Int64 from "int64"
+from "int64" include Int64
 ```
 
-## Conversions
+```grain
+1L
+```
 
-Functions for converting between Numbers and the Int64 type.
+```grain
+-1L
+```
+
+## Values
+
+Functions and constants included in the Int64 module.
 
 ### Int64.**fromNumber**
 
@@ -25,7 +33,7 @@ No other changes yet.
 </details>
 
 ```grain
-fromNumber : Number -> Int64
+fromNumber : (number: Number) => Int64
 ```
 
 Converts a Number to an Int64.
@@ -50,7 +58,7 @@ No other changes yet.
 </details>
 
 ```grain
-toNumber : Int64 -> Number
+toNumber : (value: Int64) => Number
 ```
 
 Converts an Int64 to a Number.
@@ -67,9 +75,36 @@ Returns:
 |----|-----------|
 |`Number`|The Int64 represented as a Number|
 
-## Operations
+### Int64.**fromUint64**
 
-Mathematical operations for Int64 values.
+<details disabled>
+<summary tabindex="-1">Added in <code>0.6.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+fromUint64 : (number: Uint64) => Int64
+```
+
+Converts a Uint64 to an Int64.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`number`|`Uint64`|The value to convert|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Int64`|The Uint64 represented as an Int64|
+
+Examples:
+
+```grain
+Int64.fromUint64(1uL) == 1L
+```
 
 ### Int64.**incr**
 
@@ -79,7 +114,7 @@ No other changes yet.
 </details>
 
 ```grain
-incr : Int64 -> Int64
+incr : (value: Int64) => Int64
 ```
 
 Increments the value by one.
@@ -96,6 +131,16 @@ Returns:
 |----|-----------|
 |`Int64`|The incremented value|
 
+Examples:
+
+```grain
+Int64.incr(1L) == 2L
+```
+
+```grain
+Int64.incr(-2L) == -1L
+```
+
 ### Int64.**decr**
 
 <details disabled>
@@ -104,7 +149,7 @@ No other changes yet.
 </details>
 
 ```grain
-decr : Int64 -> Int64
+decr : (value: Int64) => Int64
 ```
 
 Decrements the value by one.
@@ -121,15 +166,32 @@ Returns:
 |----|-----------|
 |`Int64`|The decremented value|
 
-### Int64.**add**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+Int64.decr(2L) == 1L
+```
+
+```grain
+Int64.decr(0L) == -1L
+```
+
+### Int64.**(+)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `add`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-add : (Int64, Int64) -> Int64
+(+) : (x: Int64, y: Int64) => Int64
 ```
 
 Computes the sum of its operands.
@@ -147,15 +209,29 @@ Returns:
 |----|-----------|
 |`Int64`|The sum of the two operands|
 
-### Int64.**sub**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Int64.{ (+) }
+assert 1L + 1L == 2L
+```
+
+### Int64.**(-)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `sub`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-sub : (Int64, Int64) -> Int64
+(-) : (x: Int64, y: Int64) => Int64
 ```
 
 Computes the difference of its operands.
@@ -173,15 +249,29 @@ Returns:
 |----|-----------|
 |`Int64`|The difference of the two operands|
 
-### Int64.**mul**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Int64.{ (-) }
+assert 2L - 1L == 1L
+```
+
+### Int64.**(*)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `*`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-mul : (Int64, Int64) -> Int64
+(*) : (x: Int64, y: Int64) => Int64
 ```
 
 Computes the product of its operands.
@@ -199,15 +289,29 @@ Returns:
 |----|-----------|
 |`Int64`|The product of the two operands|
 
-### Int64.**div**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Int64.{ (*) }
+assert 2L * 2L == 4L
+```
+
+### Int64.**(/)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `div`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-div : (Int64, Int64) -> Int64
+(/) : (x: Int64, y: Int64) => Int64
 ```
 
 Computes the quotient of its operands using signed division.
@@ -225,31 +329,12 @@ Returns:
 |----|-----------|
 |`Int64`|The quotient of its operands|
 
-### Int64.**divU**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
-</details>
+Examples:
 
 ```grain
-divU : (Int64, Int64) -> Int64
+use Int64.{ (/) }
+assert 8L / 2L == 4L
 ```
-
-Computes the quotient of its operands using unsigned division.
-
-Parameters:
-
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int64`|The first operand|
-|`y`|`Int64`|The second operand|
-
-Returns:
-
-|type|description|
-|----|-----------|
-|`Int64`|The quotient of its operands|
 
 ### Int64.**rem**
 
@@ -259,7 +344,7 @@ No other changes yet.
 </details>
 
 ```grain
-rem : (Int64, Int64) -> Int64
+rem : (x: Int64, y: Int64) => Int64
 ```
 
 Computes the remainder of the division of its operands using signed division.
@@ -277,41 +362,28 @@ Returns:
 |----|-----------|
 |`Int64`|The remainder of its operands|
 
-### Int64.**remU**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
-</details>
+Examples:
 
 ```grain
-remU : (Int64, Int64) -> Int64
+Int64.rem(8L, 3L) == 2L
 ```
 
-Computes the remainder of the division of its operands using unsigned division.
+### Int64.**(%)**
 
-Parameters:
-
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int64`|The first operand|
-|`y`|`Int64`|The second operand|
-
-Returns:
-
-|type|description|
-|----|-----------|
-|`Int64`|The remainder of its operands|
-
-### Int64.**mod**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `mod`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-mod : (Int64, Int64) -> Int64
+(%) : (x: Int64, y: Int64) => Int64
 ```
 
 Computes the remainder of the division of the first operand by the second.
@@ -336,9 +408,12 @@ Throws:
 
 * When `y` is zero
 
-## Bitwise operations
+Examples:
 
-Functions for operating on bits of Int64 values.
+```grain
+use Int64.{ (%) }
+assert -5L % 3L == 1L
+```
 
 ### Int64.**rotl**
 
@@ -348,7 +423,7 @@ No other changes yet.
 </details>
 
 ```grain
-rotl : (Int64, Int64) -> Int64
+rotl : (value: Int64, amount: Int64) => Int64
 ```
 
 Rotates the bits of the value left by the given number of bits.
@@ -366,6 +441,16 @@ Returns:
 |----|-----------|
 |`Int64`|The rotated value|
 
+Examples:
+
+```grain
+Int64.rotl(1L, 1L) == 2L
+```
+
+```grain
+Int64.rotl(1L, 2L) == 4L
+```
+
 ### Int64.**rotr**
 
 <details disabled>
@@ -374,7 +459,7 @@ No other changes yet.
 </details>
 
 ```grain
-rotr : (Int64, Int64) -> Int64
+rotr : (value: Int64, amount: Int64) => Int64
 ```
 
 Rotates the bits of the value right by the given number of bits.
@@ -392,15 +477,32 @@ Returns:
 |----|-----------|
 |`Int64`|The rotated value|
 
-### Int64.**shl**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+Int64.rotr(2L, 1L) == 1L
+```
+
+```grain
+Int64.rotr(4L, 2L) == 1L
+```
+
+### Int64.**(<<)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `shl`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-shl : (Int64, Int64) -> Int64
+(<<) : (value: Int64, amount: Int64) => Int64
 ```
 
 Shifts the bits of the value left by the given number of bits.
@@ -418,15 +520,29 @@ Returns:
 |----|-----------|
 |`Int64`|The shifted value|
 
-### Int64.**shr**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Int64.{ (<<) }
+assert (5L << 1L) == 10L
+```
+
+### Int64.**(>>)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `shr`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-shr : (Int64, Int64) -> Int64
+(>>) : (value: Int64, amount: Int64) => Int64
 ```
 
 Shifts the bits of the value right by the given number of bits, preserving the sign bit.
@@ -444,45 +560,29 @@ Returns:
 |----|-----------|
 |`Int64`|The shifted value|
 
-### Int64.**shrU**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
-</details>
+Examples:
 
 ```grain
-shrU : (Int64, Int64) -> Int64
+use Int64.{ (>>) }
+assert (5L >> 1L) == 2L
 ```
 
-Shifts the bits of the value right by the given number of bits.
+### Int64.**(==)**
 
-Parameters:
-
-|param|type|description|
-|-----|----|-----------|
-|`value`|`Int64`|The value to shift|
-|`amount`|`Int64`|The amount to shift by|
-
-Returns:
-
-|type|description|
-|----|-----------|
-|`Int64`|The shifted value|
-
-## Comparisons
-
-Functions for comparing Int64 values.
-
-### Int64.**eq**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.4.0</code></summary>
-No other changes yet.
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.4.0</code></td><td>Originally named `eq`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-eq : (Int64, Int64) -> Bool
+(==) : (x: Int64, y: Int64) => Bool
 ```
 
 Checks if the first value is equal to the second value.
@@ -500,15 +600,29 @@ Returns:
 |----|-----------|
 |`Bool`|`true` if the first value is equal to the second value or `false` otherwise|
 
-### Int64.**ne**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.4.0</code></summary>
-No other changes yet.
+```grain
+use Int64.{ (==) }
+assert 1L == 1L
+```
+
+### Int64.**(!=)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.4.0</code></td><td>Originally named `ne`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-ne : (Int64, Int64) -> Bool
+(!=) : (x: Int64, y: Int64) => Bool
 ```
 
 Checks if the first value is not equal to the second value.
@@ -526,6 +640,13 @@ Returns:
 |----|-----------|
 |`Bool`|`true` if the first value is not equal to the second value or `false` otherwise|
 
+Examples:
+
+```grain
+use Int64.{ (!=) }
+assert 1L != 2L
+```
+
 ### Int64.**eqz**
 
 <details disabled>
@@ -534,7 +655,7 @@ No other changes yet.
 </details>
 
 ```grain
-eqz : Int64 -> Bool
+eqz : (value: Int64) => Bool
 ```
 
 Checks if the given value is equal to zero.
@@ -551,15 +672,32 @@ Returns:
 |----|-----------|
 |`Bool`|`true` if the first value is equal to zero or `false` otherwise|
 
-### Int64.**lt**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+Int64.eqz(0L) == true
+```
+
+```grain
+Int64.eqz(1L) == false
+```
+
+### Int64.**(<)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `lt`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-lt : (Int64, Int64) -> Bool
+(<) : (x: Int64, y: Int64) => Bool
 ```
 
 Checks if the first value is less than the second value.
@@ -577,41 +715,29 @@ Returns:
 |----|-----------|
 |`Bool`|`true` if the first value is less than the second value or `false` otherwise|
 
-### Int64.**ltU**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.5.0</code></summary>
-No other changes yet.
-</details>
+Examples:
 
 ```grain
-ltU : (Int64, Int64) -> Bool
+use Int64.{ (<) }
+assert 1L < 2L
 ```
 
-Checks if the first unsigned value is less than the second unsigned value.
+### Int64.**(>)**
 
-Parameters:
-
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int64`|The first value|
-|`y`|`Int64`|The second value|
-
-Returns:
-
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is less than the second value or `false` otherwise|
-
-### Int64.**gt**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `gt`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-gt : (Int64, Int64) -> Bool
+(>) : (x: Int64, y: Int64) => Bool
 ```
 
 Checks if the first value is greater than the second value.
@@ -629,41 +755,29 @@ Returns:
 |----|-----------|
 |`Bool`|`true` if the first value is greater than the second value or `false` otherwise|
 
-### Int64.**gtU**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.5.0</code></summary>
-No other changes yet.
-</details>
+Examples:
 
 ```grain
-gtU : (Int64, Int64) -> Bool
+use Int64.{ (>) }
+assert 2L > 1L
 ```
 
-Checks if the first unsigned value is greater than the second unsigned value.
+### Int64.**(<=)**
 
-Parameters:
-
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int64`|The first value|
-|`y`|`Int64`|The second value|
-
-Returns:
-
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is greater than the second value or `false` otherwise|
-
-### Int64.**lte**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `lte`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-lte : (Int64, Int64) -> Bool
+(<=) : (x: Int64, y: Int64) => Bool
 ```
 
 Checks if the first value is less than or equal to the second value.
@@ -681,41 +795,34 @@ Returns:
 |----|-----------|
 |`Bool`|`true` if the first value is less than or equal to the second value or `false` otherwise|
 
-### Int64.**lteU**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.5.0</code></summary>
-No other changes yet.
-</details>
+Examples:
 
 ```grain
-lteU : (Int64, Int64) -> Bool
+use Int64.{ (<=) }
+assert 1L <= 2L
 ```
 
-Checks if the first unsigned value is less than or equal to the second unsigned value.
+```grain
+use Int64.{ (<=) }
+assert 1L <= 1L
+```
 
-Parameters:
+### Int64.**(>=)**
 
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int64`|The first value|
-|`y`|`Int64`|The second value|
-
-Returns:
-
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is less than or equal to the second value or `false` otherwise|
-
-### Int64.**gte**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `gte`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-gte : (Int64, Int64) -> Bool
+(>=) : (x: Int64, y: Int64) => Bool
 ```
 
 Checks if the first value is greater than or equal to the second value.
@@ -733,35 +840,17 @@ Returns:
 |----|-----------|
 |`Bool`|`true` if the first value is greater than or equal to the second value or `false` otherwise|
 
-### Int64.**gteU**
-
-<details disabled>
-<summary tabindex="-1">Added in <code>0.5.0</code></summary>
-No other changes yet.
-</details>
+Examples:
 
 ```grain
-gteU : (Int64, Int64) -> Bool
+use Int64.{ (>=) }
+assert 2L >= 1L
 ```
 
-Checks if the first unsigned value is greater than or equal to the second unsigned value.
-
-Parameters:
-
-|param|type|description|
-|-----|----|-----------|
-|`x`|`Int64`|The first value|
-|`y`|`Int64`|The second value|
-
-Returns:
-
-|type|description|
-|----|-----------|
-|`Bool`|`true` if the first value is greater than or equal to the second value or `false` otherwise|
-
-## Bitwise logic
-
-Boolean operations on the bits of Int64 values.
+```grain
+use Int64.{ (>=) }
+assert 1L >= 1L
+```
 
 ### Int64.**lnot**
 
@@ -771,7 +860,7 @@ No other changes yet.
 </details>
 
 ```grain
-lnot : Int64 -> Int64
+lnot : (value: Int64) => Int64
 ```
 
 Computes the bitwise NOT of the given value.
@@ -788,15 +877,28 @@ Returns:
 |----|-----------|
 |`Int64`|Containing the inverted bits of the given value|
 
-### Int64.**land**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+Int64.lnot(-5L) == 4L
+```
+
+### Int64.**(&)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `land`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-land : (Int64, Int64) -> Int64
+(&) : (x: Int64, y: Int64) => Int64
 ```
 
 Computes the bitwise AND (`&`) on the given operands.
@@ -814,15 +916,29 @@ Returns:
 |----|-----------|
 |`Int64`|Containing a `1` in each bit position for which the corresponding bits of both operands are `1`|
 
-### Int64.**lor**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Int64.{ (&) }
+assert (3L & 4L) == 0L
+```
+
+### Int64.**(|)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `lor`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-lor : (Int64, Int64) -> Int64
+(|) : (x: Int64, y: Int64) => Int64
 ```
 
 Computes the bitwise OR (`|`) on the given operands.
@@ -840,15 +956,29 @@ Returns:
 |----|-----------|
 |`Int64`|Containing a `1` in each bit position for which the corresponding bits of either or both operands are `1`|
 
-### Int64.**lxor**
+Examples:
 
-<details disabled>
-<summary tabindex="-1">Added in <code>0.2.0</code></summary>
-No other changes yet.
+```grain
+use Int64.{ (|) }
+assert (3L | 4L) == 7L
+```
+
+### Int64.**(^)**
+
+<details>
+<summary>Added in <code>0.6.0</code></summary>
+<table>
+<thead>
+<tr><th>version</th><th>changes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>0.2.0</code></td><td>Originally named `lxor`</td></tr>
+</tbody>
+</table>
 </details>
 
 ```grain
-lxor : (Int64, Int64) -> Int64
+(^) : (x: Int64, y: Int64) => Int64
 ```
 
 Computes the bitwise XOR (`^`) on the given operands.
@@ -866,6 +996,13 @@ Returns:
 |----|-----------|
 |`Int64`|Containing a `1` in each bit position for which the corresponding bits of either but not both operands are `1`|
 
+Examples:
+
+```grain
+use Int64.{ (^) }
+assert (3L ^ 5L) == 6L
+```
+
 ### Int64.**clz**
 
 <details disabled>
@@ -874,7 +1011,7 @@ No other changes yet.
 </details>
 
 ```grain
-clz : Int64 -> Int64
+clz : (value: Int64) => Int64
 ```
 
 Counts the number of leading zero bits in the value.
@@ -891,6 +1028,16 @@ Returns:
 |----|-----------|
 |`Int64`|The amount of leading zeros|
 
+Examples:
+
+```grain
+Int64.clz(1L) == 63L
+```
+
+```grain
+Int64.clz(4L) == 61L
+```
+
 ### Int64.**ctz**
 
 <details disabled>
@@ -899,7 +1046,7 @@ No other changes yet.
 </details>
 
 ```grain
-ctz : Int64 -> Int64
+ctz : (value: Int64) => Int64
 ```
 
 Counts the number of trailing zero bits in the value.
@@ -916,6 +1063,16 @@ Returns:
 |----|-----------|
 |`Int64`|The amount of trailing zeros|
 
+Examples:
+
+```grain
+Int64.ctz(1L) == 0L
+```
+
+```grain
+Int64.ctz(4L) == 2L
+```
+
 ### Int64.**popcnt**
 
 <details disabled>
@@ -924,7 +1081,7 @@ No other changes yet.
 </details>
 
 ```grain
-popcnt : Int64 -> Int64
+popcnt : (value: Int64) => Int64
 ```
 
 Counts the number of bits set to `1` in the value, also known as a population count.
@@ -940,4 +1097,47 @@ Returns:
 |type|description|
 |----|-----------|
 |`Int64`|The amount of 1-bits in its operand|
+
+Examples:
+
+```grain
+Int64.popcnt(1L) == 1L
+```
+
+```grain
+Int64.popcnt(3L) == 2L
+```
+
+### Int64.**(\*\*)**
+
+<details disabled>
+<summary tabindex="-1">Added in <code>0.6.0</code></summary>
+No other changes yet.
+</details>
+
+```grain
+(**) : (base: Int64, power: Int64) => Int64
+```
+
+Computes the exponentiation of the given base and power.
+
+Parameters:
+
+|param|type|description|
+|-----|----|-----------|
+|`base`|`Int64`|The base number|
+|`power`|`Int64`|The exponent number|
+
+Returns:
+
+|type|description|
+|----|-----------|
+|`Int64`|The base raised to the given power|
+
+Examples:
+
+```grain
+from Int64 use { (**) }
+assert 2L ** 3L == 8L
+```
 
