@@ -57,7 +57,7 @@ const lang = grainLang as any;
     <div id="code-samples" class="pt-6 lg:pt-0 h-[calc(100%-24px)]">
       {codeExamples.map((example, i) => (
         <Code
-          class:list={[{"hidden": i !== 0}]}
+          class:list={["[scrollbar-color:#D5D3D9_#1D182E]", "[scrollbar-width:thin]", {"hidden": i !== 0}]}
           code={example.code}
           theme={theme}
           lang={lang}

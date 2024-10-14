@@ -12,7 +12,7 @@ import { docsCollections } from "../utils/docsCollections";
 
 const docsEntries = await getCollection("docs");
 
-const sidebarClass = "fixed overflow-auto w-[calc(var(--container-width)/5)] top-[3.5rem] h-[calc(100vh-3.5rem)] py-14";
+const sidebarClass = "fixed overflow-auto w-[calc(var(--container-width)/5)] xl:w-[calc(var(--container-width)/6)] top-[3.5rem] h-[calc(100vh-3.5rem)] py-14";
 
 interface Props {
   data: { title?: string | undefined };
@@ -34,8 +34,8 @@ const { data, headings, prev, next } = Astro.props;
       ))}
     </div>
 
-    <article class="w-full lg:w-4/5 xl:w-3/5 xl:float-none xl:mx-auto lg:pl-20 xl:pr-20">
-      <div><span class="text-orange-10"><a href="/docs">Grain Docs</a>&nbsp;&nbsp;/&nbsp;&nbsp;</span><span class="text-color-accent">{data.title}</span></div>
+    <article class="w-full lg:w-4/5 xl:w-2/3 xl:float-none xl:mx-auto lg:pl-14 xl:pr-14">
+      <div class="text-color-accent"><a href="/docs">Grain Docs</a>&nbsp;&nbsp;<span class="text-orange-10">/</span>&nbsp;&nbsp;{data.title}</div>
       <h1 class="text-4xl lg:text-5xl font-bold my-6 md:mt-10">{data.title}</h1>
       <TypographyContainer>
         <slot />
