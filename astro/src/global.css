@@ -37,11 +37,12 @@
     --color-dim: 106 103 113; /* gray-60 */
     --color-dim-1: 148 145 157; /* gray-50 */
     --color-dim-2: 200 199 204; /* gray-40 */
-    --color-dimmer: 237 237 237; /* gray-20 */
+    --color-dim-3: 237 237 237; /* gray-20 */
+    --color-dim-4: 245 245 245; /* gray-10 */
     --color-background: 251 251 251; /* gray-5 */
     --color-background-bright: 255 255 255;
     --color-accent: 236 77 27;
-    --color-accent-dim: 244 125 88;
+    --color-accent-muted: 244 125 88;
     --color-blurb-1: 213 197 245;
     --color-blurb-2: 147 113 244;
     --color-blurb-3: 255 230 166;
@@ -75,11 +76,12 @@
     --color-dim: 151 144 166; /* gray-variant-50 */
     --color-dim-1: 74 65 100; /* gray-variant-70 */
     --color-dim-2: 74 65 100; /* gray-variant-70 */
-    --color-dimmer: 49 41 70; /* gray-variant-80 */
+    --color-dim-3: 49 41 70; /* gray-variant-80 */
+    --color-dim-4: 47 37 75;
     --color-background: 35 28 54; /* gray-variant-90 */
     --color-background-bright: 29 24 46;
     --color-accent: 225 101 62;
-    --color-accent-dim: 220 153 132;
+    --color-accent-muted: 209 105 73;
     --color-blurb-1: 102 85 136;
     --color-blurb-2: 90 68 153;
     --color-blurb-3: 157 147 116;

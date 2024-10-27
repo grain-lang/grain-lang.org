@@ -11,7 +11,7 @@ export default {
   content: h(
     "span",
     {
-      class: "w-6 h-6 flex items-center justify-center border rounded bg-white dark:bg-color-dimmer border-color-dimmer dark:border-color-dim-1 stroke-gray-40 dark:stroke-color-primary"
+      class: "w-6 h-6 flex items-center justify-center border rounded bg-white dark:bg-color-dim-3 border-color-dim-3 dark:border-color-dim-1 stroke-gray-40 dark:stroke-color-primary"
     },
     fromHtml(hashSvg)
   )

@@ -2,19 +2,15 @@
 ---
 
 <ul class="flex flex-col lg:flex-row lg:items-center lg:mx-auto lg:space-x-8 space-y-2 lg:space-y-0 text-xl lg:text-sm">
-  <li>
-    <a href="/docs/guide">Guide</a>
-  </li>
-  <li>
-    <a href="/docs">Documentation</a>
-  </li>
-  <li>
-    <a href="/community">Community</a>
-  </li>
-  <li>
-    <a href="/blog">Blog</a>
-  </li>
-  <li>
-    <a href="/try">Playground</a>
-  </li>
+  {[
+    ["Guide", "/docs/guide"],
+    ["Documentation", "/docs"],
+    ["Community", "/community"],
+    ["Blog", "/blog"],
+    ["Playground", "/try"],
+  ].map(([name, href]) => (
+    <li>
+      <a class="hover:text-black dark:hover:text-white" href={href}>{name}</a>
+    </li>
+  ))}
 </ul>

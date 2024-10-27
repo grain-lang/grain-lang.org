@@ -14,7 +14,7 @@
       type="text"
       placeholder="Search documentation..."
       class="w-full outline-none" />
-    <div class="rounded border border-color-dimmer text-color-dim-2 text-sm font-medium py-0.5 px-1.5">
+    <div class="rounded border border-color-dim-3 text-color-dim-2 text-sm font-medium py-0.5 px-1.5">
       ESC
     </div>
   </div>
