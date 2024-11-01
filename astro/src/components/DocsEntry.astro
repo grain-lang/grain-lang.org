@@ -8,7 +8,7 @@ import DocsSwitchPageLink from "./DocsSwitchPageLink.astro";
 import TypographyContainer from "./TypographyContainer.astro";
 import NewsletterSignup from "./NewsletterSignup.astro";
 import Footer from "./Footer.astro";
-import { docsCollections } from "../utils/docsCollections";
+import { docsCollections, sortEntries } from "../utils/docsCollections";
 
 const docsEntries = await getCollection("docs");
 
@@ -30,7 +30,7 @@ const { data, headings, prev, next } = Astro.props;
       <h1 class="text-3xl font-semibold mb-4">Grain Docs</h1>
 
       {docsCollections.map(coll => (
-        <DocLinkGroup title={coll.title} entries={docsEntries.filter((x: any) => x.slug.startsWith(coll.slugPrefix))} />
+        <DocLinkGroup title={coll.title} entries={sortEntries(docsEntries.filter((x: any) => x.slug.startsWith(coll.slugPrefix)))} />
       ))}
     </div>
 

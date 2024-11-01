@@ -30,6 +30,36 @@
   font-style: normal;
 }
 
+@media (min-width: 640px) {
+  :root {
+    --container-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --container-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --container-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --container-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  :root {
+    --container-width: 1536px;
+  }
+}
+
 @layer base {
   :root {
     --color-heading: 54 52 58; /* gray-90 */
@@ -48,29 +78,10 @@
     --color-blurb-3: 255 230 166;
     --color-blurb-4: 162 221 239;
 
-    @media (min-width: 640px) {
-      --container-width: 640px;
-    }
-
-    @media (min-width: 768px) {
-      --container-width: 768px;
-    }
-
-    @media (min-width: 1024px) {
-      --container-width: 1024px;
-    }
-
-    @media (min-width: 1280px) {
-      --container-width: 1280px;
-    }
-
-    @media (min-width: 1536px) {
-      --container-width: 1536px;
-    }
   }
 
-
   :root[class~="dark"] {
+    color-scheme: dark;
     --color-heading: 239 238 241; /* gray-variant-20 */
     --color-primary: 213 211 217; /* gray-variant-30 */
     --color-dim: 151 144 166; /* gray-variant-50 */

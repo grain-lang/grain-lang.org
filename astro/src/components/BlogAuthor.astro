@@ -18,9 +18,10 @@ interface Props {
   entry: CollectionEntry<"blog">;
   imgClass?: string;
   nameClass?: string;
+  dateClass?: string;
 }
 
-const { entry, imgClass, nameClass } = Astro.props;
+const { entry, imgClass, nameClass, dateClass } = Astro.props;
 ---
 
 <div class="flex items-center gap-3 w-fit">
@@ -31,7 +32,7 @@ const { entry, imgClass, nameClass } = Astro.props;
   />
   <div class="w-fit">
     <p class={`whitespace-nowrap ${nameClass ?? ""}`}>{entry.data.author}</p>
-    <p class="text-color-dim">
+    <p class={`text-color-dim ${dateClass ?? ""}`}>
       {entry.data.date.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}
     </p>
   </div>

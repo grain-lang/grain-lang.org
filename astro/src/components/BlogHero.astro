@@ -5,6 +5,7 @@ import BlogAuthor from "./BlogAuthor.astro";
 import ChevronRightIcon from "./icons/ChevronRightIcon.astro";
 import TwitterIcon from "./icons/TwitterIcon.astro";
 import DiscordIcon from "./icons/DiscordIcon.astro";
+import GrainLogo from "./icons/GrainLogo.astro";
 
 interface Props {
   entry: CollectionEntry<"blog">;
@@ -19,23 +20,26 @@ if (!images[entry.data.cover]) {
 ---
 
 <div class="mx-auto max-w-[70rem] pb-5 lg:pb-28 px-5">
-  <div class="my-6 md:my-10 flex justify-between text-color-accent">
-    <div class="text-xl font-semibold">The Grain Blog</div>
-    <div class="flex md:hidden gap-5">
+  <div class="my-6 md:my-10 flex justify-between items-center">
+    <div>
+      <GrainLogo class="w-8 h-8 md:w-12 md:h-12 inline-block align-middle fill-color-accent" />
+      <span class="md:pl-1 text-2xl md:text-4xl font-semibold align-middle">The Grain Blog</span>
+    </div>
+    <div class="flex md:hidden gap-4 text-color-accent">
       <a
         href="https://twitter.com/grain_lang"
         target="_blank"
       >
-        <TwitterIcon class="w-8 h-8 fill-color-accent" />
+        <TwitterIcon class="w-7 h-7 fill-color-accent" />
       </a>
       <a
         href="https://twitter.com/grain_lang"
         target="_blank"
       >
-        <DiscordIcon class="w-8 h-8 fill-color-accent" />
+        <DiscordIcon class="w-7 h-7 fill-color-accent" />
       </a>
     </div>
-    <div class="hidden md:block">
+    <div class="hidden md:block text-color-accent">
       Find us also on
       <a href="https://twitter.com/grain_lang" class="underline">Twitter</a>
       and
