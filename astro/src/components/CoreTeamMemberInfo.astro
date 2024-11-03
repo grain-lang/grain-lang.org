@@ -1,14 +1,16 @@
 ---
 import { Image } from "astro:assets";
+import GithubIcon from "./icons/GithubIcon.astro";
 
 interface Props {
   profileImage: ImageMetadata;
   name: string;
   title: string;
   role: string;
+  githubUsername: string;
 }
 
-const { profileImage, name, title, role } = Astro.props;
+const { profileImage, name, title, role, githubUsername } = Astro.props;
 ---
 
 <div class="md:hidden bg-color-dim-3 p-5 rounded-3xl">
@@ -38,7 +40,7 @@ const { profileImage, name, title, role } = Astro.props;
       class="h-full object-cover hover:scale-105 grayscale hover:grayscale-[25%] transition duration-300"
     />
     <div class="font-light absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black rounded-xl w-[19rem] h-[25rem] text-white p-2 invisible" data-desc="info">
-      <div class="flex flex-col gap-5 overflow-auto h-full p-3">
+      <div class="flex flex-col gap-5 overflow-auto h-full p-3 [color-scheme:dark]">
         <slot />
       </div>
     </div>
@@ -49,7 +51,7 @@ const { profileImage, name, title, role } = Astro.props;
   <div class="-z-10 transition duration-300 opacity-0 peer-hover:opacity-100 absolute top-20 left-44 bg-color-blurb-3 w-36 h-[26rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
 
   <div class="px-2 mt-5">
-    <h2 class="text-2xl font-bold mb-2">{name}</h2>
+    <h2 class="text-2xl font-bold mb-2"><span class="align-middle">{name}</span> <a href={`https://github.com/${githubUsername}`}><GithubIcon class="inline w-6 h-6 ml-1 align-middle" /></a></h2>
     <h3 class="text-lg">{title}</h3>
     <h3 class="text-lg text-gray-50">{role}</h3>
   </div>

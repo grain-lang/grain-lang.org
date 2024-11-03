@@ -5,10 +5,11 @@ import "../global.css";
 
 interface Props {
 	title: string;
+	inDocs?: boolean;
 	excludeFooter?: boolean;
 }
 
-const { title, excludeFooter } = Astro.props;
+const { title, inDocs, excludeFooter } = Astro.props;
 ---
 
 <!doctype html>
@@ -32,7 +33,7 @@ const { title, excludeFooter } = Astro.props;
 		</script>
 	</head>
 	<body class="bg-color-background">
-		<Nav />
+		<Nav inDocs={inDocs} />
 		<main class="font-sans antialiased tracking-wide text-color-heading">
 			<slot />
 		</main>

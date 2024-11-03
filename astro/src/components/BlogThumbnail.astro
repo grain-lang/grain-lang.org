@@ -27,12 +27,12 @@ if (!images[entry.data.cover]) {
       <p>{entry.data.subtitle}</p>
     </div>
   </a>
-  <div class="flex justify-between p-6 items-center flex-initial grow-0">
+  <div class="flex justify-between p-4 md:p-6 items-center flex-initial grow-0">
     <BlogAuthor entry={entry} imgClass="w-9 h-9" nameClass="text-sm" dateClass="text-xs" />
 
     <div class="flex items-end flex-wrap gap-2 justify-end">
       {entry.data.tags?.slice(0, 2).map(t => (
-        <span class="text-white [font-size:0.675rem] uppercase rounded-full bg-black py-1 px-3">
+        <span class="text-white [font-size:0.625rem] uppercase rounded-full bg-black py-0.5 md:py-1 px-2 md:px-3">
           {t}
         </span>
       ))}

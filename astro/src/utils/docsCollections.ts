@@ -5,6 +5,11 @@ export interface DocsCollection {
   slugPrefix: string;
 }
 
+export interface DocsEntry {
+  collectionEntry: CollectionEntry<"docs">;
+  section: string | null;
+}
+
 export const docsCollections: DocsCollection[] = [
   {
     title: null,
@@ -24,7 +29,7 @@ export const docsCollections: DocsCollection[] = [
   },
 ];
 
-export function sortEntries(docsEntries: CollectionEntry<"docs">[]) {
+export function sortEntries(docsEntries: CollectionEntry<"docs">[]): DocsEntry[] {
   return docsEntries.toSorted((x, y) => {
     if (x.slug.startsWith("stdlib") && y.slug.startsWith("stdlib")) {
       return Number(y.slug.includes("pervasives")) - Number(x.slug.includes("pervasives"));
@@ -32,5 +37,8 @@ export function sortEntries(docsEntries: CollectionEntry<"docs">[]) {
 
     return docsCollections.findIndex(coll => x.slug.startsWith(coll.slugPrefix))
       - docsCollections.findIndex(coll => y.slug.startsWith(coll.slugPrefix))
-  });
+  }).map(collectionEntry => ({
+    collectionEntry,
+    section: docsCollections.find(coll => collectionEntry.slug.startsWith(coll.slugPrefix))!.title
+  }));
 }

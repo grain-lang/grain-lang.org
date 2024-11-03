@@ -7,14 +7,14 @@ interface Props {
   isPrev?: boolean;
 }
 
-const textClass = "mx-1 text-color-heading";
-const chevronClass = "h-3 text-color-dim inline-block";
+const textClass = "mx-1 text-color-heading inline-block";
+const chevronClass = "mb-0.5 h-3 text-color-dim inline-block";
 
 const { entry, isPrev } = Astro.props;
 ---
 
 {entry ? (
-  <a href={`/docs/${entry.slug}`} class="no-underline">
+  <a href={`/docs/${entry.slug}`} class="no-underline text-sm md:text-base">
     {isPrev ? (
       <ChevronRightIcon class={`${chevronClass} rotate-180`} />
       <b class={textClass}>{entry.data.title}</b>

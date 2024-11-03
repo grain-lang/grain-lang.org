@@ -7,6 +7,12 @@ import grainLogo from "../images/grain-logo.svg";
 import grainLogoDark from "../images/grain-logo-dark.svg";
 import BarsIcon from "./icons/BarsIcon.astro";
 import SearchDialog from "./SearchDialog.svelte";
+
+interface Props {
+  inDocs?: boolean;
+}
+
+const { inDocs } = Astro.props;
 ---
 
 <script>
@@ -25,7 +31,7 @@ import SearchDialog from "./SearchDialog.svelte";
   });
 </script>
 
-<nav class="shadow-sm dark:shadow-purple-80 bg-white dark:bg-purple-90 relative z-40 sticky top-0">
+<nav class={`bg-white dark:bg-purple-90 relative z-40 sticky top-0 ${inDocs ? "lg:shadow-sm lg:dark:shadow-purple-80" : "shadow-sm dark:shadow-purple-80"}`}>
   <div class="container mx-auto h-14 px-5 py-2 flex items-center text-sm text-color-dim dark:text-gray-30">
     <a href="/">
       <Image
