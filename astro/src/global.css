@@ -30,6 +30,17 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "League Mono";
+  src: url("/fonts/LeagueMono/LeagueMono-Regular.woff2") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+code, pre {
+  font-family: "League Mono", monospace;
+}
+
 @media (min-width: 640px) {
   :root {
     --container-width: 640px;

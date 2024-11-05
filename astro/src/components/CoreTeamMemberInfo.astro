@@ -13,21 +13,23 @@ interface Props {
 const { profileImage, name, title, role, githubUsername } = Astro.props;
 ---
 
-<div class="md:hidden bg-color-dim-3 p-5 rounded-3xl">
-  <div class="flex items-center gap-4">
-    <Image
-      src={profileImage}
-      alt=`A picture of ${name}`
-      class="rounded-full object-cover w-24 h-24"
-    />
-    <div class="w-fit">
-      <h2 class="text-2xl font-bold mb-1">{name}</h2>
-      <h3>{title}</h3>
-      <h3 class="text-gray-50">{role}</h3>
+<div class="md:hidden bg-color-dim-3 rounded-2xl drop-shadow-sm border border-gray-10 dark:border-color-background-bright dark:bg-color-dim-3 overflow-hidden">
+  <div class="p-5">
+    <div class="flex items-center gap-4">
+      <Image
+        src={profileImage}
+        alt=`A picture of ${name}`
+        class="rounded-full object-cover w-20 h-20"
+      />
+      <div class="w-fit">
+        <h2 class="text-2xl font-bold mb-1">{name}</h2>
+        <h3 class="text-base">{title}</h3>
+      </div>
     </div>
-  </div>
 
-  <div class="flex flex-col gap-3 overflow-auto h-full pt-4">
+    <h3 class="text-gray-50 mt-4 border-bottom border-black text-sm">{role}</h3>
+  </div>
+  <div class="flex flex-col gap-3 pt-4 bg-color-background-bright dark:bg-color-dim-3 p-5">
     <slot />
   </div>
 </div>

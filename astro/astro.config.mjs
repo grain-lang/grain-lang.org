@@ -7,11 +7,12 @@ import rehypeContentIntroTextTransformer from "./src/rehype/rehype-content-intro
 import rehypeAutolinkHeadingsConfig from "./src/rehype/rehype-autolink-headings-config";
 import path from "node:path";
 import { createRequire } from "node:module";
+import rehypeTableWrapper from "./src/rehype/rehype-table-wrapper";
 
 const require = createRequire(import.meta.url);
 
 const grainLang = JSON.parse(fs.readFileSync("./grain.json"));
-const theme = JSON.parse(fs.readFileSync("./themes/github-dark-modified.json"));
+const theme = JSON.parse(fs.readFileSync("./themes/github-dark-modified-lighter.json"));
 
 // https://astro.build/config
 export default defineConfig({
@@ -56,7 +57,8 @@ export default defineConfig({
         rehypeAutolinkHeadings,
         rehypeAutolinkHeadingsConfig,
       ],
-      rehypeContentIntroTextTransformer
+      rehypeContentIntroTextTransformer,
+      rehypeTableWrapper,
     ],
     shikiConfig: {
       theme: theme,
