@@ -1,0 +1,41 @@
+---
+import contributors from "../../contributors.json";
+
+const excludeList = [
+  "ospencer",
+  "peblair",
+  "phated",
+  "marcusroberts",
+  "ng-marcus",
+  "alex-snezhko",
+  "spotandjake",
+  "github-actions[bot]"
+];
+
+const special = [
+  "jozanza",
+  "cician",
+]
+---
+
+<div class="container mx-auto text-center">
+  <h2 class="font-bold text-2xl lg:text-4xl leading-tight mb-8 lg:mb-12 mt-20 lg:mt-32">
+    Contributors
+  </h2>
+  {contributors
+    .filter(x => !excludeList.includes(x.login))
+    .map(contributor => (
+      <div class="inline-block relative">
+        <a href={contributor.html_url} class="p-0.5 inline-block">
+          <img class="w-14 h-14 rounded-full p-0.5 shadow-md border border-color-dim-2 dark:shadow-purple-80" src={contributor.avatar_url} alt={`Image of ${contributor.login}`} />
+        </a>
+        {special.includes(contributor.login) && (
+          <div class="absolute text-3xl bottom-0 right-0 text-yellow-500 [text-shadow:0_0_2px_#000]">★</div>
+        )}
+      </div>
+    ))}
+
+  <p class="mt-6">
+    <span class="text-2xl text-yellow-500">★</span> = Noteworthy contributors who we feel have made signifant contributions to the project.
+  </p>
+</div>
