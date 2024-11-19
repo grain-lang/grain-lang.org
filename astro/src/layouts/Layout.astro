@@ -15,10 +15,12 @@ const { title, inDocs, excludeFooter } = Astro.props;
 <!doctype html>
 <html lang="en" class="scroll-pt-20">
 	<head>
+		<script is:inline defer data-domain="grain-lang.org" src="https://plausible.io/js/script.js"></script>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Grain: a strongly-typed functional programming language for the modern web." />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href="https://grain-lang.org/" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 

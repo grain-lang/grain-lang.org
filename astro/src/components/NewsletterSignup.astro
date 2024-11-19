@@ -6,17 +6,28 @@
   <div>
     <form
       class="flex"
+      name="mailing-list-signup"
+      method="POST"
+      netlify-honeypot="bot-field"
+      data-netlify="true"
+    >
+      <input type="email" name="email" placeholder="email@dev.com" class="bg-color-background-bright text-black rounded box-content border border-color-dim-3 hover:border-color-dim-2 px-5 py-2 flex-1 w-full" />
+      <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+      <div class="hidden"><input name="bot-field" /></div>
+      <input type="submit" value="Sign up" class="cursor-pointer ml-1 bg-color-dim-1 text-white px-6 py-2 rounded border border-color-dim-1 flex-0 hover:opacity-90" />
+    </form>
+    <!-- <form
+      class="flex"
       action="https://grain-lang.us18.list-manage.com/subscribe/post?u=b33eb7484930855e59aae309f&amp;id=e8b0f20480"
       method="post"
       target="_blank"
       novalidate
     >
-      <input type="email" name="EMAIL" placeholder="email@dev.com" class="bg-color-background-bright text-black rounded box-content border border-color-dim-3 hover:border-color-dim-2 px-5 py-2 flex-1 w-full" />
+      <input type="email" name="EMAIL" placeholder="email@dev.com" class="bg-color-background-bright text-black rounded box-content border border-color-dim-3 hover:border-color-dim-2 px-5 py-2 flex-1 w-full" /> -->
       <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-      <div style="position: absolute; left: -5000px;"><input type="text" name="b_b33eb7484930855e59aae309f_e8b0f20480" tabindex="-1" value=""></div>
+      <!-- <div style="position: absolute; left: -5000px;"><input type="text" name="b_b33eb7484930855e59aae309f_e8b0f20480" tabindex="-1" value=""></div>
       <input type="submit" value="Sign up" name="subscribe" class="cursor-pointer ml-1 bg-color-dim-1 text-white px-6 py-2 rounded border border-color-dim-1 flex-0 hover:opacity-90" />
-    </form>
+    </form> -->
   </div>
-  <!-- TODO privacy policy -->
-  <p class="text-color-dim mt-2 text-sm">You can unsubscribe at any time. Read our <a>privacy policy</a>.</p>
+  <p class="text-color-dim mt-2 text-sm">You can unsubscribe at any time. Read our <a href="/privacy">privacy policy</a>.</p>
 </div>

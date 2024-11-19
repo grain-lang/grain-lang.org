@@ -101,6 +101,7 @@ export async function createGrainEditor(id: string, value: string) {
     language: "grain",
     value,
     automaticLayout: false,
+    fontFamily: "League Mono",
     fontSize: 16,
     minimap: {
       enabled: false,

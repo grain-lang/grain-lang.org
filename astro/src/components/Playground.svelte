@@ -94,7 +94,7 @@
 
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     themeChangeUnsub = store.$selectedTheme.subscribe(selectedTheme => {
-      monaco.editor.setTheme(selectedTheme === "light" || !prefersDark ? "github-light" : "github-dark-modified");
+      monaco.editor.setTheme(selectedTheme === "light" || (!selectedTheme && !prefersDark) ? "github-light" : "github-dark-modified");
     });
 
     worker.addEventListener("message", ({ data }) => {
@@ -151,7 +151,7 @@
   </div>
   <div class="grid grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 h-[calc(100vh-3.5rem-5rem)] max-h-[calc(100vh-3.5rem-5rem)]">
     <div id="editor"></div>
-    <section class="dark:bg-[#2F254B] bg-[#EFEFEF] {state === 'compiledWithErrors' ? 'border-4 border-red-500 dark:border-[#C43550] dark:bg-[#4F2B38] bg-red-200' : ''}">
+    <section class="dark:bg-[#2F254B] bg-[#EFEFEF] {state === 'compiledWithErrors' ? 'border-4 border-red-500 dark:border-[#C43550] dark:bg-[#3D222C] bg-red-200' : ''}">
       {#if loadingState}
         <div class="flex items-center justify-center w-full h-full">
           <div class="flex flex-col gap-2 items-center">

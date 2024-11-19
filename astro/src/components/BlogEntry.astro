@@ -23,11 +23,6 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-
-const images = import.meta.glob<{ default: ImageMetadata }>("/src/images/cover/*.jpg");
-if (!images[entry.data.cover]) {
-  throw new Error(`Image ${entry.data.cover} not found for blog`);
-}
 ---
 
 <div class="max-w-[48rem] mx-auto px-5 py-6 md:p-8">
@@ -64,7 +59,7 @@ if (!images[entry.data.cover]) {
   </div>
   <figure class="py-10">
     <Image
-      src={images[entry.data.cover]()}
+      src={entry.data.cover}
       alt={entry.data.coverAttribution}
       class="max-h-[26rem] w-full object-cover"
     />

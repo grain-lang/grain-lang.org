@@ -1,0 +1,15 @@
+---
+import * as privacy from "../content/misc/privacy.md";
+import Layout from "../layouts/Layout.astro";
+import TypographyContainer from "../components/TypographyContainer.astro";
+
+const { Content } = privacy;
+---
+
+<Layout title="Privacy Policy">
+  <div class="max-w-[48rem] mx-auto px-5 pt-6 md:pt-14">
+    <TypographyContainer>
+      <Content />
+    </TypographyContainer>
+  </div>
+</Layout>

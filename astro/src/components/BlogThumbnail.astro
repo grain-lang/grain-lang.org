@@ -8,17 +8,12 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-
-const images = import.meta.glob<{ default: ImageMetadata }>("/src/images/cover/*.jpg");
-if (!images[entry.data.cover]) {
-  throw new Error(`Image ${entry.data.cover} not found for blog`);
-}
 ---
 
 <div class="flex flex-col drop-shadow-sm border rounded-lg border-gray-10 dark:border-color-background-bright dark:bg-color-dim-3 overflow-hidden">
   <a href={`/blog/${entry.slug}`} class="grow flex flex-col">
     <Image
-      src={images[entry.data.cover]()}
+      src={entry.data.cover}
       alt={entry.data.coverAttribution ?? `${entry.data.title} thumbnail`}
       class="w-full h-[10rem] md:h-[14rem] object-cover"
     />
