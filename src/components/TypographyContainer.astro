@@ -1,0 +1,42 @@
+---
+interface Props {
+  class?: string;
+}
+---
+
+<div class={`
+  prose lg:prose-lg dark:prose-invert
+  max-w-none
+  
+  prose-a:text-color-accent prose-a:font-normal
+
+  [&:not([data-block=true])]:[&_code]:prose-table:whitespace-pre
+  [&:not([data-block=true])]:prose-code:font-medium
+  [&:not([data-block=true])]:prose-code:py-0.5 [&:not([data-block=true])]:prose-code:px-1
+  [&:not([data-block=true])]:prose-code:bg-gray-10 dark:[&:not([data-block=true])]:prose-code:bg-gray-variant-80
+  [&:not([data-block=true])]:prose-code:border [&:not([data-block=true])]:prose-code:rounded [&:not([data-block=true])]:prose-code:border-gray dark:[&:not([data-block=true])]:prose-code:border-none
+  [&:not([data-block=true])]:before:prose-code:content-none [&:not([data-block=true])]:after:prose-code:content-none
+
+  prose-ol:list-none prose-ol:[counter-reset:item] prose-ol:relative prose-ol:pl-9
+
+  prose-li:[counter-increment:item]
+  before:[&>li]:prose-ul:hidden
+  before:prose-li:[content:counter(item)] before:prose-li:left-0 before:prose-li:absolute
+  before:prose-li:bg-color-dim-3 before:prose-li:text-color-dim
+  before:prose-li:leading-relaxed
+  before:prose-li:rounded-full
+  before:prose-li:w-8 before:prose-li:h-8
+  before:prose-li:inline-block before:prose-li:text-center
+  
+  prose-th:px-4 prose-th:py-3 prose-th:text-left
+  prose-td:px-4 prose-td:py-3
+  prose-td:border-color-dim-3
+  prose-td:border-b
+  prose-table:border-separate
+  prose-table:border-spacing-0
+
+  ${Astro.props.class ?? ""}
+  `}
+>
+  <slot />
+</div>

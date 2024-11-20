@@ -1,6 +1,0 @@
-[build]
-    publish = ".next"
-[[headers]]
-    [headers.values]
-        # TODO: Remove when we push to production
-        X-Robots-Tag = "noindex"

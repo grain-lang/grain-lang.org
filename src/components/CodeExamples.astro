@@ -1,0 +1,79 @@
+---
+import { Code } from "astro:components";
+import ChevronRightIcon from "./icons/ChevronRightIcon.astro";
+import ExternalIcon from "./icons/ExternalIcon.astro";
+import grainLang from "../../grain-language-server/editor-extensions/vscode/syntaxes/grain.json";
+import githubDarkModifiedTheme from "../../themes/github-dark-modified.json";
+import lzString from "lz-string";
+import { codeExamples } from "../examples";
+
+const theme = githubDarkModifiedTheme as any;
+const lang = grainLang as any;
+---
+
+<script>
+  const mod = (n: number, k: number) => (n + k) % k;
+
+  const examples = document.getElementById("code-samples")!;
+  const selectedExample = document.getElementById("selected-example")!;
+  const playgroundLink = document.getElementById("playground-link")!;
+
+  const numExamples = examples.childElementCount;
+
+  let currIndex = 0;
+  function changeView(delta: number) {
+    const nextIndex = mod(currIndex + delta, numExamples);
+    examples.children[currIndex].classList.add("hidden");
+    examples.children[nextIndex].classList.remove("hidden");
+    currIndex = nextIndex;
+
+    const compressedCode = examples.children[currIndex].getAttribute("data-compressed-code");
+    playgroundLink.setAttribute("href", `/try?code=${compressedCode}`)
+
+    selectedExample.innerHTML = examples.children[currIndex].getAttribute("data-name")!;
+  }
+
+  document.getElementById("prev")!.addEventListener("click", () => changeView(-1));
+  document.getElementById("next")!.addEventListener("click", () => changeView(+1));
+
+  changeView(0);
+</script>
+
+<div class="flex flex-col relative h-full w-full">
+  <div class="flex gap-2 mb-6 lg:mb-10">
+    <span class="flex gap-2 border rounded bg-color-accent border-color-accent text-orange-10 py-0.5 px-2 w-fit">
+      <div class="flex items-center gap-1">
+        <span class="text-xs pb-0.5">●</span>
+        <code class="text-sm">Grain</code>
+      </div>
+    </span>
+
+    <a id="playground-link" href="/try" class="flex gap-2 border rounded border-gray-variant-60 text-gray-variant-60 py-0.5 px-2 w-fit">
+      <code class="text-sm">Playground</code>
+      <ExternalIcon class="w-4" />
+    </a>
+  </div>
+  <div class="flex flex-col-reverse lg:flex-col flex-auto justify-between">
+    <div id="code-samples" class="pt-6 lg:pt-0 h-[calc(100%-24px)] [color-scheme:dark]">
+      {codeExamples.map((example, i) => (
+        <Code
+          class:list={["[scrollbar-color:#D5D3D9_#1D182E]", "[scrollbar-width:thin]", {"hidden": i !== 0}]}
+          code={example.code}
+          theme={theme}
+          lang={lang}
+          data-name={example.name}
+          data-compressed-code={lzString.compressToEncodedURIComponent(example.code)}
+        />
+      ))}
+    </div>
+    <div class="flex justify-between items-center text-purple-40 w-full lg:w-3/5 mx-auto">
+      <button id="prev" class="inline-block border border-purple-40 hover:bg-purple-80 rounded-full p-3 rotate-180">
+        <ChevronRightIcon class="h-3.5" />
+      </button>
+      <p id="selected-example" class="text-lg"></p>
+      <button id="next" class="inline-block border border-purple-40 hover:bg-purple-80 rounded-full p-3">
+        <ChevronRightIcon class="h-3.5" />
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+---
+import type { CollectionEntry } from "astro:content"
+import TypographyContainer from "./TypographyContainer.astro";
+import ArrowLeft from "./icons/ArrowLeft.astro";
+import TwitterIcon from "./icons/TwitterIcon.astro";
+import GithubIcon from "./icons/GithubIcon.astro";
+import oscarHeadshot from "../images/headshots/oscar-headshot-square.jpg";
+import philipHeadshot from "../images/headshots/philip-headshot-square.jpg";
+import blaineHeadshot from "../images/headshots/blaine-headshot-square.jpg";
+import marcusHeadshot from "../images/headshots/marcus-headshot-square.jpg";
+import type { BlogAuthor } from "../types";
+import { Image } from "astro:assets";
+
+const authorInfo: Record<BlogAuthor, { twitter: string; github: string; headshot: ImageMetadata }> = {
+  "Oscar Spencer": { twitter: "oscar_spen", github: "ospencer", headshot: oscarHeadshot },
+  "Philip Blair": { twitter: "Philip_E_Blair", github: "peblair", headshot: philipHeadshot },
+  "Blaine Bublitz": { twitter: "BlaineBublitz", github: "phated", headshot: blaineHeadshot },
+  "Marcus Roberts": { twitter: "marcusr", github: "marcusroberts", headshot: marcusHeadshot },
+};
+
+interface Props {
+  entry: CollectionEntry<"blog">;
+}
+
+const { entry } = Astro.props;
+---
+
+<div class="max-w-[48rem] mx-auto px-5 py-6 md:p-8">
+  <a href="/blog" class="flex gap-6 font-semibold">
+    <ArrowLeft class="w-6" />
+    Back to Blog
+  </a>
+  <h1 class="text-4xl font-bold pt-8 md:pt-14">{entry.data.title}</h1>
+  <h2 class="pb-8 pt-5 text-xl">
+    {entry.data.subtitle}
+  </h2>
+  <div class="flex gap-10 md:gap-20">
+    <div class="flex items-center gap-2">
+      <a href={`https://github.com/${authorInfo[entry.data.author as BlogAuthor].github}`}>
+        <Image
+          src={authorInfo[entry.data.author as BlogAuthor].headshot}
+          alt={entry.data.author}
+          class="rounded-full object-cover w-10 h-10"
+        />
+      </a>
+      <div>
+        <p class="uppercase text-xs font-semibold">Author</p>
+        <div class="flex gap-2 items-center">
+          {entry.data.author}
+          <a class="hidden md:block" href={`https://twitter.com/${authorInfo[entry.data.author as BlogAuthor].twitter}`}><TwitterIcon class="w-4" /></a>
+          <a class="hidden md:block" href={`https://github.com/${authorInfo[entry.data.author as BlogAuthor].github}`}><GithubIcon class="w-4" /></a>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="uppercase text-xs font-semibold">Published</p>
+      <p>{entry.data.date.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}</p>
+    </div>
+  </div>
+  <figure class="py-10">
+    <Image
+      src={entry.data.cover}
+      alt={entry.data.coverAttribution ?? ""}
+      class="max-h-[26rem] w-full object-cover"
+    />
+    <figcaption class="pt-2 text-sm text-gray-50">Photo: {entry.data.coverAttribution}</figcaption>
+  </figure>
+  <TypographyContainer>
+    <slot />
+  </TypographyContainer>
+</div>
