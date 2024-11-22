@@ -92,9 +92,9 @@ addEventListener("message", async ({ data }) => {
           args: [],
         });
         const module = await WebAssembly.compile(wasm);
-        await wasi.instantiate(module, {});
+        const instance = wasi.instantiate(module, {});
         // TODO: Do we actually want to handle the exitCode?
-        wasi.start();
+        wasi.start(instance);
         postMessage({ stdout: processWasiStdout(wasi.getStdoutString()) });
       } catch (err) {
         // TODO: deal with err better?

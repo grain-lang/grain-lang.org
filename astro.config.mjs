@@ -17,6 +17,7 @@ const theme = JSON.parse(fs.readFileSync("./themes/github-dark-modified-lighter.
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://grain-lang.org",
   vite: {
     // We want to include wasm files as raw data and then we glob for their urls
     assetsInclude: ["**/*.wasm"],
