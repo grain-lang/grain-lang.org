@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "prepare": "node scripts/generateContributors.js && node src/playground/cli.mjs",
+    "prepare": "node scripts/generateContributors.js && node scripts/cli.mjs",
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "NODE_OPTIONS=--max-old-space-size=8192 astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },

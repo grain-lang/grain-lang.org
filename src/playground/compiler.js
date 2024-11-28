@@ -1,9 +1,11 @@
 import fs, { loadStdlib, stdlibRoot } from "./browser-fs/fs";
-import grainc from "./grain/grainc.bc.mjs";
 import constants from "constants-browserify/constants.json";
 import { Buffer } from "buffer";
 import { init, WASI } from "@wasmer/wasi";
 import { tailCall, bulkMemory } from "wasm-feature-detect";
+import graincUrl from "../../public/grainc.bc.mjs?url";
+
+const graincPromise = import(graincUrl);
 
 globalThis.Buffer = Buffer;
 
@@ -82,7 +84,8 @@ addEventListener("message", async ({ data }) => {
     fs.writeFileSync("/test.gr", data.content);
     fs.writeFileSync("/test.gr.wasm", "");
     try {
-      grainc(globalThis);
+      const grainc = await graincPromise;
+      grainc.default(globalThis);
 
       try {
         await init();
