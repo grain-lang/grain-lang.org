@@ -14,7 +14,7 @@ interface Props {
 const { entry } = Astro.props;
 ---
 
-<div class="mx-auto max-w-[70rem] pb-5 lg:pb-28 px-5">
+<div class="mx-auto max-w-[70rem] pb-5 lg:pb-28 px-4">
   <div class="my-6 md:my-10 flex justify-between items-center">
     <div>
       <GrainLogo class="w-8 h-8 md:w-12 md:h-12 inline-block align-middle fill-color-accent" />
@@ -41,7 +41,7 @@ const { entry } = Astro.props;
       <a href="https://discord.com/invite/grain-lang" class="underline">Discord</a>
     </div>
   </div>
-  <div class="lg:flex lg:items-stretch bg-color-background-bright dark:bg-gray-variant-80 rounded-lg p-5 lg:p-8 drop-shadow-xl">
+  <div class="lg:flex lg:items-stretch bg-color-background-bright dark:bg-gray-variant-80 rounded-lg p-4 lg:p-8 drop-shadow-xl">
     <div class="p-0 lg:p-6 lg:w-5/12">
       <h1 class="text-2xl font-bold mb-5"><a href={`/blog/${entry.slug}`}>{entry.data.title}</a></h1>
       <BlogAuthor entry={entry} imgClass="w-12 h-12" nameClass="text-lg" />

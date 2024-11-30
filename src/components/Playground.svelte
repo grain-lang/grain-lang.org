@@ -112,12 +112,23 @@
       window.history.pushState(null, "", "?" + searchParams.toString());
     });
 
+    function readjustForWidth() {
+      editor.layout();
+      if (window.innerWidth < 640) {
+        editor.updateOptions({ lineNumbers: "off" })
+      } else {
+        editor.updateOptions({ lineNumbers: "on" })
+      }
+    }
+
     window.addEventListener(
       "resize",
       debounce(() => {
-        editor.layout();
+        readjustForWidth();
       }, 100)
     );
+
+    readjustForWidth();
   });
 
   onDestroy(() => {
