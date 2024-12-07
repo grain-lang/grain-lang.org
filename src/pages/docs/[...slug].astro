@@ -1,14 +1,14 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import DocsEntry from "../../components/DocsEntry.astro";
-import { sortEntries } from "../../utils/docsCollections";
+import { sectionAndSortEntries } from "../../utils/docsCollections";
 
 export async function getStaticPaths() {
-  const docsEntries = sortEntries(await getCollection("docs", x => !x.slug.includes("/runtime/")));
+  const docsEntries = sectionAndSortEntries(await getCollection("docs", x => !x.id.includes("/runtime/")));
 
   return docsEntries.map((entry, i) => ({
-    params: { slug: entry.collectionEntry.slug },
+    params: { slug: entry.collectionEntry.id },
     props: {
       entry: entry.collectionEntry,
       section: entry.section,
@@ -19,7 +19,7 @@ export async function getStaticPaths() {
 }
 
 const { entry, section, prev, next } = Astro.props;
-const { Content, headings } = await entry.render();
+const { Content, headings } = await render(entry);
 ---
 
 <Layout title={`Grain Docs | ${entry.data.title}`} inDocs excludeFooter>

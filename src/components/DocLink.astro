@@ -1,11 +1,11 @@
 ---
 interface Props {
-  slug: string;
+  id: string;
 }
 
-const { slug } = Astro.props;
+const { id } = Astro.props;
 
-const href = `/docs/${slug}`;
+const href = `/docs/${id}`;
 const isCurrentPage = new URL(Astro.request.url).pathname === href;
 ---
 

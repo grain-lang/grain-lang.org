@@ -1,9 +1,10 @@
 ---
+import type { CollectionEntry } from "astro:content";
 import DocLink from "./DocLink.astro";
 
 interface Props {
   title: string | null;
-  entries: { slug: string, data: { title?: string | undefined } }[]
+  entries: CollectionEntry<"docs">[]
 }
 
 const { title, entries } = Astro.props;
@@ -13,5 +14,5 @@ const { title, entries } = Astro.props;
   <h2 class="text-xl font-semibold mt-6 mb-2">{title}</h2>
 )}
 <div class="border-l-2 border-color-dim-3">
-  {entries.map(x => <DocLink slug={x.slug}>{x.data.title}</DocLink>)}
+  {entries.map(x => <DocLink id={x.id}>{x.data.title}</DocLink>)}
 </div>

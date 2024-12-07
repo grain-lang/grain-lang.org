@@ -11,7 +11,7 @@ const { entry } = Astro.props;
 ---
 
 <div class="flex flex-col drop-shadow-sm border rounded-lg border-gray-10 dark:border-color-background-bright dark:bg-color-dim-3 overflow-hidden">
-  <a href={`/blog/${entry.slug}`} class="grow flex flex-col">
+  <a href={`/blog/${entry.id}`} class="grow flex flex-col">
     <Image
       src={entry.data.cover}
       alt={entry.data.coverAttribution ?? `${entry.data.title} thumbnail`}

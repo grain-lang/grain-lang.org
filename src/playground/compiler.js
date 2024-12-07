@@ -5,7 +5,7 @@ import { init, WASI } from "@wasmer/wasi";
 import { tailCall, bulkMemory } from "wasm-feature-detect";
 import graincUrl from "../../public/grainc.bc.mjs?url";
 
-const graincPromise = import(graincUrl);
+const graincPromise = import(/* @vite-ignore */graincUrl);
 
 globalThis.Buffer = Buffer;
 

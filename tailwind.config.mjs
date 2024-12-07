@@ -1,4 +1,5 @@
-const { fontFamily } = require("tailwindcss/defaultTheme");
+import { fontFamily } from "tailwindcss/defaultTheme";
+import tailwindTypography from "@tailwindcss/typography";
 
 /** @type {import("tailwindcss").Config} */
 export default {
@@ -98,6 +99,6 @@ export default {
     },
 	},
 	plugins: [
-    require("@tailwindcss/typography"),
+    tailwindTypography,
   ],
 }

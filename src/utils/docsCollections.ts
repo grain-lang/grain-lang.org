@@ -29,16 +29,16 @@ export const docsCollections: DocsCollection[] = [
   },
 ];
 
-export function sortEntries(docsEntries: CollectionEntry<"docs">[]): DocsEntry[] {
+export function sectionAndSortEntries(docsEntries: CollectionEntry<"docs">[]): DocsEntry[] {
   return docsEntries.toSorted((x, y) => {
-    if (x.slug.startsWith("stdlib") && y.slug.startsWith("stdlib")) {
-      return Number(y.slug.includes("pervasives")) - Number(x.slug.includes("pervasives"));
+    if (x.id.startsWith("stdlib") && y.id.startsWith("stdlib")) {
+      return Number(y.id.includes("pervasives")) - Number(x.id.includes("pervasives"));
     }
 
-    return docsCollections.findIndex(coll => x.slug.startsWith(coll.slugPrefix))
-      - docsCollections.findIndex(coll => y.slug.startsWith(coll.slugPrefix))
+    return docsCollections.findIndex(coll => x.id.startsWith(coll.slugPrefix))
+      - docsCollections.findIndex(coll => y.id.startsWith(coll.slugPrefix))
   }).map(collectionEntry => ({
     collectionEntry,
-    section: docsCollections.find(coll => collectionEntry.slug.startsWith(coll.slugPrefix))!.title
+    section: docsCollections.find(coll => collectionEntry.id.startsWith(coll.slugPrefix))!.title
   }));
 }

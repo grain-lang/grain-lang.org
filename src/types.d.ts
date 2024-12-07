@@ -1,5 +1,5 @@
 export interface HeirarchicalHeading {
-  slug: string;
+  id: string;
   text: string;
   subheadings: HeirarchicalHeading[];
 }

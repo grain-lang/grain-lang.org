@@ -8,10 +8,10 @@ import DocsSwitchPageLink from "./DocsSwitchPageLink.astro";
 import TypographyContainer from "./TypographyContainer.astro";
 import NewsletterSignup from "./NewsletterSignup.astro";
 import Footer from "./Footer.astro";
-import { docsCollections, sortEntries } from "../utils/docsCollections";
+import { docsCollections, sectionAndSortEntries } from "../utils/docsCollections";
 import BarsIcon from "./icons/BarsIcon.astro";
 
-const docsEntries = await getCollection("docs", x => !x.slug.includes("/runtime/"));
+const docsEntries = await getCollection("docs", x => !x.id.includes("/runtime/"));
 
 const sidebarClass = "fixed overflow-auto w-[calc(var(--container-width)/5)] xl:w-[calc(var(--container-width)/6)] top-[3.5rem] h-[calc(100vh-3.5rem)] py-14";
 
@@ -53,7 +53,7 @@ const { data, section, headings, prev, next } = Astro.props;
   <h1 class="text-2xl font-semibold mb-4">Grain Docs</h1>
 
   {docsCollections.map(coll => (
-    <DocLinkGroup title={coll.title} entries={sortEntries(docsEntries.filter((x: any) => x.slug.startsWith(coll.slugPrefix))).map(x => x.collectionEntry)} />
+    <DocLinkGroup title={coll.title} entries={sectionAndSortEntries(docsEntries.filter((x: any) => x.id.startsWith(coll.slugPrefix))).map(x => x.collectionEntry)} />
   ))}
 </div>
 
@@ -63,7 +63,7 @@ const { data, section, headings, prev, next } = Astro.props;
       <h1 class="text-3xl font-semibold mb-4">Grain Docs</h1>
 
       {docsCollections.map(coll => (
-        <DocLinkGroup title={coll.title} entries={sortEntries(docsEntries.filter((x: any) => x.slug.startsWith(coll.slugPrefix))).map(x => x.collectionEntry)} />
+        <DocLinkGroup title={coll.title} entries={sectionAndSortEntries(docsEntries.filter((x: any) => x.id.startsWith(coll.slugPrefix))).map(x => x.collectionEntry)} />
       ))}
     </div>
 

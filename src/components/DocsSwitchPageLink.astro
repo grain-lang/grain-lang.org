@@ -14,7 +14,7 @@ const { entry, isPrev } = Astro.props;
 ---
 
 {entry ? (
-  <a href={`/docs/${entry.slug}`} class="no-underline text-sm md:text-base">
+  <a href={`/docs/${entry.id}`} class="no-underline text-sm md:text-base">
     {isPrev ? (
       <ChevronRightIcon class={`${chevronClass} rotate-180`} />
       <b class={textClass}>{entry.data.title}</b>
