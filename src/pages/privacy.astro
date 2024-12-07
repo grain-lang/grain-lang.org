@@ -2,14 +2,40 @@
 import * as privacy from "../content/misc/privacy.md";
 import Layout from "../layouts/Layout.astro";
 import TypographyContainer from "../components/TypographyContainer.astro";
+import MailingListForm from "../components/MailingListForm.astro";
 
 const { Content } = privacy;
 ---
+<script>
+  document.getElementById("mailing-list-unsubscribe")!.addEventListener("submit", event => {
+    event.preventDefault();
+
+    const email = (event.target! as any).email.value;
+    fetch("/.netlify/functions/mailing-list-unsubscribe", {
+      method: "POST",
+      body: JSON.stringify({ email }),
+    })
+      .then((res) => {
+        if (res.ok) {
+          alert(`Email address ${email} will be removed from the mailing list if it exists.`)
+        } else {
+          alert(`There was an unexpected error automatically removing ${email} from the mailing list. Please reach out to us at privacy@grain-lang.org`);
+        }
+      });
+  })
+</script>
 
 <Layout title="Privacy Policy">
   <div class="max-w-[48rem] mx-auto px-4 pt-6 md:pt-14">
     <TypographyContainer>
       <Content />
     </TypographyContainer>
+
+    <hr class="mt-12 md:mt-20" />
+
+    <div class="mt-12 md:mt-20">
+      <h2 class="text-2xl font-bold mb-4">Unsubscribe From Mailing List</h2>
+      <MailingListForm id="mailing-list-unsubscribe" actionTitle="Unsubscribe" />
+    </div>
   </div>
 </Layout>

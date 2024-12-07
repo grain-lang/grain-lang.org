@@ -20,7 +20,7 @@ We use our mailing list to send updates about things happening with Grain and re
 
 ### Data retention
 
-The only personal information we retain is your email address. We’ll retain this information as long as you remain subscribed. You may unsubscribe at any time by using the unsubscribe link in communication you receive from us or by emailing a request to us at [privacy@grain-lang.org](mailto:privacy@grain-lang.org).
+The only personal information we retain is your email address. We’ll retain this information as long as you remain subscribed. You may unsubscribe at any time by filling out the unsubscription form at the bottom of this page or by emailing a request to us at [privacy@grain-lang.org](mailto:privacy@grain-lang.org).
 
 ## Updates and questions
 

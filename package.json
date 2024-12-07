@@ -18,6 +18,7 @@
     "@docsearch/css": "^3.6.2",
     "@docsearch/js": "^3.6.2",
     "@grain/stdlib": "^0.6.5",
+    "@netlify/functions": "^2.8.2",
     "@wasmer/wasi": "^1.2.2",
     "algoliasearch": "^4.23.3",
     "assert": "^2.1.0",

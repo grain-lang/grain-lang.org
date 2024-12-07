@@ -27,3 +27,6 @@ pnpm-debug.log*
 
 /*.gr.wasm
 contributors.json
+
+# Local Netlify folder
+.netlify
