@@ -35,7 +35,7 @@ const { entry } = Astro.props;
       </a>
     </div>
     <div class="hidden md:block text-color-accent">
-      Find us also on
+      Also find us on
       <a href="https://twitter.com/grain_lang" class="underline">Twitter</a>
       and
       <a href="https://discord.com/invite/grain-lang" class="underline">Discord</a>
@@ -53,11 +53,13 @@ const { entry } = Astro.props;
       </a>
     </div>
     <div class="w-0 lg:w-7/12 pl-6">
-      <Image
-        src={entry.data.cover}
-        alt={entry.data.coverAttribution ?? `${entry.data.title} cover image`}
-        class="w-full h-full object-cover rounded"
-      />
+      <a href={`/blog/${entry.id}`}>
+        <Image
+          src={entry.data.cover}
+          alt={entry.data.coverAttribution ?? `${entry.data.title} cover image`}
+          class="w-full h-full object-cover rounded"
+        />
+      </a>
     </div>
   </div>
 </div>

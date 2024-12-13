@@ -61,7 +61,7 @@ const { entry } = Astro.props;
     <Image
       src={entry.data.cover}
       alt={entry.data.coverAttribution ?? ""}
-      class="max-h-[26rem] w-full object-cover"
+      class="rounded max-h-[26rem] w-full object-cover"
     />
     <figcaption class="pt-2 text-sm text-gray-50">Photo: {entry.data.coverAttribution}</figcaption>
   </figure>

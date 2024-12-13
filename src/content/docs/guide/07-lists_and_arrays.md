@@ -1,6 +1,6 @@
 ---
-title: Collections and Libraries
-slug: guide/collections_and_libraries
+title: Lists and arrays
+slug: guide/lists_and_arrays
 ---
 
 ## Lists
@@ -116,7 +116,9 @@ In some cases, this could allow us to write programs that are more efficient tha
 However, the size of an array is fixed. To add additonal items to an array, we must append them together, which would create a brand new, third array:
 
 ```grain
-import Array from "array"
+module Main
+
+from "array" include Array
 
 let one = [> 1]
 let twoThree = [> 2, 3]

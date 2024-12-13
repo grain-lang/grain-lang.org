@@ -20,7 +20,7 @@ import Card from "./Card.astro";
   <div class="mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-14">
       <Card title="We continuously strive to" class="bg-color-background-bright">
-        <ul class="pl-6 [&>li]:my-1 [&>li]:pl-1 text-color-accent list-outside list-image-[url(/src/images/check-icon.svg)]">
+        <ul class="pl-6 [&>li]:my-1 [&>li]:pl-1 text-color-accent dark:text-[rgb(255,132,92)] list-outside list-image-[url(/src/images/check-icon.svg)]">
           <li>Improve the language</li>
           <li>Address more use cases and provide exceptional documentation</li>
           <li>Prioritize developer experience</li>
@@ -34,9 +34,10 @@ import Card from "./Card.astro";
         </p>
       </Card>
       <Card title="Sponsors and Contributors" class="bg-color-background-bright relative">
-        <div class="z-10 absolute -top-10 right-[10rem] bg-color-blurb-4 w-36 h-[32rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
+        <div class="z-10 absolute -top-10 right-[10rem] bg-color-blurb-4 w-36 h-[32rem] rounded-full rotate-[10deg] blur-3xl" />
         <div class="z-10 absolute -top-10 right-[3rem] bg-color-blurb-2 w-36 h-[32rem] rounded-full rotate-[10deg] blur-3xl" />
-        <div class="z-10 absolute top-0 -right-[3rem] bg-color-blurb-3 w-36 h-[32rem] rounded-full rotate-[10deg] blur-3xl" data-desc="color-ellipsis" />
+        <div class="z-10 absolute top-0 -right-[3rem] bg-color-blurb-3 w-36 h-[32rem] rounded-full rotate-[10deg] blur-3xl" />
+        <div class="z-10 absolute w-full h-full bg-[rgb(255,255,255,0.4)] dark:bg-[rgb(29,24,46,0.4)] blur-3xl"></div>
         <p class="z-20">
           We rely on volunteer contributors and sponsors to sustain the project.
           Development of the Grain programming language is financially

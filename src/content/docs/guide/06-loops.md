@@ -54,7 +54,7 @@ while (true) {
 ```grain
 module Main
 
-import Array from "array"
+from "array" include Array
 
 let strings = [> "foo", "bar", "baz"]
 
