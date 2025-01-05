@@ -1,18 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import oscarHeadshot from "../images/headshots/oscar-headshot-square.jpg";
-import philipHeadshot from "../images/headshots/philip-headshot-square.jpg";
-import blaineHeadshot from "../images/headshots/blaine-headshot-square.jpg";
-import marcusHeadshot from "../images/headshots/marcus-headshot-square.jpg";
 import type { CollectionEntry } from "astro:content";
 import type { BlogAuthor } from "../types";
-
-const headshotMap: Record<BlogAuthor, ImageMetadata> = {
-  "Oscar Spencer": oscarHeadshot,
-  "Philip Blair": philipHeadshot,
-  "Blaine Bublitz": blaineHeadshot,
-  "Marcus Roberts": marcusHeadshot,
-};
+import { authorInfo } from "../blogAuthors";
 
 interface Props {
   entry: CollectionEntry<"blog">;
@@ -26,7 +16,7 @@ const { entry, imgClass, nameClass, dateClass } = Astro.props;
 
 <div class="flex items-center gap-3 w-fit">
   <Image
-    src={headshotMap[entry.data.author as BlogAuthor]}
+    src={authorInfo[entry.data.author as BlogAuthor].headshot}
     alt={entry.data.author}
     class={`rounded-full object-cover ${imgClass ?? ""}`}
   />

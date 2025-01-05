@@ -68,7 +68,7 @@ If you build Grain from source, we now fully support the Mac M1 architecture. Bo
 
 This release ships with a brand new parser. Not only is this parser significantly faster than the old parser, but it also brings nearly 200 unique error messages for when a syntax error occurs—providing you with specific details about what went wrong and how you can fix it.
 
-![grain parser error](/src/images/misc/grain-parser-error.jpg)
+![grain parser error](../../images/misc/grain-parser-error.jpg)
 
 ### Compilation profiles
 

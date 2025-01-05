@@ -51,7 +51,7 @@ All of the supported flags can be found below:
 
 ## `grain run`
 
-Runs a WebAssembly file. The `grain run` command can run Grain programs compiled with `--no-link`, and can also run WebAssembly files produced by other compilers.
+Runs a WebAssembly file. The `grain run` command can also run WebAssembly files produced by other compilers.
 
 ```sh
 grain run hello.gr.wasm

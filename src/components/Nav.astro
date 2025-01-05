@@ -38,14 +38,14 @@ const { inDocs } = Astro.props;
         src={grainLogo}
         width={84}
         height={26}
-        alt="The Grain logo, consisting of a single blood-orange wheat flower with three points followed the word 'Grain'."
+        alt="The Grain logo, consisting of a single blood-orange wheat flower with three points followed by the word 'Grain'."
         class="dark:hidden mr-2"
       />
       <Image
         src={grainLogoDark}
         width={84}
         height={26}
-        alt="The Grain logo, consisting of a single blood-orange wheat flower with three points followed the word 'Grain'."
+        alt="The Grain logo, consisting of a single blood-orange wheat flower with three points followed by the word 'Grain'."
         class="hidden dark:block mr-2"
       />
     </a>
@@ -67,6 +67,7 @@ const { inDocs } = Astro.props;
       id="sidebar-open"
       class="lg:hidden"
       role="button"
+      aria-label="Main menu"
     >
       <BarsIcon class="w-6 h-6 text-gray-40 dark:text-gray-60 ml-5" />
     </a>

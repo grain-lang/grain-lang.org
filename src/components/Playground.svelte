@@ -145,24 +145,24 @@
         <div class="peer cursor-pointer hover:text-color-accent px-6 py-2">Examples</div>
         <div class="absolute z-10 left-1/2 -translate-x-1/2 hidden hover:grid peer-hover:grid grid-cols-2 px-2 py-2 rounded border border-gray-20 dark:border-purple-70 bg-white dark:bg-purple-90 w-96">
           {#each codeExamples as example}
-            <div
+            <button
               on:click={switchCodeExample(lzString.compressToEncodedURIComponent(example.code))}
-              class="cursor-pointer hover:bg-gray-10 dark:hover:bg-purple-80 rounded px-4 py-2"
+              class="cursor-pointer hover:bg-gray-10 dark:hover:bg-purple-80 rounded px-4 py-2 text-left"
             >
               {example.name}
-            </div>
+            </button>
           {/each}
         </div>
       </div>
       <div class="relative">
-        <div on:click={copyCode} class="peer cursor-pointer hover:text-color-accent pl-6 pr-5 py-2">Share</div>
+        <button on:click={copyCode} class="peer cursor-pointer hover:text-color-accent pl-6 pr-5 py-2">Share</button>
         <Tooltip>{showCopiedMessage ? "Copied!" : "Copy URL"}</Tooltip>
       </div>
     </div>
   </div>
   <div class="grid grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 h-[calc(100vh-3.5rem-5rem)] max-h-[calc(100vh-3.5rem-5rem)]">
     <div id="editor"></div>
-    <section class="dark:bg-[#2F254B] bg-[#EFEFEF] {state === 'compiledWithErrors' ? 'border-4 border-red-500 dark:border-[#C43550] dark:bg-[#3D222C] bg-red-200' : ''}">
+    <section class="overflow-auto dark:bg-[#2F254B] bg-[#EFEFEF] {state === 'compiledWithErrors' ? 'border-4 border-red-500 dark:border-[#C43550] dark:bg-[#3D222C] bg-red-200' : ''}">
       {#if loadingState}
         <div class="flex items-center justify-center w-full h-full">
           <div class="flex flex-col gap-2 items-center">

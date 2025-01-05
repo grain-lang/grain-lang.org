@@ -31,7 +31,7 @@
 </script>
 
 <div>
-  <a role="button" on:click={() => open = !open}>
+  <button on:click={() => open = !open} class="block" aria-label="Choose theme">
     {#if isDarkTheme}
       <MoonIcon
         class={`w-6 h-6 lg:w-5 lg:h-5 stroke-gray-30 dark:stroke-gray-50 hover:stroke-gray-40 ${
@@ -49,7 +49,7 @@
         }`}
       />
     {/if}
-  </a>
+  </button>
   <div
     class={`${
       open ? "absolute" : "hidden"
@@ -57,14 +57,14 @@
   >
     <ul>
       <li>
-        <a
-          role="button"
+        <button
           on:click={() => applyTheme("light")}
-          class={`flex items-center font-medium hover:bg-gray-10 dark:hover:bg-purple-80 p-2 rounded ${
+          class={`w-full flex items-center font-medium hover:bg-gray-10 dark:hover:bg-purple-80 p-2 rounded ${
             theme === "light"
               ? "text-purple-50 dark:text-purple-30"
               : "text-color-dim"
           }`}
+          aria-label="Light theme"
         >
           <SunIcon
             class={`h-5 w-5 stroke-gray-50 ${
@@ -74,17 +74,17 @@
             } mr-3`}
           />{" "}
           Light
-        </a>
+        </button>
       </li>
       <li>
-        <a
-          role="button"
+        <button
           on:click={() => applyTheme("dark")}
-          class={`flex items-center font-medium hover:bg-gray-10 dark:hover:bg-purple-80 p-2 rounded ${
+          class={`w-full flex items-center font-medium hover:bg-gray-10 dark:hover:bg-purple-80 p-2 rounded ${
             theme === "dark"
               ? "text-purple-50 dark:text-purple-30"
               : "text-color-dim"
           }`}
+          aria-label="Dark theme"
         >
           <MoonIcon
             class={`h-5 w-5 stroke-gray-50 ${
@@ -94,17 +94,17 @@
             } mr-3`}
           />{" "}
           Dark
-        </a>
+        </button>
       </li>
       <li>
-        <a
-          role="button"
+        <button
           on:click={() => applyTheme("system")}
-          class={`flex items-center font-medium hover:bg-gray-10 dark:hover:bg-purple-80 p-2 rounded ${
+          class={`w-full flex items-center font-medium hover:bg-gray-10 dark:hover:bg-purple-80 p-2 rounded ${
             theme === "system"
               ? "text-purple-50 dark:text-purple-30"
               : "text-color-dim"
           }`}
+          aria-label="System theme"
         >
           <DesktopIcon
             class={`h-5 w-5 stroke-gray-50 ${
@@ -114,7 +114,7 @@
             } mr-3`}
           />{" "}
           System
-        </a>
+        </button>
       </li>
     </ul>
   </div>

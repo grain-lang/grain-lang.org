@@ -3,7 +3,6 @@ import type { CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 import BlogAuthor from "./BlogAuthor.astro";
 import ChevronRightIcon from "./icons/ChevronRightIcon.astro";
-import TwitterIcon from "./icons/TwitterIcon.astro";
 import DiscordIcon from "./icons/DiscordIcon.astro";
 import GrainLogo from "./icons/GrainLogo.astro";
 
@@ -20,23 +19,25 @@ const { entry } = Astro.props;
       <GrainLogo class="w-8 h-8 md:w-12 md:h-12 inline-block align-middle fill-color-accent" />
       <span class="md:pl-1 text-2xl md:text-4xl font-semibold align-middle">The Grain Blog</span>
     </div>
-    <div class="flex md:hidden gap-4 text-color-accent">
+    <div class="flex md:hidden gap-4 text-color-accent items-center">
       <a
-        href="https://twitter.com/grain_lang"
+        href="https://x.com/grain_lang"
         target="_blank"
+        aria-label="X link"
       >
-        <TwitterIcon class="w-7 h-7 fill-color-accent" />
+        <span class="font-bold text-3xl text-color-accent">𝕏</span>
       </a>
       <a
-        href="https://twitter.com/grain_lang"
+        href="https://discord.com/invite/grain-lang"
         target="_blank"
+        aria-label="Discord link"
       >
         <DiscordIcon class="w-7 h-7 fill-color-accent" />
       </a>
     </div>
     <div class="hidden md:block text-color-accent">
       Also find us on
-      <a href="https://twitter.com/grain_lang" class="underline">Twitter</a>
+      <a href="https://x.com/grain_lang" class="underline">X</a>
       and
       <a href="https://discord.com/invite/grain-lang" class="underline">Discord</a>
     </div>

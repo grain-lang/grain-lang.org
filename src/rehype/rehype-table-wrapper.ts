@@ -74,7 +74,7 @@ const rehypeTableWrapper: RehypePlugin = () => (tree) => {
 
           return h(
             "div",
-            { class: "mb-2" },
+            { class: "mb-1.5" },
             ...content
           );
         })

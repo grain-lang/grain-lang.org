@@ -56,7 +56,7 @@ The language itself isn't the only star of the show—we've put quite a lot of e
 
 ### Logo & Website Redesign
 
-![grain redesign](/src/images/misc/grain-redesign.png)
+![grain redesign](../../images/misc/grain-redesign.png)
 
 If you've followed Grain from the beginning, you might remember this old logo. While this logo (hastily-created in about five minutes by yours truly) served us well, we've moved on to our new, beautiful, professionally-designed logo that I feel fits us wonderfully.
 

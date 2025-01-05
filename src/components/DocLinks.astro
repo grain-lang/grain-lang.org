@@ -1,0 +1,13 @@
+---
+import { getCollection } from "astro:content";
+import { docsCollections, sectionAndSortEntries } from "../utils/docsCollections";
+import DocLinkGroup from "./DocLinkGroup.astro";
+
+const docsEntries = await getCollection("docs", x => !x.id.includes("/runtime/"));
+---
+
+<h1 class="text-2xl lg:text-3xl font-semibold mb-4">Grain Docs</h1>
+
+{docsCollections.map(coll => (
+  <DocLinkGroup title={coll.title} entries={sectionAndSortEntries(docsEntries.filter((x: any) => x.id.startsWith(coll.slugPrefix))).map(x => x.collectionEntry)} />
+))}

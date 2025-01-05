@@ -3,6 +3,7 @@ import constants from "constants-browserify/constants.json";
 import { Buffer } from "buffer";
 import { init, WASI } from "@wasmer/wasi";
 import { tailCall, bulkMemory } from "wasm-feature-detect";
+// This file is too large and breaks the astro build hence it's just imported at runtime in this way to include this file in the build as-is and not be optimized/bundled
 import graincUrl from "../../public/grainc.bc.mjs?url";
 
 const graincPromise = import(/* @vite-ignore */graincUrl);
