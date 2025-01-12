@@ -6,6 +6,8 @@
   import * as store from "../store";
   import { codeExamples } from "../examples";
   import ButtonLink from "./ButtonLink.svelte";
+  import ShareIcon from "./icons/ShareIcon.svelte";
+  import ListBulletsIcon from "./icons/ListBulletsIcon.svelte";
   import LoadingSpinner from "./LoadingSpinner.svelte";
   import Tooltip from "./Tooltip.svelte";
   import * as monaco from "monaco-editor";
@@ -69,13 +71,18 @@
     editor.layout();
   }
 
+  let examplesToggled = false;
+  function toggleExamples(): void {
+    examplesToggled = !examplesToggled;
+  }
+
   let showCopiedMessage = false;
   let existingCopyMessageTimeout: NodeJS.Timeout;
   function copyCode(): void {
     navigator.clipboard.writeText(window.location.href);
     showCopiedMessage = true;
     clearTimeout(existingCopyMessageTimeout);
-    existingCopyMessageTimeout = setTimeout(() => showCopiedMessage = false, 750);
+    existingCopyMessageTimeout = setTimeout(() => showCopiedMessage = false, 1000);
   }
 
   const switchCodeExample = (compressedCode: string) => () => {
@@ -137,13 +144,22 @@
 
 </script>
 
-<div>
-  <div class="flex text-lg justify-between items-center px-4 lg:px-16 py-4">
-    <ButtonLink onClick={compile} disabled={loadingState} className="w-full justify-center md:w-fit dark:disabled:bg-gray-variant-50 disabled:bg-[#9B9B9B]">Run</ButtonLink>
-    <div class="hidden md:flex gap-6">
-      <div class="relative">
-        <div class="peer cursor-pointer hover:text-color-accent px-6 py-2">Examples</div>
-        <div class="absolute z-10 left-1/2 -translate-x-1/2 hidden hover:grid peer-hover:grid grid-cols-2 px-2 py-2 rounded border border-gray-20 dark:border-purple-70 bg-white dark:bg-purple-90 w-96">
+<div class="overflow-x-hidden">
+  <div class="flex text-lg justify-between items-center px-4 lg:px-16 py-4 relative md:static">
+    <ButtonLink
+      onClick={compile}
+      disabled={loadingState}
+      className="w-full justify-center md:w-fit dark:disabled:bg-gray-variant-50 disabled:bg-[#9B9B9B] mr-4"
+    >
+      Run
+    </ButtonLink>
+    <div class="flex gap-6">
+      <div class="md:relative">
+        <button on:click={toggleExamples} class="peer cursor-pointer hover:text-color-accent md:px-6 py-2">
+          <span class="hidden md:inline-block">Examples</span>
+          <ListBulletsIcon class="text-color-dim md:hidden" />
+        </button>
+        <div class={`absolute z-10 left-0 md:left-1/2 md:-translate-x-1/2 ${examplesToggled ? "grid" : "hidden"} hover:grid peer-hover:grid grid-cols-2 px-2 py-2 rounded border border-gray-20 dark:border-purple-70 bg-white dark:bg-purple-90 w-screen md:w-96`}>
           {#each codeExamples as example}
             <button
               on:click={switchCodeExample(lzString.compressToEncodedURIComponent(example.code))}
@@ -155,8 +171,15 @@
         </div>
       </div>
       <div class="relative">
-        <button on:click={copyCode} class="peer cursor-pointer hover:text-color-accent pl-6 pr-5 py-2">Share</button>
-        <Tooltip>{showCopiedMessage ? "Copied!" : "Copy URL"}</Tooltip>
+        <button on:click={copyCode} class="peer cursor-pointer hover:text-color-accent md:pl-6 md:pr-5 py-2">
+          <span class="hidden md:inline-block">
+            Share
+          </span>
+          <ShareIcon class="text-color-dim md:hidden" />
+        </button>
+        <div class={`${showCopiedMessage ? "opacity-100" : "hidden md:opacity-0 md:block"} md:peer-hover:opacity-100 transition`}>
+          <Tooltip>{showCopiedMessage ? "URL copied!" : "Copy URL"}</Tooltip>
+        </div>
       </div>
     </div>
   </div>

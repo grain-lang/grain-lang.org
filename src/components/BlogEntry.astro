@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content"
 import TypographyContainer from "./TypographyContainer.astro";
-import ArrowLeft from "./icons/ArrowLeft.astro";
+import ArrowLeftIcon from "./icons/ArrowLeftIcon.astro";
 import GithubIcon from "./icons/GithubIcon.astro";
 import type { BlogAuthor } from "../types";
 import { Image } from "astro:assets";
@@ -17,7 +17,7 @@ const { entry } = Astro.props;
 
 <div class="max-w-[48rem] mx-auto px-4 py-6 md:p-8">
   <a href="/blog" class="flex gap-6 font-semibold">
-    <ArrowLeft class="w-6" />
+    <ArrowLeftIcon class="w-6" />
     Back to Blog
   </a>
   <h1 class="text-3xl font-bold pt-8 md:pt-14">{entry.data.title}</h1>
