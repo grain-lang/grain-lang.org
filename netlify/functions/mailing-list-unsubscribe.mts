@@ -10,7 +10,7 @@ export default async (req: Request, context: Context) => {
 
   const body = await new Response(req.body).json();
 
-  const siteId = process.env.NETLIFY_SITE_ID;
+  const siteId = process.env.SITE_ID;
   if (!siteId) {
     console.log("Site ID env variable missing");
     return new Response("Missing site ID", { status: 500 });
