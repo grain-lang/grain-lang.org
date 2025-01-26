@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import type { BlogAuthor } from "../types";
-import { authorInfo } from "../blogAuthors";
+import { authorInfoByName } from "../blogAuthors";
 
 interface Props {
   entry: CollectionEntry<"blog">;
@@ -16,7 +16,7 @@ const { entry, imgClass, nameClass, dateClass } = Astro.props;
 
 <div class="flex items-center gap-3 w-fit">
   <Image
-    src={authorInfo[entry.data.author as BlogAuthor].headshot}
+    src={authorInfoByName[entry.data.author as BlogAuthor].headshot}
     alt={entry.data.author}
     class={`rounded-full object-cover ${imgClass ?? ""}`}
   />

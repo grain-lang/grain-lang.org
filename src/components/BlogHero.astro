@@ -6,14 +6,13 @@ import ChevronRightIcon from "./icons/ChevronRightIcon.astro";
 import DiscordIcon from "./icons/DiscordIcon.astro";
 import RssIcon from "./icons/RssIcon.astro";
 import GrainLogo from "./icons/GrainLogo.astro";
+import BlueskyIcon from "./icons/BlueskyIcon.astro";
 
 interface Props {
   entry: CollectionEntry<"blog">;
 }
 
 const { entry } = Astro.props;
-
-const rssLink = Astro.site!.toString().replace(/\/$/, "") + "/blog/rss.xml";
 ---
 
 <div class="mx-auto max-w-[70rem] pb-5 lg:pb-28 px-4">
@@ -22,7 +21,7 @@ const rssLink = Astro.site!.toString().replace(/\/$/, "") + "/blog/rss.xml";
       <GrainLogo class="w-8 h-8 md:w-12 md:h-12 inline-block align-middle fill-color-accent" />
       <span class="md:pl-1 text-2xl md:text-4xl font-semibold align-middle">The Grain Blog</span>
       <a
-        href={rssLink}
+        href="/blog/rss.xml"
         target="_blank"
         aria-label="RSS feed link"
         class="hidden md:inline-block ml-2 align-middle"
@@ -32,11 +31,11 @@ const rssLink = Astro.site!.toString().replace(/\/$/, "") + "/blog/rss.xml";
     </div>
     <div class="flex md:hidden gap-4 text-color-accent items-center">
       <a
-        href="https://x.com/grain_lang"
+        href="https://bsky.app/profile/grain-lang.org"
         target="_blank"
-        aria-label="X link"
+        aria-label="Bluesky link"
       >
-        <span class="font-bold text-3xl text-color-accent">𝕏</span>
+        <BlueskyIcon class="w-7 h-7 fill-color-accent" />
       </a>
       <a
         href="https://discord.com/invite/grain-lang"
@@ -46,7 +45,7 @@ const rssLink = Astro.site!.toString().replace(/\/$/, "") + "/blog/rss.xml";
         <DiscordIcon class="w-7 h-7 fill-color-accent" />
       </a>
       <a
-        href={rssLink}
+        href="/blog/rss.xml"
         target="_blank"
         aria-label="RSS feed link"
       >
@@ -55,7 +54,7 @@ const rssLink = Astro.site!.toString().replace(/\/$/, "") + "/blog/rss.xml";
     </div>
     <div class="hidden md:block text-color-accent">
       Also find us on
-      <a href="https://x.com/grain_lang" class="underline">X</a>
+      <a href="https://bsky.app/profile/grain-lang.org" class="underline">Bluesky</a>
       and
       <a href="https://discord.com/invite/grain-lang" class="underline">Discord</a>
     </div>

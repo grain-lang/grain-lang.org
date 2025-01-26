@@ -3,9 +3,11 @@ import type { CollectionEntry } from "astro:content"
 import TypographyContainer from "./TypographyContainer.astro";
 import ArrowLeftIcon from "./icons/ArrowLeftIcon.astro";
 import GithubIcon from "./icons/GithubIcon.astro";
+import MastodonIcon from "./icons/MastodonIcon.astro";
+import BlueskyIcon from "./icons/BlueskyIcon.astro";
 import type { BlogAuthor } from "../types";
 import { Image } from "astro:assets";
-import { authorInfo } from "../blogAuthors";
+import { authorInfoByName } from "../blogAuthors";
 import NewsletterSignup from "./NewsletterSignup.astro";
 
 interface Props {
@@ -13,6 +15,8 @@ interface Props {
 }
 
 const { entry } = Astro.props;
+
+const authorInfo = authorInfoByName[entry.data.author as BlogAuthor];
 ---
 
 <div class="max-w-[48rem] mx-auto px-4 py-6 md:p-8">
@@ -26,9 +30,9 @@ const { entry } = Astro.props;
   </h2>
   <div class="flex gap-10 md:gap-20">
     <div class="flex items-center gap-2">
-      <a href={`https://github.com/${authorInfo[entry.data.author as BlogAuthor].github}`}>
+      <a href={`https://github.com/${authorInfo.githubProfile}`}>
         <Image
-          src={authorInfo[entry.data.author as BlogAuthor].headshot}
+          src={authorInfo.headshot}
           alt={entry.data.author}
           class="rounded-full object-cover w-10 h-10"
         />
@@ -37,8 +41,9 @@ const { entry } = Astro.props;
         <p class="uppercase text-xs font-semibold">Author</p>
         <div class="flex gap-2 items-center">
           {entry.data.author}
-          <a class="hidden md:block" href={`https://x.com/${authorInfo[entry.data.author as BlogAuthor].xLink}`} aria-label="X link"><span class="font-bold text-xl">𝕏</span></a>
-          <a class="hidden md:block" href={`https://github.com/${authorInfo[entry.data.author as BlogAuthor].github}`} aria-label="GitHub link"><GithubIcon class="w-4" /></a>
+          {authorInfo.blueskyProfile && <a class="hidden md:block" href={`https://bsky.app/profile/${authorInfo.blueskyProfile}`} aria-label="Bluesky link"><BlueskyIcon class="w-4" /></a>}
+          {authorInfo.mastodonLink && <a class="hidden md:block" href={authorInfo.mastodonLink} aria-label="Mastodon link"><MastodonIcon class="w-4" /></a>}
+          <a class="hidden md:block" href={`https://github.com/${authorInfo.githubProfile}`} aria-label="GitHub link"><GithubIcon class="w-4" /></a>
         </div>
       </div>
     </div>

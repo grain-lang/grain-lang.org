@@ -1,5 +1,6 @@
 ---
 import ThemeToggle from "./ThemeToggle.svelte";
+import BlueskyIcon from "./icons/BlueskyIcon.astro";
 import DiscordIcon from "./icons/DiscordIcon.astro";
 import GithubIcon from "./icons/GithubIcon.astro";
 ---
@@ -15,11 +16,11 @@ import GithubIcon from "./icons/GithubIcon.astro";
   </a>
   <a
     class="my-auto pb-[1px]"
-    href="https://x.com/grain_lang"
-    aria-label="X link" 
+    href="https://bsky.app/profile/grain-lang.org"
+    aria-label="Bluesky link" 
     target="_blank"
   >
-    <span class="text-gray-30 hover:text-gray-40 text-3xl lg:text-xl font-bold dark:text-gray-50 dark:hover:text-gray-40">𝕏</span>
+    <BlueskyIcon class="fill-gray-30 hover:fill-gray-40 h-6 lg:h-4 dark:fill-gray-50 dark:hover:fill-gray-40" />
   </a>
   <a
     class="my-auto"
