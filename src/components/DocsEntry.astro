@@ -13,13 +13,14 @@ const sidebarClass = "fixed overflow-auto w-[calc(var(--container-width)/5)] xl:
 
 interface Props {
   data: { title?: string | undefined };
+  version: string;
   section: string | null;
   headings: MarkdownHeading[];
   prev: CollectionEntry<"docs"> | undefined;
   next: CollectionEntry<"docs"> | undefined;
 }
 
-const { data, section, headings, prev, next } = Astro.props;
+const { data, version, section, headings, prev, next } = Astro.props;
 ---
 
 <script>
@@ -46,13 +47,13 @@ const { data, section, headings, prev, next } = Astro.props;
 </div>
 
 <div id="sidebar-docs-links" class="lg:hidden z-30 w-72 h-[calc(100vh-6rem)] fixed overflow-scroll top-24 left-0 p-3 bg-color-background shadow transition-transform -translate-x-full">
-  <DocLinks />
+  <DocLinks version={version} />
 </div>
 
 <div class="container mx-auto pt-5 md:pt-14 px-4 lg:px-0">
   <div class="flex justify-end">
     <div class=`${sidebarClass} hidden lg:block left-[calc(50%-calc(var(--container-width)/2))] pl-5`>
-      <DocLinks />
+      <DocLinks version={version} />
     </div>
 
     <article class="w-full lg:w-4/5 xl:w-2/3 xl:float-none xl:mx-auto lg:pl-14 xl:pr-14">

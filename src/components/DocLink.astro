@@ -1,11 +1,12 @@
 ---
 interface Props {
-  id: string;
+  version: string;
+  slug: string;
 }
 
-const { id } = Astro.props;
+const { version, slug } = Astro.props;
 
-const href = `/docs/${id}`;
+const href = `/docs/${version}/${slug}`;
 const isCurrentPage = Astro.url.pathname.replace(/\/$/, "") === href.replace(/\/$/, "");
 ---
 
