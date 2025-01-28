@@ -23,7 +23,13 @@ const { entry, imgClass, nameClass, dateClass } = Astro.props;
   <div class="w-fit">
     <p class={`whitespace-nowrap ${nameClass ?? ""}`}>{entry.data.author}</p>
     <p class={`text-color-dim ${dateClass ?? ""}`}>
-      {entry.data.date.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}
+      {
+        entry.data.date.toLocaleDateString(undefined, {
+          month: "short",
+          day: "numeric",
+          year: "numeric",
+        })
+      }
     </p>
   </div>
 </div>

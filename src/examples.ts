@@ -1,5 +1,4 @@
-const basicExample =
-`module Main
+const basicExample = `module Main
 
 let translateCoordinates = (x, y) => {
   (x + 4, y + 4)
@@ -10,16 +9,14 @@ print(x) // 5
 print(y) // 6
 `;
 
-const typeInferenceExample = 
-`module Main
+const typeInferenceExample = `module Main
 
 let square = n => n * n
 
 square("🌾") // Compile error: expected a Number
 `;
 
-const safeExample =
-`module Main
+const safeExample = `module Main
 
 from "map" include Map
 
@@ -40,8 +37,7 @@ let printMovieRating = movie => {
 printMovieRating("The Matrix") // Rating unavailable
 `;
 
-const practicalExample =
-`module Main
+const practicalExample = `module Main
 
 from "fs" include Fs
 from "path" include Path
@@ -61,8 +57,7 @@ let parseFileAsJson = filePath => {
 }
 `;
 
-const functionalExample = 
-`module Main
+const functionalExample = `module Main
 
 let rec map = (f, list) => {
   match (list) {
@@ -75,8 +70,7 @@ let doubled = map(x => x * 2, [1, 2, 3])
 assert doubled == [2, 4, 6]
 `;
 
-const imperativeExample =
-`module Main
+const imperativeExample = `module Main
 
 from "array" include Array
 
@@ -121,6 +115,6 @@ export const codeExamples: CodeExample[] = [
   },
   {
     name: "Imperative",
-    code: imperativeExample
+    code: imperativeExample,
   },
 ];
