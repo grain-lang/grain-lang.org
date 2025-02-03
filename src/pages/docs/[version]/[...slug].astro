@@ -1,0 +1,36 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../../layouts/Layout.astro";
+import DocsEntry from "../../../components/DocsEntry.astro";
+import { getDocumentation } from "../../../utils/docsCollections";
+import versionList from "../../../content/docs/versions.json";
+
+export async function getStaticPaths() {
+  // For each version in entrys
+  const docCollection = await getCollection("docs");
+  const docsEntries = [];
+  for (const version of versionList) {
+    const versionEntries = getDocumentation(version, docCollection);
+    const entries = versionEntries.map((entry, i) => ({
+      params: { version: version, slug: entry.slug },
+      props: {
+        entry: entry.collectionEntry,
+        section: entry.sectionTitle,
+        prev: versionEntries[i - 1]?.collectionEntry,
+        next: versionEntries[i + 1]?.collectionEntry
+      },
+    }));
+    docsEntries.push(...entries);
+  }
+  return docsEntries;
+}
+
+const { entry, section, prev, next } = Astro.props;
+const { Content, headings } = await render(entry);
+---
+
+<Layout title={`Grain Docs | ${entry.data.title}`} inDocs excludeFooter>
+	<DocsEntry version={Astro.params.version} data={entry.data} section={section} headings={headings} prev={prev} next={next}>
+		<Content />
+  </DocsEntry>
+</Layout>

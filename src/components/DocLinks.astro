@@ -1,13 +1,62 @@
 ---
 import { getCollection } from "astro:content";
-import { docsCollections, sectionAndSortEntries } from "../utils/docsCollections";
+import { docsCollections, getDocumentation } from "../utils/docsCollections";
 import DocLinkGroup from "./DocLinkGroup.astro";
+import rawVersionList from "../content/docs/versions.json";
 
-const docsEntries = await getCollection("docs", x => !x.id.includes("/runtime/"));
+const docsEntries = await getCollection("docs");
+const versionList = rawVersionList.toSorted((a, b) => a == "preview" ? -1 : b.localeCompare(a));
+
+interface Props {
+  version: string;
+}
+
+const { version } = Astro.props;
+
 ---
+<script>
+  const selects = document.querySelectorAll("#versionSelector");
+  selects.forEach((select) => {
+    const selectElm = select as HTMLSelectElement;
+    selectElm.onchange = async () => {
+      const routeParts = document.location.pathname.split("/");
+      const isVersioned = routeParts[2].startsWith("v") || routeParts[2] == "preview";
+      if (isVersioned) {
+        routeParts[2] = selectElm.value;
+      } else {
+        routeParts.splice(2, 0, selectElm.value);
+      }
+      const route = routeParts.join("/");
+      const url = new URL(route, document.location.origin);
+      const response = await fetch(url);
+      if (response.status == 200) {
+        document.location.pathname = routeParts.join("/");
+      } else {
+        document.location.pathname = `/docs/${selectElm.value}/intro`;
+      }
+    };
+  })
+</script>
 
 <h1 class="text-2xl lg:text-3xl font-semibold mb-4">Grain Docs</h1>
 
-{docsCollections.map(coll => (
-  <DocLinkGroup title={coll.title} entries={sectionAndSortEntries(docsEntries.filter((x: any) => x.id.startsWith(coll.slugPrefix))).map(x => x.collectionEntry)} />
-))}
+<div class="w-full border-2 border-solid border-white rounded-lg">
+  <select
+    id="versionSelector"
+    name="versionSelector"
+    class="w-full p-2 bg-inherit border-solid border-r-4 border-transparent"
+  >
+    {versionList.map((currVersion) => {
+      return <option value={currVersion} selected={currVersion == version ? "selected" : ""}>{currVersion}</option>;
+    })}
+  </select>
+</div>
+
+{docsCollections(version).map((section) => {
+  const entries = getDocumentation(version, docsEntries).filter((entry) => entry.sectionTitle == section.title);
+  return <DocLinkGroup
+    version={version}
+    title={section.title}
+    entries={entries} 
+  />
+})}
