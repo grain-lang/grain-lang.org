@@ -34,7 +34,7 @@ git pull --recurse-submodules
 
 To make a change to a document, edit the corresponding Markdown file in [src](src). The file path matches the URL path after `/docs`, but if you have trouble finding the page you're looking for, you can click the "Edit on GitHub" button at the top of page on the website.
 
-Please note that standard library documentation is auto-generated from our standard library source with our documentation tool `grain doc`. If you'd like to make an edit to the standard library docs please do so in the corresponding source file in the main compiler monorepo found [here](https://github.com/grain-lang/grain/tree/main/stdlib). After editing the source file, you can run `grain doc stdlib -o stdlib --current-version=$(grain -v)` from the project root directory to generate the `.md` docs. The changes will be reflected on the website the next time we deploy changes for the next release!
+Please note that standard library documentation is auto-generated from our standard library source with our documentation tool `grain doc`. If you'd like to make an edit to the standard library docs please do so in the corresponding source file in the main compiler monorepo found [here](https://github.com/grain-lang/grain/tree/main/stdlib). After editing the source file, you can run `npm run stdlib doc` from the project root directory to generate the `.md` docs. The changes will be reflected on the website the next time we deploy changes for the next release!
 
 ### Adding a New Document
 

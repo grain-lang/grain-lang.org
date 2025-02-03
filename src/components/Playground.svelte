@@ -86,7 +86,7 @@
   }
 
   const switchCodeExample = (compressedCode: string) => () => {
-    window.history.pushState(null, "", "?code=" + compressedCode);
+    window.history.replaceState(null, "", "?code=" + compressedCode);
     editor.setValue(lzString.decompressFromEncodedURIComponent(compressedCode));
   }
 
@@ -116,7 +116,7 @@
       const searchParams = new URLSearchParams({
         code: compressed
       });
-      window.history.pushState(null, "", "?" + searchParams.toString());
+      window.history.replaceState(null, "", "?" + searchParams.toString());
     });
 
     function readjustForWidth() {

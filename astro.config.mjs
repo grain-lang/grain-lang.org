@@ -20,7 +20,7 @@ export default defineConfig({
   site: "https://grain-lang.org",
   vite: {
     // We want to include wasm files as raw data and then we glob for their urls
-    assetsInclude: ["**/*.wasm"],
+    assetsInclude: ["**/*.wasm", "**/*.gro"],
     resolve: {
       dedupe: ["buffer"],
       alias: {
