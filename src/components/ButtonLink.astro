@@ -1,0 +1,27 @@
+---
+import ChevronRightIcon from "./icons/ChevronRightIcon.astro";
+
+interface Props extends Record<string, any> {
+  href?: string;
+  class?: string;
+}
+
+const { href, class: className, ...rest } = Astro.props;
+
+const classList = `flex w-fit items-center rounded h-12 px-5 py-3 bg-gray-90 dark:bg-gray-variant-70 text-white font-semibold ${className ?? ""}`;
+
+const isLink = !!href;
+---
+
+{isLink
+  ? (
+    <a href={href} class={classList} {...rest}>
+      <slot />
+      <ChevronRightIcon class="h-3.5 text-white ml-1.5" />
+    </a>
+  ) : (
+    <button type="button" class={classList} {...rest}>
+      <slot />
+      <ChevronRightIcon class="h-3.5 text-white ml-1.5" />
+    </button>
+  )}

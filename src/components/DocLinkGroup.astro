@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from "astro:content";
+import DocLink from "./DocLink.astro";
+import path from "node:path";
+
+interface Props {
+  title: string | null;
+  entries: CollectionEntry<"docs">[]
+}
+
+const { title, entries } = Astro.props;
+---
+
+{title && (
+  <h2 class="text-xl font-semibold mt-6 mb-2">{title}</h2>
+)}
+<div class="border-l-2 border-color-dim-3">
+  {entries.map(x => {
+    const pathParts = x.id.split(path.sep);
+    const pathPrefixes = pathParts.slice(1, -1);
+    return path.dirname(x.id) !== pathParts[0] && pathPrefixes.length > 0
+      ? (
+        <DocLink id={x.id}><span class="text-color-dim-1">{pathPrefixes.join("/")} / </span><span>{x.data.title}</span></DocLink>
+      ) : (
+        <DocLink id={x.id}>{x.data.title}</DocLink>
+      )
+  })}
+</div>

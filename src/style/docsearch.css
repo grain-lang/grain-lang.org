@@ -1,0 +1,86 @@
+.DocSearch {
+  --docsearch-highlight-color: rgb(var(--color-accent-muted));
+  --docsearch-hit-background: rgb(var(--color-dim-4));
+  --docsearch-hit-height: 50px;
+  --docsearch-spacing: 16px;
+  --docsearch-hit-color: rgb(var(--color-primary));
+  --docsearch-searchbox-shadow: initial;
+  --docsearch-searchbox-height: 48px;
+  --docsearch-footer-height: 52px;
+  --docsearch-text-color: rgb(var(--color-primary));
+  --docsearch-primary-color: rgb(var(--color-accent));
+  --docsearch-modal-background: rgb(var(--color-background));
+  --docsearch-footer-background: rgb(var(--color-background));
+  --docsearch-searchbox-focus-background: rgb(var(--color-background));
+  --docsearch-searchbox-background: rgb(var(--color-background));
+  --docsearch-footer-shadow: initial;
+  --docsearch-hit-shadow: initial;
+  --docsearch-icon-color: rgb(var(--color-primary));
+  --docsearch-modal-shadow: inset 1px 1px 0 0 rgb(var(--color-background)),0 3px 8px 0 #555a64;
+  --docsearch-container-background: rgba(164, 167, 176, 0.8);
+}
+
+.dark .DocSearch {
+  --docsearch-modal-shadow: inset 1px 1px 0 0 rgb(var(--color-background)),0 3px 8px 0 #161617;
+  --docsearch-container-background: rgba(50, 45, 67, 0.8);
+}
+
+.DocSearch-Button {
+  @apply w-full h-10 m-0 px-3 text-gray-50 hover:text-gray-60 dark:hover:text-gray-40 !bg-gray-10 dark:!bg-purple-100 border rounded border-solid border-gray-20 dark:border-purple-80 hover:border-gray-30 dark:hover:border-purple-70;
+}
+
+/* Hack to edit placeholder content which the JS API does not seem to allow currently */
+.DocSearch-Button-Placeholder {
+  @apply hidden;
+}
+
+.DocSearch-Button-Container:after {
+  content: "Search docs...";
+  @apply text-sm px-2 font-normal;
+}
+
+.DocSearch-Button-Keys {
+  @apply min-w-0 text-xs;
+}
+
+.DocSearch-Button-Key {
+  @apply hidden;
+}
+
+.DocSearch-Search-Icon {
+  @apply w-4 h-4 !text-inherit stroke-2;
+}
+
+.DocSearch-Commands {
+  @apply hidden;
+}
+
+.DocSearch-SearchBar {
+  @apply border-b border-gray-20 dark:border-purple-70 pt-1;
+}
+
+.DocSearch-Form {
+  @apply px-0;
+}
+
+.DocSearch-Footer {
+  @apply border-t border-gray-20 dark:border-purple-70;
+}
+
+.DocSearch-MagnifierLabel {
+  @apply h-4 w-4 text-color-primary;
+}
+
+.DocSearch-Input {
+  font-size: 1em;
+  @apply focus:outline-none;
+}
+
+.DocSearch-Hit-source {
+  @apply text-color-primary;
+}
+
+.DocSearch-Hit[aria-selected="true"] .DocSearch-Hit-action:has(.DocSearch-Hit-Select-Icon) {
+  @apply w-4 h-4;
+  content: url(../icons/chevronRight.svg);
+}

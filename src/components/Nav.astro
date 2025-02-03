@@ -1,0 +1,77 @@
+---
+import IconLinks from "./IconLinks.astro";
+import NavLinks from "./NavLinks.astro";
+import Search from "./Search.astro";
+import { Image } from "astro:assets";
+import grainLogo from "../images/grain-logo.svg";
+import grainLogoDark from "../images/grain-logo-dark.svg";
+import BarsIcon from "./icons/BarsIcon.astro";
+import SearchDialog from "./SearchDialog.svelte";
+
+interface Props {
+  inDocs?: boolean;
+}
+
+const { inDocs } = Astro.props;
+---
+
+<script>
+  let isSidebarOpen = false;
+  const sidebarLinks = document.getElementById("sidebar-links")!;
+
+  document.getElementById("sidebar-open")!.addEventListener("click", () => {
+    isSidebarOpen = !isSidebarOpen;
+    if (isSidebarOpen) {
+      sidebarLinks.classList.add("translate-x-0");
+      sidebarLinks.classList.remove("translate-x-full");
+    } else {
+      sidebarLinks.classList.remove("translate-x-0");
+      sidebarLinks.classList.add("translate-x-full");
+    }
+  });
+</script>
+
+<nav class={`bg-white dark:bg-purple-90 relative z-40 sticky top-0 ${inDocs ? "lg:shadow-sm lg:dark:shadow-purple-80" : "shadow-sm dark:shadow-purple-80"}`}>
+  <div class="container mx-auto h-14 px-4 py-2 flex items-center text-sm text-color-dim dark:text-gray-30">
+    <a href="/">
+      <Image
+        src={grainLogo}
+        width={84}
+        height={26}
+        alt="The Grain logo, consisting of a single blood-orange wheat flower with three points followed by the word 'Grain'."
+        class="dark:hidden mr-2"
+      />
+      <Image
+        src={grainLogoDark}
+        width={84}
+        height={26}
+        alt="The Grain logo, consisting of a single blood-orange wheat flower with three points followed by the word 'Grain'."
+        class="hidden dark:block mr-2"
+      />
+    </a>
+    <div class="hidden lg:block mx-auto">
+      <NavLinks />
+    </div>
+    <Search />
+    <div class="hidden lg:flex">
+      <IconLinks />
+    </div>
+    <div
+      id="sidebar-links"
+      class="flex lg:hidden flex-col w-72 h-[calc(100vh-3.5rem)] fixed top-14 right-0 p-3 bg-color-background shadow transition-transform translate-x-full"
+    >
+      <NavLinks />
+      <IconLinks />
+    </div>
+    <a
+      id="sidebar-open"
+      class="lg:hidden"
+      role="button"
+      aria-label="Main menu"
+    >
+      <BarsIcon class="w-6 h-6 text-gray-40 dark:text-gray-60 ml-5" />
+    </a>
+  </div>
+</nav>
+
+<SearchDialog />

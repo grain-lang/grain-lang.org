@@ -38,12 +38,12 @@ jobs:
 
       - name: Generate stdlib docs
         run: |
-          grain doc grain/stdlib -o src/stdlib --current-version=$(grain -v)
+          grain doc grain/stdlib -o src/content/docs/stdlib --current-version=$(grain -v)
 
       - name: Commit updates
         run: |
           git add src/getting_grain.md
-          git add src/stdlib/
+          git add src/content/docs/stdlib/
           git commit -m 'chore: Update website for ${{ github.event.inputs.tag }}'
 
       - name: Push updates

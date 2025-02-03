@@ -1,0 +1,29 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import type { BlogAuthor } from "../types";
+import { authorInfoByName } from "../blogAuthors";
+
+interface Props {
+  entry: CollectionEntry<"blog">;
+  imgClass?: string;
+  nameClass?: string;
+  dateClass?: string;
+}
+
+const { entry, imgClass, nameClass, dateClass } = Astro.props;
+---
+
+<div class="flex items-center gap-3 w-fit">
+  <Image
+    src={authorInfoByName[entry.data.author as BlogAuthor].headshot}
+    alt={entry.data.author}
+    class={`rounded-full object-cover ${imgClass ?? ""}`}
+  />
+  <div class="w-fit">
+    <p class={`whitespace-nowrap ${nameClass ?? ""}`}>{entry.data.author}</p>
+    <p class={`text-color-dim ${dateClass ?? ""}`}>
+      {entry.data.date.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}
+    </p>
+  </div>
+</div>

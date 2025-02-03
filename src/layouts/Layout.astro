@@ -1,0 +1,56 @@
+---
+import Footer from "../components/Footer.astro";
+import Nav from "../components/Nav.astro";
+import "../global.css";
+
+interface Props {
+	title: string;
+	inDocs?: boolean;
+	excludeFooter?: boolean;
+}
+
+const { title, inDocs, excludeFooter } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-pt-20">
+	<head>
+		<script is:inline defer data-domain="grain-lang.org" src="https://plausible.io/js/script.js"></script>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Grain: a strongly-typed functional programming language for the modern web." />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href="https://grain-lang.org/" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+
+		<script is:inline>
+			// Avoid flash of inaccurate color theme
+			const initialTheme =
+				window.localStorage.getItem("theme") ??
+				(window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+			if (initialTheme === "dark") {
+				document.documentElement.classList.add("dark");
+			}
+		</script>
+	</head>
+	<body class="bg-color-background">
+		<Nav inDocs={inDocs} />
+		<main class="font-sans antialiased tracking-wide text-color-heading">
+			<slot />
+		</main>
+		{!excludeFooter && <Footer class="justify-center lg:justify-start lg:w-3/5 mx-auto" />}
+	</body>
+</html>
+
+<script>
+	import { $selectedTheme } from "../store";
+
+	$selectedTheme.subscribe(theme => {
+    if (theme == "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+	})
+</script>

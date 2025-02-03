@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from "astro:content";
+import ChevronRightIcon from "./icons/ChevronRightIcon.astro";
+
+interface Props {
+  entry: CollectionEntry<"docs"> | undefined;
+  isPrev?: boolean;
+}
+
+const textClass = "mx-1 text-color-heading inline-block";
+const chevronClass = "mb-0.5 h-3 text-color-dim inline-block";
+
+const { entry, isPrev } = Astro.props;
+---
+
+{entry ? (
+  <a href={`/docs/${entry.id}`} class="no-underline text-sm md:text-base">
+    {isPrev ? (
+      <ChevronRightIcon class={`${chevronClass} rotate-180`} />
+      <b class={textClass}>{entry.data.title}</b>
+    ) : (
+      <b class={textClass}>{entry.data.title}</b>
+      <ChevronRightIcon class={chevronClass} />
+    )}
+  </a>
+) : (
+  <div></div>
+)}

@@ -1,0 +1,68 @@
+---
+import type { CollectionEntry } from "astro:content"
+import TypographyContainer from "./TypographyContainer.astro";
+import ArrowLeftIcon from "./icons/ArrowLeftIcon.astro";
+import GithubIcon from "./icons/GithubIcon.astro";
+import MastodonIcon from "./icons/MastodonIcon.astro";
+import BlueskyIcon from "./icons/BlueskyIcon.astro";
+import type { BlogAuthor } from "../types";
+import { Image } from "astro:assets";
+import { authorInfoByName } from "../blogAuthors";
+import NewsletterSignup from "./NewsletterSignup.astro";
+
+interface Props {
+  entry: CollectionEntry<"blog">;
+}
+
+const { entry } = Astro.props;
+
+const authorInfo = authorInfoByName[entry.data.author as BlogAuthor];
+---
+
+<div class="max-w-[48rem] mx-auto px-4 py-6 md:p-8">
+  <a href="/blog" class="flex gap-6 font-semibold">
+    <ArrowLeftIcon class="w-6" />
+    Back to Blog
+  </a>
+  <h1 class="text-3xl font-bold pt-8 md:pt-14">{entry.data.title}</h1>
+  <h2 class="pb-8 pt-5 text-lg md:text-xl">
+    {entry.data.subtitle}
+  </h2>
+  <div class="flex gap-10 md:gap-20">
+    <div class="flex items-center gap-2">
+      <a href={`https://github.com/${authorInfo.githubProfile}`}>
+        <Image
+          src={authorInfo.headshot}
+          alt={entry.data.author}
+          class="rounded-full object-cover w-10 h-10"
+        />
+      </a>
+      <div>
+        <p class="uppercase text-xs font-semibold">Author</p>
+        <div class="flex gap-2 items-center">
+          {entry.data.author}
+          {authorInfo.blueskyProfile && <a class="hidden md:block" href={`https://bsky.app/profile/${authorInfo.blueskyProfile}`} aria-label="Bluesky link"><BlueskyIcon class="w-4" /></a>}
+          {authorInfo.mastodonLink && <a class="hidden md:block" href={authorInfo.mastodonLink} aria-label="Mastodon link"><MastodonIcon class="w-4" /></a>}
+          <a class="hidden md:block" href={`https://github.com/${authorInfo.githubProfile}`} aria-label="GitHub link"><GithubIcon class="w-4" /></a>
+        </div>
+      </div>
+    </div>
+    <div>
+      <p class="uppercase text-xs font-semibold">Published</p>
+      <p>{entry.data.date.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}</p>
+    </div>
+  </div>
+  <figure class="py-10">
+    <Image
+      src={entry.data.cover}
+      alt={entry.data.coverAttribution ?? ""}
+      class="rounded max-h-[26rem] w-full object-cover"
+    />
+    <figcaption class="pt-2 text-sm text-gray-50">Photo: {entry.data.coverAttribution}</figcaption>
+  </figure>
+  <TypographyContainer>
+    <slot />
+  </TypographyContainer>
+  <hr class="border-color-dim-2 my-10 md:my-16" />
+  <NewsletterSignup />
+</div>

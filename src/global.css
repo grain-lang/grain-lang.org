@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Soehne";
+  src: url("/fonts/soehne-leicht.woff2") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Soehne";
+  src: url("/fonts/soehne-buch.woff2") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Soehne";
+  src: url("/fonts/soehne-kraftig.woff2") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Soehne";
+  src: url("/fonts/soehne-halbfett.woff2") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "League Mono";
+  src: url("/fonts/LeagueMono/LeagueMono-Regular.woff2") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+code, pre {
+  font-family: "League Mono", monospace;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --container-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --container-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --container-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --container-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  :root {
+    --container-width: 1536px;
+  }
+}
+
+@layer base {
+  :root {
+    --color-heading: 54 52 58; /* gray-90 */
+    --color-primary: 70 66 81; /* gray-80 */
+    --color-dim: 106 103 113; /* gray-60 */
+    --color-dim-1: 148 145 157; /* gray-50 */
+    --color-dim-2: 200 199 204; /* gray-40 */
+    --color-dim-3: 237 237 237; /* gray-20 */
+    --color-dim-4: 245 245 245; /* gray-10 */
+    --color-background: 251 251 251; /* gray-5 */
+    --color-background-bright: 255 255 255;
+    --color-accent: 236 77 27;
+    --color-accent-muted: 244 125 88;
+    --color-blurb-1: 213 197 245;
+    --color-blurb-2: 147 113 244;
+    --color-blurb-3: 255 230 166;
+    --color-blurb-4: 162 221 239;
+
+  }
+
+  :root[class~="dark"] {
+    color-scheme: dark;
+    --color-heading: 239 238 241; /* gray-variant-20 */
+    --color-primary: 213 211 217; /* gray-variant-30 */
+    --color-dim: 151 144 166; /* gray-variant-50 */
+    --color-dim-1: 74 65 100; /* gray-variant-70 */
+    --color-dim-2: 74 65 100; /* gray-variant-70 */
+    --color-dim-3: 49 41 70; /* gray-variant-80 */
+    --color-dim-4: 47 37 75;
+    --color-background: 35 28 54; /* gray-variant-90 */
+    --color-background-bright: 29 24 46;
+    --color-accent: 225 101 62;
+    --color-accent-muted: 209 105 73;
+    --color-blurb-1: 87 74 113;
+    --color-blurb-2: 90 68 153;
+    --color-blurb-3: 111 106 91;
+    --color-blurb-4: 79 124 138;
+  }
+}
