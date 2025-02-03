@@ -5,7 +5,7 @@ import BlogEntry from "../../components/BlogEntry.astro";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
-  return blogEntries.map(entry => ({
+  return blogEntries.map((entry) => ({
     params: { post: entry.id },
     props: { entry },
   }));
@@ -16,7 +16,7 @@ const { Content } = await render(entry);
 ---
 
 <Layout title={`Grain Blog | ${entry.id}`}>
-	<BlogEntry entry={entry}>
+  <BlogEntry entry={entry}>
     <Content />
   </BlogEntry>
 </Layout>

@@ -18,7 +18,7 @@ Our entire changelog is available in the [tagged release on GitHub](https://gith
 
 ## Static Linking
 
-Prior to this release, all Grain programs needed to be bootstrapped by Grain’s JavaScript runtime, which provides a dynamic linker. The big downside to that was that Grain programs could only be run in JavaScript environments, like Node.js and the browser.  Barley adds Grain support for standalone WebAssembly runtimes like Wasmer, Wasmtime, and Wasm3.
+Prior to this release, all Grain programs needed to be bootstrapped by Grain’s JavaScript runtime, which provides a dynamic linker. The big downside to that was that Grain programs could only be run in JavaScript environments, like Node.js and the browser. Barley adds Grain support for standalone WebAssembly runtimes like Wasmer, Wasmtime, and Wasm3.
 
 Since 2018, we’ve known that statically linked programs were going to be an important piece of the puzzle, but we were hoping to leverage ecosystem tools. Since none really appeared that fit our needs, Oscar decided to take the matter into his own hands and build a static linking phase directly into the Grain compiler.
 
@@ -30,7 +30,6 @@ The bulk of the work to ensure static linking was possible was to rewrite most o
 
 To pull this off, we had to implement compiler infrastructure to work with low-level WebAssembly types directly within Grain programs, which also will be helpful for library authors who need access to WebAssembly instructions directly.
 
-
 ## Packaged Binaries
 
 We use quite a few different technologies to build Grain, which makes building the compiler from source daunting for some users. We plan to reduce these over time, but we are pragmatic and will grab a tool to move quickly or make something easier (such as our previous use of JavaScript and AssemblyScript in our standard library).
@@ -40,12 +39,13 @@ All that being said, we believe users shouldn’t need to build the compiler fro
 ## Language
 
 Of course, no release is complete without improvements to the language. We have:
-* Added an explicit `for` loop syntax
-* Introduced pattern matching on arrays
-* Added a Char type and literal syntax
-* Changed assignment semantics to always typecheck to `Void` for better interop with loops and single-sided `if` expressions
-* Removed the `^` as the `unbox` operator and added Bitwise operators, which use `^` as bitwise XOR
-* Added support to `throw` Grain exceptions, with custom exception printers
+
+- Added an explicit `for` loop syntax
+- Introduced pattern matching on arrays
+- Added a Char type and literal syntax
+- Changed assignment semantics to always typecheck to `Void` for better interop with loops and single-sided `if` expressions
+- Removed the `^` as the `unbox` operator and added Bitwise operators, which use `^` as bitwise XOR
+- Added support to `throw` Grain exceptions, with custom exception printers
 
 ## Standard Library
 

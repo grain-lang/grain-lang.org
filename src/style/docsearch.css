@@ -16,12 +16,14 @@
   --docsearch-footer-shadow: initial;
   --docsearch-hit-shadow: initial;
   --docsearch-icon-color: rgb(var(--color-primary));
-  --docsearch-modal-shadow: inset 1px 1px 0 0 rgb(var(--color-background)),0 3px 8px 0 #555a64;
+  --docsearch-modal-shadow: inset 1px 1px 0 0 rgb(var(--color-background)),
+    0 3px 8px 0 #555a64;
   --docsearch-container-background: rgba(164, 167, 176, 0.8);
 }
 
 .dark .DocSearch {
-  --docsearch-modal-shadow: inset 1px 1px 0 0 rgb(var(--color-background)),0 3px 8px 0 #161617;
+  --docsearch-modal-shadow: inset 1px 1px 0 0 rgb(var(--color-background)),
+    0 3px 8px 0 #161617;
   --docsearch-container-background: rgba(50, 45, 67, 0.8);
 }
 
@@ -80,7 +82,8 @@
   @apply text-color-primary;
 }
 
-.DocSearch-Hit[aria-selected="true"] .DocSearch-Hit-action:has(.DocSearch-Hit-Select-Icon) {
+.DocSearch-Hit[aria-selected="true"]
+  .DocSearch-Hit-action:has(.DocSearch-Hit-Select-Icon) {
   @apply w-4 h-4;
   content: url(../icons/chevronRight.svg);
 }

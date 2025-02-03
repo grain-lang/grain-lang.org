@@ -9,7 +9,8 @@ import Footer from "./Footer.astro";
 import BarsIcon from "./icons/BarsIcon.astro";
 import DocLinks from "./DocLinks.astro";
 
-const sidebarClass = "fixed overflow-auto w-[calc(var(--container-width)/5)] xl:w-[calc(var(--container-width)/6)] top-[3.5rem] h-[calc(100vh-3.5rem)] py-14";
+const sidebarClass =
+  "fixed overflow-auto w-[calc(var(--container-width)/5)] xl:w-[calc(var(--container-width)/6)] top-[3.5rem] h-[calc(100vh-3.5rem)] py-14";
 
 interface Props {
   data: { title?: string | undefined };
@@ -26,37 +27,60 @@ const { data, section, headings, prev, next } = Astro.props;
   let isSidebarOpen = false;
   const sidebarLinks = document.getElementById("sidebar-docs-links")!;
 
-  document.getElementById("sidebar-open-docs-links")!.addEventListener("click", () => {
-    isSidebarOpen = !isSidebarOpen;
-    if (isSidebarOpen) {
-      sidebarLinks.classList.add("translate-x-0");
-      sidebarLinks.classList.remove("-translate-x-full");
-    } else {
-      sidebarLinks.classList.remove("translate-x-0");
-      sidebarLinks.classList.add("-translate-x-full");
-    }
-  });
+  document
+    .getElementById("sidebar-open-docs-links")!
+    .addEventListener("click", () => {
+      isSidebarOpen = !isSidebarOpen;
+      if (isSidebarOpen) {
+        sidebarLinks.classList.add("translate-x-0");
+        sidebarLinks.classList.remove("-translate-x-full");
+      } else {
+        sidebarLinks.classList.remove("translate-x-0");
+        sidebarLinks.classList.add("-translate-x-full");
+      }
+    });
 </script>
 
-<div class="relative z-30 sticky top-14 shadow-sm dark:shadow-purple-80 bg-white dark:bg-purple-90 lg:hidden">
+<div
+  class="relative z-30 sticky top-14 shadow-sm dark:shadow-purple-80 bg-white dark:bg-purple-90 lg:hidden"
+>
   <div class="container mx-auto flex items-center px-4 py-2">
-    <BarsIcon id="sidebar-open-docs-links" class="w-6 h-6 text-gray-40 dark:text-gray-60" aria-label="Docs menu" />
-    <div class="text-sm truncate ml-3">{section ?? "Grain Docs"}&nbsp;&nbsp;<span class="text-color-dim-2">/</span>&nbsp;&nbsp;<span class="font-bold">{data.title}</span></div>
+    <BarsIcon
+      id="sidebar-open-docs-links"
+      class="w-6 h-6 text-gray-40 dark:text-gray-60"
+      aria-label="Docs menu"
+    />
+    <div class="text-sm truncate ml-3">
+      {section ?? "Grain Docs"}&nbsp;&nbsp;<span class="text-color-dim-2"
+        >/</span
+      >&nbsp;&nbsp;<span class="font-bold">{data.title}</span>
+    </div>
   </div>
 </div>
 
-<div id="sidebar-docs-links" class="lg:hidden z-30 w-72 h-[calc(100vh-6rem)] fixed overflow-scroll top-24 left-0 p-3 bg-color-background shadow transition-transform -translate-x-full">
+<div
+  id="sidebar-docs-links"
+  class="lg:hidden z-30 w-72 h-[calc(100vh-6rem)] fixed overflow-scroll top-24 left-0 p-3 bg-color-background shadow transition-transform -translate-x-full"
+>
   <DocLinks />
 </div>
 
 <div class="container mx-auto pt-5 md:pt-14 px-4 lg:px-0">
   <div class="flex justify-end">
-    <div class=`${sidebarClass} hidden lg:block left-[calc(50%-calc(var(--container-width)/2))] pl-5`>
+    <div
+      class=`${sidebarClass} hidden lg:block left-[calc(50%-calc(var(--container-width)/2))] pl-5`
+    >
       <DocLinks />
     </div>
 
-    <article class="w-full lg:w-4/5 xl:w-2/3 xl:float-none xl:mx-auto lg:pl-14 xl:pr-14">
-      <div class="hidden md:block text-color-accent">{section ?? "Grain Docs"}&nbsp;&nbsp;<span class="text-orange-10">/</span>&nbsp;&nbsp;{data.title}</div>
+    <article
+      class="w-full lg:w-4/5 xl:w-2/3 xl:float-none xl:mx-auto lg:pl-14 xl:pr-14"
+    >
+      <div class="hidden md:block text-color-accent">
+        {section ?? "Grain Docs"}&nbsp;&nbsp;<span class="text-orange-10"
+          >/</span
+        >&nbsp;&nbsp;{data.title}
+      </div>
       <h1 class="text-3xl lg:text-5xl font-bold my-6 md:mt-10">{data.title}</h1>
       <TypographyContainer>
         <slot />
@@ -70,7 +94,9 @@ const { data, section, headings, prev, next } = Astro.props;
       <Footer />
     </article>
 
-    <div class=`${sidebarClass} hidden xl:block right-[calc(50%-calc(var(--container-width)/2))] pr-5`>
+    <div
+      class=`${sidebarClass} hidden xl:block right-[calc(50%-calc(var(--container-width)/2))] pr-5`
+    >
       <TableOfContents headings={headings} />
     </div>
   </div>

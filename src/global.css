@@ -37,7 +37,8 @@
   font-style: normal;
 }
 
-code, pre {
+code,
+pre {
   font-family: "League Mono", monospace;
 }
 
@@ -88,7 +89,6 @@ code, pre {
     --color-blurb-2: 147 113 244;
     --color-blurb-3: 255 230 166;
     --color-blurb-4: 162 221 239;
-
   }
 
   :root[class~="dark"] {

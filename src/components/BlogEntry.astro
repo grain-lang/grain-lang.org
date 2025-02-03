@@ -1,5 +1,5 @@
 ---
-import type { CollectionEntry } from "astro:content"
+import type { CollectionEntry } from "astro:content";
 import TypographyContainer from "./TypographyContainer.astro";
 import ArrowLeftIcon from "./icons/ArrowLeftIcon.astro";
 import GithubIcon from "./icons/GithubIcon.astro";
@@ -41,15 +41,47 @@ const authorInfo = authorInfoByName[entry.data.author as BlogAuthor];
         <p class="uppercase text-xs font-semibold">Author</p>
         <div class="flex gap-2 items-center">
           {entry.data.author}
-          {authorInfo.blueskyProfile && <a class="hidden md:block" href={`https://bsky.app/profile/${authorInfo.blueskyProfile}`} aria-label="Bluesky link"><BlueskyIcon class="w-4" /></a>}
-          {authorInfo.mastodonLink && <a class="hidden md:block" href={authorInfo.mastodonLink} aria-label="Mastodon link"><MastodonIcon class="w-4" /></a>}
-          <a class="hidden md:block" href={`https://github.com/${authorInfo.githubProfile}`} aria-label="GitHub link"><GithubIcon class="w-4" /></a>
+          {
+            authorInfo.blueskyProfile && (
+              <a
+                class="hidden md:block"
+                href={`https://bsky.app/profile/${authorInfo.blueskyProfile}`}
+                aria-label="Bluesky link"
+              >
+                <BlueskyIcon class="w-4" />
+              </a>
+            )
+          }
+          {
+            authorInfo.mastodonLink && (
+              <a
+                class="hidden md:block"
+                href={authorInfo.mastodonLink}
+                aria-label="Mastodon link"
+              >
+                <MastodonIcon class="w-4" />
+              </a>
+            )
+          }
+          <a
+            class="hidden md:block"
+            href={`https://github.com/${authorInfo.githubProfile}`}
+            aria-label="GitHub link"><GithubIcon class="w-4" /></a
+          >
         </div>
       </div>
     </div>
     <div>
       <p class="uppercase text-xs font-semibold">Published</p>
-      <p>{entry.data.date.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}</p>
+      <p>
+        {
+          entry.data.date.toLocaleDateString(undefined, {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+          })
+        }
+      </p>
     </div>
   </div>
   <figure class="py-10">
@@ -58,7 +90,9 @@ const authorInfo = authorInfoByName[entry.data.author as BlogAuthor];
       alt={entry.data.coverAttribution ?? ""}
       class="rounded max-h-[26rem] w-full object-cover"
     />
-    <figcaption class="pt-2 text-sm text-gray-50">Photo: {entry.data.coverAttribution}</figcaption>
+    <figcaption class="pt-2 text-sm text-gray-50">
+      Photo: {entry.data.coverAttribution}
+    </figcaption>
   </figure>
   <TypographyContainer>
     <slot />
