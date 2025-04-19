@@ -25,13 +25,14 @@ All of the supported flags can be found below:
 | Flag                          | Description                                                                 |
 | ----------------------------- | --------------------------------------------------------------------------- |
 | -I, --include-dirs <dirs>     | add additional dependency include directories                               |
-| -S, --stdlib <path>           | override the standard libary with your own                                  |
+| -S, --stdlib <path>           | override the standard library with your own                                 |
+| -o <filename>                 | output filename                                                             |
 | --initial-memory-pages <size> | initial number of WebAssembly memory pages                                  |
 | --maximum-memory-pages <size> | maximum number of WebAssembly memory pages                                  |
-| --compilation-mode <mode>     | compilation mode (advanced use only)                                        |
+| --import-memory               | import the memory from `env.memory`                                         |
 | --elide-type-info             | don't include runtime type information used by toString/print               |
 | --release                     | compile using the release profile (production mode)                         |
-| --experimental-wasm-tail-call | enables tail-call optimization                                              |
+| --no-wasm-tail-call           | disables tail-call optimization                                             |
 | --debug                       | compile with debugging information                                          |
 | --wat                         | additionally produce a WebAssembly Text (.wat) file                         |
 | --hide-locs                   | hide locations from intermediate trees. Only has an effect with `--verbose` |
@@ -40,9 +41,9 @@ All of the supported flags can be found below:
 | --no-bulk-memory              | polyfill WebAssembly bulk memory instructions                               |
 | --wasi-polyfill <filename>    | path to custom WASI implementation                                          |
 | --use-start-section           | replaces the \_start export with a start section during linking             |
+| --single-file                 | compile a single file without compiling                                     |
 | --no-link                     | disable static linking                                                      |
 | --no-pervasives               | don't automatically import the Grain Pervasives module                      |
-| --parser-debug-level <level>  | debugging level for parser output                                           |
 | --memory-base <addr>          | set the base address for the Grain heap                                     |
 | --source-map                  | generate source maps                                                        |
 | --strict-sequence             | enable strict sequencing                                                    |
@@ -51,7 +52,7 @@ All of the supported flags can be found below:
 
 ## `grain run`
 
-Runs a WebAssembly file. The `grain run` command can run Grain programs compiled with `--no-link`, and can also run WebAssembly files produced by other compilers.
+Runs a WebAssembly file. The `grain run` command can also run WebAssembly files produced by other compilers.
 
 ```sh
 grain run hello.gr.wasm

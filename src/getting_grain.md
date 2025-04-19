@@ -110,7 +110,7 @@ See the [plugin](https://github.com/cometkim/asdf-grain) for more details.
 
 To get access to the entirely native compiler, you can build Grain from source.
 
-First, you'll need [Node.js](https://nodejs.org/en/download/current/) v16.
+First, you'll need [Node.js](https://nodejs.org/en/download/current/) v22.
 
 Start by cloning the Grain repository:
 
