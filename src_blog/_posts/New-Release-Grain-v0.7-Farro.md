@@ -8,7 +8,7 @@ coverAttribution: Ant Rozetsky / Unsplash
 tags: Release, Changelog
 ---
 
-We're excited to present the release of Grain v0.7, Farro! This release comes with a number of ergonomic language and standard library improvements, and as always, bug fixes. Thanks to all of the community members who have given us feedback! Keep it coming, and the language will continue to get better and better. I'll highlight some of the most notable changes in this release, though you'll definitely want to check out the full [release notes](https://github.com/grain-lang/grain/releases/tag/grain-v0.7.0) on GitHub!
+We're excited to present the release of Grain v0.7, Farro! This release comes with a number of developer experience improvements across the language and standard library, and as always, bug fixes. Thanks to all of the community members who have given us feedback! Keep it coming, and the language will continue to get better and better. I'll highlight some of the most notable changes in this release, though you'll definitely want to check out the full [release notes](https://github.com/grain-lang/grain/releases/tag/grain-v0.7.0) on GitHub!
 
 ## Infix operator expression chaining
 
@@ -35,6 +35,26 @@ aFirstThing
 ```
 
 Much easier to follow the logic! Grainfmt has also been updated to apply this style when formatting programs.
+
+## New `Fs` library
+
+Dealing with files can be a pain, but the new `Fs` standard library provides high-level APIs for working with files that make it a breeze. These APIs still use WASI under the hood, but handle all of the hard work for you.
+
+```grain
+module Main
+
+from "path" include Path
+from "fs" include Fs
+
+// Reading a full file
+Fs.Utf8.readFile(Path.fromString("baz.txt"))
+
+// Writing a full file
+Fs.Utf8.writeFile(Path.fromString("baz.txt"), "Hello World\n")
+
+// Copying a file
+Fs.copy(Path.fromString("foo.txt"), Path.fromString("foocopy.txt"))
+```
 
 ## JSON lenses 🔍
 
@@ -81,7 +101,7 @@ let metadata = map(property("price") ||> number, doublePrice, metadata)
 // Some(JsonObject([("currency", JsonString("$")), ("price", JsonNumber(238))]))
 ```
 
-Deeply nested values can be focused in on with the `proprtyPath` lens. We can even define our own lenses:
+Deeply nested values can be focused in on with the `propertyPath` lens. We can even define our own lenses:
 
 ```grain
 module Main
@@ -147,7 +167,7 @@ The `List.Associative` submodule provides utilities for working with lists of ke
 
 ## Grain object files
 
-Previously, the Grain compiler would produce intermediate `.gr.wasm` files when compiling a project. This could be confusing, as these `.wasm`s weren't useful on their own. The compiler now produces `.gro` files, which are better suited to be linked together later, along with reducing the need to completely re-compile a project when some compiler flags change. As a bonus, this also improves compiler performance, resulting in faster compile times.
+Previously, the Grain compiler would produce intermediate `.gr.wasm` files when compiling a project. This could be confusing, as these `.wasm`s weren't useful on their own. The compiler now produces `.gro` files, which are better suited to be linked together later, along with reducing the need to completely re-compile a project when some compiler flags change. This will also allow us to provide a better debugging experience. As a bonus, this also improves compiler performance, resulting in faster compile times.
 
 ## Looking to the future
 
