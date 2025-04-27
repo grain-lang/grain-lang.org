@@ -1,6 +1,6 @@
 ---
 title: New Release! Grain v0.7 - Farro
-subtitle: Announcing the release of Grain v0.7, Farro, with improved language and standard library ergonomics
+subtitle: Announcing the release of Grain v0.7, Farro, with improved language and standard library ergonomics.
 date: 2025-04-28 8:00:00
 author: Oscar Spencer
 cover: /blog/photos/cover/ant-rozetsky--c0PJUAtpSo-unsplash.jpg
