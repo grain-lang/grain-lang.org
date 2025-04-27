@@ -102,6 +102,17 @@ type Rational
 
 The type of Grain rationals, e.g. `2/3r`. Rationals are represented as a numerator and denominator.
 
+### **Range**
+
+```grain
+record Range<a> {
+  rangeStart: a,
+  rangeEnd: a
+}
+```
+
+A range of values, with a start and end value.
+
 ### **Number**
 
 ```grain

@@ -11,3 +11,7 @@ Grain is a programming language that brings wonderful features from academic and
 ## The WebAssembly Bits
 
 One of the most exciting things about Grain is that it compiles to WebAssembly. As such, Grain can run in the browser, on your computer, on a server, and potentially elsewhere. This guide will largely focus on the browser and terminal.
+
+## Getting additional help
+
+If something isn't making sense or you have more questions, reach out in the `#support` channel on the [Grain Discord server](https://discord.com/invite/grain-lang). There are a bunch of friendly folks happy to help out!

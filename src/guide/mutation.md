@@ -71,7 +71,7 @@ It is also possible to create a binding with the same name as an existing bindin
 module Main
 
 let val = 1
-let val = 2 // `val` now refers a new value
+let val = 2 // `val` now refers to a new value
 ```
 
 It is important to note that shadowing does not modify what the shadowed binding refers to, but rather makes a new association for a binding name within the scope:

@@ -13,6 +13,11 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v2
 
+      - name: Clean previous docs
+        run: |
+          rm -rf ./src/stdlib/*/
+          rm -rf ./src/stdlib/*.md
+
       - name: Replace download links
         # This checks the "grain" prefix so our preview links aren't updated
         run: |
