@@ -62,11 +62,8 @@ docs_groups:
     - stdlib/exception
     - stdlib/float32
     - stdlib/float64
+    - stdlib/fs
     - stdlib/hash
-    - stdlib/immutablearray
-    - stdlib/immutablemap
-    - stdlib/immutablepriorityqueue
-    - stdlib/immutableset
     - stdlib/int8
     - stdlib/int16
     - stdlib/int32
@@ -92,6 +89,7 @@ docs_groups:
     - stdlib/uint16
     - stdlib/uint32
     - stdlib/uint64
+    - stdlib/uri
     - stdlib/wasi/file
     - stdlib/wasi/process
     - stdlib/wasi/random
