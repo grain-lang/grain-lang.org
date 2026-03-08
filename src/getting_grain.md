@@ -152,7 +152,7 @@ This likely means that you haven't put `npm`'s global `bin` directory on your sh
 
 ```bash
 # Initialize the PATH variable in your configuration and enable the change
-(echo 'export PATH="${PATH}:$(npm bin --global)"' >> ~/.zshrc) && source ~/.zshrc
+(echo 'export PATH="${PATH}:$(npm prefix --global)/bin"' >> ~/.zshrc) && source ~/.zshrc
 ```
 
 For `bash`, the process is the same, except `~/.zshrc` should be replaced with `~/.bashrc`.
@@ -160,14 +160,14 @@ For `bash`, the process is the same, except `~/.zshrc` should be replaced with `
 For Windows `cmd.exe` and PowerShell users, you can run the following inside of PowerShell to update the `PATH` for your current user (this will fix the `PATH` variable for both `cmd.exe` and PowerShell):
 
 ```powershell
-[Environment]::SetEnvironmentVariable("Path", $env:Path + ";" + (npm bin --global) -join "`n","User")
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";" + (npm prefix --global), "User")
 ```
 
 If you would like to update the `PATH` for all users, replace `"User"` with `"Machine"`. After running this command, restarting the shell should fix the issue.
 
 For other shells, the process may look a little different, but the procedure should always look something like the following:
 
-- Determine the output of `npm bin --global`
+- Determine the output of `echo "$(npm prefix --global)/bin"`
 - Put the directory that this command outputs onto your `PATH` variable
 - Restart or reinitialize your shell as needed to make the change take effect
 
