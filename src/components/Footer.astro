@@ -9,7 +9,13 @@ interface Props {
 
 <footer class="mt-20 lg:mt-32 container mx-auto">
   <div class=`flex gap-6 items-center ${Astro.props.class ?? ""}`>
-    <Image src={footerImg} alt="Grain logo ballons." class="hidden md:block w-14 h-11" />
-    <div class="text-sm md:text-base text-gray-50 mb-6 md:mb-0">Copyright © 2024 The Grain Programming Language</div>
+    <Image
+      src={footerImg}
+      alt="Grain logo ballons."
+      class="hidden md:block w-14 h-11"
+    />
+    <div class="text-sm md:text-base text-gray-50 mb-6 md:mb-0">
+      Copyright © 2024 The Grain Programming Language
+    </div>
   </div>
 </footer>

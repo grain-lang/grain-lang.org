@@ -14,45 +14,55 @@ const excludeList = [
   "dependabot[bot]",
 ];
 
-const special = [
-  "jozanza",
-  "cician",
-]
+const special = ["jozanza", "cician"];
 ---
 
 <div class="container mx-auto text-center">
-  <h2 class="font-bold text-2xl lg:text-4xl leading-tight mb-8 lg:mb-12 mt-20 lg:mt-32">
+  <h2
+    class="font-bold text-2xl lg:text-4xl leading-tight mb-8 lg:mb-12 mt-20 lg:mt-32"
+  >
     Contributors
   </h2>
-  {contributors
-    .filter(x => !excludeList.includes(x.login))
-    .toSorted((x, y) => {
-      const xSpecial = special.includes(x.login);
-      const ySpecial = special.includes(y.login);
-      if (xSpecial && !ySpecial) {
-        return -1;
-      } else if (!xSpecial && ySpecial) {
-        return 1;
-      } else {
-        return y.count - x.count;
-      }
-    })
-    .map(contributor => (
-      <div class="inline-block relative">
-        <a href={contributor.profileUrl} class="p-0.5 inline-block">
-          <img
-            class={`w-14 h-14 rounded-full p-0.5 border ${special.includes(contributor.login) ? "shadow-[0_0px_8px_1px_rgb(0_0_0/0.1)] border-amber-600 shadow-amber-500" : "shadow-md border-color-dim-2"} dark:shadow-purple-80`}
-            src={contributor.avatarUrl}
-            alt={`Image of ${contributor.login}`}
-          />
-        </a>
-        {special.includes(contributor.login) && (
-          <a href={contributor.profileUrl} class="absolute text-2xl bottom-0 right-0 text-yellow-500 [text-shadow:0_0_2px_#000]">🌾</a>
-        )}
-      </div>
-    ))}
+  {
+    contributors
+      .filter((x) => !excludeList.includes(x.login))
+      .toSorted((x, y) => {
+        const xSpecial = special.includes(x.login);
+        const ySpecial = special.includes(y.login);
+        if (xSpecial && !ySpecial) {
+          return -1;
+        } else if (!xSpecial && ySpecial) {
+          return 1;
+        } else {
+          return y.count - x.count;
+        }
+      })
+      .map((contributor) => (
+        <div class="inline-block relative">
+          <a href={contributor.profileUrl} class="p-0.5 inline-block">
+            <img
+              class={`w-14 h-14 rounded-full p-0.5 border ${special.includes(contributor.login) ? "shadow-[0_0px_8px_1px_rgb(0_0_0/0.1)] border-amber-600 shadow-amber-500" : "shadow-md border-color-dim-2"} dark:shadow-purple-80`}
+              src={contributor.avatarUrl}
+              alt={`Image of ${contributor.login}`}
+            />
+          </a>
+          {special.includes(contributor.login) && (
+            <a
+              href={contributor.profileUrl}
+              class="absolute text-2xl bottom-0 right-0 text-yellow-500 [text-shadow:0_0_2px_#000]"
+            >
+              🌾
+            </a>
+          )}
+        </div>
+      ))
+  }
 
   <p class="mt-6">
-    <span class="text-2xl text-yellow-500 align-middle">🌾</span><span class="align-middle"> = Noteworthy contributors to the project.</span>
+    <span class="text-2xl text-yellow-500 align-middle">🌾</span><span
+      class="align-middle"
+    >
+      = Noteworthy contributors to the project.</span
+    >
   </p>
 </div>

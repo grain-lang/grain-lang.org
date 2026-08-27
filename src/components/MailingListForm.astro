@@ -8,20 +8,31 @@ const { isNetlifyForm, actionTitle, ...restProps } = Astro.props;
 
 const formAttrs = isNetlifyForm
   ? {
-    "method": "POST",
-    "netlify-honeypot": "bot-field",
-    "data-netlify": "true",
-  }
-  : {}
+      method: "POST",
+      "netlify-honeypot": "bot-field",
+      "data-netlify": "true",
+    }
+  : {};
 ---
 
-<form
-  class="flex"
-  { ...formAttrs }
-  { ...restProps }
->
-  <input type="email" name="email" placeholder="email@dev.com" class="bg-color-background-bright rounded box-content border border-color-dim-3 hover:border-color-dim-2 px-5 py-2 flex-1 w-full text-color-primary" />
+<form class="flex" {...formAttrs} {...restProps}>
+  <input
+    type="email"
+    name="email"
+    placeholder="email@dev.com"
+    class="bg-color-background-bright rounded box-content border border-color-dim-3 hover:border-color-dim-2 px-5 py-2 flex-1 w-full text-color-primary"
+  />
   <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-  {isNetlifyForm && <div class="hidden"><input name="bot-field" /></div>}
-  <input type="submit" value={actionTitle} class="cursor-pointer ml-1 bg-color-dim-1 text-white px-6 py-2 rounded border border-color-dim-1 flex-0 hover:opacity-90" />
+  {
+    isNetlifyForm && (
+      <div class="hidden">
+        <input name="bot-field" />
+      </div>
+    )
+  }
+  <input
+    type="submit"
+    value={actionTitle}
+    class="cursor-pointer ml-1 bg-color-dim-1 text-white px-6 py-2 rounded border border-color-dim-1 flex-0 hover:opacity-90"
+  />
 </form>

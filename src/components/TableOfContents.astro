@@ -17,7 +17,7 @@ function buildSubheading(i: number): [number, HeirarchicalHeading[]] {
     if (nextHeading.depth === thisHeading.depth) {
       thisLevel.push({ ...thisHeading, subheadings: [] });
     } else if (nextHeading.depth > thisHeading.depth) {
-      const [newI, subheadings] = buildSubheading(i + 1)
+      const [newI, subheadings] = buildSubheading(i + 1);
       thisLevel.push({ ...thisHeading, subheadings });
       i = newI;
     } else {
@@ -35,21 +35,27 @@ const [_, toc] = buildSubheading(0);
 <nav id="table-of-contents">
   <h2 class="mb-6 text-2xl font-semibold">On this page</h2>
   <ul>
-    {toc.filter(x => x.text).map(heading => (
-      <TableOfContentsHeading heading={heading} />
-    ))}
+    {
+      toc
+        .filter((x) => x.text)
+        .map((heading) => <TableOfContentsHeading heading={heading} />)
+    }
   </ul>
 </nav>
 
 <script>
-  const anchors = document.querySelectorAll("article h2, article h3, article h4")!;
+  const anchors = document.querySelectorAll(
+    "article h2, article h3, article h4",
+  )!;
   const links = document.querySelectorAll("#table-of-contents a")!;
 
   function highlightCurrent() {
-    links.forEach(link => link.classList.remove("toc-current"));
+    links.forEach((link) => link.classList.remove("toc-current"));
 
     // html scroll-offset-top set to 80px; account for this for currently active element
-    const activeI = [...anchors].findLastIndex(a => a.getBoundingClientRect().top <= 81);
+    const activeI = [...anchors].findLastIndex(
+      (a) => a.getBoundingClientRect().top <= 81,
+    );
     if (activeI > -1) {
       links[activeI].classList.add("toc-current");
     }

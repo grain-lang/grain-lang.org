@@ -10,7 +10,9 @@ interface Props {
 const { entry } = Astro.props;
 ---
 
-<div class="flex flex-col drop-shadow-sm border rounded-lg border-gray-10 dark:border-color-background-bright dark:bg-color-dim-3 overflow-hidden hover:shadow-lg transition duration-150">
+<div
+  class="flex flex-col drop-shadow-sm border rounded-lg border-gray-10 dark:border-color-background-bright dark:bg-color-dim-3 overflow-hidden hover:shadow-lg transition duration-150"
+>
   <a href={`/blog/${entry.id}`} class="grow flex flex-col">
     <Image
       src={entry.data.cover}
@@ -23,14 +25,23 @@ const { entry } = Astro.props;
     </div>
   </a>
   <div class="flex justify-between p-4 md:p-6 items-center flex-initial grow-0">
-    <BlogAuthor entry={entry} imgClass="w-9 h-9" nameClass="text-sm" dateClass="text-xs" />
+    <BlogAuthor
+      entry={entry}
+      imgClass="w-9 h-9"
+      nameClass="text-sm"
+      dateClass="text-xs"
+    />
 
     <div class="flex items-end flex-wrap gap-2 justify-end">
-      {entry.data.tags?.slice(0, 2).map(t => (
-        <span class="text-white [font-size:0.625rem] uppercase rounded-full bg-black py-0.5 md:py-1 px-2 md:px-3">
-          {t}
-        </span>
-      ))}
+      {
+        entry.data.tags
+          ?.slice(0, 2)
+          .map((t) => (
+            <span class="text-white [font-size:0.625rem] uppercase rounded-full bg-black py-0.5 md:py-1 px-2 md:px-3">
+              {t}
+            </span>
+          ))
+      }
     </div>
   </div>
 </div>

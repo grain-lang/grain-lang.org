@@ -12,8 +12,14 @@ import rehypeTableWrapper from "./src/rehype/rehype-table-wrapper";
 
 const require = createRequire(import.meta.url);
 
-const grainLang = JSON.parse(fs.readFileSync("./grain-language-server/editor-extensions/vscode/syntaxes/grain.json"));
-const theme = JSON.parse(fs.readFileSync("./themes/github-dark-modified-lighter.json"));
+const grainLang = JSON.parse(
+  fs.readFileSync(
+    "./grain-language-server/editor-extensions/vscode/syntaxes/grain.json",
+  ),
+);
+const theme = JSON.parse(
+  fs.readFileSync("./themes/github-dark-modified-lighter.json"),
+);
 
 // https://astro.build/config
 export default defineConfig({
@@ -48,23 +54,20 @@ export default defineConfig({
     },
     build: {
       target: "esnext",
-    }
+    },
   },
 
   integrations: [tailwind(), svelte()],
 
   redirects: {
     "/docs": "/docs/intro",
-    "/docs/guide": "/docs/guide/basics"
+    "/docs/guide": "/docs/guide/basics",
   },
 
   markdown: {
     rehypePlugins: [
       rehypeSlug,
-      [
-        rehypeAutolinkHeadings,
-        rehypeAutolinkHeadingsConfig,
-      ],
+      [rehypeAutolinkHeadings, rehypeAutolinkHeadingsConfig],
       rehypeContentIntroTextTransformer,
       rehypeTableWrapper,
     ],
@@ -75,10 +78,10 @@ export default defineConfig({
           code(node) {
             // Hack to distinguish block code from inline code in tailwind-typography
             node.properties["data-block"] = "true";
-          }
-        }
+          },
+        },
       ],
-      langs: [{...grainLang, name: "grain"}]
-    }
+      langs: [{ ...grainLang, name: "grain" }],
+    },
   },
 });

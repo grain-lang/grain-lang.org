@@ -15,20 +15,33 @@ const { heading } = Astro.props;
 </style>
 
 <li class="my-1.5">
-  <a href={"#" + heading.slug} class:list={[
-    "hover:text-color-accent border-color-dim-3",
-    { "px-3 py-1.5 rounded bg-color-dim-3 text-color-primary font-medium": heading.subheadings.length > 0 },
-    { "pl-2.5 -ml-2.5 hover:border-color-accent-muted border-l-2": heading.subheadings.length === 0 },
-  ]}>
+  <a
+    href={"#" + heading.slug}
+    class:list={[
+      "hover:text-color-accent border-color-dim-3",
+      {
+        "px-3 py-1.5 rounded bg-color-dim-3 text-color-primary font-medium":
+          heading.subheadings.length > 0,
+      },
+      {
+        "pl-2.5 -ml-2.5 hover:border-color-accent-muted border-l-2":
+          heading.subheadings.length === 0,
+      },
+    ]}
+  >
     {heading.text}
   </a>
-  {heading.subheadings.length > 0 && (
-    <ul class="ml-1 my-3 text-gray-50 border-l-2 border-color-dim-3">
-      {heading.subheadings.filter(x => x.text).map((x: any) => (
-        <div class="pl-2">
-          <Astro.self heading={x} />
-        </div>
-      ))}
-    </ul>
-  )}
+  {
+    heading.subheadings.length > 0 && (
+      <ul class="ml-1 my-3 text-gray-50 border-l-2 border-color-dim-3">
+        {heading.subheadings
+          .filter((x) => x.text)
+          .map((x: any) => (
+            <div class="pl-2">
+              <Astro.self heading={x} />
+            </div>
+          ))}
+      </ul>
+    )
+  }
 </li>

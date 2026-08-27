@@ -13,8 +13,8 @@ const classList = `flex w-fit items-center rounded h-12 px-5 py-3 bg-gray-90 dar
 const isLink = !!href;
 ---
 
-{isLink
-  ? (
+{
+  isLink ? (
     <a href={href} class={classList} {...rest}>
       <slot />
       <ChevronRightIcon class="h-3.5 text-white ml-1.5" />
@@ -24,4 +24,5 @@ const isLink = !!href;
       <slot />
       <ChevronRightIcon class="h-3.5 text-white ml-1.5" />
     </button>
-  )}
+  )
+}

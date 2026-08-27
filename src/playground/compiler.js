@@ -6,7 +6,7 @@ import { tailCall, bulkMemory } from "wasm-feature-detect";
 // This file is too large and breaks the astro build hence it's just imported at runtime in this way to include this file in the build as-is and not be optimized/bundled
 import graincUrl from "../../public/grainc.bc.mjs?url";
 
-const graincPromise = import(/* @vite-ignore */graincUrl);
+const graincPromise = import(/* @vite-ignore */ graincUrl);
 
 globalThis.Buffer = Buffer;
 
@@ -66,7 +66,7 @@ function processStderr() {
 
 async function grainInit() {
   await loadStdlib();
-  const args = ["", "grain", "test.gr", "--stdlib", stdlibRoot]
+  const args = ["", "grain", "test.gr", "--stdlib", stdlibRoot];
   if (!(await tailCall())) args.push("--no-wasm-tail-call");
   if (!(await bulkMemory())) args.push("--no-bulk-memory");
   globalThis.process.argv = args;

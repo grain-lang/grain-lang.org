@@ -1,0 +1,23 @@
+name: Format Check
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check_format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v4
+
+      - name: Setup Node Formatting
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+
+      - name: Check Formatting
+        run: |
+          npm ci --ignore-scripts
+          npm run format
+          git diff --exit-code --name-only

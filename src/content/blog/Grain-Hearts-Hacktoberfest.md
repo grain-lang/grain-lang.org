@@ -27,7 +27,7 @@ _Warning:_ Heavy use of exclamation points incoming.
 
 [@clovis1122](https://github.com/clovis1122) wrote `Array.fill` and `Array.fillRange` methods for the standard library!
 
-[@MScheibel](https://github.com/MScheibel) sent a pull request for the `Array.count` method in the standard library... and it was their first Pull Request __ever__!!
+[@MScheibel](https://github.com/MScheibel) sent a pull request for the `Array.count` method in the standard library... and it was their first Pull Request **ever**!!
 
 [@miguelcarvalho13](https://github.com/miguelcarvalho13) showed up and wrote an entire Queue implementation for our standard library. We're lining up to use it!
 
@@ -35,7 +35,7 @@ _Warning:_ Heavy use of exclamation points incoming.
 
 [@tmphey](https://github.com/tmphey) contributed `List.take`, `List.takeWhile`, and `List.sub` methods to the standard library, in service of future work on sorting methods. They even contributed the website documentation for these!
 
-[@ng-marcus](https://github.com/ng-marcus) exploded onto the scene and added __language server protocol__ support to the Grain CLI and then went on to implement it in our VSCode extension! We now have inline errors and code lenses in VSCode, which is absolutely mind-blowing! We are also excited to have Marcus as a direct contributor on the [grain-language-server](https://github.com/grain-lang/grain-language-server) project.
+[@ng-marcus](https://github.com/ng-marcus) exploded onto the scene and added **language server protocol** support to the Grain CLI and then went on to implement it in our VSCode extension! We now have inline errors and code lenses in VSCode, which is absolutely mind-blowing! We are also excited to have Marcus as a direct contributor on the [grain-language-server](https://github.com/grain-lang/grain-language-server) project.
 
 ## So Many Thanks
 
@@ -47,4 +47,4 @@ I can't thank everyone enough for this, and I really hope y'all continue to cont
 
 ## Version 0.2.0 - Amaranth
 
-All of this work was instrumental in our latest release: [__Grain v0.2.0__, codenamed Amaranth](https://github.com/grain-lang/grain/releases/tag/v0.2.0). We encourage you to clone the project and try it out today!
+All of this work was instrumental in our latest release: [**Grain v0.2.0**, codenamed Amaranth](https://github.com/grain-lang/grain/releases/tag/v0.2.0). We encourage you to clone the project and try it out today!

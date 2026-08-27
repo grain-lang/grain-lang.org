@@ -5,7 +5,9 @@ import DocsEntry from "../../components/DocsEntry.astro";
 import { sectionAndSortEntries } from "../../utils/docsCollections";
 
 export async function getStaticPaths() {
-  const docsEntries = sectionAndSortEntries(await getCollection("docs", x => !x.id.includes("/runtime/")));
+  const docsEntries = sectionAndSortEntries(
+    await getCollection("docs", (x) => !x.id.includes("/runtime/")),
+  );
 
   return docsEntries.map((entry, i) => ({
     params: { slug: entry.collectionEntry.id },
@@ -13,7 +15,7 @@ export async function getStaticPaths() {
       entry: entry.collectionEntry,
       section: entry.section,
       prev: docsEntries[i - 1]?.collectionEntry,
-      next: docsEntries[i + 1]?.collectionEntry
+      next: docsEntries[i + 1]?.collectionEntry,
     },
   }));
 }
@@ -23,7 +25,13 @@ const { Content, headings } = await render(entry);
 ---
 
 <Layout title={`Grain Docs | ${entry.data.title}`} inDocs excludeFooter>
-	<DocsEntry data={entry.data} section={section} headings={headings} prev={prev} next={next}>
-		<Content />
+  <DocsEntry
+    data={entry.data}
+    section={section}
+    headings={headings}
+    prev={prev}
+    next={next}
+  >
+    <Content />
   </DocsEntry>
 </Layout>

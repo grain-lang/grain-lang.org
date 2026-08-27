@@ -3,9 +3,9 @@ import tailwindTypography from "@tailwindcss/typography";
 
 /** @type {import("tailwindcss").Config} */
 export default {
-	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   darkMode: "class",
-	theme: {
+  theme: {
     extend: {
       colors: {
         "color-heading": "rgb(var(--color-heading) / <alpha-value>)",
@@ -16,7 +16,8 @@ export default {
         "color-dim-3": "rgb(var(--color-dim-3) / <alpha-value>)",
         "color-dim-4": "rgb(var(--color-dim-4) / <alpha-value>)",
         "color-background": "rgb(var(--color-background) / <alpha-value>)",
-        "color-background-bright": "rgb(var(--color-background-bright) / <alpha-value>)",
+        "color-background-bright":
+          "rgb(var(--color-background-bright) / <alpha-value>)",
         "color-accent": "rgb(var(--color-accent) / <alpha-value>)",
         "color-accent-muted": "rgb(var(--color-accent-muted) / <alpha-value>)",
         "color-blurb-1": "rgb(var(--color-blurb-1) / <alpha-value>)",
@@ -56,49 +57,44 @@ export default {
         "orange-10": "#FCC6B4",
       },
       fontFamily: {
-        sans: [
-					"Soehne",
-					...fontFamily.sans
-				],
+        sans: ["Soehne", ...fontFamily.sans],
       },
       typography: {
         DEFAULT: {
           css: {
-            'table': {
-              'tr': {
-                'td:first-child': {
-                  'border-left-width': '1px'
+            table: {
+              tr: {
+                "td:first-child": {
+                  "border-left-width": "1px",
                 },
-                'td:last-child': {
-                  'border-right-width': '1px'
-                },
-              },
-              'tr:first-child': {
-                'td': {
-                  'border-top-width': '1px',
-                },
-                'td:first-child': {
-                  'border-top-left-radius': '4px'
-                },
-                'td:last-child': {
-                  'border-top-right-radius': '4px'
+                "td:last-child": {
+                  "border-right-width": "1px",
                 },
               },
-              'tr:last-child': {
-                'td:first-child': {
-                  'border-bottom-left-radius': '4px'
+              "tr:first-child": {
+                td: {
+                  "border-top-width": "1px",
                 },
-                'td:last-child': {
-                  'border-bottom-right-radius': '4px'
-                }
+                "td:first-child": {
+                  "border-top-left-radius": "4px",
+                },
+                "td:last-child": {
+                  "border-top-right-radius": "4px",
+                },
+              },
+              "tr:last-child": {
+                "td:first-child": {
+                  "border-bottom-left-radius": "4px",
+                },
+                "td:last-child": {
+                  "border-bottom-right-radius": "4px",
+                },
               },
             },
           },
         },
       },
     },
-	},
-	plugins: [
-    tailwindTypography,
-  ],
-}
+  },
+  plugins: [tailwindTypography],
+};

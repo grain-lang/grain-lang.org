@@ -24,7 +24,7 @@ async function collectGrainFiles(...segments) {
           dirent.name.replace(".gr", ""),
         ];
         const contents = await fs.readFile(
-          path.join(stdlibDir, ...segments, dirent.name)
+          path.join(stdlibDir, ...segments, dirent.name),
         );
         const importIdent = contents.toString().match(/.*?^module\s+(\w+)/m)[1];
         const filepathSegment = importPathSegments.join("/");

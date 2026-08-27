@@ -1,4 +1,5 @@
 ---
+
 ---
 
 <div id="searchbar" class="h-10 grow lg:grow-0 w-52"></div>
@@ -10,9 +11,9 @@
   import "../style/docsearch.css";
 
   docsearch({
-    appId:  "CDP8WGS04L",
+    appId: "CDP8WGS04L",
     // This is a search-only API key sent directly to Algolia's API in plaintext and is not confidential
-    apiKey:  "fb27c36015ee3fd18739deeb1be5f71b",
+    apiKey: "fb27c36015ee3fd18739deeb1be5f71b",
     indexName: "grain-lang",
     container: "#searchbar",
     placeholder: "Search docs...",
@@ -24,5 +25,6 @@
   const isApple = /(Mac|iPhone|iPod|iPad)/i.test(navigator.userAgent);
   const actionKey = isApple ? ACTION_KEY_APPLE : ACTION_KEY_DEFAULT;
 
-  document.getElementsByClassName("DocSearch-Button-Keys").item(0)!.innerHTML = actionKey + "K";
+  document.getElementsByClassName("DocSearch-Button-Keys").item(0)!.innerHTML =
+    actionKey + "K";
 </script>

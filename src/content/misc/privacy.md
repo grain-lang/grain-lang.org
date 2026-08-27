@@ -6,11 +6,11 @@ This policy explains what data we collect and why, how that data is handled, and
 
 We care deeply about your privacy. We collect data to track overall trends in website traffic, but do not collect any of your personal data to do so. As you browse our website:
 
-* No personal information is collected
-* No information is shared with, sent to or sold to third-parties
-* No information is shared with advertising companies
-* No information is mined or harvested for personal and behavioral trends
-* No information is monetized
+- No personal information is collected
+- No information is shared with, sent to or sold to third-parties
+- No information is shared with advertising companies
+- No information is mined or harvested for personal and behavioral trends
+- No information is monetized
 
 To do so, we use Plausible Analytics, a vendor focused on maintaining personal privacy while collecting website traffic information. You can read more in Plausible’s [data policy](https://plausible.io/data-policy).
 

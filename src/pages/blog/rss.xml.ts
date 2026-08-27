@@ -21,8 +21,8 @@ export const GET: APIRoute = async (context) => {
         categories: post.data.tags ?? undefined,
         author: post.data.author,
         content: sanitizeHtml(parser.render(post.body), {
-          allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"])
+          allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
         }),
       })),
   });
-}
+};

@@ -14,8 +14,19 @@ export interface AuthorInfo {
 }
 
 export const authorInfoByName: Record<BlogAuthor, AuthorInfo> = {
-  "Oscar Spencer": { blueskyProfile: "ospencer.dev", githubProfile: "ospencer", headshot: oscarHeadshot },
+  "Oscar Spencer": {
+    blueskyProfile: "ospencer.dev",
+    githubProfile: "ospencer",
+    headshot: oscarHeadshot,
+  },
   "Philip Blair": { githubProfile: "peblair", headshot: philipHeadshot },
-  "Blaine Bublitz": { mastodonLink: "https://fosstodon.org/@phated", githubProfile: "phated", headshot: blaineHeadshot },
-  "Marcus Roberts": { githubProfile: "marcusroberts", headshot: marcusHeadshot },
+  "Blaine Bublitz": {
+    mastodonLink: "https://fosstodon.org/@phated",
+    githubProfile: "phated",
+    headshot: blaineHeadshot,
+  },
+  "Marcus Roberts": {
+    githubProfile: "marcusroberts",
+    headshot: marcusHeadshot,
+  },
 };

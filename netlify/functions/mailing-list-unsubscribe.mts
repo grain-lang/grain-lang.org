@@ -29,32 +29,47 @@ export default async (req: Request, context: Context) => {
   }
 
   try {
-    const allForms = await fetch(`https://api.netlify.com/api/v1/sites/${siteId}/forms`, {
-      headers: { Authorization: `Bearer ${apiKey}` },
-    }).then(res => res.json());
+    const allForms = await fetch(
+      `https://api.netlify.com/api/v1/sites/${siteId}/forms`,
+      {
+        headers: { Authorization: `Bearer ${apiKey}` },
+      },
+    ).then((res) => res.json());
 
-    const eligibleMailingListForms = allForms.filter((form: any) => form.name === MAILING_LIST_FORM_NAME);
+    const eligibleMailingListForms = allForms.filter(
+      (form: any) => form.name === MAILING_LIST_FORM_NAME,
+    );
     if (eligibleMailingListForms.length !== 1) {
-      console.log(`Found ${eligibleMailingListForms.length} mailing list forms`);
-      return new Response("Unexpectedly found multiple mailing list sign up forms", { status: 500 });
+      console.log(
+        `Found ${eligibleMailingListForms.length} mailing list forms`,
+      );
+      return new Response(
+        "Unexpectedly found multiple mailing list sign up forms",
+        { status: 500 },
+      );
     }
 
     const mailingListFormId = eligibleMailingListForms[0].id;
 
-    const mailingListSubmissions = await fetch(`https://api.netlify.com/api/v1/forms/${mailingListFormId}/submissions`, {
-      headers: { Authorization: `Bearer ${apiKey}` },
-    }).then(res => res.json());
+    const mailingListSubmissions = await fetch(
+      `https://api.netlify.com/api/v1/forms/${mailingListFormId}/submissions`,
+      {
+        headers: { Authorization: `Bearer ${apiKey}` },
+      },
+    ).then((res) => res.json());
 
-    const matchedSubmissions = mailingListSubmissions
-      .filter((submission: any) => submission.data.email?.trim()?.toUpperCase() === email);
+    const matchedSubmissions = mailingListSubmissions.filter(
+      (submission: any) =>
+        submission.data.email?.trim()?.toUpperCase() === email,
+    );
 
     await Promise.all(
       matchedSubmissions.map((submission: any) =>
         fetch(`https://api.netlify.com/api/v1/submissions/${submission.id}`, {
           method: "DELETE",
           headers: { Authorization: `Bearer ${apiKey}` },
-        })
-      )
+        }),
+      ),
     );
 
     return new Response("Success");

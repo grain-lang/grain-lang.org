@@ -10,20 +10,27 @@ const githubSvg = fs.readFileSync("./src/icons/github.svg");
 const rehypeContentIntroTextTransformer: RehypePlugin = () => (tree, file) => {
   if (file.dirname!.split(path.sep).includes("docs")) {
     const sectionIntroElement = tree.children[0] as Element;
-    sectionIntroElement.properties.className = "text-lg md:text-xl text-color-primary font-light";
+    sectionIntroElement.properties.className =
+      "text-lg md:text-xl text-color-primary font-light";
 
     const editOnGithub = h(
       "a",
       {
         role: "button",
-        class: "flex gap-2 my-5 md:my-10 text-color-accent fill-color-accent hover:text-orange-70 hover:fill-orange-70 no-underline"
+        class:
+          "flex gap-2 my-5 md:my-10 text-color-accent fill-color-accent hover:text-orange-70 hover:fill-orange-70 no-underline",
       },
       fromHtml(githubSvg),
-      h("span", "Edit on GitHub")
+      h("span", "Edit on GitHub"),
     );
 
-    tree.children.splice(1, 0, editOnGithub, h("hr", { class: "border-color-dim-2" }))
+    tree.children.splice(
+      1,
+      0,
+      editOnGithub,
+      h("hr", { class: "border-color-dim-2" }),
+    );
   }
-}
+};
 
 export default rehypeContentIntroTextTransformer;

@@ -15,12 +15,22 @@ import Card from "./Card.astro";
       <Image src={heartImg} alt="A heart." class="inline" />
       open source
     </h1>
-    <p>Grain is a passion project. All of our projects are <a href="https://github.com/grain-lang" class="text-color-accent underline hover:opacity-80">open source</a>.</p>
+    <p>
+      Grain is a passion project. All of our projects are <a
+        href="https://github.com/grain-lang"
+        class="text-color-accent underline hover:opacity-80">open source</a
+      >.
+    </p>
   </div>
   <div class="mx-auto">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-14">
-      <Card title="We continuously strive to" class="bg-color-background-bright">
-        <ul class="pl-6 [&>li]:my-1 [&>li]:pl-1 text-color-accent dark:text-[rgb(255,132,92)] list-outside list-image-[url(/src/images/check-icon.svg)]">
+      <Card
+        title="We continuously strive to"
+        class="bg-color-background-bright"
+      >
+        <ul
+          class="pl-6 [&>li]:my-1 [&>li]:pl-1 text-color-accent dark:text-[rgb(255,132,92)] list-outside list-image-[url(/src/images/check-icon.svg)]"
+        >
           <li>Improve the language</li>
           <li>Address more use cases and provide exceptional documentation</li>
           <li>Prioritize developer experience</li>
@@ -28,45 +38,73 @@ import Card from "./Card.astro";
         </ul>
         <p>
           <b>Our bottom line:</b>
-          Help you reap the benefits of Grain and WebAssembly, with an
-          effortless language, great developer experience, broad application
-          potential, and an awesome community.
+          Help you reap the benefits of Grain and WebAssembly, with an effortless
+          language, great developer experience, broad application potential, and
+          an awesome community.
         </p>
       </Card>
-      <Card title="Sponsors and Contributors" class="bg-color-background-bright relative">
-        <div class="z-10 absolute -top-10 right-[10rem] bg-color-blurb-4 w-36 h-[32rem] rounded-full rotate-[10deg] blur-3xl" />
-        <div class="z-10 absolute -top-10 right-[3rem] bg-color-blurb-2 w-36 h-[32rem] rounded-full rotate-[10deg] blur-3xl" />
-        <div class="z-10 absolute top-0 -right-[3rem] bg-color-blurb-3 w-36 h-[32rem] rounded-full rotate-[10deg] blur-3xl" />
-        <div class="z-10 absolute w-full h-full bg-[rgb(255,255,255,0.4)] dark:bg-[rgb(29,24,46,0.4)] blur-3xl"></div>
+      <Card
+        title="Sponsors and Contributors"
+        class="bg-color-background-bright relative"
+      >
+        <div
+          class="z-10 absolute -top-10 right-[10rem] bg-color-blurb-4 w-36 h-[32rem] rounded-full rotate-[10deg] blur-3xl"
+        >
+        </div>
+        <div
+          class="z-10 absolute -top-10 right-[3rem] bg-color-blurb-2 w-36 h-[32rem] rounded-full rotate-[10deg] blur-3xl"
+        >
+        </div>
+        <div
+          class="z-10 absolute top-0 -right-[3rem] bg-color-blurb-3 w-36 h-[32rem] rounded-full rotate-[10deg] blur-3xl"
+        >
+        </div>
+        <div
+          class="z-10 absolute w-full h-full bg-[rgb(255,255,255,0.4)] dark:bg-[rgb(29,24,46,0.4)] blur-3xl"
+        >
+        </div>
         <p class="z-20">
           We rely on volunteer contributors and sponsors to sustain the project.
-          Development of the Grain programming language is financially
-          supported by our GitHub Sponsors supporters, corporate sponsors,
-          and Open Collective donors.
+          Development of the Grain programming language is financially supported
+          by our GitHub Sponsors supporters, corporate sponsors, and Open
+          Collective donors.
         </p>
         <p class="z-20">
           Our current contributors come from a wide variety of experiences and
-          backgrounds, which adds significant value to how we approach
-          developer experience.
+          backgrounds, which adds significant value to how we approach developer
+          experience.
         </p>
-        <a class="z-20 text-color-accent hover:text-color-accent-muted" href="https://github.com/sponsors/grain-lang" target="_blank">Sponsor Us →</a>
+        <a
+          class="z-20 text-color-accent hover:text-color-accent-muted"
+          href="https://github.com/sponsors/grain-lang"
+          target="_blank">Sponsor Us →</a
+        >
       </Card>
-      <Card title="Want to be a part of Grain's development?" class="bg-gray-variant-90 dark:bg-[#2F2744] text-purple-20">
+      <Card
+        title="Want to be a part of Grain's development?"
+        class="bg-gray-variant-90 dark:bg-[#2F2744] text-purple-20"
+      >
         <p class="text-gray-variant-50">
           Contributors come in many forms—code contributors, documentation
           writers, bug finders, community organizers, language evangelists, and
-          more. Whether you want to dive into some code, write some docs,
-          give us your ideas, or just come hang out, we've got a place for you.
+          more. Whether you want to dive into some code, write some docs, give
+          us your ideas, or just come hang out, we've got a place for you.
         </p>
         <Image src={branchingImg} alt="An illustration of git branching." />
       </Card>
-      <Card title="Not sure where to start?" class="bg-[#F6F1EF] dark:bg-[#180f26]">
+      <Card
+        title="Not sure where to start?"
+        class="bg-[#F6F1EF] dark:bg-[#180f26]"
+      >
         <p>
-          Connect with us on <a href="https://discord.com/invite/grain-lang" class="underline">Discord</a>!
-          We'll walk through contributor opportunities with you, and we're even
-          glad to do a pair programming session to get you up to speed. We'll go
-          over how to get involved and teach you anything you need to know, even
-          if you've never touched a compiler or worked on a programming language.
+          Connect with us on <a
+            href="https://discord.com/invite/grain-lang"
+            class="underline">Discord</a
+          >! We'll walk through contributor opportunities with you, and we're
+          even glad to do a pair programming session to get you up to speed.
+          We'll go over how to get involved and teach you anything you need to
+          know, even if you've never touched a compiler or worked on a
+          programming language.
         </p>
         <Image src={discordIllustrationImg} alt="Discord illustration." />
       </Card>
