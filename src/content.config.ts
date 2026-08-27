@@ -22,7 +22,6 @@ const docsCollection = defineCollection({
 });
 
 export const collections = {
-  // TODO(#390): Support doc versioning
   "blog": blogCollection,
-  "docs": docsCollection,
+  "docs": docsCollection
 };

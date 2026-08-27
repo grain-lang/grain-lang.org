@@ -2,18 +2,20 @@
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import DocsEntry from "../../components/DocsEntry.astro";
-import { sectionAndSortEntries } from "../../utils/docsCollections";
+import { getDocumentation } from "../../utils/docsCollections";
+import { grainVersion } from "../../../package.json";
 
 export async function getStaticPaths() {
-  const docsEntries = sectionAndSortEntries(await getCollection("docs", x => !x.id.includes("/runtime/")));
-
-  return docsEntries.map((entry, i) => ({
-    params: { slug: entry.collectionEntry.id },
+  // For each version in entrys
+  const docCollection = await getCollection("docs");
+  const versionEntries = getDocumentation(grainVersion, docCollection);
+  return versionEntries.map((entry, i) => ({
+    params: { slug: entry.slug },
     props: {
       entry: entry.collectionEntry,
-      section: entry.section,
-      prev: docsEntries[i - 1]?.collectionEntry,
-      next: docsEntries[i + 1]?.collectionEntry
+      section: entry.sectionTitle,
+      prev: versionEntries[i - 1]?.collectionEntry,
+      next: versionEntries[i + 1]?.collectionEntry
     },
   }));
 }
@@ -23,7 +25,7 @@ const { Content, headings } = await render(entry);
 ---
 
 <Layout title={`Grain Docs | ${entry.data.title}`} inDocs excludeFooter>
-	<DocsEntry data={entry.data} section={section} headings={headings} prev={prev} next={next}>
+	<DocsEntry version={grainVersion} data={entry.data} section={section} headings={headings} prev={prev} next={next}>
 		<Content />
   </DocsEntry>
 </Layout>
