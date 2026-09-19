@@ -39,7 +39,8 @@ jobs:
         uses: engineerd/configurator@v0.0.8
         with:
           name: "grain"
-          url: "https://github.com/grain-lang/grain/releases/download/${{ github.event.inputs.tag }}/grain-linux-x64"
+          url: "https://github.com/grain-lang/grain/releases/download/${{ github.event.inputs.tag }}/grain-linux-x64.tar.gz"
+          pathInArchive: "grain"
 
       - name: Generate stdlib docs
         run: |
