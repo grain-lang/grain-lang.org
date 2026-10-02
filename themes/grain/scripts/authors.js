@@ -26,5 +26,12 @@ module.exports = {
     headshot: '/blog/photos/headshot/philip-headshot-square.jpg',
     twitter: 'Philip_E_Blair',
     github: 'peblair',
+  },
+  'Jake Follest': {
+    name: 'Jake Follest',
+    title: 'Grain core team, loves to make the developer experience better',
+    headshot: '/blog/photos/headshot/jake-profile-square.png',
+    twitter: 'spotandjake',
+    github: 'spotandjake',
   }
 }
