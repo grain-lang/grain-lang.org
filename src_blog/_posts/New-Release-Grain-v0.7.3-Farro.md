@@ -1,7 +1,7 @@
 ---
 title: New Release! Grain v0.7.3 - Farewell, Farro
 subtitle: Announcing the release of Grain v0.7.3, One last harvest before something new takes root.
-date: 2026-10-02 15:00:00
+date: 2026-11-16 18:00:00
 author: Jake Follest
 cover: /blog/photos/cover/jacek-dylag-tThzcOnd93o-unsplash.jpg
 coverAttribution: Jacek Dylag / Unsplash
