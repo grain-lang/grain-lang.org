@@ -1,7 +1,7 @@
 <nav class="sidebar">
     <div class="sidebar-title"><%- config.sidebar_title %></div>
     <ul class="sidebar-items">
-        <% _.each(config.project === 'docs' ? config.docs_groups : config.guide_groups, function(pages, category) { %>
+        <% Object.entries(config.project === 'docs' ? config.docs_groups : config.guide_groups).forEach(([category, pages]) => { %>
             <% if (category != 'null') { %>
                 <div class="sidebar-group-header"><%- category %></div>
             <% } %>

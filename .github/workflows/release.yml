@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout project
-        uses: actions/checkout@v2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # 7.0.1
 
       - name: Clean previous docs
         run: |
@@ -24,7 +24,7 @@ jobs:
           sed -E -i 's|(https://github\.com/grain-lang/grain/releases/download/)grain[^/]+(/)|\1${{ github.event.inputs.tag }}\2|g' src/getting_grain.md
 
       - name: Checkout Grain
-        uses: actions/checkout@v2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # 7.0.1
         with:
           repository: grain-lang/grain
           ref: ${{ github.event.inputs.tag }}
