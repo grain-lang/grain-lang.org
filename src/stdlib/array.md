@@ -2,7 +2,15 @@
 title: Array
 ---
 
-Utilities for working with arrays.
+Utilities for working with arrays. Array is a lower level implementation than [List](./list); prefer working with List. You can use [toList](#toList) and [fromList](#fromList) to easily convert an Array to/from a List.
+
+You can create an Array using Array literal syntax:
+
+```grain
+let array = [> 1, 2, 3]
+```
+
+Note the `>`! If you omit this, Grain will create a List.
 
 An immutable array implementation is available in the `Immutable` submodule.
 
