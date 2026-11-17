@@ -41,7 +41,8 @@ for (const [importIdent, filepathSegment] of grainFiles.entries()) {
   outputStr += `from "${filepathSegment}" include ${importIdent}\n`;
 }
 
-const entryFile = "stdlib.gr";
+const entryName = "stdlib";
+const entryFile = `${entryName}.gr`;
 
 await fs.writeFile(entryFile, outputStr, "utf8");
 
@@ -49,6 +50,7 @@ process.argv.push("--stdlib", stdlibDir, entryFile);
 
 grainc(globalThis);
 
-// Cleanup the file we wrote and the wasm file it generates
+// Cleanup the file we wrote and the files it generates
 await fs.rm(entryFile);
-await fs.rm(entryFile + ".wasm");
+await fs.rm(`${entryName}.wasm`);
+await fs.rm(`${entryName}.gro`);

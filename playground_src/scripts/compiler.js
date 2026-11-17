@@ -8,7 +8,7 @@ import { tailCall, bulkMemory } from "wasm-feature-detect";
 globalThis.Buffer = Buffer;
 
 globalThis.require = (name) => {
-  switch (name) {
+  switch (name.replace(/^node:/, "")) {
     case "fs":
       return fs;
     case "constants":
@@ -80,13 +80,13 @@ addEventListener("message", async ({ data }) => {
     fs.truncateSync(2);
 
     fs.writeFileSync("/test.gr", data.content);
-    fs.writeFileSync("/test.gr.wasm", "");
+    fs.writeFileSync("/test.wasm", "");
     try {
       grainc(globalThis);
 
       try {
         await init();
-        const wasm = fs.readFileSync("/test.gr.wasm");
+        const wasm = fs.readFileSync("/test.wasm");
         const wasi = new WASI({
           env: {},
           args: [],
