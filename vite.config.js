@@ -8,8 +8,8 @@ module.exports = ({ mode }) => {
     base: mode === "development" ? "/" : "/try/",
     // Load styles and stuff from the root of the website
     publicDir: mode === "development" ? path.join(root, "..") : undefined,
-    // We want to include wasm files as raw data and then we glob for their urls
-    assetsInclude: ["**/*.wasm"],
+    // We want to include object files as raw data and then we glob for their urls
+    assetsInclude: ["**/*.gro"],
     resolve: {
       dedupe: ["buffer"],
       alias: {
@@ -36,6 +36,11 @@ module.exports = ({ mode }) => {
       },
     },
 
+    worker: {
+      rollupOptions: {
+        treeshake: false,
+      },
+    },
     build: {
       target: "es2020",
       outDir: "../try",

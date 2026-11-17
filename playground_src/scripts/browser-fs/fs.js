@@ -24,7 +24,7 @@ export async function loadStdlib() {
     as: "url",
     eager: true,
   });
-  const wasmFiles = import.meta.glob("@grain/stdlib/**/*.wasm", {
+  const objectFiles = import.meta.glob("@grain/stdlib/**/*.gro", {
     as: "url",
     eager: true,
   });
@@ -42,7 +42,7 @@ export async function loadStdlib() {
       });
   }
 
-  for (let [filename, url] of Object.entries(wasmFiles)) {
+  for (let [filename, url] of Object.entries(objectFiles)) {
     filename = filename.split("@grain/stdlib")[1];
     filename = path.join(stdlibRoot, filename);
     fileContents[filename] = fetch(url)
