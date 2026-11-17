@@ -22,55 +22,55 @@ _The `--no-quarantine` flag will avoid having to approve the binary in the Secur
 
 ### MacOS - Download
 
-If you'd prefer not to use homebrew, you can download it directly from GitHub for [Apple Silicon](https://github.com/grain-lang/grain/releases/download/grain-v0.7.2/grain-mac-arm64.tar.gz) or [Intel](https://github.com/grain-lang/grain/releases/download/grain-v0.7.2/grain-mac-x64.tar.gz), or install it using `curl`.
+If you'd prefer not to use homebrew, you can download it directly from GitHub for [Apple Silicon](https://github.com/grain-lang/grain/releases/download/grain-v0.7.3/grain-mac-arm64.tar.gz) or [Intel](https://github.com/grain-lang/grain/releases/download/grain-v0.7.3/grain-mac-x64.tar.gz), or install it using `curl`.
 
 On Apple Silicon:
 
 ```sh
-curl -L https://github.com/grain-lang/grain/releases/download/grain-v0.7.2/grain-mac-arm64.tar.gz \
+curl -L https://github.com/grain-lang/grain/releases/download/grain-v0.7.3/grain-mac-arm64.tar.gz \
 | sudo tar -xz -C /usr/local/bin
 ```
 
 On Intel:
 
 ```sh
-curl -L https://github.com/grain-lang/grain/releases/download/grain-v0.7.2/grain-mac-x64.tar.gz \
+curl -L https://github.com/grain-lang/grain/releases/download/grain-v0.7.3/grain-mac-x64.tar.gz \
 | sudo tar -xz -C /usr/local/bin
 ```
 
 ### Linux - Download
 
-You can download it directly from GitHub for [x64](https://github.com/grain-lang/grain/releases/download/grain-v0.7.2/grain-linux-x64.tar.gz) or [arm64](https://github.com/grain-lang/grain/releases/download/grain-v0.7.2/grain-linux-arm64.tar.gz), or install it using `curl`.
+You can download it directly from GitHub for [x64](https://github.com/grain-lang/grain/releases/download/grain-v0.7.3/grain-linux-x64.tar.gz) or [arm64](https://github.com/grain-lang/grain/releases/download/grain-v0.7.3/grain-linux-arm64.tar.gz), or install it using `curl`.
 
 On x64:
 
 ```sh
-curl -L https://github.com/grain-lang/grain/releases/download/grain-v0.7.2/grain-linux-x64.tar.gz \
+curl -L https://github.com/grain-lang/grain/releases/download/grain-v0.7.3/grain-linux-x64.tar.gz \
 | sudo tar -xz -C /usr/local/bin
 ```
 
 On arm64:
 
 ```sh
-curl -L https://github.com/grain-lang/grain/releases/download/grain-v0.7.2/grain-linux-arm64.tar.gz \
+curl -L https://github.com/grain-lang/grain/releases/download/grain-v0.7.3/grain-linux-arm64.tar.gz \
 | sudo tar -xz -C /usr/local/bin
 ```
 
 ### Windows - Download
 
-You can download it directly from GitHub for [x64](https://github.com/grain-lang/grain/releases/download/grain-v0.7.2/grain-win-x64.tar.gz) or [arm64](https://github.com/grain-lang/grain/releases/download/grain-v0.7.2/grain-win-arm64.tar.gz), or install it using `curl`.
+You can download it directly from GitHub for [x64](https://github.com/grain-lang/grain/releases/download/grain-v0.7.3/grain-win-x64.tar.gz) or [arm64](https://github.com/grain-lang/grain/releases/download/grain-v0.7.3/grain-win-arm64.tar.gz), or install it using `curl`.
 
 On x64:
 
 ```batch
-curl -LO https://github.com/grain-lang/grain/releases/download/grain-v0.7.2/grain-win-x64.tar.gz
+curl -LO https://github.com/grain-lang/grain/releases/download/grain-v0.7.3/grain-win-x64.tar.gz
 tar -xzf grain-win-x64.tar.gz
 ```
 
 On arm64:
 
 ```batch
-curl -LO https://github.com/grain-lang/grain/releases/download/grain-v0.7.2/grain-win-arm64.tar.gz
+curl -LO https://github.com/grain-lang/grain/releases/download/grain-v0.7.3/grain-win-arm64.tar.gz
 tar -xzf grain-win-arm64.tar.gz
 ```
 
